@@ -1,0 +1,17 @@
+{
+  "name": "gradtrack-crm",
+  "version": "1.0.0",
+  "description": "GradTrack — Graduation Project CRM (team, tasks, milestones, files)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

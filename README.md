@@ -2,6 +2,20 @@
 
 A small team CRM (team members, task kanban, milestones, per-member file uploads) with a Node.js/Express backend and a SQLite database. Built for a graduation project team to share and use together.
 
+### 🔗 Live: **[gradtrack-crm.onrender.com](https://gradtrack-crm.onrender.com)**
+
+> Hosted on Render's free tier — the first request after a period of inactivity can take ~50s to wake the server back up.
+
+## Screenshots
+
+| Dashboard | Team |
+|---|---|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Team](docs/screenshots/team.png) |
+
+| Tasks (kanban) | Milestones |
+|---|---|
+| ![Tasks](docs/screenshots/tasks.png) | ![Milestones](docs/screenshots/milestones.png) |
+
 ## Stack
 
 - **Backend:** Node.js + Express, using Node's built-in `node:sqlite` (no native build tools required)
@@ -20,39 +34,24 @@ npm start
 
 Then open **http://localhost:3000**. Data is stored in `data/gradtrack.db` (created automatically, gitignored). Delete that folder any time to reset to the seed data.
 
-## Deploying to Render (so your team can reach it)
+## Deployment
 
-1. **Push this project to a GitHub repo** (see "Publishing to GitHub" below if you haven't yet).
+Already deployed on [Render](https://render.com) at [gradtrack-crm.onrender.com](https://gradtrack-crm.onrender.com), auto-connected to this repo's `main` branch — every push to `main` triggers a redeploy.
+
+To set it up again elsewhere (or for your own fork):
+
+1. Push this project to a GitHub repo.
 2. Go to [render.com](https://render.com) and sign up / log in (free tier works).
-3. **New +** → **Web Service** → connect your GitHub account → pick this repo.
-4. Fill in:
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-   - **Instance Type:** Free (or Starter if you want a persistent disk — see note below)
-5. Click **Create Web Service**. Render will build and deploy; you'll get a URL like `https://gradtrack-xyz.onrender.com` to share with your team.
+3. **New +** → **Web Service** → connect your GitHub account → pick the repo.
+4. Build Command: `npm install` · Start Command: `npm start` · Instance Type: Free.
+5. Click **Create Web Service**.
 
 ### Important: data persistence on Render's free tier
 
-Render's **free** web services do not guarantee the disk survives across redeploys (a fresh deploy starts with an empty filesystem, wiping `data/gradtrack.db` and all uploaded files). This is fine for a demo/presentation, but if you want the team's data to survive redeploys long-term, either:
+Render's **free** web services do not guarantee the disk survives across redeploys or restarts (a fresh deploy/restart can start with an empty filesystem, wiping `data/gradtrack.db` and all uploaded files). This is fine for a demo/presentation, but if you want the team's data to survive long-term, either:
 
 - Upgrade to a paid **Starter** instance (~$7/mo) and attach a **Render Disk** mounted at `/opt/render/project/src/data`, or
-- Ask me to wire the app up to a free external database (e.g. Turso or a free Postgres like Neon/Supabase) instead of local SQLite — happy to do that if you want real durability without paying for a disk.
-
-## Publishing to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-Then create a new repository on github.com (don't initialize it with a README), and:
-
-```bash
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
+- Wire the app up to a free external database (e.g. Turso or a free Postgres like Neon/Supabase) instead of local SQLite, for real durability without paying for a disk.
 
 ## API overview
 

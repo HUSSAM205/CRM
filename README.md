@@ -1,20 +1,34 @@
 # GradTrack — Graduation Project CRM
 
-A small team CRM (team members, task kanban, milestones, per-member file uploads) with a Node.js/Express backend and a SQLite database. Built for a graduation project team to share and use together.
+![Node.js](https://img.shields.io/badge/Node.js-24.x-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-native%20node%3Asqlite-003B57?logo=sqlite&logoColor=white)
+![Vanilla JS](https://img.shields.io/badge/Frontend-Vanilla%20JS-F7DF1E?logo=javascript&logoColor=black)
+![Live](https://img.shields.io/badge/status-live-2ea44f)
 
-### 🔗 Live: **[gradtrack-crm.onrender.com](https://gradtrack-crm.onrender.com)**
+A full-stack team CRM — kanban task board, milestone tracking, team file uploads — built as a real client/server app so a whole team shares one live source of truth instead of everyone having their own local copy.
 
-> Hosted on Render's free tier — the first request after a period of inactivity can take ~50s to wake the server back up.
+**[→ Try the live app](https://gradtrack-crm.onrender.com)** &nbsp;·&nbsp; hosted free-tier, first load after idle takes ~50s to wake up
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+## Highlights
+
+- **Real backend, not a mock** — Express REST API backed by SQLite (`node:sqlite`, zero native dependencies to compile/deploy), with real multipart file uploads stored on disk
+- **Hand-built animation system, no UI framework** — sliding gradient nav indicator, animated SVG progress rings, 3D tilt-on-hover cards, a circular "iris" theme-switch transition via the View Transitions API, and confetti on milestone completion — all vanilla CSS/JS, `prefers-reduced-motion` respected throughout
+- **Optimistic UI** — drag-and-drop and toggle actions update instantly and roll back automatically if the API call fails
+- **~1,650 lines, zero frontend dependencies** — the entire client is one self-contained HTML file talking to the API over `fetch`
+- **Deployed with CI-style auto-deploy** — pushes to `main` redeploy automatically on Render
 
 ## Screenshots
 
-| Dashboard | Team |
+| Team | Tasks (kanban) |
 |---|---|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Team](docs/screenshots/team.png) |
+| ![Team](docs/screenshots/team.png) | ![Tasks](docs/screenshots/tasks.png) |
 
-| Tasks (kanban) | Milestones |
-|---|---|
-| ![Tasks](docs/screenshots/tasks.png) | ![Milestones](docs/screenshots/milestones.png) |
+| Milestones |
+|---|
+| ![Milestones](docs/screenshots/milestones.png) |
 
 ## Stack
 
@@ -46,12 +60,15 @@ To set it up again elsewhere (or for your own fork):
 4. Build Command: `npm install` · Start Command: `npm start` · Instance Type: Free.
 5. Click **Create Web Service**.
 
-### Important: data persistence on Render's free tier
+<details>
+<summary><strong>Note on data persistence on Render's free tier</strong></summary>
 
 Render's **free** web services do not guarantee the disk survives across redeploys or restarts (a fresh deploy/restart can start with an empty filesystem, wiping `data/gradtrack.db` and all uploaded files). This is fine for a demo/presentation, but if you want the team's data to survive long-term, either:
 
 - Upgrade to a paid **Starter** instance (~$7/mo) and attach a **Render Disk** mounted at `/opt/render/project/src/data`, or
 - Wire the app up to a free external database (e.g. Turso or a free Postgres like Neon/Supabase) instead of local SQLite, for real durability without paying for a disk.
+
+</details>
 
 ## API overview
 

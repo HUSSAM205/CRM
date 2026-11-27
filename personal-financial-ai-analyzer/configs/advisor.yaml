@@ -1,0 +1,12 @@
+# Personal Financial Advisor settings (master audit phase 5). Deterministic rules; documented in docs/ADVISOR.md.
+history_months_for_averages: 6        # averages of monthly inflows/expenses use the last 6 calendar months
+# Reduction suggestions are made ONLY for discretionary categories. Essential spending is never called
+# avoidable; ambiguous categories (cash, other, transfer-labelled) are not judged at all.
+discretionary_categories: [dining, entertainment, retail, subscription, travel]
+essential_categories: [groceries, healthcare, insurance, utilities, education, transport]
+reduction:
+  min_excess_pct: 15                   # recent 3-month average must exceed the average of the 9 months before by >= 15%
+  min_excess_cents: 1000               # ... and by at least 10.00 per month
+  long_run_months: 12                  # recent 3 months + the 9 months before them
+emergency_fund_months: 3              # default emergency-fund target = 3 x average monthly expenses
+affordability_buffer_months: 1        # keep >= 1 month of average expenses after a purchase (when balance known)

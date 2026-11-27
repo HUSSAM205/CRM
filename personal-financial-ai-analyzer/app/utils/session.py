@@ -18,7 +18,7 @@ from src.utils.logging import get_logger
 
 log = get_logger("app.session")
 RETENTION_CHOICES = dict(load_config("app")["retention_minutes"])
-DATA_KEYS = ("data", "budgets", "assistant_history")
+DATA_KEYS = ("data", "budgets", "assistant_history", "goals", "user_facts")
 
 
 def init() -> None:
@@ -28,6 +28,8 @@ def init() -> None:
     ss.setdefault("uploader_key", 0)
     ss.setdefault("budgets", {})
     ss.setdefault("assistant_history", [])
+    ss.setdefault("goals", [])              # Advisor savings goals (user-provided, session only)
+    ss.setdefault("user_facts", {})         # balance / income / obligations the user chose to enter
 
 
 def set_data(clean, rejected, summaries, source: str, mapping: dict | None = None) -> None:
@@ -46,6 +48,8 @@ def purge(reason: str) -> None:
         st.session_state.pop(k, None)
     st.session_state["budgets"] = {}
     st.session_state["assistant_history"] = []
+    st.session_state["goals"] = []
+    st.session_state["user_facts"] = {}
     st.session_state["uploader_key"] = st.session_state.get("uploader_key", 0) + 1   # clears the file widget
     log.info("session data purged: reason=%s", reason)
 

@@ -49,13 +49,14 @@ def seeded(page: str, demo_state, **extra) -> AppTest:
 
 
 @pytest.mark.parametrize("page", ["overview", "transactions", "analytics", "ai_predictions", "budget",
-                                  "financial_assistant"])
+                                  "financial_advisor", "financial_assistant", "settings"])
 def test_every_page_renders_without_exception(page, demo_state):
     at = seeded(page, demo_state)
     assert not at.exception, at.exception
 
 
-@pytest.mark.parametrize("page", ["overview", "analytics", "ai_predictions", "budget", "financial_assistant"])
+@pytest.mark.parametrize("page", ["overview", "analytics", "ai_predictions", "budget", "financial_advisor",
+                                  "financial_assistant"])
 def test_pages_ask_for_data_when_empty(page):
     at = page_app(page).run()
     assert not at.exception
@@ -193,3 +194,53 @@ def test_overview_month_over_month_equals_monthly_table(demo_state):
     met = next(x for x in at.metric if x.label == f"Expenses in {ms[-1]} vs {ms[-2]}")
     assert met.value == f"{m[1] / 100:,.2f} USD"
     assert any("not a verified bank balance" in c.value for c in at.caption)
+
+
+def test_advisor_page_goal_flow_and_values_equal_engine(demo_state):
+    """Analyzer -> Advisor: the page's surplus equals the engine; adding a goal shows the deterministic plan."""
+    from src.advisor import savings as S
+    from src.advisor.context import build_context
+    at = seeded("financial_advisor", demo_state)
+    assert not at.exception
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    ctx = build_context(demo_state["clean"], s, acc, "USD")
+    shown = {m.label: m.value for m in at.metric}
+    assert shown["Average monthly surplus"] == f"{ctx.monthly_surplus_cents[0] / 100:,.2f} USD"
+    assert [t.label for t in at.tabs] == ["Recommendations", "Savings goals", "What-if scenarios", "Can I afford this?"]
+    form_inputs = [w for w in at.text_input if w.label == "Goal name"]
+    form_inputs[0].set_value("Bike")
+    next(w for w in at.number_input if w.label == "Target amount (USD)").set_value(600.0)
+    next(w for w in at.number_input if w.label == "Already saved (USD)").set_value(100.0)
+    next(w for w in at.text_input if w.label.startswith("Target month")).set_value("2027-01")
+    next(b for b in at.button if b.label == "Add goal").click().run()
+    assert not at.exception
+    assert at.session_state["goals"][0]["target_cents"] == 60000
+    p = S.plan(S.Goal(**at.session_state["goals"][0]), ctx.window[-1], ctx)
+    assert any(f"{p['required_monthly_cents'] / 100:,.2f} USD" in t.value for t in at.text)
+    # affordability without a balance is never confirmed
+    next(w for w in at.number_input if w.label == "Purchase amount (USD)").set_value(250.0).run()
+    assert any("Cannot confirm affordability" in w.value for w in at.warning)
+
+
+def test_advisor_invalid_goal_month_is_rejected(demo_state):
+    at = seeded("financial_advisor", demo_state)
+    next(w for w in at.text_input if w.label == "Goal name").set_value("X")
+    next(w for w in at.text_input if w.label.startswith("Target month")).set_value("2027-13")
+    next(b for b in at.button if b.label == "Add goal").click().run()
+    assert at.session_state["goals"] == [] and any("target month" in e.value for e in at.error)
+
+
+def test_settings_delete_purges_goals_facts_and_data(demo_state):
+    at = seeded("settings", demo_state, goals=[{"name": "G", "kind": "savings", "target_cents": 100, "saved_cents": 0,
+                                                "target_month": None, "monthly_contribution_cents": None}],
+                user_facts={"bal": 10.0, "sav": None, "inc": None, "obl": None})
+    assert any("Savings goals: 1" in t.value for t in at.text)
+    next(b for b in at.button if b.label == "Delete all my data").click().run()
+    assert at.session_state["goals"] == [] and at.session_state["user_facts"] == {}
+    assert at.session_state["data"] is None if "data" in at.session_state else True
+
+
+def test_settings_retention_choice_updates_session(demo_state):
+    at = seeded("settings", demo_state)
+    at.selectbox(key="settings_retention").set_value("15 minutes").run()
+    assert at.session_state["retention"] == "15 minutes"

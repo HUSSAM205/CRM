@@ -1,0 +1,43 @@
+# Dataset source and verification settings (values pinned from the HF API on 2026-11-27)
+source:
+  repo_id: ziadatalabs/FreeFinancialTransactions50M
+  revision: 98cf38f9b2f1a9994930f52a4d490cb2b5777acc   # HF repository commit
+  filename: transactions_50M.parquet
+  expected_size_bytes: 1594749644
+  expected_sha256: b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17  # LFS oid
+  license: CC BY-NC 4.0 (attribution required, non-commercial)
+
+paths:
+  raw_parquet: data/raw/transactions_50M.parquet
+  clean_parquet: data/interim/transactions_clean.parquet
+  rejected_parquet: data/interim/transactions_rejected.parquet
+  subset_parquet: data/processed/transactions_subset.parquet
+  monthly_parquet: data/processed/monthly_account_currency.parquet
+  monthly_category_parquet: data/processed/monthly_account_currency_category.parquet
+
+# Provider-advertised properties to verify locally (HW1 Table 4.1 / HW2 Table 4.1)
+advertised:
+  rows: 50000000
+  columns: 9
+  currencies: 6
+  merchant_categories: 14
+  transaction_types: 8
+  statuses: 4
+  date_min: "2024-01-01"
+  date_max: "2026-07-31"
+
+expected_columns:
+  - transaction_id
+  - account_id
+  - transaction_type
+  - amount
+  - currency
+  - merchant_category
+  - balance_after
+  - transaction_timestamp
+  - status
+
+allowed:
+  currencies: [USD, EUR, GBP, CAD, AUD, JPY]
+  statuses: [completed, pending, failed, reversed]
+  transaction_types: [debit, credit, transfer, fee, interest, refund, withdrawal, deposit]

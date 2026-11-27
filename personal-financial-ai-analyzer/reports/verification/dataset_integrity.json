@@ -1,0 +1,303 @@
+{
+  "generated_at_utc": "2026-11-27T02:44:21.320755+00:00",
+  "file": "data/raw/transactions_50M.parquet",
+  "hf_live_metadata": {
+    "size": 1594749644,
+    "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+    "api": "https://huggingface.co/api/datasets/ziadatalabs/FreeFinancialTransactions50M/tree/98cf38f9b2f1a9994930f52a4d490cb2b5777acc"
+  },
+  "size_bytes": 1594749644,
+  "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+  "sha256_seconds": 1.4,
+  "num_row_groups": 50,
+  "footer_rows": 50000000,
+  "created_by": "parquet-cpp-arrow version 25.0.1",
+  "compression": "SNAPPY",
+  "row_group_rows_min": 1000000,
+  "row_group_rows_max": 1000000,
+  "schema": [
+    [
+      "transaction_id",
+      "string"
+    ],
+    [
+      "account_id",
+      "string"
+    ],
+    [
+      "transaction_type",
+      "string"
+    ],
+    [
+      "amount",
+      "double"
+    ],
+    [
+      "currency",
+      "string"
+    ],
+    [
+      "merchant_category",
+      "string"
+    ],
+    [
+      "balance_after",
+      "double"
+    ],
+    [
+      "transaction_timestamp",
+      "string"
+    ],
+    [
+      "status",
+      "string"
+    ]
+  ],
+  "rows_read_full": 50000000,
+  "row_read_seconds": 1.4,
+  "timestamp": {
+    "rows": "50000000",
+    "unparseable_timestamps": "0",
+    "ts_min": "2024-01-01 00:00:03",
+    "ts_max": "2026-07-31 23:59:59",
+    "ts_len_min": "19",
+    "ts_len_max": "19"
+  },
+  "domains": {
+    "currency": {
+      "AUD": 2499058,
+      "CAD": 3499177,
+      "EUR": 9001468,
+      "GBP": 5000059,
+      "JPY": 2499646,
+      "USD": 27500592
+    },
+    "merchant_category": {
+      "cash": 3568889,
+      "dining": 3573003,
+      "education": 3569242,
+      "entertainment": 3577264,
+      "groceries": 3573561,
+      "healthcare": 3572288,
+      "insurance": 3569356,
+      "other": 3572682,
+      "retail": 3571506,
+      "subscription": 3571534,
+      "transfer": 3571454,
+      "transport": 3570482,
+      "travel": 3568268,
+      "utilities": 3570471
+    },
+    "transaction_type": {
+      "credit": 9998728,
+      "debit": 19999177,
+      "deposit": 2501085,
+      "fee": 3000311,
+      "interest": 1500674,
+      "refund": 2001601,
+      "transfer": 6999417,
+      "withdrawal": 3999007
+    },
+    "status": {
+      "completed": 45999107,
+      "failed": 1250047,
+      "pending": 2250253,
+      "reversed": 500593
+    }
+  },
+  "domain_scan_seconds": 4.4,
+  "checks": [
+    {
+      "check": "file_exists",
+      "status": "PASS",
+      "evidence": "data/raw/transactions_50M.parquet"
+    },
+    {
+      "check": "no_partial_download_left",
+      "status": "PASS",
+      "evidence": "none"
+    },
+    {
+      "check": "live_hf_metadata_fetched",
+      "status": "PASS",
+      "evidence": "https://huggingface.co/api/datasets/ziadatalabs/FreeFinancialTransactions50M/tree/98cf38f9b2f1a9994930f52a4d490cb2b5777acc"
+    },
+    {
+      "check": "size_matches_config",
+      "status": "PASS",
+      "evidence": 1594749644
+    },
+    {
+      "check": "size_matches_live_hf",
+      "status": "PASS",
+      "evidence": "1594749644 vs 1594749644"
+    },
+    {
+      "check": "sha256_matches_live_hf_lfs_oid",
+      "status": "PASS",
+      "evidence": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17"
+    },
+    {
+      "check": "parquet_footer_readable",
+      "status": "PASS",
+      "evidence": "50 row groups, created_by=parquet-cpp-arrow version 25.0.1"
+    },
+    {
+      "check": "column_names_and_order",
+      "status": "PASS",
+      "evidence": [
+        "transaction_id",
+        "account_id",
+        "transaction_type",
+        "amount",
+        "currency",
+        "merchant_category",
+        "balance_after",
+        "transaction_timestamp",
+        "status"
+      ]
+    },
+    {
+      "check": "column_types",
+      "status": "PASS",
+      "evidence": {
+        "transaction_id": "string",
+        "account_id": "string",
+        "transaction_type": "string",
+        "amount": "double",
+        "currency": "string",
+        "merchant_category": "string",
+        "balance_after": "double",
+        "transaction_timestamp": "string",
+        "status": "string"
+      }
+    },
+    {
+      "check": "column_count_matches_advertised",
+      "status": "PASS",
+      "evidence": 9
+    },
+    {
+      "check": "footer_rows_equal_sum_row_groups",
+      "status": "PASS",
+      "evidence": 50000000
+    },
+    {
+      "check": "rows_read_equal_footer",
+      "status": "PASS",
+      "evidence": 50000000
+    },
+    {
+      "check": "rows_match_advertised",
+      "status": "PASS",
+      "evidence": 50000000
+    },
+    {
+      "check": "all_timestamps_parse",
+      "status": "PASS",
+      "evidence": 0
+    },
+    {
+      "check": "timestamp_min_on_advertised_start",
+      "status": "PASS",
+      "evidence": "2024-01-01 00:00:03"
+    },
+    {
+      "check": "timestamp_max_on_advertised_end",
+      "status": "PASS",
+      "evidence": "2026-07-31 23:59:59"
+    },
+    {
+      "check": "currency_count_matches_advertised",
+      "status": "PASS",
+      "evidence": 6
+    },
+    {
+      "check": "currency_values_match_documented",
+      "status": "PASS",
+      "evidence": [
+        "AUD",
+        "CAD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "USD"
+      ]
+    },
+    {
+      "check": "transaction_type_count_matches_advertised",
+      "status": "PASS",
+      "evidence": 8
+    },
+    {
+      "check": "transaction_type_values_match_documented",
+      "status": "PASS",
+      "evidence": [
+        "credit",
+        "debit",
+        "deposit",
+        "fee",
+        "interest",
+        "refund",
+        "transfer",
+        "withdrawal"
+      ]
+    },
+    {
+      "check": "status_count_matches_advertised",
+      "status": "PASS",
+      "evidence": 4
+    },
+    {
+      "check": "status_values_match_documented",
+      "status": "PASS",
+      "evidence": [
+        "completed",
+        "failed",
+        "pending",
+        "reversed"
+      ]
+    },
+    {
+      "check": "merchant_category_count_matches_advertised",
+      "status": "PASS",
+      "evidence": [
+        "cash",
+        "dining",
+        "education",
+        "entertainment",
+        "groceries",
+        "healthcare",
+        "insurance",
+        "other",
+        "retail",
+        "subscription",
+        "transfer",
+        "transport",
+        "travel",
+        "utilities"
+      ]
+    },
+    {
+      "check": "currency_no_null_values",
+      "status": "PASS",
+      "evidence": "none"
+    },
+    {
+      "check": "merchant_category_no_null_values",
+      "status": "PASS",
+      "evidence": "none"
+    },
+    {
+      "check": "transaction_type_no_null_values",
+      "status": "PASS",
+      "evidence": "none"
+    },
+    {
+      "check": "status_no_null_values",
+      "status": "PASS",
+      "evidence": "none"
+    }
+  ],
+  "overall": "PASS"
+}

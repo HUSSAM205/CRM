@@ -1,0 +1,18 @@
+Dataset identity check — run 2026-11-27 (UTC), read-only, no download performed
+Official URL checked: https://huggingface.co/datasets/ziadatalabs/FreeFinancialTransactions50M/resolve/main/transactions_50M.parquet
+HEAD response (302, body not fetched):
+  x-repo-commit: 98cf38f9b2f1a9994930f52a4d490cb2b5777acc
+  x-linked-size: 1594749644
+  x-linked-etag: "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17"
+API /revision/main: sha 98cf38f9b2f1a9994930f52a4d490cb2b5777acc, lastModified 2026-08-16T15:14:02Z
+API /tree/main: transactions_50M.parquet size 1594749644, lfs.oid b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17
+Commit history on main (newest first):
+  98cf38f9 2026-08-16T15:14:02Z Upload sample_50rows.csv
+  ee82cabc 2026-08-16T15:14:01Z Upload README.md
+  3a5ad0d0 2026-08-16T15:13:59Z Upload transactions_50M.parquet
+  aee678aa 2026-08-16T14:39:47Z initial commit
+Local file: /home/user/CRM/personal-financial-ai-analyzer/data/raw/transactions_50M.parquet
+  size: 1594749644 bytes
+  sha256 (coreutils sha256sum): b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17
+  sha256 (python hashlib, scripts/verify_dataset.py): b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17
+RESULT: DATASET IDENTITY VERIFIED

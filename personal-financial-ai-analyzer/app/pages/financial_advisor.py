@@ -117,6 +117,8 @@ def render() -> None:
                                  f"{p['completion_month']}")
                     lines += [f"  Alternative: {money(a['monthly_cents'], cur)}/month → {a['completion_month']}"
                               for a in p["alternatives"]]
+                    if p.get("milestones"):
+                        lines.append("Milestones: " + ", ".join(f"{m['share']:.0%} by {m['month']}" for m in p["milestones"]))
                 if p["feasibility"]:
                     lines.append(f"Feasibility: {p['feasibility']}")
                 lines.append("Assumptions: " + "; ".join(p["assumptions"]))

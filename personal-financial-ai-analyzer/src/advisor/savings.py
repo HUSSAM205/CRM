@@ -62,6 +62,11 @@ def plan(goal: Goal, start_month: str, ctx: FinancialContext | None = None) -> d
         k = math.ceil(remaining / contrib)
         out["completion_month"] = add_months(start_month, k)
         out["months_with_contribution"] = k
+        out["milestones"] = []          # month in which 25/50/75/100% of the target is first reached
+        for frac in (0.25, 0.5, 0.75, 1.0):
+            need = frac * goal.target_cents - goal.saved_cents
+            if need > 0:
+                out["milestones"].append({"share": frac, "month": add_months(start_month, math.ceil(need / contrib))})
         for f in (0.5, 1.5, 2.0):
             c = max(int(round(contrib * f)), 1)
             kk = math.ceil(remaining / c)

@@ -62,6 +62,10 @@ def test_savings_plan_known_answers(env):
     assert p["months_left"] == 6 and p["required_monthly_cents"] == 66667          # ceil(400,000 / 6)
     assert p["progress"] == 0.2 and p["completion_month"] == "2027-02"             # 400,000 / 50,000 = 8 months
     assert [a["months"] for a in p["alternatives"]] == [16, 6, 4]
+    # milestones at 50,000 per month from 100,000 saved: 25% = 125,000 -> 1 month, 50% = 250,000 -> 3,
+    # 75% = 375,000 -> 6, 100% = 500,000 -> 8 months after 2026-06
+    assert p["milestones"] == [{"share": 0.25, "month": "2026-07"}, {"share": 0.5, "month": "2026-09"},
+                               {"share": 0.75, "month": "2026-12"}, {"share": 1.0, "month": "2027-02"}]
     assert p["feasibility"].startswith("Appears feasible") and "59%" in p["feasibility"]
     assert S.plan(S.Goal("Done", 1000, 1000), "2026-06")["feasibility"] == "Goal already reached."
     assert "not in the future" in S.plan(S.Goal("Past", 1000, 0, "2026-06"), "2026-06", ctx)["feasibility"]

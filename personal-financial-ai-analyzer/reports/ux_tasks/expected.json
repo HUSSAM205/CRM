@@ -33,5 +33,10 @@
   "advisor_surplus": "-29.46 USD",
   "goal_required": "45.46 USD",
   "goal_start": "2026-07",
-  "cashflow_answer": "Average monthly cash flow 2026-02..2026-07: inflows 0.00 USD, expenses 29.46 USD, net -29.46 USD. 22 of 31 months had a negative net. Not a bank balance."
+  "cashflow_answer": "Average monthly cash flow 2026-02..2026-07: inflows 0.00 USD, expenses 29.46 USD, net -29.46 USD. 22 of 31 months had a negative net. Not a bank balance.",
+  "b_account": "PL-USER-13",
+  "b_target_month": "2027-02",
+  "b_estimate": "2,247.81 USD",
+  "b_method": "gbr_personaledger",
+  "b_ef6_target": "170.76 USD"
 }

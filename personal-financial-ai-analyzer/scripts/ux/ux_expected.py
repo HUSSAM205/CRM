@@ -51,3 +51,14 @@ exp.update(advisor_surplus=f"{ctx.monthly_surplus_cents[0]/100:,.2f} USD",
            cashflow_answer=cf_text)
 (ROOT / "reports/ux_tasks/expected.json").write_text(json.dumps(exp, indent=2))
 print("advisor", exp["advisor_surplus"], exp["goal_required"])
+# Dataset B demo (master audit 2): accepted model estimate and emergency fund at 6 months coverage
+from src.models.forecasting.inference import forecast_product
+resB, _ = ingest((ROOT / "data/samples/demo_personaledger.csv").read_bytes())
+sB = build_summaries(resB.clean)
+accB = sB.accounts[0]
+fB = forecast_product(sB.monthly.filter((pl.col("account_id") == accB) & (pl.col("currency") == "USD")))
+efB = S.emergency_fund_plan(build_context(resB.clean, sB, accB, "USD"), 6.0, 0, None, "essential")
+exp.update(b_account=accB, b_target_month=fB["target_month"], b_estimate=f"{fB['point_cents']/100:,.2f} USD",
+           b_method=fB["method"], b_ef6_target=f"{efB['target_cents']/100:,.2f} USD")
+(ROOT / "reports/ux_tasks/expected.json").write_text(json.dumps(exp, indent=2))
+print("datasetB", exp["b_estimate"], exp["b_method"], exp["b_ef6_target"])

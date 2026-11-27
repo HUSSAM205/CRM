@@ -45,23 +45,23 @@ def render() -> None:
             st.plotly_chart(charts.forecast_chart(months, y, {}, None, None, cur), width="stretch")
     else:
         model = f["method"] == "gbr_personaledger"
-        c1, c2, c3 = st.columns(3)
         if model:
-            c1.metric(f"Model estimate for {f['target_month']}", money(f["point_cents"], cur),
+            st.metric(f"Model estimate for {f['target_month']}", money(f["point_cents"], cur),
                       help="Scale-free gradient boosting (experiment E2-B), applied because your history is inside "
                            "the model's training domain.")
         else:
-            c1.metric(f"Typical spending for {f['target_month']}", money(f["point_cents"], cur),
+            st.metric(f"Typical spending for {f['target_month']}", money(f["point_cents"], cur),
                       help="Median of your monthly expenses so far (deterministic baseline).")
+        # ranges as full-width text: metric tiles truncated long ranges with an ellipsis (M-13)
         lo, hi = f["historical_range_cents"]
-        c2.metric("Your usual range (10th–90th percentile)", f"{money(lo, cur)} – {money(hi, cur)}",
-                  help="Range of your own past months. Descriptive, not a calibrated prediction interval.")
+        lines = [f"**Your usual range (10th–90th percentile of past months):** {money(lo, cur)} – {money(hi, cur)} "
+                 "· descriptive, not a calibrated prediction interval"]
         if f["interval_cents"]:
             blo, bhi = f["interval_cents"]
-            c3.metric(f"{int(f['interval_level'] * 100)}% range (calibrated on {'Dataset B' if model else 'Dataset A'})",
-                      f"{money(blo, cur)} – {money(bhi, cur)}",
-                      help=f"Empirical range from validation errors; it covered {f['interval_test_coverage']:.1%} of "
-                           "test months on the evaluation data. For your own data it is indicative.")
+            lines.append(f"**{int(f['interval_level'] * 100)}% range (calibrated on {'Dataset B' if model else 'Dataset A'}):** "
+                         f"{money(blo, cur)} – {money(bhi, cur)} · covered {f['interval_test_coverage']:.1%} of test "
+                         "months on the evaluation data; indicative for your own data")
+        st.markdown("  \n".join(lines))
         st.plotly_chart(charts.forecast_chart(months, y, {}, f["target_month"], f["point_cents"] / 100, cur),
                         width="stretch")
         st.caption(f"Method: {f['method']} · status: {f['model_status']} · history used: {f['historical_window']} "

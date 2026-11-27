@@ -147,7 +147,7 @@ def main() -> None:
     ratio = va["y"].to_numpy() / np.maximum(pv, 1e-9)
     iv = {int(b): (float(np.quantile(ratio[bins == b], 0.1)), float(np.quantile(ratio[bins == b], 0.9))) for b in np.unique(bins)}
     res["interval"] = {"edges": q.tolist(), "ratio_quantiles": iv, "level": 0.8,
-                       "validation_coverage": float(np.mean([(lo := iv[b][0] * p_) <= y_ <= iv[b][1] * p_ for b, p_, y_ in
+                       "validation_coverage": float(np.mean([iv[b][0] * p_ <= y_ <= iv[b][1] * p_ for b, p_, y_ in
                                                              zip(bins, pv, va["y"].to_numpy())]))}
     res["frozen_at_utc"] = datetime.now(timezone.utc).isoformat()
     # ---- test, scored once (refit on train + validation with the frozen config) ----

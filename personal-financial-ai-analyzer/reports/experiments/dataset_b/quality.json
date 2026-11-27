@@ -282,7 +282,7 @@
  "users_with_ge_12_active_months": 17668,
  "share_zero_user_months_within_span": 0.0,
  "note_partial_months": "each user's first and last month are partial (users start and stop mid-month); experiments exclude them as targets",
- "mean_within_user_lag1_autocorrelation": -0.04752512902218939,
+ "mean_within_user_lag1_autocorrelation": -0.047525129022189395,
  "autocorrelation_users": 17117,
  "identity_theft_1m_test": {
   "rows": 5860815,

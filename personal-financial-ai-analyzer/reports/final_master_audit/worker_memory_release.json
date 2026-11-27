@@ -1,0 +1,18 @@
+{
+ "job": "scripts/research/dataset_b_audit.py (29.8M rows, guarded child process)",
+ "before": {
+  "parent_rss_gb": 0.017,
+  "system_available_gb": 16.09
+ },
+ "worker": {
+  "returncode": 0,
+  "peak_rss_gb": 1.341,
+  "min_system_available_gb": 14.99,
+  "seconds": 3.79
+ },
+ "after_termination": {
+  "parent_rss_gb": 0.017,
+  "system_available_gb": 15.74
+ },
+ "leftover_python_worker_pids": []
+}

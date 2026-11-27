@@ -241,6 +241,37 @@ await task(22, "Settings: delete everything", async () => {
   return "data, budgets and goals purged from the session";
 });
 
+// ---- master audit 2: Dataset B demo (accepted model), reliability question, emergency fund ----
+await task(23, "PersonaLedger demo: accepted model estimate", async () => {
+  await nav("Transactions");
+  await page.getByRole("button", { name: "Load PersonaLedger demo" }).click(); await idle();
+  await nav("AI predictions");
+  const v = (await main().locator('[data-testid="stMetric"]', { hasText: `Model estimate for ${EXP.b_target_month}` })
+    .locator('[data-testid="stMetricValue"]').innerText()).trim();
+  if (v !== EXP.b_estimate) throw new Error(`estimate ${v} != ${EXP.b_estimate}`);
+  await expectText(main(), "accepted by the quality gate");
+  return `${EXP.b_method} estimate ${v} equals the engine`;
+});
+
+await task(24, "Assistant: is the prediction reliable?", async () => {
+  await nav("Financial assistant");
+  await page.getByLabel("Ask a question").fill("Is the prediction reliable?");
+  await page.getByRole("button", { name: "Ask" }).click(); await idle();
+  await expectText(main(), "gbr_personaledger");
+  await expectText(main(), `account ${EXP.b_account}`);
+  return "answer names the model, its evidence and the account context";
+});
+
+await task(25, "Advisor: emergency fund coverage", async () => {
+  await nav("Financial advisor");
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  const cov = page.getByLabel("Coverage (months)");
+  await cov.fill("6"); await cov.press("Enter"); await idle();
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  await expectText(main(), `Target: ${EXP.b_ef6_target}`);
+  return `6-month essential-expense target ${EXP.b_ef6_target} equals the engine`;
+});
+
 // fresh screenshots of all eight pages with demo data
 await nav("Transactions"); await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
 for (const [name, file] of [["Overview", "page_1_overview"], ["Transactions", "page_2_transactions"], ["Analytics", "page_3_analytics"],

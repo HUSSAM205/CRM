@@ -403,3 +403,34 @@
 2026-11-27 11:53:34,897 INFO app.session session data purged: reason=retention expired
 2026-11-27 11:53:39,997 INFO app.session session data purged: reason=user request
 2026-11-27 11:53:41,732 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:54:07,577 INFO app.session session data purged: reason=retention expired
+2026-11-27 11:54:11,397 INFO app.session session data purged: reason=user request
+2026-11-27 11:54:13,255 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:56:15,317 INFO app.session data loaded: source=upload: sample_bank_export.csv rows=38 rejected=0
+2026-11-27 11:56:16,251 INFO app.session session data purged: reason=user request
+2026-11-27 11:56:18,460 INFO app.session data loaded: source=upload: invalid_rows.csv rows=2 rejected=2
+2026-11-27 11:56:19,518 INFO app.session session data purged: reason=user request
+2026-11-27 11:56:24,063 INFO app.session data loaded: source=upload: unmapped_columns.csv rows=3 rejected=0
+2026-11-27 11:56:24,985 INFO app.session session data purged: reason=user request
+2026-11-27 11:56:26,468 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:56:41,143 INFO app.session session data purged: reason=user request
+2026-11-27 11:56:43,492 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:56:50,899 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:57:02,390 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:57:04,001 INFO app.session data loaded: source=demo (PersonaLedger, CC BY 4.0) rows=2540 rejected=0
+2026-11-27 11:57:11,214 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:57:54,126 INFO app.session session data purged: reason=user request
+2026-11-27 11:57:55,901 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:58:07,309 INFO app.session data loaded: source=upload: sample_bank_export.csv rows=38 rejected=0
+2026-11-27 11:58:08,253 INFO app.session session data purged: reason=user request
+2026-11-27 11:58:10,475 INFO app.session data loaded: source=upload: invalid_rows.csv rows=2 rejected=2
+2026-11-27 11:58:11,499 INFO app.session session data purged: reason=user request
+2026-11-27 11:58:16,076 INFO app.session data loaded: source=upload: unmapped_columns.csv rows=3 rejected=0
+2026-11-27 11:58:16,977 INFO app.session session data purged: reason=user request
+2026-11-27 11:58:18,456 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:58:33,122 INFO app.session session data purged: reason=user request
+2026-11-27 11:58:35,458 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:58:42,800 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:58:54,480 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:58:56,096 INFO app.session data loaded: source=demo (PersonaLedger, CC BY 4.0) rows=2540 rejected=0
+2026-11-27 11:59:03,281 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0

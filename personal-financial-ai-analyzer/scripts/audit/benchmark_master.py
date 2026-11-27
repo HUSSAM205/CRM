@@ -37,6 +37,10 @@ OPS = {
                                        "forecast_next(s.monthly.filter((pl.col('account_id') == a) & (pl.col('currency') == 'USD')))"),
     "model_load_and_anomaly_review": ("res, _ = ingest(DEMO); s = build_summaries(res.clean); a = s.accounts[0]\nfrom src.models.anomaly.anomaly_scoring import review_candidates",
                                       "review_candidates(res.clean, a, 'USD')"),
+    "model_load_and_forecast_product_personaledger": (
+        "resB, _ = ingest(open({root!r} + '/data/samples/demo_personaledger.csv', 'rb').read()); sB = build_summaries(resB.clean)\n"
+        "from src.models.forecasting.inference import forecast_product",
+        "forecast_product(sB.monthly.filter(pl.col('account_id') == sB.accounts[0]))"),
     "assistant_hw2_intent": ("res, _ = ingest(DEMO); s = build_summaries(res.clean); a = s.accounts[0]\nfrom src.assistant.response_generator import answer",
                              "answer('How much did I spend in 2026-07?', s, a, 'USD')"),
     "assistant_advisor_intent": ("res, _ = ingest(DEMO); s = build_summaries(res.clean); a = s.accounts[0]\nfrom src.assistant.response_generator import answer\nfrom src.assistant.advisor_intents import AssistantContext",
@@ -45,7 +49,8 @@ OPS = {
                                 "generate(res.clean, s, build_context(res.clean, s, a, 'USD'))"),
     "analyzer_insights_all": ("res, _ = ingest(DEMO); s = build_summaries(res.clean); a = s.accounts[0]\nfrom src.analytics import insights as I",
                               "I.indicators(res.clean, s, a, 'USD'); I.behaviour_changes(res.clean, s, a, 'USD'); I.income_analysis(res.clean, s, a, 'USD')"),
-    "dataset_metadata_inspection": ("import pyarrow.parquet as pq", "pq.ParquetFile({root!r} + '/data/raw/transactions_50M.parquet').metadata"),
+    "dataset_metadata_inspection": ("import pyarrow.parquet as pq, os\nP = {root!r} + '/data/raw/transactions_50M.parquet'",
+                                    "pq.ParquetFile(P).metadata if os.path.exists(P) else None"),
 }
 PAGE = """
 import sys; sys.path.insert(0, {root!r})
@@ -85,10 +90,38 @@ def run_child(code: str) -> tuple[str, float, float]:
     return out, time.perf_counter() - t, peak / 1e9
 
 
+def cpu_model() -> str:
+    """CPU model string on Windows, Linux and macOS (best effort; recorded, never guessed)."""
+    if platform.system() == "Windows":
+        try:
+            import winreg
+            k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0")
+            return winreg.QueryValueEx(k, "ProcessorNameString")[0].strip()
+        except OSError:
+            return platform.processor()
+    try:
+        for line in open("/proc/cpuinfo", encoding="utf-8"):
+            if line.startswith("model name"):
+                return line.split(":", 1)[1].strip()
+    except OSError:
+        pass
+    return platform.processor() or "unknown"
+
+
 def main() -> None:
-    res = {"environment": {"platform": platform.platform(), "python": platform.python_version(),
-                           "cpu_logical": psutil.cpu_count(), "ram_gb": round(psutil.virtual_memory().total / 1e9, 2),
-                           "note": "cloud container, NOT the target Windows laptop (i7-1355U, 16 GB)"},
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--label", default="cloud container, NOT the target Windows laptop (i7-1355U, 16 GB)",
+                    help="describe the machine, e.g. 'student laptop'")
+    ap.add_argument("--out", default=str(OUT), help="output JSON path")
+    args = ap.parse_args()
+    out_path = Path(args.out)
+    res = {"environment": {"platform": platform.platform(), "python": platform.python_version(), "cpu_model": cpu_model(),
+                           "cpu_logical": psutil.cpu_count(), "cpu_physical": psutil.cpu_count(logical=False),
+                           "ram_gb": round(psutil.virtual_memory().total / 1e9, 2),
+                           "dataset_mode": "full dataset present" if (ROOT / "data/raw/transactions_50M.parquet").exists()
+                           else "demo mode (no 1.6 GB dataset)", "note": args.label,
+                           "measured_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())},
            "operations": {}}
     for name, (prep, op) in OPS.items():
         R = lambda x: x.replace("{root!r}", repr(str(ROOT)))  # noqa: E731
@@ -129,7 +162,9 @@ print(json.dumps({{'cold_first_call_ms': round(cold * 1000, 2), 'warm_median_ms'
         p.terminate()
         p.wait()
     res["app_server_start_s"] = starts
-    OUT.write_text(json.dumps(res, indent=1))
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(res, indent=1))
+    print('written', out_path)
     print(starts)
 
 

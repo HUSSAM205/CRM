@@ -12,7 +12,7 @@ This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money
           ─► src/budget (median of 3 months, 80%/100%)                  ├─► affordability (never "yes" without a balance)
           ─► src/models (outlook + anomaly review, load only)           └─► recommendations (12 fields, fixed ranking rule)
                          │                                                              │
-                         └──────────────► src/assistant (13 deterministic intents) ◄────┘
+                         └──────────────► src/assistant (20 deterministic intents) ◄────┘
                                            read-only, scoped to one account and currency
 ```
 

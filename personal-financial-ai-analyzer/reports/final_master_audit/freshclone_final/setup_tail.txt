@@ -1,7 +1,5 @@
-    "cpu_logical": 4,
-    "cpu_percent_1s": 0.0
   },
   "status": "PASS"
 }
 Environment ready. Next: run.bat (Windows) or `python scripts/run_application.py`.
-interpreter: Python 3.12.3; setup_environment.py wall time 24 s
+interpreter: Python 3.12.3; setup_environment.py wall time 30 s

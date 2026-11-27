@@ -25,7 +25,7 @@ Each limitation is backed by evidence in the files referenced.
 10. **Anomaly ranking.** At 1% injection and k = 241, F1 is 0.008–0.041 with an FPR of about 1%: roughly 23 of 24 flagged rows are normal. ×5–10 amounts are detected with AUC of about 0.63–0.80. The positive control (×1000: AUC 0.999) shows the pipeline itself works. The weak results reflect heavy-tailed amounts (log σ ≈ 1.1) and a lack of behavioural regularity.
 11. **Per-account Isolation Forest** has only about 22 history records per account and performs worst. It also cannot score accounts it has not seen, which is why a global forest is the deployed artifact (D-07).
 12. **Transfers** are assumed internal (CF-08), because the dataset has no counterparty field.
-13. **Assistant** coverage is limited to 13 deterministic intents, recognized by English month names and keywords.
+13. **Assistant** coverage is limited to 20 deterministic intents (5 HW2 + 15 added), recognized by English month names and keywords.
 13a. **Forecasting ML on Dataset A is NOT EFFECTIVE.** Both GBR variants were rejected (E2-QG).
    * A separate scale-free model **was accepted on Dataset B** (E2-B). Its gain over the historical median is small (−1.1% MAE on validation, −5.0% on test), and its 80% range covered 77.7% of test months instead of 80%.
    * It is used only for continuous series. Everything else gets the deterministic historical-median outlook.

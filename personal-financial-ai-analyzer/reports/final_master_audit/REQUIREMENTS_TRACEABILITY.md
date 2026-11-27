@@ -59,7 +59,7 @@ Rows updated in this audit: F6, F7, P1, S11, S12, E4, M5.4, M5.7.
 | R7.13 | Model metadata, checksum, fresh-process reload | registry + `verify_artifacts` | M-06 test | PASS |
 | R7.14 | Model statuses PASS/PARTIAL/REJECTED/BLOCKED | `MODEL_CARD.md` | — | PASS |
 | R8.1–8.9 | Advisor | `src/advisor` | `ADVISOR_VALIDATION.md` | PASS |
-| R9.1 | 12+ assistant intents | 13 intents | assistant tests | PASS |
+| R9.1 | 12+ assistant intents | 20 intents (master audit 2) | assistant tests | PASS |
 | R9.2–9.4 | Pipeline, hallucination prevention, read-only, isolation | `advisor_intents`, scope copy | `ASSISTANT_VALIDATION.md` | PASS |
 | R10 | Goals, emergency fund, milestones, labels | `savings.py` | tests | PASS |
 | R11 | Every page audited; controls work (incl. Settings) | 8 pages | AppTests + 21 browser tasks | PASS |

@@ -82,3 +82,22 @@ forecasting (E2-QG; E2 rows reproduce HW2 E2),all_eligible,test,gbr_ext,25.43798
 "anomaly (E3, 1% injection, seed 42)",anomaly_10k_accounts,test,robust_zscore,,,,,,,,,PARTIAL (shown alongside),0.03734439834024896,0.03734439834024896,0.5811251381790801,0.016809728317242992
 "anomaly (E3, 1% injection, seed 42)",anomaly_10k_accounts,test,isolation_forest_per_account,,,,,,,,,REJECTED for deployment,0.008298755186721992,0.008298755186721992,0.5594551408190233,0.011214814288327322
 "anomaly (E3, 1% injection, seed 42)",anomaly_10k_accounts,test,isolation_forest_global,,,,,,,,,"PARTIAL (deployed, weak)",0.04149377593360996,0.04149377593360996,0.5874762387706642,0.015411600581286385
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,naive,1294.4720780346388,1.0268426783537437,1833.497741473805,-0.39025030774474256,0.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,seasonal_naive,1290.643957769841,1.005067493792979,1837.8708411841799,-0.396890025341043,0.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,moving_average_3,1083.1905678506853,0.8561576222992664,1538.3487202749343,0.0213174826306195,0.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,zero,3435.206706764895,2.7267103550554146,3770.7703373219783,-4.880204164716303,1.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,historical_mean,964.3051449961275,0.757906294398219,1385.0324201847186,0.20667321094373392,0.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,historical_median,939.6391004796844,0.7448622307521285,1424.7833120164623,0.16048225420489026,0.0,,0,11942,baseline (best on validation),,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,rolling_median_6,1006.6259151362096,0.7974627367713958,1470.3959510447971,0.10586964818879396,0.0,,0,11942,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,validation,gbr_scale_free,929.7089979613249,0.737275473542894,1407.7558288750997,0.18042838304453823,0.0,,0,11942,ACCEPTED,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,naive,1433.7067019851993,1.1376153580349242,1948.9444537332542,-0.48698443526960067,0.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,seasonal_naive,1274.4087290027016,0.9901544872337101,1814.0880477540227,-0.28832140755114777,0.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,moving_average_3,1193.7081946826422,0.9498233268799408,1601.7165261727478,-0.004335497001818123,0.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,zero,3520.746832843886,2.8228714319543444,3866.5332542187743,-4.852629052670686,1.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,historical_mean,1038.8647274175555,0.8275225845826358,1436.9208467501126,0.19169886145552917,0.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,historical_median,1022.6570734171268,0.8260291163782303,1494.289208128792,0.12586840196598648,0.0,,0,9368,baseline (best on validation),,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,rolling_median_6,1095.0936948196875,0.8802510997102369,1517.1437334580023,0.09892497074069795,0.0,,0,9368,baseline,,,,
+"forecasting (E2-B, Dataset B PersonaLedger)",dataset_b_users,test,gbr_scale_free,971.3417245734076,0.7806076060040386,1400.2071353634508,0.2324758093391036,0.0,,0,9368,ACCEPTED,,,,
+"anomaly (E3-B, Dataset B identity theft, mean of 3 seeds)",dataset_b_sequences,test,isolation_forest_5f,,,,,,,,,REJECTED (chance level),0.029085697132292063,0.029085697132292063,0.47676296930870726,0.03173804227738334
+"anomaly (E3-B, Dataset B identity theft, mean of 3 seeds)",dataset_b_sequences,test,isolation_forest_7f_plusB,,,,,,,,,REJECTED (chance level),0.028651085494608406,0.028651085494608406,0.5204586284927881,0.034663097813292805
+"anomaly (E3-B, Dataset B identity theft, mean of 3 seeds)",dataset_b_sequences,test,robust_z,,,,,,,,,REJECTED (chance level),0.021238675559255394,0.021238675559255394,0.4877413744934327,0.0313157776383444

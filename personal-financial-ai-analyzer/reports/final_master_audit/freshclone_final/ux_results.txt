@@ -19,5 +19,8 @@ PASS 19. Advisor: what-if scenario
 PASS 20. Advisor: affordability without a balance
 PASS 21. Assistant: cash-flow question
 PASS 22. Settings: delete everything
-completed 21/21
-21 21 2.36 5.911
+PASS 23. PersonaLedger demo: accepted model estimate
+PASS 24. Assistant: is the prediction reliable?
+PASS 25. Advisor: emergency fund coverage
+completed 24/24
+ux 24 24 2.41 5.965

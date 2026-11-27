@@ -1,9 +1,9 @@
-.................................................sss.......s............ [ 40%]
-........................................................................ [ 81%]
-.................................                                        [100%]
+......................................................sss.......s....... [ 36%]
+........................................................................ [ 73%]
+...................................................                      [100%]
 =========================== short test summary info ============================
 SKIPPED [1] tests/regression/test_data_leakage.py:37: splits not built
 SKIPPED [1] tests/regression/test_data_leakage.py:46: splits not built
 SKIPPED [1] tests/regression/test_data_leakage.py:56: anomaly experiment outputs or derived data not present (fresh clone)
 SKIPPED [1] tests/regression/test_reproducibility.py:31: panel not built
-173 passed, 4 skipped in 17.13s
+191 passed, 4 skipped in 19.75s

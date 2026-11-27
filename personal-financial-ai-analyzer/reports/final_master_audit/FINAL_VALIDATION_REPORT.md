@@ -1,3 +1,5 @@
+> **Superseded (2026-11-27, master audit 2)** by [`FINAL_MASTER_AUDIT.md`](FINAL_MASTER_AUDIT.md). Kept unchanged below as the record of the first master audit.
+
 # Final Validation Report: Gates A–M (master audit, 2026-11-27)
 
 **Final status: READY WITH DOCUMENTED LIMITATIONS.**

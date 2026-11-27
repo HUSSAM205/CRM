@@ -15,6 +15,10 @@ All defects across the project. Earlier phases are kept in full in [`KNOWN_ISSUE
 | M-09 | P2 (gap) | No Advisor pillar, Settings page, analyzer insights or extended assistant intents | out of the original scope | `src/advisor`, `insights.py`, 2 pages, 8 intents | `test_advisor.py`, `test_insights.py`, `test_assistant_advisor_intents.py`, AppTests, browser tasks 17–22 | Fixed |
 | M-10 | P3 | Docs whose names differed only in letter case would collide on Windows if the required uppercase names were added | naming | renamed to the uppercase names; every reference updated | inventory 167/174 (7 merged by design) | Fixed |
 | M-11 | **P1** | CSV upload crashed (`NameError: detect_format`) after the preview was added | import edit missed (ruff had rewritten that line); AppTests cannot drive the file widget | import fixed | `test_upload_component_previews_detects_format_and_loads` (fails before, passes after); real-browser run 8/21 → re-run | Fixed |
+| M-12 | **P1** | Uploads in TRY (or any currency outside the dataset's 6) rejected | validator reused the benchmark's currency list | any active ISO 4217 code accepted; non-currency X-codes rejected | `test_any_active_iso_currency_is_accepted_but_non_currency_codes_are_not` (fails before) | Fixed |
+| M-13 | P3 | Forecast ranges truncated with "…" | long values in metric tiles | full-width text | screenshot of browser task 23 | Fixed |
+| M-14 | P2 | Rule-flagged unusual transactions hidden by the ranking (Dataset C: 0% of rare categories shown) | ranking by model score only | top 5 by score + up to 5 rule hits with standard labels | `test_rule_hits_are_surfaced_with_standard_labels`; C4 before/after | Fixed |
+| M-15 | P2 | "How much did I spend on unicorns?" answered with total spending | unknown category fell through to the total intent | clarification listing the categories | assistant test (fails before) | Fixed |
 
 ## Earlier defects (fixed; details in `KNOWN_ISSUES.md`)
 

@@ -1,3 +1,5 @@
+> **Superseded (2026-11-27, master audit 2)** by [`FINAL_MASTER_AUDIT.md`](FINAL_MASTER_AUDIT.md). Kept unchanged below as the record of the first master audit.
+
 # Executive Summary: Personal Financial AI Analyzer & Advisor (master audit)
 
 **Final status: READY WITH DOCUMENTED LIMITATIONS.** The open items are:

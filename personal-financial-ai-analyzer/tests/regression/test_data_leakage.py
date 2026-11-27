@@ -85,3 +85,20 @@ def test_L8_anomaly_history_stats_ignore_scored_rows():
                        "transaction_timestamp": [datetime(2026, 6, 1)]})
     f = build_features(s1, acc, cat)
     assert f["log_amount_to_category_median"][0] == pytest.approx(np.log(25 / 25))   # median(10..40)=25
+
+
+def test_E2B_features_use_only_months_before_the_target():
+    """Master audit 2 (Gate C): E2-B rows for target month i must not change when months >= i change."""
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts/research"))
+    import forecast_dataset_b as E
+    rng = np.random.default_rng(1)
+    months = [f"{2024 + k // 12}-{k % 12 + 1:02d}" for k in range(24)]
+    y = rng.gamma(2.0, 500.0, 24)
+    base = {r["month"]: r for r in E.rows_from_series(0, months, y)}
+    for i in range(12, 24):
+        z = y.copy()
+        z[i:] = rng.gamma(2.0, 5000.0, 24 - i)              # change the target and everything after it
+        r = next(r for r in E.rows_from_series(0, months, z) if r["month"] == months[i])
+        feats = [k for k in r if k not in ("user", "month", "y")]
+        assert all(r[k] == base[months[i]][k] for k in feats), months[i]

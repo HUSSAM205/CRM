@@ -1,1 +1,1 @@
-0952509a50302410624240b124d4d7a5c3c7c5ce Fix M-11: upload preview crash (missing import) + upload-component regression test; lint clean
+07554c2bd2f1418a960fc1533c9ad3fae749730f Final dev validation evidence: tests 195 passed, artifacts 8/8, benchmarks incl. product forecast path, pip-audit

@@ -1,0 +1,19 @@
+{
+ "features": [
+  "lag1_r",
+  "lag2_r",
+  "lag3_r",
+  "rmean6_r",
+  "rmed6_r",
+  "rstd6_r",
+  "hist_months",
+  "cal_month"
+ ],
+ "target": "spend / historical_mean",
+ "excluded": [
+  "balance_after",
+  "account_id",
+  "transaction_id",
+  "user_id"
+ ]
+}

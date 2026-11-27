@@ -1,0 +1,294 @@
+{
+ "dataset_id": "B-PERSONALEDGER-NORMAL",
+ "rows": 29812435,
+ "users": 22018,
+ "t_min": "2024-01-01 00:00:00",
+ "t_max": "2027-12-29 20:00:00",
+ "null_user_id": 0,
+ "null_timestamp": 0,
+ "null_merchant_name": 0,
+ "null_merchant_type": 0,
+ "null_card_present_or_not": 0,
+ "null_amount": 0,
+ "negative_amounts": 1839209,
+ "zero_amounts": 1105,
+ "non_finite_amounts": 0,
+ "merchant_types": 23991,
+ "merchant_names": 82720,
+ "unparseable_timestamps": 0,
+ "amount_quantiles_positive": {
+  "q0.01": 4.6,
+  "q0.25": 15.23,
+  "q0.5": 25.68,
+  "q0.75": 50.35,
+  "q0.99": 850.61,
+  "q1.0": 20000.0
+ },
+ "top_merchant_types": [
+  {
+   "merchant_type": "dining",
+   "n": 4491362
+  },
+  {
+   "merchant_type": "retail",
+   "n": 3110819
+  },
+  {
+   "merchant_type": "grocery",
+   "n": 2310559
+  },
+  {
+   "merchant_type": "restaurant",
+   "n": 1931546
+  },
+  {
+   "merchant_type": "payment",
+   "n": 1839176
+  },
+  {
+   "merchant_type": "entertainment",
+   "n": 1685436
+  },
+  {
+   "merchant_type": "gas",
+   "n": 1267354
+  },
+  {
+   "merchant_type": "food",
+   "n": 968290
+  },
+  {
+   "merchant_type": "groceries",
+   "n": 391058
+  },
+  {
+   "merchant_type": "Electricity Bill",
+   "n": 376694
+  },
+  {
+   "merchant_type": "coffee shop",
+   "n": 345071
+  },
+  {
+   "merchant_type": "food and beverage",
+   "n": 328202
+  },
+  {
+   "merchant_type": "Water Bill",
+   "n": 277727
+  },
+  {
+   "merchant_type": "education",
+   "n": 261895
+  },
+  {
+   "merchant_type": "bookstore",
+   "n": 245075
+  }
+ ],
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04",
+  "2024-05",
+  "2024-06",
+  "2024-07",
+  "2024-08",
+  "2024-09",
+  "2024-10",
+  "2024-11",
+  "2024-12",
+  "2025-01",
+  "2025-02",
+  "2025-03",
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12",
+  "2026-01",
+  "2026-02",
+  "2026-03",
+  "2026-04",
+  "2026-05",
+  "2026-06",
+  "2026-07",
+  "2026-08",
+  "2026-09",
+  "2026-10",
+  "2026-11",
+  "2026-12",
+  "2027-01",
+  "2027-02",
+  "2027-03",
+  "2027-04",
+  "2027-05",
+  "2027-06",
+  "2027-07",
+  "2027-08",
+  "2027-09",
+  "2027-10",
+  "2027-11",
+  "2027-12"
+ ],
+ "n_months": 48,
+ "users_by_active_months": [
+  {
+   "active_months": 4,
+   "len": 300
+  },
+  {
+   "active_months": 5,
+   "len": 640
+  },
+  {
+   "active_months": 6,
+   "len": 652
+  },
+  {
+   "active_months": 7,
+   "len": 578
+  },
+  {
+   "active_months": 8,
+   "len": 568
+  },
+  {
+   "active_months": 9,
+   "len": 596
+  },
+  {
+   "active_months": 10,
+   "len": 553
+  },
+  {
+   "active_months": 11,
+   "len": 463
+  },
+  {
+   "active_months": 12,
+   "len": 551
+  },
+  {
+   "active_months": 13,
+   "len": 453
+  },
+  {
+   "active_months": 14,
+   "len": 449
+  },
+  {
+   "active_months": 15,
+   "len": 464
+  },
+  {
+   "active_months": 16,
+   "len": 415
+  },
+  {
+   "active_months": 17,
+   "len": 411
+  },
+  {
+   "active_months": 18,
+   "len": 476
+  },
+  {
+   "active_months": 19,
+   "len": 437
+  },
+  {
+   "active_months": 20,
+   "len": 371
+  },
+  {
+   "active_months": 21,
+   "len": 356
+  },
+  {
+   "active_months": 22,
+   "len": 318
+  },
+  {
+   "active_months": 23,
+   "len": 350
+  },
+  {
+   "active_months": 24,
+   "len": 323
+  },
+  {
+   "active_months": 25,
+   "len": 317
+  },
+  {
+   "active_months": 26,
+   "len": 315
+  },
+  {
+   "active_months": 27,
+   "len": 290
+  },
+  {
+   "active_months": 28,
+   "len": 257
+  },
+  {
+   "active_months": 29,
+   "len": 286
+  },
+  {
+   "active_months": 30,
+   "len": 288
+  },
+  {
+   "active_months": 31,
+   "len": 262
+  },
+  {
+   "active_months": 32,
+   "len": 262
+  },
+  {
+   "active_months": 33,
+   "len": 229
+  },
+  {
+   "active_months": 34,
+   "len": 223
+  },
+  {
+   "active_months": 35,
+   "len": 242
+  },
+  {
+   "active_months": 36,
+   "len": 546
+  },
+  {
+   "active_months": 37,
+   "len": 8776
+  },
+  {
+   "active_months": 38,
+   "len": 1
+  }
+ ],
+ "users_with_ge_12_active_months": 17668,
+ "share_zero_user_months_within_span": 0.0,
+ "note_partial_months": "each user's first and last month are partial (users start and stop mid-month); experiments exclude them as targets",
+ "mean_within_user_lag1_autocorrelation": -0.04752512902218939,
+ "autocorrelation_users": 17117,
+ "identity_theft_1m_test": {
+  "rows": 5860815,
+  "sequences": 108078,
+  "fraud_rows": 192926,
+  "t_min": "2024-01-01 00:00:00.000000000",
+  "t_max": "2027-11-30 22:00:00.000000000"
+ }
+}

@@ -40,7 +40,16 @@ if kind == 'forecasting':
         mon = build_summaries(demo).monthly
         Y = np.array([[r.get(m, 0) / 100 for m in ALL_MONTHS] for r in
                       [dict(zip(g['month'], g['expenses_cents'])) for _, g in mon.group_by(['account_id', 'currency'])]])
-    X = features_at(Y[:500], 30, fe.CAL[30], 'lag_12' in feats)
+    if 'lag1_r' in feats:    # E2-B scale-free model: continuous series from the PersonaLedger demo sample
+        from src.data.ingestion import ingest as _ing
+        from src.analytics.aggregation import build_summaries as _bs
+        from src.models.forecasting import scale_free
+        from src.models.forecasting.inference import series_from_monthly, next_month
+        _s = _bs(_ing(open('data/samples/demo_personaledger.csv', 'rb').read())[0].clean)
+        X = np.vstack([scale_free.features(y, next_month(ms[-1]))[0] for ms, y, _ in
+                       [series_from_monthly(g) for _, g in _s.monthly.group_by(['account_id', 'currency'])]])
+    else:
+        X = features_at(Y[:500], 30, fe.CAL[30], 'lag_12' in feats)
     p = m.predict(X)
 else:
     from src.experiments.anomaly_experiment import prepare
@@ -50,7 +59,7 @@ else:
     p = -m.score_samples(build_features(scored, acc, cat).select(feats).to_numpy())
 assert np.isfinite(p).all()
 print(json.dumps({'n_pred': int(len(p)), 'mean': float(np.mean(p)), 'type': type(m).__name__,
-                  'input': 'derived data' if DERIVED else 'demo sample'}))
+                  'input': 'demo_personaledger sample' if 'lag1_r' in feats else ('derived data' if DERIVED else 'demo sample')}))
 """
 
 

@@ -38,7 +38,17 @@
         }
       ],
       "current": "artifacts/forecasting/outlook/v_20261127T060820Z",
-      "role": "deployed product outlook (E2-QG, D-22): deterministic historical median + benchmark-calibrated 80% interval"
+      "role": "deployed fallback: series outside the E2-B model's domain (D-22, D-24)"
+    },
+    "gbr_personaledger": {
+      "history": [
+        {
+          "path": "artifacts/forecasting/gbr_personaledger/v_20261127T113730Z",
+          "registered_utc": "2026-11-27T11:37:30+00:00"
+        }
+      ],
+      "current": "artifacts/forecasting/gbr_personaledger/v_20261127T113730Z",
+      "role": "deployed for in-domain series (E2-B ACCEPTED on Dataset B; >= 12 months, no zero month); otherwise the outlook (D-24)"
     }
   },
   "anomaly": {

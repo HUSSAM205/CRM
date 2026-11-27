@@ -1,0 +1,76 @@
+{
+ "model_id": "gbr_personaledger",
+ "version": "v_20261127T113730Z",
+ "algorithm": "HistGradientBoostingRegressor (absolute_error)",
+ "hyperparameters": {
+  "max_depth": 3,
+  "learning_rate": 0.05,
+  "max_iter": 300
+ },
+ "random_seed": 42,
+ "dataset_id": "B-PERSONALEDGER-NORMAL",
+ "dataset_sha256": "8ec0979c4e578638e81a2665bae9a4a4604675c10cee41578a7377385425ccb5",
+ "dataset_license": "CC BY 4.0 (Capital One Research, PersonaLedger)",
+ "training_period": "target months <= 2026-12 (train + validation refit)",
+ "training_rows": 226445,
+ "validation_metrics": {
+  "MAE": 929.7089979613249,
+  "RMSE": 1407.7558288750997,
+  "MASE": 0.737275473542894,
+  "R2": 0.18042838304453823,
+  "rows": 66919,
+  "users": 11942,
+  "failed_predictions": 0,
+  "zero_prediction_share": 0.0
+ },
+ "test_metrics": {
+  "MAE": 971.3417245734076,
+  "RMSE": 1400.2071353634508,
+  "MASE": 0.7806076060040386,
+  "R2": 0.2324758093391036,
+  "rows": 42565,
+  "users": 9368,
+  "failed_predictions": 0,
+  "zero_prediction_share": 0.0
+ },
+ "interval": {
+  "edges": [
+   2599.310230790886,
+   2843.6120700301162,
+   3088.0280923521545,
+   3527.1950436208135
+  ],
+  "ratio_quantiles": {
+   "0": [
+    0.6837801968203323,
+    1.8168465688726112
+   ],
+   "1": [
+    0.6697572577792159,
+    1.693490641201774
+   ],
+   "2": [
+    0.6603388993819007,
+    1.664207629297005
+   ],
+   "3": [
+    0.6501494672605319,
+    1.6047469095278841
+   ],
+   "4": [
+    0.7257569600638317,
+    1.4843796247918808
+   ]
+  },
+  "level": 0.8,
+  "validation_coverage": 0.7999073506776849,
+  "test_coverage": 0.7765300129214143
+ },
+ "gate": {
+  "gbr_scale_free": "ACCEPTED",
+  "passes_validation": true,
+  "passes_test": true,
+  "best_baseline_test": "historical_median"
+ },
+ "created_at_utc": "2026-11-27T11:37:30.247098+00:00"
+}

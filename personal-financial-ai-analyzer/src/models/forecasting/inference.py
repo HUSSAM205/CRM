@@ -124,3 +124,66 @@ def outlook_next(monthly: pl.DataFrame) -> dict:
                                        int(round(float(np.quantile(y, 0.9)) * 100))),
             "ml_status": "NOT EFFECTIVE: no ML model beat the zero-spending baseline on validation (E2-QG)",
             "quality_gate": cfg.get("quality_gate", {})}
+
+
+@lru_cache(maxsize=1)
+def personaledger_model():
+    """The E2-B model and its metadata, or (None, None) if not registered."""
+    reg = registry().get("forecasting", {}).get("gbr_personaledger")
+    if not reg:
+        return None, None
+    d = PROJECT_ROOT / reg["current"]
+    return joblib.load(d / "model.joblib"), json.loads((d / "metadata.json").read_text())
+
+
+def _e2b_evidence(tm: dict, vm: dict) -> str:
+    """Model vs best baseline on Dataset B, read from the saved experiment summary (no hard-coded numbers)."""
+    p = PROJECT_ROOT / "reports/experiments/forecasting_dataset_b/summary.json"
+    txt = f"Dataset B test MAE {tm['MAE']:.2f} (MASE {tm['MASE']:.3f}); validation MAE {vm['MAE']:.2f}"
+    if p.exists():
+        s = json.loads(p.read_text())
+        b = s["gate"]["best_baseline_test"]
+        bt = s["test"][b]["MAE"]
+        txt += f"; best baseline ({b}) test MAE {bt:.2f}, {(bt - tm['MAE']) / bt:.1%} higher than the model"
+    return txt + "."
+
+
+def forecast_product(monthly: pl.DataFrame) -> dict:
+    """What the product shows (D-24): the E2-B model (ACCEPTED on Dataset B) when the series is inside its
+    training domain, otherwise the deterministic historical-median outlook (D-22). Every output names its
+    method, status, history window, interval, evaluation evidence and limitations."""
+    from src.models.forecasting import scale_free
+    base = outlook_next(monthly)
+    if not base["eligible"]:
+        return {**base, "method": None, "model_status": "no estimate: insufficient history"}
+    months, y, _ = series_from_monthly(monthly)
+    window = f"{months[0]}..{months[-1]}"
+    ok, reason = scale_free.in_domain(y)
+    model, meta = personaledger_model()
+    common = {"eligible": True, "target_month": base["target_month"], "history_months": len(months),
+              "active_months": base["active_months"], "historical_window": window,
+              "historical_range_cents": base["historical_range_cents"]}
+    if ok and model is not None:
+        x, mean = scale_free.features(y, base["target_month"])
+        pred = float(model.predict(x)[0]) * mean
+        iv = meta["interval"]
+        b = int(np.digitize([pred], np.array(iv["edges"]))[0])
+        lo, hi = iv["ratio_quantiles"][str(b)]
+        tm, vm = meta["test_metrics"], meta["validation_metrics"]
+        return {**common, "method": "gbr_personaledger", "point_cents": int(round(pred * 100)),
+                "interval_cents": (int(round(pred * lo * 100)), int(round(pred * hi * 100))),
+                "interval_level": iv["level"], "interval_test_coverage": iv["test_coverage"],
+                "model_status": "ACCEPTED (experiment E2-B, Dataset B)",
+                "domain_check": reason,
+                "evidence": _e2b_evidence(tm, vm),
+                "limitations": "Trained on synthetic PersonaLedger card spending (CC BY 4.0); not effective on the "
+                               "intermittent series of Dataset A; the 80% interval covered "
+                               f"{iv['test_coverage']:.1%} of test months."}
+    why = reason if not ok else "the model artifact is not available"
+    return {**common, "method": "historical_median", "point_cents": base["point_cents"],
+            "interval_cents": base["benchmark_interval_cents"], "interval_level": base["benchmark_interval_level"],
+            "interval_test_coverage": base["benchmark_test_coverage"],
+            "model_status": "deterministic baseline (ML model not applicable: " + why + ")",
+            "domain_check": why,
+            "evidence": "Best data-dependent baseline on Dataset A validation (E2-QG); no ML model beat a zero forecast there.",
+            "limitations": "A historical reference, not a prediction; interval calibrated on Dataset A."}

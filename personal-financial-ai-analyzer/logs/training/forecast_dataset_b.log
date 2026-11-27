@@ -1,0 +1,1 @@
+{"command": "run_guarded(python scripts/research/forecast_dataset_b.py)", "returncode": 0, "seconds": 60.17, "peak_rss_gb": 0.597, "min_system_available_gb": 15.6, "killed": null}

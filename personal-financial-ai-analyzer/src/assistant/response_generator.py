@@ -58,11 +58,17 @@ def render(r: dict, currency: str) -> str:
     if i == "forecast":
         if not r.get("eligible"):
             return r.get("message", "Not enough history for a forecast.")
-        if "point_cents" in r:     # product outlook (D-22)
+        if "point_cents" in r and r.get("method") == "gbr_personaledger":      # accepted model (D-24)
+            lo, hi = r["interval_cents"]
+            return (f"Estimated spending for {r['target_month']}: {money(r['point_cents'], currency)} "
+                    f"(80% range {money(lo, currency)} to {money(hi, currency)}; model gbr_personaledger, accepted in "
+                    f"experiment E2-B on synthetic data; history {r['historical_window']}). This is an estimate, "
+                    f"not a guarantee.")
+        if "point_cents" in r:     # deterministic outlook (D-22)
             lo, hi = r["historical_range_cents"]
             return (f"Typical spending for {r['target_month']}: {money(r['point_cents'], currency)} (median of your "
                     f"past months; usual range {money(lo, currency)} to {money(hi, currency)}). Machine-learning "
-                    f"forecasting was not effective on the evaluation data, so this is a historical reference, "
+                    f"forecasting was not effective for series like yours, so this is a historical reference, "
                     f"not a prediction.")
         return (f"Expected spending for {r['target_month']}: {money(r['forecast_cents'], currency)} "
                 f"(model: {r['model']}). This is an estimate, not a guarantee.")

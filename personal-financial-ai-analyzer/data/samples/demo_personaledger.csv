@@ -1,0 +1,2541 @@
+transaction_id,account_id,transaction_type,amount,currency,merchant_category,transaction_timestamp,status
+PL-13-0,PL-USER-13,debit,25.7,USD,entertainment,2024-11-03 10:00:00,completed
+PL-13-1,PL-USER-13,debit,12.58,USD,food,2024-11-03 13:00:00,completed
+PL-13-2,PL-USER-13,debit,20.48,USD,food,2024-11-03 19:00:00,completed
+PL-13-3,PL-USER-13,debit,24.92,USD,food,2024-11-04 18:00:00,completed
+PL-13-4,PL-USER-13,debit,16.0,USD,home improvement,2024-11-04 20:00:00,completed
+PL-13-5,PL-USER-13,debit,61.47,USD,phone service,2024-11-05 00:00:00,completed
+PL-13-6,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2024-11-05 00:00:00,completed
+PL-13-7,PL-USER-13,debit,10.66,USD,food,2024-11-05 19:00:00,completed
+PL-13-8,PL-USER-13,debit,56.23,USD,grocery,2024-11-06 10:00:00,completed
+PL-13-9,PL-USER-13,debit,32.83,USD,restaurant,2024-11-07 18:00:00,completed
+PL-13-10,PL-USER-13,debit,30.97,USD,gas,2024-11-08 10:00:00,completed
+PL-13-11,PL-USER-13,debit,20.64,USD,home improvement,2024-11-08 11:30:00,completed
+PL-13-12,PL-USER-13,debit,19.28,USD,food,2024-11-08 19:00:00,completed
+PL-13-13,PL-USER-13,debit,25.23,USD,charity,2024-11-09 12:00:00,completed
+PL-13-14,PL-USER-13,debit,9.99,USD,music streaming (classic country),2024-11-10 00:00:00,completed
+PL-13-15,PL-USER-13,debit,23.1,USD,restaurant,2024-11-10 18:00:00,completed
+PL-13-16,PL-USER-13,debit,85.31,USD,entertainment,2024-11-11 14:00:00,completed
+PL-13-17,PL-USER-13,debit,20.91,USD,food,2024-11-12 18:00:00,completed
+PL-13-18,PL-USER-13,debit,50.85,USD,grocery,2024-11-13 10:00:00,completed
+PL-13-19,PL-USER-13,debit,30.33,USD,charity,2024-11-13 12:00:00,completed
+PL-13-20,PL-USER-13,debit,25.8,USD,bar,2024-11-14 19:00:00,completed
+PL-13-21,PL-USER-13,debit,141.92,USD,electricity bill,2024-11-15 00:00:00,completed
+PL-13-22,PL-USER-13,debit,50.45,USD,outdoor gear,2024-11-15 14:00:00,completed
+PL-13-23,PL-USER-13,debit,16.0,USD,restaurant,2024-11-16 12:00:00,completed
+PL-13-24,PL-USER-13,debit,20.53,USD,retail,2024-11-16 14:30:00,completed
+PL-13-25,PL-USER-13,debit,30.55,USD,gas,2024-11-16 16:00:00,completed
+PL-13-26,PL-USER-13,debit,80.92,USD,online retailer,2024-11-17 11:00:00,completed
+PL-13-27,PL-USER-13,transfer,959.64,USD,payment,2024-11-18 10:00:00,completed
+PL-13-28,PL-USER-13,debit,40.5,USD,restaurant,2024-11-19 19:00:00,completed
+PL-13-29,PL-USER-13,debit,37.4,USD,water bill,2024-11-20 00:00:00,completed
+PL-13-30,PL-USER-13,debit,60.78,USD,grocery,2024-11-20 10:00:00,completed
+PL-13-31,PL-USER-13,debit,10.48,USD,cafe,2024-11-21 14:00:00,completed
+PL-13-32,PL-USER-13,debit,25.88,USD,hardware,2024-11-21 15:30:00,completed
+PL-13-33,PL-USER-13,debit,20.04,USD,entertainment,2024-11-22 12:00:00,completed
+PL-13-34,PL-USER-13,debit,35.97,USD,restaurant,2024-11-22 19:00:00,completed
+PL-13-35,PL-USER-13,debit,30.6,USD,gas station,2024-11-23 09:00:00,completed
+PL-13-36,PL-USER-13,debit,50.34,USD,outdoor gear,2024-11-23 11:00:00,completed
+PL-13-37,PL-USER-13,debit,15.34,USD,restaurant,2024-11-23 12:30:00,completed
+PL-13-38,PL-USER-13,debit,12.3,USD,coffee shop,2024-11-24 14:00:00,completed
+PL-13-39,PL-USER-13,debit,10.32,USD,post office,2024-11-25 10:00:00,completed
+PL-13-40,PL-USER-13,debit,20.28,USD,pharmacy,2024-11-25 11:30:00,completed
+PL-13-41,PL-USER-13,debit,0.28,USD,bank,2024-11-25 12:00:00,completed
+PL-13-42,PL-USER-13,debit,80.54,USD,grocery,2024-11-26 10:00:00,completed
+PL-13-43,PL-USER-13,debit,10.35,USD,bakery,2024-11-26 11:30:00,completed
+PL-13-44,PL-USER-13,debit,25.47,USD,restaurant,2024-11-27 13:00:00,completed
+PL-13-45,PL-USER-13,debit,15.52,USD,music store,2024-11-27 15:00:00,completed
+PL-13-46,PL-USER-13,debit,30.7,USD,liquor store,2024-11-28 10:00:00,completed
+PL-13-47,PL-USER-13,debit,20.63,USD,florist,2024-11-28 18:00:00,completed
+PL-13-48,PL-USER-13,debit,120.62,USD,outdoor gear,2024-11-29 09:00:00,completed
+PL-13-49,PL-USER-13,debit,10.4,USD,coffee shop,2024-11-29 12:00:00,completed
+PL-13-50,PL-USER-13,debit,25.1,USD,bookstore,2024-11-29 14:00:00,completed
+PL-13-51,PL-USER-13,debit,130.72,USD,entertainment,2024-11-30 12:00:00,completed
+PL-13-52,PL-USER-13,debit,30.69,USD,restaurant,2024-11-30 19:00:00,completed
+PL-13-53,PL-USER-13,debit,750.1,USD,electronics,2024-12-01 14:00:00,completed
+PL-13-54,PL-USER-13,debit,250.37,USD,gift,2024-12-02 12:00:00,completed
+PL-13-55,PL-USER-13,debit,20.45,USD,bar,2024-12-02 19:00:00,completed
+PL-13-56,PL-USER-13,debit,50.47,USD,grocery store,2024-12-03 10:00:00,completed
+PL-13-57,PL-USER-13,debit,15.9,USD,pharmacy,2024-12-03 12:00:00,completed
+PL-13-58,PL-USER-13,debit,5.09,USD,coffee shop,2024-12-03 12:30:00,completed
+PL-13-59,PL-USER-13,debit,15.52,USD,restaurant,2024-12-04 13:00:00,completed
+PL-13-60,PL-USER-13,debit,56.4,USD,phone service,2024-12-05 00:00:00,completed
+PL-13-61,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2024-12-05 00:00:00,completed
+PL-13-62,PL-USER-13,debit,30.25,USD,gas station,2024-12-05 09:00:00,completed
+PL-13-63,PL-USER-13,debit,5.81,USD,coffee shop,2024-12-05 10:00:00,completed
+PL-13-64,PL-USER-13,debit,50.99,USD,online course,2024-12-05 12:00:00,completed
+PL-13-65,PL-USER-13,debit,25.86,USD,restaurant,2024-12-06 12:00:00,completed
+PL-13-66,PL-USER-13,debit,20.31,USD,hardware store,2024-12-06 14:00:00,completed
+PL-13-67,PL-USER-13,debit,20.16,USD,sports venue,2024-12-07 12:00:00,completed
+PL-13-68,PL-USER-13,debit,15.13,USD,food and beverage,2024-12-07 13:00:00,completed
+PL-13-69,PL-USER-13,debit,25.16,USD,bar,2024-12-07 18:00:00,completed
+PL-13-70,PL-USER-13,debit,20.18,USD,restaurant,2024-12-08 18:00:00,completed
+PL-13-71,PL-USER-13,debit,75.71,USD,hardware store,2024-12-09 10:00:00,completed
+PL-13-72,PL-USER-13,debit,9.99,USD,music streaming (classic country),2024-12-10 00:00:00,completed
+PL-13-73,PL-USER-13,debit,50.66,USD,grocery store,2024-12-10 10:00:00,completed
+PL-13-74,PL-USER-13,debit,10.03,USD,pharmacy,2024-12-10 11:30:00,completed
+PL-13-75,PL-USER-13,debit,5.42,USD,coffee shop,2024-12-10 12:00:00,completed
+PL-13-76,PL-USER-13,debit,10.56,USD,restaurant,2024-12-11 12:00:00,completed
+PL-13-77,PL-USER-13,debit,50.5,USD,auto service,2024-12-12 09:00:00,completed
+PL-13-78,PL-USER-13,debit,30.52,USD,gas station,2024-12-12 10:30:00,completed
+PL-13-79,PL-USER-13,debit,70.5,USD,department store,2024-12-13 10:00:00,completed
+PL-13-80,PL-USER-13,debit,20.38,USD,fishing store,2024-12-14 07:00:00,completed
+PL-13-81,PL-USER-13,debit,15.38,USD,restaurant,2024-12-14 18:00:00,completed
+PL-13-82,PL-USER-13,debit,89.69,USD,electricity bill,2024-12-15 00:00:00,completed
+PL-13-83,PL-USER-13,debit,25.23,USD,café,2024-12-15 11:00:00,completed
+PL-13-84,PL-USER-13,debit,60.47,USD,grocery store,2024-12-16 10:00:00,completed
+PL-13-85,PL-USER-13,debit,15.08,USD,post office,2024-12-16 12:00:00,completed
+PL-13-86,PL-USER-13,debit,12.97,USD,restaurant,2024-12-17 12:00:00,completed
+PL-13-87,PL-USER-13,debit,10.69,USD,pharmacy,2024-12-18 10:00:00,completed
+PL-13-88,PL-USER-13,transfer,500.0,USD,payment,2024-12-18 14:00:00,completed
+PL-13-89,PL-USER-13,debit,99.79,USD,software,2024-12-19 10:00:00,completed
+PL-13-90,PL-USER-13,debit,56.29,USD,water bill,2024-12-20 00:00:00,completed
+PL-13-91,PL-USER-13,debit,18.65,USD,restaurant,2024-12-20 12:00:00,completed
+PL-13-92,PL-USER-13,debit,30.34,USD,gas station,2024-12-20 14:00:00,completed
+PL-13-93,PL-USER-13,debit,28.59,USD,restaurant,2024-12-21 18:00:00,completed
+PL-13-94,PL-USER-13,debit,22.73,USD,restaurant,2024-12-22 18:00:00,completed
+PL-13-95,PL-USER-13,debit,50.82,USD,grocery,2024-12-23 10:00:00,completed
+PL-13-96,PL-USER-13,debit,10.54,USD,post office,2024-12-23 12:00:00,completed
+PL-13-97,PL-USER-13,debit,8.07,USD,coffee shop,2024-12-24 14:00:00,completed
+PL-13-98,PL-USER-13,debit,25.57,USD,bakery,2024-12-24 16:00:00,completed
+PL-13-99,PL-USER-13,transfer,1841.1,USD,payment,2024-12-25 00:00:00,completed
+PL-13-100,PL-USER-13,debit,20.89,USD,charity,2024-12-25 18:00:00,completed
+PL-13-101,PL-USER-13,debit,15.92,USD,entertainment,2024-12-26 14:00:00,completed
+PL-13-102,PL-USER-13,debit,19.3,USD,restaurant,2024-12-26 18:00:00,completed
+PL-13-103,PL-USER-13,debit,30.3,USD,gas,2024-12-27 10:00:00,completed
+PL-13-104,PL-USER-13,debit,25.45,USD,hardware,2024-12-27 11:30:00,completed
+PL-13-105,PL-USER-13,debit,20.21,USD,restaurant,2024-12-28 18:00:00,completed
+PL-13-106,PL-USER-13,debit,40.97,USD,grocery,2024-12-29 12:00:00,completed
+PL-13-107,PL-USER-13,debit,30.74,USD,florist,2024-12-30 10:00:00,completed
+PL-13-108,PL-USER-13,debit,25.68,USD,liquor,2024-12-30 12:00:00,completed
+PL-13-109,PL-USER-13,debit,50.98,USD,grocery,2024-12-30 14:00:00,completed
+PL-13-110,PL-USER-13,debit,23.27,USD,restaurant,2024-12-31 13:00:00,completed
+PL-13-111,PL-USER-13,debit,35.89,USD,party supply,2024-12-31 15:00:00,completed
+PL-13-112,PL-USER-13,debit,1500.0,USD,property tax,2025-01-01 00:00:00,completed
+PL-13-113,PL-USER-13,debit,800.0,USD,homeowner's insurance,2025-01-01 00:00:00,completed
+PL-13-114,PL-USER-13,transfer,500.0,USD,payment,2025-01-01 10:00:00,completed
+PL-13-115,PL-USER-13,debit,19.31,USD,restaurant,2025-01-02 18:00:00,completed
+PL-13-116,PL-USER-13,debit,25.22,USD,gas,2025-01-03 10:00:00,completed
+PL-13-117,PL-USER-13,debit,30.26,USD,grocery,2025-01-03 11:30:00,completed
+PL-13-118,PL-USER-13,debit,30.37,USD,toy store,2025-01-04 13:00:00,completed
+PL-13-119,PL-USER-13,debit,56.94,USD,phone service,2025-01-05 00:00:00,completed
+PL-13-120,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-01-05 00:00:00,completed
+PL-13-121,PL-USER-13,debit,20.25,USD,restaurant,2025-01-05 18:00:00,completed
+PL-13-122,PL-USER-13,transfer,500.0,USD,payment,2025-01-06 10:00:00,completed
+PL-13-123,PL-USER-13,debit,25.94,USD,restaurant,2025-01-06 18:30:00,completed
+PL-13-124,PL-USER-13,debit,15.02,USD,entertainment,2025-01-07 12:00:00,completed
+PL-13-125,PL-USER-13,debit,12.14,USD,bar,2025-01-07 17:00:00,completed
+PL-13-126,PL-USER-13,debit,23.1,USD,restaurant,2025-01-08 18:00:00,completed
+PL-13-127,PL-USER-13,debit,40.2,USD,grocery,2025-01-09 10:00:00,completed
+PL-13-128,PL-USER-13,debit,11.29,USD,pharmacy,2025-01-09 11:30:00,completed
+PL-13-129,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-01-10 00:00:00,completed
+PL-13-130,PL-USER-13,debit,25.21,USD,gas,2025-01-10 14:00:00,completed
+PL-13-131,PL-USER-13,debit,90.23,USD,online course,2025-01-11 14:00:00,completed
+PL-13-132,PL-USER-13,debit,30.69,USD,restaurant,2025-01-12 18:00:00,completed
+PL-13-133,PL-USER-13,debit,5.74,USD,coffee shop,2025-01-13 14:00:00,completed
+PL-13-134,PL-USER-13,debit,15.19,USD,concession stand,2025-01-14 12:00:00,completed
+PL-13-135,PL-USER-13,debit,20.86,USD,event ticket,2025-01-14 18:00:00,completed
+PL-13-136,PL-USER-13,debit,151.89,USD,electricity bill,2025-01-15 00:00:00,completed
+PL-13-137,PL-USER-13,debit,12.0,USD,fishing magazine,2025-01-15 00:00:00,completed
+PL-13-138,PL-USER-13,debit,12.97,USD,restaurant,2025-01-15 18:00:00,completed
+PL-13-139,PL-USER-13,debit,50.63,USD,grocery,2025-01-16 10:00:00,completed
+PL-13-140,PL-USER-13,debit,10.7,USD,pharmacy,2025-01-16 12:00:00,completed
+PL-13-141,PL-USER-13,transfer,200.0,USD,payment,2025-01-16 18:00:00,completed
+PL-13-142,PL-USER-13,debit,40.76,USD,restaurant,2025-01-17 18:00:00,completed
+PL-13-143,PL-USER-13,debit,15.34,USD,restaurant,2025-01-18 12:00:00,completed
+PL-13-144,PL-USER-13,debit,20.14,USD,grocery,2025-01-19 18:00:00,completed
+PL-13-145,PL-USER-13,transfer,300.0,USD,payment,2025-01-19 20:00:00,completed
+PL-13-146,PL-USER-13,debit,61.04,USD,water bill,2025-01-20 00:00:00,completed
+PL-13-147,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2025-01-20 00:00:00,completed
+PL-13-148,PL-USER-13,debit,180.38,USD,online retailer,2025-01-20 14:00:00,completed
+PL-13-149,PL-USER-13,debit,350.17,USD,entertainment,2025-01-21 12:00:00,completed
+PL-13-150,PL-USER-13,debit,30.71,USD,gas,2025-01-22 10:00:00,completed
+PL-13-151,PL-USER-13,debit,25.77,USD,hardware,2025-01-22 11:30:00,completed
+PL-13-152,PL-USER-13,debit,15.67,USD,restaurant,2025-01-23 18:00:00,completed
+PL-13-153,PL-USER-13,transfer,2305.09,USD,payment,2025-01-25 00:00:00,completed
+PL-13-154,PL-USER-13,debit,50.24,USD,grocery,2025-01-25 10:00:00,completed
+PL-13-155,PL-USER-13,debit,10.21,USD,bakery,2025-01-25 11:30:00,completed
+PL-13-156,PL-USER-13,debit,20.56,USD,restaurant,2025-01-26 12:30:00,completed
+PL-13-157,PL-USER-13,debit,11.19,USD,subscription,2025-01-27 14:00:00,completed
+PL-13-158,PL-USER-13,debit,13.18,USD,restaurant,2025-01-28 12:00:00,completed
+PL-13-159,PL-USER-13,debit,18.42,USD,restaurant,2025-01-29 18:30:00,completed
+PL-13-160,PL-USER-13,debit,25.04,USD,gas,2025-01-30 10:00:00,completed
+PL-13-161,PL-USER-13,debit,30.12,USD,hardware,2025-01-30 11:30:00,completed
+PL-13-162,PL-USER-13,debit,600.21,USD,veterinary,2025-01-31 14:00:00,completed
+PL-13-163,PL-USER-13,debit,750.34,USD,electronics,2025-02-01 13:00:00,completed
+PL-13-164,PL-USER-13,transfer,2000.0,USD,payment,2025-02-02 20:00:00,completed
+PL-13-165,PL-USER-13,debit,50.24,USD,grocery,2025-02-03 10:00:00,completed
+PL-13-166,PL-USER-13,debit,180.64,USD,housewares,2025-02-04 14:00:00,completed
+PL-13-167,PL-USER-13,debit,61.21,USD,phone service,2025-02-05 00:00:00,completed
+PL-13-168,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-02-05 00:00:00,completed
+PL-13-169,PL-USER-13,debit,120.16,USD,clothing,2025-02-05 18:00:00,completed
+PL-13-170,PL-USER-13,debit,20.96,USD,sports,2025-02-06 09:00:00,completed
+PL-13-171,PL-USER-13,debit,15.39,USD,fast food,2025-02-06 18:00:00,completed
+PL-13-172,PL-USER-13,debit,30.35,USD,dining,2025-02-07 19:00:00,completed
+PL-13-173,PL-USER-13,debit,25.67,USD,entertainment,2025-02-07 21:00:00,completed
+PL-13-174,PL-USER-13,debit,20.51,USD,entertainment,2025-02-08 13:00:00,completed
+PL-13-175,PL-USER-13,debit,15.25,USD,food,2025-02-08 15:00:00,completed
+PL-13-176,PL-USER-13,debit,30.54,USD,retail,2025-02-08 16:00:00,completed
+PL-13-177,PL-USER-13,debit,10.13,USD,home improvement,2025-02-09 10:00:00,completed
+PL-13-178,PL-USER-13,transfer,500.0,USD,payment,2025-02-09 18:00:00,completed
+PL-13-179,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-02-10 00:00:00,completed
+PL-13-180,PL-USER-13,debit,80.42,USD,electronics,2025-02-10 11:00:00,completed
+PL-13-181,PL-USER-13,debit,50.44,USD,education,2025-02-11 20:00:00,completed
+PL-13-182,PL-USER-13,debit,50.68,USD,grocery,2025-02-13 17:00:00,completed
+PL-13-183,PL-USER-13,debit,20.08,USD,beverage,2025-02-14 18:00:00,completed
+PL-13-184,PL-USER-13,debit,130.12,USD,electricity bill,2025-02-15 00:00:00,completed
+PL-13-185,PL-USER-13,debit,80.99,USD,retail,2025-02-15 12:00:00,completed
+PL-13-186,PL-USER-13,debit,15.89,USD,food,2025-02-15 14:00:00,completed
+PL-13-187,PL-USER-13,debit,30.01,USD,gas,2025-02-16 18:00:00,completed
+PL-13-188,PL-USER-13,debit,25.43,USD,food,2025-02-17 18:00:00,completed
+PL-13-189,PL-USER-13,debit,40.33,USD,pharmacy,2025-02-18 14:00:00,completed
+PL-13-190,PL-USER-13,debit,22.54,USD,food,2025-02-19 18:00:00,completed
+PL-13-191,PL-USER-13,debit,40.75,USD,water bill,2025-02-20 00:00:00,completed
+PL-13-192,PL-USER-13,debit,10.66,USD,convenience,2025-02-20 16:00:00,completed
+PL-13-193,PL-USER-13,debit,50.47,USD,grocery,2025-02-21 10:00:00,completed
+PL-13-194,PL-USER-13,debit,20.31,USD,entertainment,2025-02-22 12:00:00,completed
+PL-13-195,PL-USER-13,debit,35.01,USD,dining,2025-02-22 18:00:00,completed
+PL-13-196,PL-USER-13,debit,2800.02,USD,auto repair,2025-02-23 12:00:00,completed
+PL-13-197,PL-USER-13,debit,25.21,USD,gas,2025-02-24 10:00:00,completed
+PL-13-198,PL-USER-13,transfer,4000.0,USD,payment,2025-02-24 12:00:00,completed
+PL-13-199,PL-USER-13,debit,16.26,USD,food,2025-02-25 12:00:00,completed
+PL-13-200,PL-USER-13,debit,90.2,USD,education,2025-02-26 14:00:00,completed
+PL-13-201,PL-USER-13,debit,12.6,USD,dining,2025-02-27 12:00:00,completed
+PL-13-202,PL-USER-13,debit,50.97,USD,groceries,2025-02-28 10:00:00,completed
+PL-13-203,PL-USER-13,debit,20.16,USD,dining,2025-03-01 18:00:00,completed
+PL-13-204,PL-USER-13,debit,15.72,USD,entertainment,2025-03-01 19:00:00,completed
+PL-13-205,PL-USER-13,debit,18.76,USD,food,2025-03-02 18:00:00,completed
+PL-13-206,PL-USER-13,debit,25.49,USD,gas,2025-03-03 10:00:00,completed
+PL-13-207,PL-USER-13,debit,30.75,USD,home improvement,2025-03-03 11:00:00,completed
+PL-13-208,PL-USER-13,debit,23.42,USD,groceries,2025-03-04 18:00:00,completed
+PL-13-209,PL-USER-13,debit,65.55,USD,phone service,2025-03-05 00:00:00,completed
+PL-13-210,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-03-05 00:00:00,completed
+PL-13-211,PL-USER-13,debit,250.05,USD,home improvement,2025-03-05 10:00:00,completed
+PL-13-212,PL-USER-13,debit,75.05,USD,groceries,2025-03-05 14:00:00,completed
+PL-13-213,PL-USER-13,debit,15.86,USD,dining,2025-03-06 12:00:00,completed
+PL-13-214,PL-USER-13,transfer,500.0,USD,payment,2025-03-06 18:00:00,completed
+PL-13-215,PL-USER-13,debit,50.57,USD,groceries,2025-03-07 10:00:00,completed
+PL-13-216,PL-USER-13,debit,20.29,USD,recreational,2025-03-07 12:00:00,completed
+PL-13-217,PL-USER-13,debit,25.77,USD,dining,2025-03-07 19:00:00,completed
+PL-13-218,PL-USER-13,debit,20.84,USD,entertainment,2025-03-08 12:00:00,completed
+PL-13-219,PL-USER-13,debit,10.09,USD,food,2025-03-08 14:00:00,completed
+PL-13-220,PL-USER-13,debit,30.01,USD,groceries,2025-03-09 12:00:00,completed
+PL-13-221,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-03-10 00:00:00,completed
+PL-13-222,PL-USER-13,debit,25.64,USD,gas,2025-03-10 10:00:00,completed
+PL-13-223,PL-USER-13,debit,40.95,USD,home improvement,2025-03-10 11:30:00,completed
+PL-13-224,PL-USER-13,transfer,500.0,USD,payment,2025-03-10 18:00:00,completed
+PL-13-225,PL-USER-13,debit,20.08,USD,dining,2025-03-11 12:00:00,completed
+PL-13-226,PL-USER-13,debit,40.57,USD,food,2025-03-12 11:00:00,completed
+PL-13-227,PL-USER-13,debit,60.7,USD,groceries,2025-03-13 10:00:00,completed
+PL-13-228,PL-USER-13,debit,30.61,USD,home improvement,2025-03-13 11:30:00,completed
+PL-13-229,PL-USER-13,debit,10.72,USD,dining,2025-03-13 14:00:00,completed
+PL-13-230,PL-USER-13,debit,150.07,USD,electronics,2025-03-14 11:00:00,completed
+PL-13-231,PL-USER-13,debit,108.06,USD,electricity bill,2025-03-15 00:00:00,completed
+PL-13-232,PL-USER-13,debit,15.05,USD,dining,2025-03-15 12:00:00,completed
+PL-13-233,PL-USER-13,debit,25.16,USD,entertainment,2025-03-15 18:00:00,completed
+PL-13-234,PL-USER-13,debit,280.91,USD,food,2025-03-16 11:00:00,completed
+PL-13-235,PL-USER-13,debit,30.02,USD,gas,2025-03-17 10:00:00,completed
+PL-13-236,PL-USER-13,debit,80.33,USD,groceries,2025-03-17 11:30:00,completed
+PL-13-237,PL-USER-13,debit,50.48,USD,home improvement,2025-03-18 10:00:00,completed
+PL-13-238,PL-USER-13,debit,10.38,USD,dining,2025-03-19 14:00:00,completed
+PL-13-239,PL-USER-13,debit,55.96,USD,water bill,2025-03-20 00:00:00,completed
+PL-13-240,PL-USER-13,transfer,1236.1,USD,payment,2025-03-20 10:00:00,completed
+PL-13-241,PL-USER-13,debit,20.79,USD,dining,2025-03-21 12:00:00,completed
+PL-13-242,PL-USER-13,debit,50.87,USD,groceries,2025-03-22 10:00:00,completed
+PL-13-243,PL-USER-13,debit,25.68,USD,dining,2025-03-22 18:00:00,completed
+PL-13-244,PL-USER-13,debit,850.78,USD,home goods,2025-03-23 11:00:00,completed
+PL-13-245,PL-USER-13,debit,30.12,USD,gas,2025-03-24 09:00:00,completed
+PL-13-246,PL-USER-13,debit,60.79,USD,groceries,2025-03-25 13:00:00,completed
+PL-13-247,PL-USER-13,debit,21.0,USD,pharmacy,2025-03-25 14:30:00,completed
+PL-13-248,PL-USER-13,debit,15.48,USD,dining,2025-03-26 12:30:00,completed
+PL-13-249,PL-USER-13,debit,25.21,USD,dining,2025-03-27 18:00:00,completed
+PL-13-250,PL-USER-13,transfer,500.0,USD,payment,2025-03-27 20:00:00,completed
+PL-13-251,PL-USER-13,debit,50.52,USD,education,2025-03-28 10:00:00,completed
+PL-13-252,PL-USER-13,debit,250.48,USD,home office,2025-03-29 11:00:00,completed
+PL-13-253,PL-USER-13,debit,14.55,USD,entertainment,2025-03-30 13:00:00,completed
+PL-13-254,PL-USER-13,debit,80.19,USD,groceries,2025-03-31 10:00:00,completed
+PL-13-255,PL-USER-13,debit,20.87,USD,recreational,2025-04-01 15:00:00,completed
+PL-13-256,PL-USER-13,debit,30.73,USD,gas,2025-04-02 10:00:00,completed
+PL-13-257,PL-USER-13,debit,15.52,USD,dining,2025-04-02 12:00:00,completed
+PL-13-258,PL-USER-13,debit,12.62,USD,dining,2025-04-03 12:00:00,completed
+PL-13-259,PL-USER-13,debit,25.43,USD,dining,2025-04-04 18:00:00,completed
+PL-13-260,PL-USER-13,debit,68.83,USD,phone service,2025-04-05 00:00:00,completed
+PL-13-261,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-04-05 00:00:00,completed
+PL-13-262,PL-USER-13,debit,250.19,USD,gift,2025-04-05 10:00:00,completed
+PL-13-263,PL-USER-13,debit,85.35,USD,groceries,2025-04-06 11:00:00,completed
+PL-13-264,PL-USER-13,transfer,1577.95,USD,payment,2025-04-07 09:00:00,completed
+PL-13-265,PL-USER-13,debit,8.55,USD,dining,2025-04-07 14:00:00,completed
+PL-13-266,PL-USER-13,debit,20.01,USD,dining,2025-04-08 18:00:00,completed
+PL-13-267,PL-USER-13,debit,30.01,USD,gas,2025-04-09 10:00:00,completed
+PL-13-268,PL-USER-13,debit,15.12,USD,home improvement,2025-04-09 11:30:00,completed
+PL-13-269,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-04-10 00:00:00,completed
+PL-13-270,PL-USER-13,debit,750.48,USD,sports equipment,2025-04-10 12:00:00,completed
+PL-13-271,PL-USER-13,debit,250.75,USD,home improvement,2025-04-11 14:00:00,completed
+PL-13-272,PL-USER-13,debit,90.93,USD,groceries,2025-04-12 10:00:00,completed
+PL-13-273,PL-USER-13,debit,25.92,USD,beverages,2025-04-12 15:00:00,completed
+PL-13-274,PL-USER-13,debit,6.25,USD,dining,2025-04-13 13:00:00,completed
+PL-13-275,PL-USER-13,transfer,1208.01,USD,payment,2025-04-14 09:00:00,completed
+PL-13-276,PL-USER-13,debit,18.66,USD,dining,2025-04-14 12:30:00,completed
+PL-13-277,PL-USER-13,debit,144.25,USD,electricity bill,2025-04-15 00:00:00,completed
+PL-13-278,PL-USER-13,debit,12.0,USD,fishing magazine,2025-04-15 00:00:00,completed
+PL-13-279,PL-USER-13,debit,15.62,USD,dining,2025-04-15 18:00:00,completed
+PL-13-280,PL-USER-13,debit,30.64,USD,gas,2025-04-16 10:00:00,completed
+PL-13-281,PL-USER-13,debit,60.35,USD,groceries,2025-04-16 11:30:00,completed
+PL-13-282,PL-USER-13,debit,20.86,USD,dining,2025-04-17 12:00:00,completed
+PL-13-283,PL-USER-13,debit,25.92,USD,dining,2025-04-17 18:00:00,completed
+PL-13-284,PL-USER-13,debit,130.36,USD,government services,2025-04-18 10:00:00,completed
+PL-13-285,PL-USER-13,debit,120.31,USD,clothing rental,2025-04-19 14:00:00,completed
+PL-13-286,PL-USER-13,debit,30.98,USD,water bill,2025-04-20 00:00:00,completed
+PL-13-287,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2025-04-20 00:00:00,completed
+PL-13-288,PL-USER-13,debit,25.65,USD,dining,2025-04-20 18:00:00,completed
+PL-13-289,PL-USER-13,debit,80.2,USD,groceries,2025-04-21 14:00:00,completed
+PL-13-290,PL-USER-13,debit,15.37,USD,dining,2025-04-22 12:30:00,completed
+PL-13-291,PL-USER-13,debit,900.05,USD,insurance,2025-04-23 10:00:00,completed
+PL-13-292,PL-USER-13,debit,30.35,USD,gas,2025-04-24 09:00:00,completed
+PL-13-293,PL-USER-13,debit,20.54,USD,home improvement,2025-04-24 10:30:00,completed
+PL-13-294,PL-USER-13,debit,10.23,USD,dining,2025-04-24 14:00:00,completed
+PL-13-295,PL-USER-13,debit,50.48,USD,groceries,2025-04-25 10:00:00,completed
+PL-13-296,PL-USER-13,debit,120.83,USD,home maintenance,2025-04-26 09:00:00,completed
+PL-13-297,PL-USER-13,debit,600.84,USD,home maintenance,2025-04-26 12:00:00,completed
+PL-13-298,PL-USER-13,debit,25.44,USD,dining,2025-04-27 18:00:00,completed
+PL-13-299,PL-USER-13,debit,150.84,USD,home improvement,2025-04-28 11:00:00,completed
+PL-13-300,PL-USER-13,debit,10.32,USD,shipping,2025-04-29 10:00:00,completed
+PL-13-301,PL-USER-13,debit,5.34,USD,dining,2025-04-29 12:00:00,completed
+PL-13-302,PL-USER-13,debit,15.12,USD,home improvement,2025-04-30 14:00:00,completed
+PL-13-303,PL-USER-13,debit,40.08,USD,groceries,2025-05-01 10:00:00,completed
+PL-13-304,PL-USER-13,debit,15.92,USD,dining,2025-05-02 08:00:00,completed
+PL-13-305,PL-USER-13,debit,20.25,USD,home improvement,2025-05-02 12:00:00,completed
+PL-13-306,PL-USER-13,debit,140.03,USD,sports equipment,2025-05-03 11:00:00,completed
+PL-13-307,PL-USER-13,debit,25.41,USD,dining,2025-05-04 18:00:00,completed
+PL-13-308,PL-USER-13,debit,55.27,USD,phone service,2025-05-05 00:00:00,completed
+PL-13-309,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-05-05 00:00:00,completed
+PL-13-310,PL-USER-13,debit,30.45,USD,gas,2025-05-05 13:00:00,completed
+PL-13-311,PL-USER-13,debit,30.05,USD,retail,2025-05-06 14:00:00,completed
+PL-13-312,PL-USER-13,debit,99.17,USD,subscription,2025-05-07 10:00:00,completed
+PL-13-313,PL-USER-13,debit,50.67,USD,grocery,2025-05-08 14:00:00,completed
+PL-13-314,PL-USER-13,debit,35.78,USD,dining,2025-05-09 18:00:00,completed
+PL-13-315,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-05-10 00:00:00,completed
+PL-13-316,PL-USER-13,debit,130.7,USD,entertainment,2025-05-10 10:00:00,completed
+PL-13-317,PL-USER-13,debit,25.72,USD,dining,2025-05-11 18:00:00,completed
+PL-13-318,PL-USER-13,debit,30.84,USD,gas,2025-05-12 10:00:00,completed
+PL-13-319,PL-USER-13,debit,6.19,USD,dining,2025-05-12 11:00:00,completed
+PL-13-320,PL-USER-13,debit,15.71,USD,dining,2025-05-13 12:00:00,completed
+PL-13-321,PL-USER-13,debit,25.79,USD,donation,2025-05-14 10:00:00,completed
+PL-13-322,PL-USER-13,debit,156.48,USD,electricity bill,2025-05-15 00:00:00,completed
+PL-13-323,PL-USER-13,debit,20.16,USD,groceries,2025-05-15 17:00:00,completed
+PL-13-324,PL-USER-13,debit,75.07,USD,home improvement,2025-05-16 10:00:00,completed
+PL-13-325,PL-USER-13,debit,20.05,USD,entertainment,2025-05-17 13:00:00,completed
+PL-13-326,PL-USER-13,debit,30.44,USD,dining,2025-05-17 18:00:00,completed
+PL-13-327,PL-USER-13,debit,40.39,USD,groceries,2025-05-18 14:00:00,completed
+PL-13-328,PL-USER-13,debit,40.13,USD,food subscription,2025-05-19 11:00:00,completed
+PL-13-329,PL-USER-13,debit,49.88,USD,water bill,2025-05-20 00:00:00,completed
+PL-13-330,PL-USER-13,debit,15.41,USD,home improvement,2025-05-20 09:00:00,completed
+PL-13-331,PL-USER-13,debit,750.59,USD,electronics,2025-05-21 14:00:00,completed
+PL-13-332,PL-USER-13,transfer,500.0,USD,payment,2025-05-22 10:00:00,completed
+PL-13-333,PL-USER-13,debit,25.27,USD,entertainment,2025-05-23 11:00:00,completed
+PL-13-334,PL-USER-13,debit,250.61,USD,home office,2025-05-24 12:00:00,completed
+PL-13-335,PL-USER-13,transfer,2750.62,USD,payment,2025-05-25 00:00:00,completed
+PL-13-336,PL-USER-13,debit,120.79,USD,eyecare,2025-05-25 10:00:00,completed
+PL-13-337,PL-USER-13,debit,30.16,USD,gas,2025-05-26 12:00:00,completed
+PL-13-338,PL-USER-13,debit,50.04,USD,grocery,2025-05-27 14:00:00,completed
+PL-13-339,PL-USER-13,debit,15.84,USD,restaurant,2025-05-28 12:30:00,completed
+PL-13-340,PL-USER-13,debit,40.76,USD,recreational,2025-05-29 18:00:00,completed
+PL-13-341,PL-USER-13,debit,25.18,USD,restaurant,2025-05-30 17:00:00,completed
+PL-13-342,PL-USER-13,debit,8.41,USD,cafe,2025-05-31 09:00:00,completed
+PL-13-343,PL-USER-13,debit,3.49,USD,retail,2025-05-31 09:30:00,completed
+PL-13-344,PL-USER-13,debit,20.02,USD,bar,2025-05-31 19:00:00,completed
+PL-13-345,PL-USER-13,debit,22.2,USD,restaurant,2025-06-01 18:00:00,completed
+PL-13-346,PL-USER-13,debit,30.29,USD,gas,2025-06-02 10:00:00,completed
+PL-13-347,PL-USER-13,debit,25.56,USD,retail,2025-06-02 11:30:00,completed
+PL-13-348,PL-USER-13,debit,50.15,USD,grocery,2025-06-03 10:00:00,completed
+PL-13-349,PL-USER-13,debit,35.53,USD,restaurant,2025-06-03 18:30:00,completed
+PL-13-350,PL-USER-13,debit,99.3,USD,subscription,2025-06-04 12:00:00,completed
+PL-13-351,PL-USER-13,debit,15.27,USD,restaurant,2025-06-04 13:00:00,completed
+PL-13-352,PL-USER-13,debit,67.13,USD,phone service,2025-06-05 00:00:00,completed
+PL-13-353,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-06-05 00:00:00,completed
+PL-13-354,PL-USER-13,debit,10.75,USD,shipping,2025-06-05 10:00:00,completed
+PL-13-355,PL-USER-13,debit,20.35,USD,bar,2025-06-06 18:00:00,completed
+PL-13-356,PL-USER-13,transfer,500.0,USD,payment,2025-06-06 20:00:00,completed
+PL-13-357,PL-USER-13,debit,25.33,USD,restaurant,2025-06-07 12:00:00,completed
+PL-13-358,PL-USER-13,debit,30.88,USD,entertainment,2025-06-07 14:00:00,completed
+PL-13-359,PL-USER-13,debit,0.8,USD,restaurant,2025-06-08 14:00:00,completed
+PL-13-360,PL-USER-13,debit,40.12,USD,food delivery,2025-06-09 10:00:00,completed
+PL-13-361,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-06-10 00:00:00,completed
+PL-13-362,PL-USER-13,debit,51.0,USD,grocery,2025-06-10 10:00:00,completed
+PL-13-363,PL-USER-13,debit,75.49,USD,home improvement,2025-06-12 10:00:00,completed
+PL-13-364,PL-USER-13,debit,30.63,USD,liquor store,2025-06-14 14:00:00,completed
+PL-13-365,PL-USER-13,debit,150.57,USD,restaurant,2025-06-14 18:00:00,completed
+PL-13-366,PL-USER-13,debit,120.49,USD,electricity bill,2025-06-15 00:00:00,completed
+PL-13-367,PL-USER-13,debit,150.93,USD,electronics repair,2025-06-15 12:00:00,completed
+PL-13-368,PL-USER-13,debit,25.39,USD,gas station,2025-06-16 10:00:00,completed
+PL-13-369,PL-USER-13,debit,5.86,USD,coffee shop,2025-06-16 11:30:00,completed
+PL-13-370,PL-USER-13,debit,20.8,USD,restaurant,2025-06-17 18:00:00,completed
+PL-13-371,PL-USER-13,debit,120.24,USD,clothing rental,2025-06-18 14:00:00,completed
+PL-13-372,PL-USER-13,debit,15.76,USD,food vendor,2025-06-19 12:00:00,completed
+PL-13-373,PL-USER-13,debit,36.51,USD,water bill,2025-06-20 00:00:00,completed
+PL-13-374,PL-USER-13,debit,50.57,USD,grocery store,2025-06-20 10:00:00,completed
+PL-13-375,PL-USER-13,debit,30.49,USD,bar,2025-06-20 18:00:00,completed
+PL-13-376,PL-USER-13,debit,40.26,USD,restaurant,2025-06-21 19:00:00,completed
+PL-13-377,PL-USER-13,debit,75.75,USD,gift store,2025-06-22 14:00:00,completed
+PL-13-378,PL-USER-13,debit,25.78,USD,gas station,2025-06-24 10:00:00,completed
+PL-13-379,PL-USER-13,debit,20.66,USD,hardware store,2025-06-24 11:30:00,completed
+PL-13-380,PL-USER-13,debit,10.48,USD,coffee shop,2025-06-24 19:00:00,completed
+PL-13-381,PL-USER-13,transfer,2023.76,USD,payment,2025-06-25 00:00:00,completed
+PL-13-382,PL-USER-13,debit,60.77,USD,nursery,2025-06-25 14:00:00,completed
+PL-13-383,PL-USER-13,debit,35.05,USD,restaurant,2025-06-26 18:00:00,completed
+PL-13-384,PL-USER-13,debit,50.41,USD,grocery store,2025-06-27 10:00:00,completed
+PL-13-385,PL-USER-13,debit,20.22,USD,bakery,2025-06-28 12:00:00,completed
+PL-13-386,PL-USER-13,debit,25.41,USD,restaurant,2025-06-29 18:00:00,completed
+PL-13-387,PL-USER-13,debit,99.38,USD,software,2025-07-01 10:00:00,completed
+PL-13-388,PL-USER-13,debit,250.01,USD,office supply,2025-07-02 11:00:00,completed
+PL-13-389,PL-USER-13,debit,20.44,USD,restaurant,2025-07-03 17:00:00,completed
+PL-13-390,PL-USER-13,debit,15.35,USD,entertainment,2025-07-03 18:30:00,completed
+PL-13-391,PL-USER-13,debit,30.74,USD,grocery,2025-07-04 10:00:00,completed
+PL-13-392,PL-USER-13,debit,60.4,USD,phone service,2025-07-05 00:00:00,completed
+PL-13-393,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-07-05 00:00:00,completed
+PL-13-394,PL-USER-13,debit,40.14,USD,food delivery,2025-07-05 11:00:00,completed
+PL-13-395,PL-USER-13,debit,25.58,USD,gas,2025-07-07 10:00:00,completed
+PL-13-396,PL-USER-13,debit,15.23,USD,hardware,2025-07-07 11:30:00,completed
+PL-13-397,PL-USER-13,debit,12.09,USD,restaurant,2025-07-07 18:00:00,completed
+PL-13-398,PL-USER-13,debit,5.68,USD,entertainment,2025-07-08 13:30:00,completed
+PL-13-399,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-07-10 00:00:00,completed
+PL-13-400,PL-USER-13,debit,10.72,USD,restaurant,2025-07-10 12:00:00,completed
+PL-13-401,PL-USER-13,debit,20.19,USD,retail,2025-07-10 14:30:00,completed
+PL-13-402,PL-USER-13,debit,50.57,USD,grocery,2025-07-11 13:00:00,completed
+PL-13-403,PL-USER-13,debit,20.32,USD,market,2025-07-12 10:00:00,completed
+PL-13-404,PL-USER-13,debit,25.37,USD,restaurant,2025-07-13 18:00:00,completed
+PL-13-405,PL-USER-13,debit,750.19,USD,retail,2025-07-14 14:00:00,completed
+PL-13-406,PL-USER-13,debit,137.0,USD,electricity bill,2025-07-15 00:00:00,completed
+PL-13-407,PL-USER-13,debit,12.0,USD,fishing magazine,2025-07-15 00:00:00,completed
+PL-13-408,PL-USER-13,debit,12.5,USD,restaurant,2025-07-15 12:00:00,completed
+PL-13-409,PL-USER-13,debit,15.16,USD,retail,2025-07-15 15:00:00,completed
+PL-13-410,PL-USER-13,debit,20.38,USD,bar,2025-07-16 18:00:00,completed
+PL-13-411,PL-USER-13,debit,30.18,USD,retail,2025-07-17 14:00:00,completed
+PL-13-412,PL-USER-13,debit,25.17,USD,gas,2025-07-18 10:00:00,completed
+PL-13-413,PL-USER-13,debit,50.06,USD,grocery,2025-07-18 12:00:00,completed
+PL-13-414,PL-USER-13,debit,35.77,USD,restaurant,2025-07-18 19:00:00,completed
+PL-13-415,PL-USER-13,debit,20.18,USD,market,2025-07-19 11:00:00,completed
+PL-13-416,PL-USER-13,debit,56.36,USD,water bill,2025-07-20 00:00:00,completed
+PL-13-417,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2025-07-20 00:00:00,completed
+PL-13-418,PL-USER-13,debit,40.97,USD,restaurant,2025-07-20 17:00:00,completed
+PL-13-419,PL-USER-13,debit,900.97,USD,insurance,2025-07-22 11:00:00,completed
+PL-13-420,PL-USER-13,debit,10.43,USD,cafe,2025-07-23 14:00:00,completed
+PL-13-421,PL-USER-13,debit,90.85,USD,home decor,2025-07-24 13:00:00,completed
+PL-13-422,PL-USER-13,debit,15.4,USD,food and beverage,2025-07-24 19:00:00,completed
+PL-13-423,PL-USER-13,transfer,1850.54,USD,payment,2025-07-25 00:00:00,completed
+PL-13-424,PL-USER-13,debit,50.87,USD,grocery,2025-07-25 10:00:00,completed
+PL-13-425,PL-USER-13,transfer,400.0,USD,payment,2025-07-25 18:00:00,completed
+PL-13-426,PL-USER-13,debit,30.81,USD,restaurant,2025-07-26 19:00:00,completed
+PL-13-427,PL-USER-13,debit,25.61,USD,gas,2025-07-27 17:00:00,completed
+PL-13-428,PL-USER-13,debit,6.22,USD,cafe,2025-07-28 10:00:00,completed
+PL-13-429,PL-USER-13,debit,20.33,USD,market,2025-07-29 10:30:00,completed
+PL-13-430,PL-USER-13,debit,15.75,USD,florist,2025-07-29 11:15:00,completed
+PL-13-431,PL-USER-13,debit,12.72,USD,restaurant,2025-07-30 12:00:00,completed
+PL-13-432,PL-USER-13,debit,60.35,USD,garden,2025-07-31 10:00:00,completed
+PL-13-433,PL-USER-13,debit,50.94,USD,electronics,2025-08-01 11:00:00,completed
+PL-13-434,PL-USER-13,debit,35.19,USD,housewares,2025-08-02 10:00:00,completed
+PL-13-435,PL-USER-13,debit,50.16,USD,grocery,2025-08-04 10:00:00,completed
+PL-13-436,PL-USER-13,debit,56.45,USD,phone service,2025-08-05 00:00:00,completed
+PL-13-437,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-08-05 00:00:00,completed
+PL-13-438,PL-USER-13,debit,40.12,USD,food delivery,2025-08-05 11:00:00,completed
+PL-13-439,PL-USER-13,debit,15.35,USD,restaurant,2025-08-07 12:00:00,completed
+PL-13-440,PL-USER-13,debit,25.23,USD,gas,2025-08-07 14:00:00,completed
+PL-13-441,PL-USER-13,debit,20.92,USD,entertainment,2025-08-08 10:00:00,completed
+PL-13-442,PL-USER-13,debit,12.33,USD,restaurant,2025-08-09 09:00:00,completed
+PL-13-443,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-08-10 00:00:00,completed
+PL-13-444,PL-USER-13,debit,220.59,USD,medical,2025-08-10 10:00:00,completed
+PL-13-445,PL-USER-13,debit,10.95,USD,food,2025-08-10 13:00:00,completed
+PL-13-446,PL-USER-13,debit,50.03,USD,grocery,2025-08-11 18:00:00,completed
+PL-13-447,PL-USER-13,debit,120.82,USD,auto service,2025-08-12 10:00:00,completed
+PL-13-448,PL-USER-13,debit,20.19,USD,restaurant,2025-08-13 19:00:00,completed
+PL-13-449,PL-USER-13,debit,30.74,USD,gas,2025-08-14 17:00:00,completed
+PL-13-450,PL-USER-13,debit,116.16,USD,electricity bill,2025-08-15 00:00:00,completed
+PL-13-451,PL-USER-13,debit,25.66,USD,restaurant,2025-08-15 18:00:00,completed
+PL-13-452,PL-USER-13,debit,10.97,USD,convenience store,2025-08-15 21:00:00,completed
+PL-13-453,PL-USER-13,debit,20.81,USD,entertainment,2025-08-16 13:00:00,completed
+PL-13-454,PL-USER-13,debit,15.13,USD,food,2025-08-16 15:00:00,completed
+PL-13-455,PL-USER-13,debit,250.74,USD,clothing,2025-08-17 11:00:00,completed
+PL-13-456,PL-USER-13,debit,50.79,USD,grocery,2025-08-18 10:00:00,completed
+PL-13-457,PL-USER-13,debit,15.54,USD,books,2025-08-19 09:00:00,completed
+PL-13-458,PL-USER-13,debit,30.67,USD,water bill,2025-08-20 00:00:00,completed
+PL-13-459,PL-USER-13,debit,19.01,USD,restaurant,2025-08-21 17:00:00,completed
+PL-13-460,PL-USER-13,debit,25.53,USD,gas,2025-08-22 10:00:00,completed
+PL-13-461,PL-USER-13,transfer,300.0,USD,payment,2025-08-22 11:00:00,completed
+PL-13-462,PL-USER-13,debit,20.25,USD,entertainment,2025-08-23 13:00:00,completed
+PL-13-463,PL-USER-13,debit,30.2,USD,restaurant,2025-08-23 18:00:00,completed
+PL-13-464,PL-USER-13,debit,75.46,USD,home improvement,2025-08-24 09:00:00,completed
+PL-13-465,PL-USER-13,transfer,2226.07,USD,payment,2025-08-25 00:00:00,completed
+PL-13-466,PL-USER-13,debit,35.42,USD,home goods,2025-08-25 10:00:00,completed
+PL-13-467,PL-USER-13,debit,600.51,USD,veterinary care,2025-08-26 11:00:00,completed
+PL-13-468,PL-USER-13,debit,25.2,USD,charitable donation,2025-08-27 10:00:00,completed
+PL-13-469,PL-USER-13,debit,50.49,USD,grocery,2025-08-27 14:00:00,completed
+PL-13-470,PL-USER-13,debit,20.47,USD,restaurant,2025-08-28 18:00:00,completed
+PL-13-471,PL-USER-13,debit,30.38,USD,sporting goods,2025-08-29 10:00:00,completed
+PL-13-472,PL-USER-13,debit,120.14,USD,auto repair,2025-08-30 14:00:00,completed
+PL-13-473,PL-USER-13,debit,15.89,USD,restaurant,2025-08-30 15:30:00,completed
+PL-13-474,PL-USER-13,debit,10.9,USD,grocery,2025-08-31 12:00:00,completed
+PL-13-475,PL-USER-13,debit,20.62,USD,home improvement,2025-08-31 14:00:00,completed
+PL-13-476,PL-USER-13,debit,25.25,USD,food and beverage,2025-09-01 13:00:00,completed
+PL-13-477,PL-USER-13,debit,35.95,USD,gas,2025-09-02 10:00:00,completed
+PL-13-478,PL-USER-13,debit,5.37,USD,food and beverage,2025-09-02 12:00:00,completed
+PL-13-479,PL-USER-13,debit,150.65,USD,pet adoption,2025-09-03 12:00:00,completed
+PL-13-480,PL-USER-13,debit,250.47,USD,pet supplies,2025-09-03 14:00:00,completed
+PL-13-481,PL-USER-13,debit,20.68,USD,food and beverage,2025-09-04 13:00:00,completed
+PL-13-482,PL-USER-13,debit,49.21,USD,phone service,2025-09-05 00:00:00,completed
+PL-13-483,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-09-05 00:00:00,completed
+PL-13-484,PL-USER-13,debit,15.26,USD,food and beverage,2025-09-05 14:00:00,completed
+PL-13-485,PL-USER-13,transfer,500.0,USD,payment,2025-09-05 16:00:00,completed
+PL-13-486,PL-USER-13,debit,30.51,USD,grocery,2025-09-06 10:00:00,completed
+PL-13-487,PL-USER-13,debit,40.31,USD,entertainment,2025-09-06 11:00:00,completed
+PL-13-488,PL-USER-13,debit,10.61,USD,food and beverage,2025-09-06 12:00:00,completed
+PL-13-489,PL-USER-13,debit,5.84,USD,food and beverage,2025-09-08 10:00:00,completed
+PL-13-490,PL-USER-13,debit,50.25,USD,grocery,2025-09-09 14:00:00,completed
+PL-13-491,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-09-10 00:00:00,completed
+PL-13-492,PL-USER-13,debit,20.45,USD,home improvement,2025-09-11 10:00:00,completed
+PL-13-493,PL-USER-13,debit,15.93,USD,entertainment,2025-09-11 18:00:00,completed
+PL-13-494,PL-USER-13,debit,10.82,USD,food and beverage,2025-09-11 20:00:00,completed
+PL-13-495,PL-USER-13,debit,12.61,USD,sporting goods,2025-09-12 08:00:00,completed
+PL-13-496,PL-USER-13,debit,8.82,USD,food and beverage,2025-09-12 12:00:00,completed
+PL-13-497,PL-USER-13,debit,30.67,USD,gas,2025-09-13 09:00:00,completed
+PL-13-498,PL-USER-13,debit,25.32,USD,grocery,2025-09-13 11:00:00,completed
+PL-13-499,PL-USER-13,debit,20.52,USD,food and beverage,2025-09-13 13:00:00,completed
+PL-13-500,PL-USER-13,debit,90.64,USD,clothing,2025-09-14 14:00:00,completed
+PL-13-501,PL-USER-13,debit,109.14,USD,electricity bill,2025-09-15 00:00:00,completed
+PL-13-502,PL-USER-13,debit,12.77,USD,food and beverage,2025-09-16 09:00:00,completed
+PL-13-503,PL-USER-13,debit,10.93,USD,food and beverage,2025-09-17 14:00:00,completed
+PL-13-504,PL-USER-13,debit,15.66,USD,food and beverage,2025-09-18 18:00:00,completed
+PL-13-505,PL-USER-13,debit,20.11,USD,grocery,2025-09-19 17:00:00,completed
+PL-13-506,PL-USER-13,debit,25.96,USD,entertainment,2025-09-19 20:00:00,completed
+PL-13-507,PL-USER-13,debit,12.84,USD,food and beverage,2025-09-19 23:00:00,completed
+PL-13-508,PL-USER-13,debit,27.97,USD,water bill,2025-09-20 00:00:00,completed
+PL-13-509,PL-USER-13,debit,30.18,USD,gas,2025-09-20 10:00:00,completed
+PL-13-510,PL-USER-13,debit,25.37,USD,recreational,2025-09-20 12:00:00,completed
+PL-13-511,PL-USER-13,transfer,200.0,USD,payment,2025-09-20 15:00:00,completed
+PL-13-512,PL-USER-13,debit,18.05,USD,food and beverage,2025-09-21 18:00:00,completed
+PL-13-513,PL-USER-13,debit,10.77,USD,recreational,2025-09-22 08:00:00,completed
+PL-13-514,PL-USER-13,debit,8.05,USD,food and beverage,2025-09-22 12:00:00,completed
+PL-13-515,PL-USER-13,debit,5.58,USD,food and beverage,2025-09-23 10:00:00,completed
+PL-13-516,PL-USER-13,debit,30.09,USD,grocery,2025-09-23 14:00:00,completed
+PL-13-517,PL-USER-13,debit,20.72,USD,food and beverage,2025-09-24 18:00:00,completed
+PL-13-518,PL-USER-13,transfer,2106.6,USD,payment,2025-09-25 00:00:00,completed
+PL-13-519,PL-USER-13,debit,15.22,USD,home improvement,2025-09-25 17:00:00,completed
+PL-13-520,PL-USER-13,debit,25.96,USD,entertainment,2025-09-25 20:00:00,completed
+PL-13-521,PL-USER-13,debit,15.31,USD,food and beverage,2025-09-26 12:00:00,completed
+PL-13-522,PL-USER-13,transfer,200.0,USD,payment,2025-09-26 14:00:00,completed
+PL-13-523,PL-USER-13,debit,25.79,USD,gas,2025-09-27 10:00:00,completed
+PL-13-524,PL-USER-13,debit,10.59,USD,convenience store,2025-09-27 11:00:00,completed
+PL-13-525,PL-USER-13,debit,30.56,USD,entertainment,2025-09-27 12:00:00,completed
+PL-13-526,PL-USER-13,debit,25.85,USD,food and beverage,2025-09-28 18:00:00,completed
+PL-13-527,PL-USER-13,debit,5.4,USD,food and beverage,2025-09-29 10:00:00,completed
+PL-13-528,PL-USER-13,debit,70.72,USD,home goods,2025-09-30 14:00:00,completed
+PL-13-529,PL-USER-13,debit,50.18,USD,grocery,2025-10-01 10:00:00,completed
+PL-13-530,PL-USER-13,transfer,200.0,USD,payment,2025-10-01 14:00:00,completed
+PL-13-531,PL-USER-13,debit,20.73,USD,sporting goods,2025-10-02 08:00:00,completed
+PL-13-532,PL-USER-13,debit,10.45,USD,food and beverage,2025-10-02 12:00:00,completed
+PL-13-533,PL-USER-13,debit,30.49,USD,food and beverage,2025-10-03 18:00:00,completed
+PL-13-534,PL-USER-13,debit,40.71,USD,entertainment,2025-10-03 20:00:00,completed
+PL-13-535,PL-USER-13,debit,15.69,USD,home improvement,2025-10-04 10:00:00,completed
+PL-13-536,PL-USER-13,debit,25.31,USD,entertainment,2025-10-04 13:00:00,completed
+PL-13-537,PL-USER-13,debit,53.0,USD,phone service,2025-10-05 00:00:00,completed
+PL-13-538,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-10-05 00:00:00,completed
+PL-13-539,PL-USER-13,debit,20.46,USD,food and beverage,2025-10-05 18:00:00,completed
+PL-13-540,PL-USER-13,transfer,300.0,USD,payment,2025-10-05 20:00:00,completed
+PL-13-541,PL-USER-13,debit,35.74,USD,entertainment,2025-10-06 13:00:00,completed
+PL-13-542,PL-USER-13,debit,10.17,USD,food and beverage,2025-10-07 10:00:00,completed
+PL-13-543,PL-USER-13,debit,25.54,USD,gas,2025-10-07 12:00:00,completed
+PL-13-544,PL-USER-13,debit,25.44,USD,food and beverage,2025-10-08 18:00:00,completed
+PL-13-545,PL-USER-13,debit,51.0,USD,grocery,2025-10-09 10:00:00,completed
+PL-13-546,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-10-10 00:00:00,completed
+PL-13-547,PL-USER-13,debit,20.59,USD,entertainment,2025-10-10 18:00:00,completed
+PL-13-548,PL-USER-13,debit,30.12,USD,food and beverage,2025-10-10 20:00:00,completed
+PL-13-549,PL-USER-13,debit,15.23,USD,grocery,2025-10-11 12:00:00,completed
+PL-13-550,PL-USER-13,transfer,200.0,USD,payment,2025-10-11 18:00:00,completed
+PL-13-551,PL-USER-13,debit,20.83,USD,food and beverage,2025-10-12 18:00:00,completed
+PL-13-552,PL-USER-13,debit,220.07,USD,medical,2025-10-13 10:00:00,completed
+PL-13-553,PL-USER-13,debit,10.59,USD,food and beverage,2025-10-13 11:30:00,completed
+PL-13-554,PL-USER-13,debit,15.14,USD,recreational,2025-10-14 08:00:00,completed
+PL-13-555,PL-USER-13,debit,25.52,USD,home improvement,2025-10-14 17:00:00,completed
+PL-13-556,PL-USER-13,debit,111.26,USD,electricity bill,2025-10-15 00:00:00,completed
+PL-13-557,PL-USER-13,debit,12.0,USD,fishing magazine,2025-10-15 00:00:00,completed
+PL-13-558,PL-USER-13,debit,80.49,USD,retail,2025-10-15 10:00:00,completed
+PL-13-559,PL-USER-13,debit,10.24,USD,food and beverage,2025-10-15 12:00:00,completed
+PL-13-560,PL-USER-13,debit,25.19,USD,food and beverage,2025-10-16 12:00:00,completed
+PL-13-561,PL-USER-13,debit,20.68,USD,food and beverage,2025-10-16 18:00:00,completed
+PL-13-562,PL-USER-13,debit,30.82,USD,gas,2025-10-17 10:00:00,completed
+PL-13-563,PL-USER-13,debit,50.21,USD,grocery,2025-10-17 12:00:00,completed
+PL-13-564,PL-USER-13,debit,50.76,USD,retail,2025-10-18 14:00:00,completed
+PL-13-565,PL-USER-13,debit,15.56,USD,digital media,2025-10-19 11:00:00,completed
+PL-13-566,PL-USER-13,debit,35.54,USD,water bill,2025-10-20 00:00:00,completed
+PL-13-567,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2025-10-20 00:00:00,completed
+PL-13-568,PL-USER-13,debit,15.5,USD,food and beverage,2025-10-20 12:00:00,completed
+PL-13-569,PL-USER-13,debit,50.17,USD,online education,2025-10-21 10:00:00,completed
+PL-13-570,PL-USER-13,debit,10.97,USD,food and beverage,2025-10-22 14:00:00,completed
+PL-13-571,PL-USER-13,debit,25.07,USD,charitable donation,2025-10-23 12:00:00,completed
+PL-13-572,PL-USER-13,debit,9.15,USD,convenience store,2025-10-24 10:00:00,completed
+PL-13-573,PL-USER-13,transfer,386.26,USD,payment,2025-10-25 00:00:00,completed
+PL-13-574,PL-USER-13,debit,56.87,USD,grocery store,2025-10-25 10:00:00,completed
+PL-13-575,PL-USER-13,debit,32.61,USD,gas station,2025-10-25 11:30:00,completed
+PL-13-576,PL-USER-13,debit,44.07,USD,grocery store,2025-10-26 18:00:00,completed
+PL-13-577,PL-USER-13,debit,150.12,USD,animal shelter,2025-10-27 12:00:00,completed
+PL-13-578,PL-USER-13,debit,40.69,USD,specialty store,2025-10-28 14:00:00,completed
+PL-13-579,PL-USER-13,debit,15.9,USD,restaurant,2025-10-30 12:30:00,completed
+PL-13-580,PL-USER-13,debit,24.26,USD,hardware store,2025-10-30 14:00:00,completed
+PL-13-581,PL-USER-13,debit,40.44,USD,food delivery,2025-10-31 10:00:00,completed
+PL-13-582,PL-USER-13,debit,21.44,USD,farmers' market,2025-11-01 09:30:00,completed
+PL-13-583,PL-USER-13,debit,90.11,USD,home decor,2025-11-02 12:00:00,completed
+PL-13-584,PL-USER-13,debit,35.27,USD,gas station,2025-11-03 13:30:00,completed
+PL-13-585,PL-USER-13,debit,57.62,USD,phone service,2025-11-05 00:00:00,completed
+PL-13-586,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-11-05 00:00:00,completed
+PL-13-587,PL-USER-13,debit,56.99,USD,grocery store,2025-11-05 10:00:00,completed
+PL-13-588,PL-USER-13,debit,12.86,USD,coffee shop,2025-11-06 14:00:00,completed
+PL-13-589,PL-USER-13,debit,28.8,USD,restaurant,2025-11-07 19:00:00,completed
+PL-13-590,PL-USER-13,debit,24.31,USD,hardware store,2025-11-08 10:00:00,completed
+PL-13-591,PL-USER-13,transfer,1500.0,USD,payment,2025-11-08 15:00:00,completed
+PL-13-592,PL-USER-13,debit,140.44,USD,sporting goods store,2025-11-09 12:00:00,completed
+PL-13-593,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-11-10 00:00:00,completed
+PL-13-594,PL-USER-13,debit,35.1,USD,gas station,2025-11-10 10:00:00,completed
+PL-13-595,PL-USER-13,debit,220.73,USD,dentist office,2025-11-11 14:00:00,completed
+PL-13-596,PL-USER-13,debit,57.01,USD,grocery store,2025-11-12 10:00:00,completed
+PL-13-597,PL-USER-13,debit,40.77,USD,food delivery,2025-11-13 19:00:00,completed
+PL-13-598,PL-USER-13,debit,50.32,USD,online retailer,2025-11-14 17:00:00,completed
+PL-13-599,PL-USER-13,debit,159.12,USD,electricity bill,2025-11-15 00:00:00,completed
+PL-13-600,PL-USER-13,debit,25.44,USD,restaurant,2025-11-16 11:00:00,completed
+PL-13-601,PL-USER-13,debit,25.28,USD,online retailer,2025-11-17 19:00:00,completed
+PL-13-602,PL-USER-13,debit,56.78,USD,grocery store,2025-11-19 10:00:00,completed
+PL-13-603,PL-USER-13,debit,45.15,USD,water bill,2025-11-20 00:00:00,completed
+PL-13-604,PL-USER-13,debit,33.12,USD,gas station,2025-11-20 14:00:00,completed
+PL-13-605,PL-USER-13,debit,43.94,USD,restaurant,2025-11-21 18:30:00,completed
+PL-13-606,PL-USER-13,debit,68.63,USD,restaurant,2025-11-22 19:00:00,completed
+PL-13-607,PL-USER-13,debit,28.95,USD,retail,2025-11-22 21:00:00,completed
+PL-13-608,PL-USER-13,transfer,1000.0,USD,payment,2025-11-24 10:00:00,completed
+PL-13-609,PL-USER-13,debit,6.0,USD,cafe,2025-11-25 10:00:00,completed
+PL-13-610,PL-USER-13,debit,25.66,USD,retail,2025-11-25 12:00:00,completed
+PL-13-611,PL-USER-13,debit,180.38,USD,subscription,2025-11-26 14:00:00,completed
+PL-13-612,PL-USER-13,debit,53.52,USD,grocery,2025-11-26 17:00:00,completed
+PL-13-613,PL-USER-13,debit,33.44,USD,bakery,2025-11-27 14:00:00,completed
+PL-13-614,PL-USER-13,debit,120.14,USD,retail,2025-11-28 10:00:00,completed
+PL-13-615,PL-USER-13,debit,26.59,USD,restaurant,2025-11-28 13:00:00,completed
+PL-13-616,PL-USER-13,debit,20.14,USD,restaurant,2025-11-29 12:00:00,completed
+PL-13-617,PL-USER-13,debit,30.84,USD,bar,2025-11-29 18:00:00,completed
+PL-13-618,PL-USER-13,debit,35.59,USD,restaurant,2025-11-30 11:00:00,completed
+PL-13-619,PL-USER-13,debit,13.4,USD,convenience store,2025-11-30 14:00:00,completed
+PL-13-620,PL-USER-13,debit,25.92,USD,gas,2025-12-01 09:00:00,completed
+PL-13-621,PL-USER-13,debit,5.48,USD,cafe,2025-12-01 10:00:00,completed
+PL-13-622,PL-USER-13,debit,40.62,USD,retail,2025-12-01 11:00:00,completed
+PL-13-623,PL-USER-13,transfer,500.0,USD,payment,2025-12-01 12:00:00,completed
+PL-13-624,PL-USER-13,debit,150.35,USD,online retail,2025-12-02 10:00:00,completed
+PL-13-625,PL-USER-13,debit,28.67,USD,restaurant,2025-12-02 18:00:00,completed
+PL-13-626,PL-USER-13,debit,56.69,USD,grocery,2025-12-03 13:00:00,completed
+PL-13-627,PL-USER-13,debit,12.77,USD,pharmacy,2025-12-03 14:30:00,completed
+PL-13-628,PL-USER-13,debit,22.94,USD,restaurant,2025-12-04 18:00:00,completed
+PL-13-629,PL-USER-13,debit,54.86,USD,phone service,2025-12-05 00:00:00,completed
+PL-13-630,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2025-12-05 00:00:00,completed
+PL-13-631,PL-USER-13,debit,60.76,USD,nursery,2025-12-05 10:00:00,completed
+PL-13-632,PL-USER-13,debit,15.39,USD,entertainment,2025-12-05 19:00:00,completed
+PL-13-633,PL-USER-13,debit,90.03,USD,online education,2025-12-06 10:00:00,completed
+PL-13-634,PL-USER-13,debit,30.38,USD,restaurant,2025-12-06 18:00:00,completed
+PL-13-635,PL-USER-13,debit,18.75,USD,restaurant,2025-12-07 17:00:00,completed
+PL-13-636,PL-USER-13,debit,14.99,USD,entertainment,2025-12-08 13:00:00,completed
+PL-13-637,PL-USER-13,debit,50.57,USD,retail,2025-12-09 14:00:00,completed
+PL-13-638,PL-USER-13,debit,9.99,USD,music streaming (classic country),2025-12-10 00:00:00,completed
+PL-13-639,PL-USER-13,debit,75.51,USD,retail,2025-12-10 15:00:00,completed
+PL-13-640,PL-USER-13,debit,150.1,USD,pet adoption,2025-12-11 12:00:00,completed
+PL-13-641,PL-USER-13,debit,25.76,USD,gas,2025-12-12 09:00:00,completed
+PL-13-642,PL-USER-13,debit,50.28,USD,grocery,2025-12-12 10:00:00,completed
+PL-13-643,PL-USER-13,debit,12.79,USD,restaurant,2025-12-13 08:00:00,completed
+PL-13-644,PL-USER-13,debit,50.78,USD,home improvement,2025-12-14 10:00:00,completed
+PL-13-645,PL-USER-13,debit,96.7,USD,electricity bill,2025-12-15 00:00:00,completed
+PL-13-646,PL-USER-13,debit,5.95,USD,cafe,2025-12-15 08:00:00,completed
+PL-13-647,PL-USER-13,debit,30.81,USD,pet supplies,2025-12-15 10:00:00,completed
+PL-13-648,PL-USER-13,debit,20.25,USD,restaurant,2025-12-16 18:00:00,completed
+PL-13-649,PL-USER-13,debit,31.0,USD,gas,2025-12-17 14:00:00,completed
+PL-13-650,PL-USER-13,debit,40.86,USD,restaurant,2025-12-17 16:00:00,completed
+PL-13-651,PL-USER-13,debit,30.86,USD,convenience store,2025-12-17 18:00:00,completed
+PL-13-652,PL-USER-13,debit,25.56,USD,grocery,2025-12-18 18:00:00,completed
+PL-13-653,PL-USER-13,debit,18.39,USD,restaurant,2025-12-19 12:00:00,completed
+PL-13-654,PL-USER-13,debit,51.04,USD,water bill,2025-12-20 00:00:00,completed
+PL-13-655,PL-USER-13,debit,40.8,USD,market,2025-12-20 10:00:00,completed
+PL-13-656,PL-USER-13,transfer,1500.0,USD,payment,2025-12-21 14:00:00,completed
+PL-13-657,PL-USER-13,debit,700.03,USD,travel,2025-12-22 10:00:00,completed
+PL-13-658,PL-USER-13,debit,50.83,USD,retail,2025-12-23 12:00:00,completed
+PL-13-659,PL-USER-13,debit,10.49,USD,restaurant,2025-12-23 14:00:00,completed
+PL-13-660,PL-USER-13,debit,30.02,USD,gas,2025-12-24 10:00:00,completed
+PL-13-661,PL-USER-13,debit,20.05,USD,convenience,2025-12-24 12:00:00,completed
+PL-13-662,PL-USER-13,debit,25.75,USD,charity,2025-12-25 09:00:00,completed
+PL-13-663,PL-USER-13,debit,250.96,USD,retail,2025-12-26 12:00:00,completed
+PL-13-664,PL-USER-13,debit,50.21,USD,grocery,2025-12-27 14:00:00,completed
+PL-13-665,PL-USER-13,debit,10.55,USD,shipping,2025-12-27 15:30:00,completed
+PL-13-666,PL-USER-13,transfer,1000.0,USD,payment,2025-12-28 10:00:00,completed
+PL-13-667,PL-USER-13,debit,50.56,USD,restaurant,2025-12-28 18:00:00,completed
+PL-13-668,PL-USER-13,debit,20.53,USD,takeout,2025-12-29 18:00:00,completed
+PL-13-669,PL-USER-13,debit,5.7,USD,coffee,2025-12-30 10:00:00,completed
+PL-13-670,PL-USER-13,debit,30.82,USD,hardware,2025-12-30 11:30:00,completed
+PL-13-671,PL-USER-13,debit,75.96,USD,gardening,2025-12-31 10:00:00,completed
+PL-13-672,PL-USER-13,debit,1500.0,USD,property tax,2026-01-01 00:00:00,completed
+PL-13-673,PL-USER-13,debit,800.0,USD,homeowner's insurance,2026-01-01 00:00:00,completed
+PL-13-674,PL-USER-13,debit,40.43,USD,entertainment,2026-01-01 12:00:00,completed
+PL-13-675,PL-USER-13,transfer,2000.0,USD,payment,2026-01-02 10:00:00,completed
+PL-13-676,PL-USER-13,debit,30.84,USD,restaurant,2026-01-02 18:00:00,completed
+PL-13-677,PL-USER-13,debit,25.39,USD,gas,2026-01-03 09:00:00,completed
+PL-13-678,PL-USER-13,debit,50.56,USD,grocery,2026-01-03 10:30:00,completed
+PL-13-679,PL-USER-13,debit,11.93,USD,subscription,2026-01-04 12:00:00,completed
+PL-13-680,PL-USER-13,debit,57.26,USD,phone service,2026-01-05 00:00:00,completed
+PL-13-681,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-01-05 00:00:00,completed
+PL-13-682,PL-USER-13,debit,40.17,USD,food,2026-01-06 14:00:00,completed
+PL-13-683,PL-USER-13,debit,600.55,USD,veterinary care,2026-01-08 10:00:00,completed
+PL-13-684,PL-USER-13,debit,60.65,USD,grocery,2026-01-09 10:00:00,completed
+PL-13-685,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-01-10 00:00:00,completed
+PL-13-686,PL-USER-13,debit,1800.6,USD,tax payment,2026-01-10 09:00:00,completed
+PL-13-687,PL-USER-13,debit,25.46,USD,gas,2026-01-11 11:00:00,completed
+PL-13-688,PL-USER-13,debit,50.73,USD,retail,2026-01-12 10:00:00,completed
+PL-13-689,PL-USER-13,debit,15.76,USD,restaurant,2026-01-13 12:00:00,completed
+PL-13-690,PL-USER-13,debit,20.81,USD,restaurant,2026-01-14 18:00:00,completed
+PL-13-691,PL-USER-13,debit,109.15,USD,electricity bill,2026-01-15 00:00:00,completed
+PL-13-692,PL-USER-13,debit,12.0,USD,fishing magazine,2026-01-15 00:00:00,completed
+PL-13-693,PL-USER-13,debit,55.69,USD,grocery,2026-01-15 10:00:00,completed
+PL-13-694,PL-USER-13,debit,30.69,USD,restaurant,2026-01-16 18:30:00,completed
+PL-13-695,PL-USER-13,debit,40.84,USD,retail,2026-01-17 10:00:00,completed
+PL-13-696,PL-USER-13,debit,19.23,USD,restaurant,2026-01-18 18:00:00,completed
+PL-13-697,PL-USER-13,debit,29.75,USD,water bill,2026-01-20 00:00:00,completed
+PL-13-698,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2026-01-20 00:00:00,completed
+PL-13-699,PL-USER-13,debit,25.65,USD,gas,2026-01-20 09:00:00,completed
+PL-13-700,PL-USER-13,debit,15.89,USD,retail,2026-01-20 10:30:00,completed
+PL-13-701,PL-USER-13,transfer,300.0,USD,payment,2026-01-21 14:00:00,completed
+PL-13-702,PL-USER-13,debit,56.39,USD,grocery,2026-01-22 10:00:00,completed
+PL-13-703,PL-USER-13,debit,33.42,USD,dining,2026-01-23 18:00:00,completed
+PL-13-704,PL-USER-13,debit,22.83,USD,retail,2026-01-23 19:30:00,completed
+PL-13-705,PL-USER-13,debit,43.99,USD,bar,2026-01-24 12:00:00,completed
+PL-13-706,PL-USER-13,transfer,1505.33,USD,payment,2026-01-25 00:00:00,completed
+PL-13-707,PL-USER-13,debit,11.25,USD,coffee,2026-01-26 14:00:00,completed
+PL-13-708,PL-USER-13,debit,90.15,USD,online education,2026-01-27 11:00:00,completed
+PL-13-709,PL-USER-13,debit,56.72,USD,grocery,2026-01-29 10:00:00,completed
+PL-13-710,PL-USER-13,debit,45.97,USD,electronics,2026-01-30 11:00:00,completed
+PL-13-711,PL-USER-13,debit,23.67,USD,restaurant,2026-01-30 13:00:00,completed
+PL-13-712,PL-USER-13,debit,14.36,USD,entertainment,2026-01-31 13:00:00,completed
+PL-13-713,PL-USER-13,debit,32.61,USD,restaurant,2026-01-31 18:00:00,completed
+PL-13-714,PL-USER-13,debit,25.2,USD,gas,2026-02-02 10:00:00,completed
+PL-13-715,PL-USER-13,debit,12.89,USD,shipping,2026-02-02 11:30:00,completed
+PL-13-716,PL-USER-13,debit,9.14,USD,restaurant,2026-02-02 14:00:00,completed
+PL-13-717,PL-USER-13,debit,10.91,USD,grocery,2026-02-03 19:00:00,completed
+PL-13-718,PL-USER-13,debit,40.76,USD,food,2026-02-04 12:00:00,completed
+PL-13-719,PL-USER-13,debit,60.64,USD,phone service,2026-02-05 00:00:00,completed
+PL-13-720,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-02-05 00:00:00,completed
+PL-13-721,PL-USER-13,debit,85.26,USD,entertainment,2026-02-05 14:00:00,completed
+PL-13-722,PL-USER-13,debit,24.03,USD,sporting goods,2026-02-06 11:00:00,completed
+PL-13-723,PL-USER-13,debit,19.07,USD,restaurant,2026-02-06 12:30:00,completed
+PL-13-724,PL-USER-13,debit,20.98,USD,food,2026-02-07 18:00:00,completed
+PL-13-725,PL-USER-13,transfer,200.0,USD,payment,2026-02-08 10:00:00,completed
+PL-13-726,PL-USER-13,debit,850.07,USD,home goods,2026-02-09 11:00:00,completed
+PL-13-727,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-02-10 00:00:00,completed
+PL-13-728,PL-USER-13,debit,25.03,USD,gas,2026-02-10 09:00:00,completed
+PL-13-729,PL-USER-13,debit,50.24,USD,grocery,2026-02-10 11:00:00,completed
+PL-13-730,PL-USER-13,debit,15.31,USD,restaurant,2026-02-10 12:30:00,completed
+PL-13-731,PL-USER-13,debit,13.44,USD,bookstore,2026-02-11 14:00:00,completed
+PL-13-732,PL-USER-13,debit,20.99,USD,restaurant,2026-02-12 12:00:00,completed
+PL-13-733,PL-USER-13,debit,23.77,USD,food,2026-02-13 18:00:00,completed
+PL-13-734,PL-USER-13,debit,140.62,USD,sporting goods,2026-02-14 10:00:00,completed
+PL-13-735,PL-USER-13,debit,118.25,USD,electricity bill,2026-02-15 00:00:00,completed
+PL-13-736,PL-USER-13,transfer,300.0,USD,payment,2026-02-15 10:00:00,completed
+PL-13-737,PL-USER-13,debit,40.57,USD,baby store,2026-02-16 14:00:00,completed
+PL-13-738,PL-USER-13,debit,50.52,USD,grocery,2026-02-17 10:00:00,completed
+PL-13-739,PL-USER-13,debit,16.98,USD,restaurant,2026-02-19 12:00:00,completed
+PL-13-740,PL-USER-13,debit,30.81,USD,gas,2026-02-19 13:30:00,completed
+PL-13-741,PL-USER-13,debit,33.51,USD,water bill,2026-02-20 00:00:00,completed
+PL-13-742,PL-USER-13,debit,150.6,USD,online store,2026-02-20 11:00:00,completed
+PL-13-743,PL-USER-13,debit,13.24,USD,restaurant,2026-02-21 09:00:00,completed
+PL-13-744,PL-USER-13,debit,25.98,USD,restaurant,2026-02-21 19:00:00,completed
+PL-13-745,PL-USER-13,debit,75.74,USD,gardening store,2026-02-22 12:00:00,completed
+PL-13-746,PL-USER-13,debit,19.14,USD,restaurant,2026-02-23 13:00:00,completed
+PL-13-747,PL-USER-13,debit,8.59,USD,bakery,2026-02-24 10:00:00,completed
+PL-13-748,PL-USER-13,transfer,3388.54,USD,payment,2026-02-25 00:00:00,completed
+PL-13-749,PL-USER-13,debit,56.46,USD,grocery,2026-02-25 10:00:00,completed
+PL-13-750,PL-USER-13,debit,120.77,USD,auto service,2026-02-26 14:00:00,completed
+PL-13-751,PL-USER-13,debit,33.24,USD,restaurant,2026-02-27 19:00:00,completed
+PL-13-752,PL-USER-13,debit,13.16,USD,convenience store,2026-02-28 07:00:00,completed
+PL-13-753,PL-USER-13,debit,35.61,USD,gas,2026-02-28 07:15:00,completed
+PL-13-754,PL-USER-13,debit,26.81,USD,restaurant,2026-03-01 18:00:00,completed
+PL-13-755,PL-USER-13,debit,40.68,USD,food delivery,2026-03-02 10:00:00,completed
+PL-13-756,PL-USER-13,debit,4.98,USD,coffee shop,2026-03-03 14:00:00,completed
+PL-13-757,PL-USER-13,debit,130.08,USD,government services,2026-03-04 10:00:00,completed
+PL-13-758,PL-USER-13,debit,56.47,USD,grocery,2026-03-04 15:00:00,completed
+PL-13-759,PL-USER-13,debit,47.94,USD,phone service,2026-03-05 00:00:00,completed
+PL-13-760,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-03-05 00:00:00,completed
+PL-13-761,PL-USER-13,debit,900.3,USD,insurance,2026-03-05 10:00:00,completed
+PL-13-762,PL-USER-13,debit,80.35,USD,retail,2026-03-06 14:00:00,completed
+PL-13-763,PL-USER-13,debit,20.61,USD,entertainment,2026-03-07 12:00:00,completed
+PL-13-764,PL-USER-13,debit,32.71,USD,dining,2026-03-07 18:00:00,completed
+PL-13-765,PL-USER-13,debit,19.7,USD,dining,2026-03-08 18:00:00,completed
+PL-13-766,PL-USER-13,debit,23.87,USD,recreational,2026-03-09 10:00:00,completed
+PL-13-767,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-03-10 00:00:00,completed
+PL-13-768,PL-USER-13,debit,25.92,USD,gas,2026-03-10 09:00:00,completed
+PL-13-769,PL-USER-13,debit,12.98,USD,shipping,2026-03-10 11:00:00,completed
+PL-13-770,PL-USER-13,debit,4.52,USD,dining,2026-03-10 12:30:00,completed
+PL-13-771,PL-USER-13,debit,0.23,USD,none,2026-03-11 10:00:00,completed
+PL-13-772,PL-USER-13,debit,20.32,USD,dining,2026-03-12 18:00:00,completed
+PL-13-773,PL-USER-13,debit,100.82,USD,atm,2026-03-13 10:00:00,completed
+PL-13-774,PL-USER-13,debit,15.04,USD,services,2026-03-13 11:00:00,completed
+PL-13-775,PL-USER-13,debit,75.71,USD,grocery,2026-03-14 10:00:00,completed
+PL-13-776,PL-USER-13,debit,30.63,USD,florist,2026-03-14 11:30:00,completed
+PL-13-777,PL-USER-13,debit,210.77,USD,electricity bill,2026-03-15 00:00:00,completed
+PL-13-778,PL-USER-13,debit,900.56,USD,insurance,2026-03-15 10:00:00,completed
+PL-13-779,PL-USER-13,debit,13.46,USD,dining,2026-03-16 12:00:00,completed
+PL-13-780,PL-USER-13,debit,25.35,USD,home improvement,2026-03-16 14:00:00,completed
+PL-13-781,PL-USER-13,debit,220.01,USD,medical,2026-03-17 10:00:00,completed
+PL-13-782,PL-USER-13,debit,6.38,USD,dining,2026-03-18 10:00:00,completed
+PL-13-783,PL-USER-13,transfer,500.0,USD,payment,2026-03-18 19:00:00,completed
+PL-13-784,PL-USER-13,debit,40.88,USD,entertainment,2026-03-19 12:00:00,completed
+PL-13-785,PL-USER-13,debit,20.69,USD,dining,2026-03-19 18:00:00,completed
+PL-13-786,PL-USER-13,debit,44.01,USD,water bill,2026-03-20 00:00:00,completed
+PL-13-787,PL-USER-13,debit,15.54,USD,sporting goods,2026-03-20 10:00:00,completed
+PL-13-788,PL-USER-13,debit,25.9,USD,gas,2026-03-20 12:00:00,completed
+PL-13-789,PL-USER-13,debit,35.13,USD,dining,2026-03-21 18:00:00,completed
+PL-13-790,PL-USER-13,debit,56.66,USD,grocery,2026-03-22 14:00:00,completed
+PL-13-791,PL-USER-13,debit,50.72,USD,home improvement,2026-03-23 10:00:00,completed
+PL-13-792,PL-USER-13,debit,13.11,USD,dining,2026-03-24 12:30:00,completed
+PL-13-793,PL-USER-13,transfer,2043.05,USD,payment,2026-03-25 00:00:00,completed
+PL-13-794,PL-USER-13,debit,25.51,USD,donation,2026-03-25 14:00:00,completed
+PL-13-795,PL-USER-13,debit,20.17,USD,sporting goods,2026-03-26 10:00:00,completed
+PL-13-796,PL-USER-13,debit,600.1,USD,veterinary care,2026-03-27 15:00:00,completed
+PL-13-797,PL-USER-13,debit,15.97,USD,dining,2026-03-28 10:00:00,completed
+PL-13-798,PL-USER-13,debit,30.23,USD,gas,2026-03-28 12:00:00,completed
+PL-13-799,PL-USER-13,debit,8.56,USD,convenience store,2026-03-29 11:00:00,completed
+PL-13-800,PL-USER-13,debit,50.51,USD,grocery,2026-03-30 10:00:00,completed
+PL-13-801,PL-USER-13,debit,750.26,USD,electronics,2026-03-31 12:00:00,completed
+PL-13-802,PL-USER-13,debit,25.52,USD,dining,2026-04-01 18:00:00,completed
+PL-13-803,PL-USER-13,debit,10.32,USD,shipping,2026-04-02 10:00:00,completed
+PL-13-804,PL-USER-13,debit,0.09,USD,library,2026-04-02 11:30:00,completed
+PL-13-805,PL-USER-13,debit,20.19,USD,pharmacy,2026-04-02 12:30:00,completed
+PL-13-806,PL-USER-13,debit,12.0,USD,dining,2026-04-03 12:00:00,completed
+PL-13-807,PL-USER-13,debit,30.33,USD,gas,2026-04-04 09:00:00,completed
+PL-13-808,PL-USER-13,debit,10.29,USD,food truck,2026-04-04 13:00:00,completed
+PL-13-809,PL-USER-13,debit,54.98,USD,phone service,2026-04-05 00:00:00,completed
+PL-13-810,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-04-05 00:00:00,completed
+PL-13-811,PL-USER-13,debit,50.16,USD,hardware,2026-04-05 10:00:00,completed
+PL-13-812,PL-USER-13,debit,25.89,USD,online shopping,2026-04-06 14:00:00,completed
+PL-13-813,PL-USER-13,debit,140.36,USD,retail,2026-04-07 11:00:00,completed
+PL-13-814,PL-USER-13,debit,25.98,USD,retail,2026-04-08 14:00:00,completed
+PL-13-815,PL-USER-13,debit,30.76,USD,grocery,2026-04-09 15:00:00,completed
+PL-13-816,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-04-10 00:00:00,completed
+PL-13-817,PL-USER-13,debit,20.48,USD,dining,2026-04-10 18:00:00,completed
+PL-13-818,PL-USER-13,debit,15.27,USD,entertainment,2026-04-10 19:00:00,completed
+PL-13-819,PL-USER-13,debit,50.01,USD,retail,2026-04-11 11:00:00,completed
+PL-13-820,PL-USER-13,debit,25.22,USD,gas,2026-04-13 09:00:00,completed
+PL-13-821,PL-USER-13,transfer,2000.0,USD,payment,2026-04-13 10:00:00,completed
+PL-13-822,PL-USER-13,debit,10.38,USD,dining,2026-04-14 12:00:00,completed
+PL-13-823,PL-USER-13,debit,65.53,USD,electricity bill,2026-04-15 00:00:00,completed
+PL-13-824,PL-USER-13,debit,12.0,USD,fishing magazine,2026-04-15 00:00:00,completed
+PL-13-825,PL-USER-13,debit,40.72,USD,grocery,2026-04-15 10:00:00,completed
+PL-13-826,PL-USER-13,debit,20.44,USD,entertainment,2026-04-16 19:00:00,completed
+PL-13-827,PL-USER-13,debit,25.08,USD,dining,2026-04-17 18:00:00,completed
+PL-13-828,PL-USER-13,debit,30.17,USD,entertainment,2026-04-17 19:30:00,completed
+PL-13-829,PL-USER-13,debit,10.63,USD,retail,2026-04-17 22:00:00,completed
+PL-13-830,PL-USER-13,debit,15.74,USD,retail,2026-04-18 12:00:00,completed
+PL-13-831,PL-USER-13,debit,20.13,USD,grocery,2026-04-18 14:00:00,completed
+PL-13-832,PL-USER-13,debit,90.36,USD,education,2026-04-19 11:00:00,completed
+PL-13-833,PL-USER-13,debit,44.96,USD,water bill,2026-04-20 00:00:00,completed
+PL-13-834,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2026-04-20 00:00:00,completed
+PL-13-835,PL-USER-13,debit,8.74,USD,dining,2026-04-20 14:00:00,completed
+PL-13-836,PL-USER-13,debit,30.72,USD,gas,2026-04-20 16:00:00,completed
+PL-13-837,PL-USER-13,debit,15.8,USD,dining,2026-04-21 12:00:00,completed
+PL-13-838,PL-USER-13,transfer,200.0,USD,payment,2026-04-22 10:00:00,completed
+PL-13-839,PL-USER-13,debit,25.04,USD,retail,2026-04-22 15:00:00,completed
+PL-13-840,PL-USER-13,debit,30.21,USD,dining,2026-04-23 18:00:00,completed
+PL-13-841,PL-USER-13,debit,50.01,USD,grocery,2026-04-23 20:00:00,completed
+PL-13-842,PL-USER-13,debit,120.23,USD,retail,2026-04-24 16:00:00,completed
+PL-13-843,PL-USER-13,transfer,1729.5,USD,payment,2026-04-25 00:00:00,completed
+PL-13-844,PL-USER-13,debit,10.53,USD,dining,2026-04-25 11:00:00,completed
+PL-13-845,PL-USER-13,debit,35.84,USD,gas,2026-04-26 13:00:00,completed
+PL-13-846,PL-USER-13,debit,20.44,USD,dining,2026-04-27 12:00:00,completed
+PL-13-847,PL-USER-13,debit,15.29,USD,retail,2026-04-28 10:00:00,completed
+PL-13-848,PL-USER-13,debit,50.06,USD,retail,2026-04-30 10:00:00,completed
+PL-13-849,PL-USER-13,debit,57.55,USD,grocery,2026-05-01 10:00:00,completed
+PL-13-850,PL-USER-13,debit,12.21,USD,dining,2026-05-02 14:00:00,completed
+PL-13-851,PL-USER-13,debit,25.13,USD,gas,2026-05-03 13:00:00,completed
+PL-13-852,PL-USER-13,debit,18.78,USD,dining,2026-05-04 18:00:00,completed
+PL-13-853,PL-USER-13,debit,60.59,USD,phone service,2026-05-05 00:00:00,completed
+PL-13-854,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-05-05 00:00:00,completed
+PL-13-855,PL-USER-13,debit,10.74,USD,dining,2026-05-05 12:00:00,completed
+PL-13-856,PL-USER-13,debit,22.81,USD,entertainment,2026-05-05 18:30:00,completed
+PL-13-857,PL-USER-13,transfer,500.0,USD,payment,2026-05-06 17:00:00,completed
+PL-13-858,PL-USER-13,debit,45.16,USD,grocery,2026-05-07 10:00:00,completed
+PL-13-859,PL-USER-13,debit,40.1,USD,auto,2026-05-08 12:00:00,completed
+PL-13-860,PL-USER-13,debit,25.57,USD,dining,2026-05-08 18:00:00,completed
+PL-13-861,PL-USER-13,debit,50.13,USD,houseware,2026-05-09 14:00:00,completed
+PL-13-862,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-05-10 00:00:00,completed
+PL-13-863,PL-USER-13,debit,30.16,USD,gas,2026-05-10 09:00:00,completed
+PL-13-864,PL-USER-13,debit,20.39,USD,food,2026-05-10 12:00:00,completed
+PL-13-865,PL-USER-13,debit,50.96,USD,dining,2026-05-10 14:00:00,completed
+PL-13-866,PL-USER-13,debit,20.17,USD,entertainment,2026-05-12 17:00:00,completed
+PL-13-867,PL-USER-13,debit,15.96,USD,food,2026-05-12 19:00:00,completed
+PL-13-868,PL-USER-13,debit,40.11,USD,gift,2026-05-14 13:00:00,completed
+PL-13-869,PL-USER-13,debit,109.87,USD,electricity bill,2026-05-15 00:00:00,completed
+PL-13-870,PL-USER-13,debit,75.57,USD,grocery,2026-05-15 10:00:00,completed
+PL-13-871,PL-USER-13,debit,25.36,USD,dining,2026-05-16 18:00:00,completed
+PL-13-872,PL-USER-13,debit,30.47,USD,gift,2026-05-17 10:00:00,completed
+PL-13-873,PL-USER-13,debit,50.47,USD,grocery,2026-05-17 14:00:00,completed
+PL-13-874,PL-USER-13,debit,35.34,USD,gas,2026-05-18 17:00:00,completed
+PL-13-875,PL-USER-13,debit,52.29,USD,water bill,2026-05-20 00:00:00,completed
+PL-13-876,PL-USER-13,debit,19.19,USD,dining,2026-05-20 12:00:00,completed
+PL-13-877,PL-USER-13,debit,40.25,USD,entertainment,2026-05-21 14:00:00,completed
+PL-13-878,PL-USER-13,debit,32.89,USD,dining,2026-05-22 18:00:00,completed
+PL-13-879,PL-USER-13,debit,15.98,USD,food,2026-05-22 19:30:00,completed
+PL-13-880,PL-USER-13,debit,75.24,USD,grocery,2026-05-23 10:00:00,completed
+PL-13-881,PL-USER-13,debit,25.3,USD,home improvement,2026-05-23 12:00:00,completed
+PL-13-882,PL-USER-13,debit,20.21,USD,beverage,2026-05-24 15:00:00,completed
+PL-13-883,PL-USER-13,transfer,824.78,USD,payment,2026-05-25 00:00:00,completed
+PL-13-884,PL-USER-13,debit,10.27,USD,food,2026-05-25 11:00:00,completed
+PL-13-885,PL-USER-13,debit,5.09,USD,food,2026-05-25 14:00:00,completed
+PL-13-886,PL-USER-13,debit,4.6,USD,beverage,2026-05-26 14:00:00,completed
+PL-13-887,PL-USER-13,debit,18.21,USD,dining,2026-05-27 18:00:00,completed
+PL-13-888,PL-USER-13,debit,10.5,USD,gift,2026-05-28 12:00:00,completed
+PL-13-889,PL-USER-13,debit,15.43,USD,grocery,2026-05-29 18:00:00,completed
+PL-13-890,PL-USER-13,debit,25.53,USD,entertainment,2026-05-30 13:00:00,completed
+PL-13-891,PL-USER-13,debit,22.32,USD,dining,2026-05-30 18:00:00,completed
+PL-13-892,PL-USER-13,debit,20.44,USD,dining,2026-05-31 19:00:00,completed
+PL-13-893,PL-USER-13,debit,35.92,USD,gas,2026-06-01 14:00:00,completed
+PL-13-894,PL-USER-13,debit,13.12,USD,home improvement,2026-06-02 16:00:00,completed
+PL-13-895,PL-USER-13,debit,20.67,USD,education,2026-06-04 11:00:00,completed
+PL-13-896,PL-USER-13,debit,57.93,USD,phone service,2026-06-05 00:00:00,completed
+PL-13-897,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-06-05 00:00:00,completed
+PL-13-898,PL-USER-13,debit,40.13,USD,dining,2026-06-05 19:00:00,completed
+PL-13-899,PL-USER-13,debit,25.04,USD,entertainment,2026-06-05 22:00:00,completed
+PL-13-900,PL-USER-13,debit,50.51,USD,grocery,2026-06-06 10:00:00,completed
+PL-13-901,PL-USER-13,debit,10.37,USD,beverage,2026-06-07 12:00:00,completed
+PL-13-902,PL-USER-13,debit,9.02,USD,dining,2026-06-08 14:00:00,completed
+PL-13-903,PL-USER-13,debit,30.56,USD,gas,2026-06-09 10:00:00,completed
+PL-13-904,PL-USER-13,debit,15.59,USD,pharmacy,2026-06-09 12:00:00,completed
+PL-13-905,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-06-10 00:00:00,completed
+PL-13-906,PL-USER-13,debit,20.22,USD,sports,2026-06-10 13:00:00,completed
+PL-13-907,PL-USER-13,debit,350.52,USD,home improvement,2026-06-11 10:00:00,completed
+PL-13-908,PL-USER-13,debit,25.44,USD,dining,2026-06-12 12:00:00,completed
+PL-13-909,PL-USER-13,debit,20.95,USD,entertainment,2026-06-12 18:00:00,completed
+PL-13-910,PL-USER-13,debit,50.06,USD,grocery,2026-06-13 10:00:00,completed
+PL-13-911,PL-USER-13,debit,50.65,USD,electronics,2026-06-14 11:00:00,completed
+PL-13-912,PL-USER-13,debit,137.09,USD,electricity bill,2026-06-15 00:00:00,completed
+PL-13-913,PL-USER-13,transfer,500.0,USD,payment,2026-06-15 14:00:00,completed
+PL-13-914,PL-USER-13,debit,75.9,USD,retail,2026-06-16 10:00:00,completed
+PL-13-915,PL-USER-13,debit,15.39,USD,dining,2026-06-17 12:00:00,completed
+PL-13-916,PL-USER-13,debit,25.83,USD,gas,2026-06-18 09:00:00,completed
+PL-13-917,PL-USER-13,debit,10.92,USD,dining,2026-06-18 14:00:00,completed
+PL-13-918,PL-USER-13,debit,20.13,USD,gas,2026-06-19 09:00:00,completed
+PL-13-919,PL-USER-13,debit,30.01,USD,dining,2026-06-19 12:00:00,completed
+PL-13-920,PL-USER-13,debit,50.43,USD,dining,2026-06-19 15:00:00,completed
+PL-13-921,PL-USER-13,debit,27.6,USD,water bill,2026-06-20 00:00:00,completed
+PL-13-922,PL-USER-13,debit,50.84,USD,grocery,2026-06-20 10:00:00,completed
+PL-13-923,PL-USER-13,debit,20.29,USD,entertainment,2026-06-20 14:00:00,completed
+PL-13-924,PL-USER-13,debit,30.43,USD,grocery,2026-06-21 18:00:00,completed
+PL-13-925,PL-USER-13,debit,50.49,USD,retail,2026-06-22 11:00:00,completed
+PL-13-926,PL-USER-13,debit,75.06,USD,auto repair,2026-06-23 09:00:00,completed
+PL-13-927,PL-USER-13,debit,15.97,USD,dining,2026-06-24 12:00:00,completed
+PL-13-928,PL-USER-13,debit,20.25,USD,retail,2026-06-24 15:00:00,completed
+PL-13-929,PL-USER-13,transfer,753.41,USD,payment,2026-06-25 00:00:00,completed
+PL-13-930,PL-USER-13,debit,100.63,USD,bill payment,2026-06-25 10:00:00,completed
+PL-13-931,PL-USER-13,debit,10.8,USD,dining,2026-06-25 14:00:00,completed
+PL-13-932,PL-USER-13,debit,80.64,USD,retail,2026-06-26 12:00:00,completed
+PL-13-933,PL-USER-13,debit,12.01,USD,dining,2026-06-27 09:00:00,completed
+PL-13-934,PL-USER-13,debit,20.49,USD,entertainment,2026-06-27 13:00:00,completed
+PL-13-935,PL-USER-13,debit,25.57,USD,dining,2026-06-27 18:00:00,completed
+PL-13-936,PL-USER-13,debit,600.39,USD,veterinary care,2026-06-28 10:00:00,completed
+PL-13-937,PL-USER-13,debit,50.23,USD,grocery,2026-06-29 10:00:00,completed
+PL-13-938,PL-USER-13,debit,30.5,USD,gas,2026-06-29 12:00:00,completed
+PL-13-939,PL-USER-13,debit,45.53,USD,retail,2026-06-30 11:00:00,completed
+PL-13-940,PL-USER-13,debit,35.1,USD,retail,2026-07-01 14:00:00,completed
+PL-13-941,PL-USER-13,debit,15.82,USD,dining,2026-07-02 12:00:00,completed
+PL-13-942,PL-USER-13,debit,20.57,USD,grocery,2026-07-03 10:00:00,completed
+PL-13-943,PL-USER-13,debit,30.91,USD,retail,2026-07-03 18:00:00,completed
+PL-13-944,PL-USER-13,debit,25.38,USD,entertainment,2026-07-04 13:00:00,completed
+PL-13-945,PL-USER-13,debit,12.45,USD,dining,2026-07-04 18:00:00,completed
+PL-13-946,PL-USER-13,debit,57.61,USD,phone service,2026-07-05 00:00:00,completed
+PL-13-947,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-07-05 00:00:00,completed
+PL-13-948,PL-USER-13,debit,40.44,USD,entertainment,2026-07-05 14:00:00,completed
+PL-13-949,PL-USER-13,debit,25.29,USD,gas,2026-07-06 10:00:00,completed
+PL-13-950,PL-USER-13,debit,18.93,USD,retail,2026-07-06 11:30:00,completed
+PL-13-951,PL-USER-13,debit,5.03,USD,shipping,2026-07-06 12:30:00,completed
+PL-13-952,PL-USER-13,debit,10.51,USD,retail,2026-07-07 08:00:00,completed
+PL-13-953,PL-USER-13,debit,8.96,USD,dining,2026-07-07 12:00:00,completed
+PL-13-954,PL-USER-13,debit,30.02,USD,retail,2026-07-08 10:00:00,completed
+PL-13-955,PL-USER-13,debit,35.19,USD,grocery,2026-07-09 09:00:00,completed
+PL-13-956,PL-USER-13,debit,7.04,USD,dining,2026-07-09 11:00:00,completed
+PL-13-957,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-07-10 00:00:00,completed
+PL-13-958,PL-USER-13,debit,150.55,USD,pet,2026-07-10 10:00:00,completed
+PL-13-959,PL-USER-13,debit,250.91,USD,retail,2026-07-10 12:00:00,completed
+PL-13-960,PL-USER-13,debit,50.55,USD,grocery,2026-07-11 14:00:00,completed
+PL-13-961,PL-USER-13,debit,15.16,USD,pet,2026-07-12 10:00:00,completed
+PL-13-962,PL-USER-13,debit,20.61,USD,grocery,2026-07-12 14:00:00,completed
+PL-13-963,PL-USER-13,debit,75.38,USD,retail,2026-07-13 09:00:00,completed
+PL-13-964,PL-USER-13,debit,19.7,USD,dining,2026-07-14 18:00:00,completed
+PL-13-965,PL-USER-13,debit,150.95,USD,electricity bill,2026-07-15 00:00:00,completed
+PL-13-966,PL-USER-13,debit,12.0,USD,fishing magazine,2026-07-15 00:00:00,completed
+PL-13-967,PL-USER-13,debit,23.01,USD,retail,2026-07-15 10:00:00,completed
+PL-13-968,PL-USER-13,debit,8.58,USD,dining,2026-07-15 19:00:00,completed
+PL-13-969,PL-USER-13,debit,25.22,USD,dining,2026-07-16 18:00:00,completed
+PL-13-970,PL-USER-13,debit,15.5,USD,dining,2026-07-16 20:00:00,completed
+PL-13-971,PL-USER-13,debit,30.7,USD,gas,2026-07-17 16:00:00,completed
+PL-13-972,PL-USER-13,debit,10.78,USD,convenience,2026-07-18 07:00:00,completed
+PL-13-973,PL-USER-13,debit,20.79,USD,dining,2026-07-18 18:00:00,completed
+PL-13-974,PL-USER-13,debit,35.23,USD,grocery,2026-07-19 11:00:00,completed
+PL-13-975,PL-USER-13,debit,45.55,USD,water bill,2026-07-20 00:00:00,completed
+PL-13-976,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2026-07-20 00:00:00,completed
+PL-13-977,PL-USER-13,debit,5.23,USD,shipping,2026-07-20 14:00:00,completed
+PL-13-978,PL-USER-13,debit,7.53,USD,dining,2026-07-20 15:00:00,completed
+PL-13-979,PL-USER-13,debit,150.29,USD,pet,2026-07-21 12:00:00,completed
+PL-13-980,PL-USER-13,debit,250.63,USD,retail,2026-07-21 13:00:00,completed
+PL-13-981,PL-USER-13,debit,30.63,USD,retail,2026-07-22 10:00:00,completed
+PL-13-982,PL-USER-13,debit,150.68,USD,dining,2026-07-23 19:00:00,completed
+PL-13-983,PL-USER-13,debit,25.31,USD,gas,2026-07-24 14:00:00,completed
+PL-13-984,PL-USER-13,transfer,2556.49,USD,payment,2026-07-25 00:00:00,completed
+PL-13-985,PL-USER-13,debit,20.49,USD,retail,2026-07-25 10:00:00,completed
+PL-13-986,PL-USER-13,debit,30.88,USD,dining,2026-07-25 12:00:00,completed
+PL-13-987,PL-USER-13,debit,50.41,USD,convenience,2026-07-25 15:00:00,completed
+PL-13-988,PL-USER-13,debit,50.34,USD,grocery,2026-07-26 14:00:00,completed
+PL-13-989,PL-USER-13,debit,5.35,USD,dining,2026-07-27 14:00:00,completed
+PL-13-990,PL-USER-13,debit,15.36,USD,retail,2026-07-29 11:00:00,completed
+PL-13-991,PL-USER-13,debit,20.77,USD,dining,2026-07-30 12:00:00,completed
+PL-13-992,PL-USER-13,transfer,100.0,USD,payment,2026-07-30 16:00:00,completed
+PL-13-993,PL-USER-13,debit,45.12,USD,retail,2026-07-31 13:00:00,completed
+PL-13-994,PL-USER-13,debit,15.5,USD,dining,2026-07-31 18:00:00,completed
+PL-13-995,PL-USER-13,debit,25.35,USD,charity,2026-08-01 10:00:00,completed
+PL-13-996,PL-USER-13,debit,12.32,USD,dining,2026-08-01 12:30:00,completed
+PL-13-997,PL-USER-13,debit,19.08,USD,dining,2026-08-02 18:00:00,completed
+PL-13-998,PL-USER-13,debit,45.16,USD,medical,2026-08-03 09:00:00,completed
+PL-13-999,PL-USER-13,debit,50.89,USD,grocery,2026-08-03 11:00:00,completed
+PL-13-1000,PL-USER-13,debit,10.17,USD,dining,2026-08-04 12:00:00,completed
+PL-13-1001,PL-USER-13,debit,23.12,USD,retail,2026-08-04 14:30:00,completed
+PL-13-1002,PL-USER-13,debit,61.32,USD,phone service,2026-08-05 00:00:00,completed
+PL-13-1003,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-08-05 00:00:00,completed
+PL-13-1004,PL-USER-13,debit,8.95,USD,convenience,2026-08-05 18:00:00,completed
+PL-13-1005,PL-USER-13,debit,3.3,USD,shipping,2026-08-06 10:00:00,completed
+PL-13-1006,PL-USER-13,debit,25.31,USD,gas,2026-08-06 11:00:00,completed
+PL-13-1007,PL-USER-13,debit,28.76,USD,dining,2026-08-07 18:30:00,completed
+PL-13-1008,PL-USER-13,debit,15.65,USD,grocery,2026-08-08 13:00:00,completed
+PL-13-1009,PL-USER-13,debit,18.7,USD,dining,2026-08-09 13:00:00,completed
+PL-13-1010,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-08-10 00:00:00,completed
+PL-13-1011,PL-USER-13,debit,45.13,USD,retail,2026-08-10 11:00:00,completed
+PL-13-1012,PL-USER-13,debit,4.7,USD,coffee,2026-08-11 10:00:00,completed
+PL-13-1013,PL-USER-13,debit,12.6,USD,dining,2026-08-12 12:30:00,completed
+PL-13-1014,PL-USER-13,debit,23.97,USD,retail,2026-08-13 14:00:00,completed
+PL-13-1015,PL-USER-13,debit,56.33,USD,grocery,2026-08-14 15:00:00,completed
+PL-13-1016,PL-USER-13,debit,107.02,USD,electricity bill,2026-08-15 00:00:00,completed
+PL-13-1017,PL-USER-13,debit,20.89,USD,entertainment,2026-08-15 12:00:00,completed
+PL-13-1018,PL-USER-13,debit,15.6,USD,bar,2026-08-15 17:00:00,completed
+PL-13-1019,PL-USER-13,debit,31.2,USD,dining,2026-08-16 18:00:00,completed
+PL-13-1020,PL-USER-13,debit,35.36,USD,gas,2026-08-17 10:00:00,completed
+PL-13-1021,PL-USER-13,debit,42.5,USD,retail,2026-08-17 11:30:00,completed
+PL-13-1022,PL-USER-13,debit,30.83,USD,retail,2026-08-18 14:00:00,completed
+PL-13-1023,PL-USER-13,debit,10.54,USD,retail,2026-08-19 08:00:00,completed
+PL-13-1024,PL-USER-13,debit,9.24,USD,convenience,2026-08-19 12:00:00,completed
+PL-13-1025,PL-USER-13,debit,48.42,USD,water bill,2026-08-20 00:00:00,completed
+PL-13-1026,PL-USER-13,debit,5.88,USD,postal,2026-08-20 10:00:00,completed
+PL-13-1027,PL-USER-13,debit,19.14,USD,dining,2026-08-20 12:30:00,completed
+PL-13-1028,PL-USER-13,debit,50.8,USD,grocery,2026-08-21 10:00:00,completed
+PL-13-1029,PL-USER-13,transfer,100.0,USD,payment,2026-08-21 20:00:00,completed
+PL-13-1030,PL-USER-13,debit,25.28,USD,entertainment,2026-08-22 12:00:00,completed
+PL-13-1031,PL-USER-13,debit,13.34,USD,food,2026-08-22 15:00:00,completed
+PL-13-1032,PL-USER-13,debit,22.14,USD,dining,2026-08-22 18:00:00,completed
+PL-13-1033,PL-USER-13,debit,20.27,USD,dining,2026-08-23 18:00:00,completed
+PL-13-1034,PL-USER-13,debit,15.13,USD,retail,2026-08-24 09:00:00,completed
+PL-13-1035,PL-USER-13,debit,10.53,USD,entertainment,2026-08-24 19:00:00,completed
+PL-13-1036,PL-USER-13,transfer,2029.75,USD,payment,2026-08-25 00:00:00,completed
+PL-13-1037,PL-USER-13,debit,75.25,USD,auto,2026-08-25 10:00:00,completed
+PL-13-1038,PL-USER-13,debit,20.8,USD,retail,2026-08-25 12:00:00,completed
+PL-13-1039,PL-USER-13,transfer,150.0,USD,payment,2026-08-25 20:00:00,completed
+PL-13-1040,PL-USER-13,debit,10.62,USD,retail,2026-08-26 09:00:00,completed
+PL-13-1041,PL-USER-13,debit,25.13,USD,dining,2026-08-26 18:00:00,completed
+PL-13-1042,PL-USER-13,debit,8.17,USD,retail,2026-08-27 10:00:00,completed
+PL-13-1043,PL-USER-13,debit,250.42,USD,retail,2026-08-28 12:00:00,completed
+PL-13-1044,PL-USER-13,debit,50.17,USD,grocery,2026-08-28 15:00:00,completed
+PL-13-1045,PL-USER-13,debit,180.89,USD,retail,2026-08-29 10:00:00,completed
+PL-13-1046,PL-USER-13,debit,30.13,USD,entertainment,2026-08-29 18:00:00,completed
+PL-13-1047,PL-USER-13,transfer,200.0,USD,payment,2026-08-30 10:00:00,completed
+PL-13-1048,PL-USER-13,debit,25.26,USD,gas,2026-08-31 12:00:00,completed
+PL-13-1049,PL-USER-13,debit,20.63,USD,dining,2026-09-01 12:00:00,completed
+PL-13-1050,PL-USER-13,debit,10.19,USD,shipping,2026-09-01 14:00:00,completed
+PL-13-1051,PL-USER-13,debit,40.59,USD,grocery,2026-09-02 17:00:00,completed
+PL-13-1052,PL-USER-13,transfer,200.0,USD,payment,2026-09-03 10:00:00,completed
+PL-13-1053,PL-USER-13,debit,30.68,USD,retail,2026-09-04 10:00:00,completed
+PL-13-1054,PL-USER-13,debit,50.51,USD,dining,2026-09-04 19:00:00,completed
+PL-13-1055,PL-USER-13,debit,63.79,USD,phone service,2026-09-05 00:00:00,completed
+PL-13-1056,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-09-05 00:00:00,completed
+PL-13-1057,PL-USER-13,debit,15.15,USD,dining,2026-09-05 09:00:00,completed
+PL-13-1058,PL-USER-13,debit,35.78,USD,dining,2026-09-05 18:00:00,completed
+PL-13-1059,PL-USER-13,debit,0.85,USD,none,2026-09-06 10:00:00,completed
+PL-13-1060,PL-USER-13,debit,45.76,USD,retail,2026-09-07 11:00:00,completed
+PL-13-1061,PL-USER-13,debit,25.6,USD,gas,2026-09-08 09:00:00,completed
+PL-13-1062,PL-USER-13,debit,20.89,USD,dining,2026-09-08 12:00:00,completed
+PL-13-1063,PL-USER-13,debit,11.13,USD,subscription,2026-09-09 10:00:00,completed
+PL-13-1064,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-09-10 00:00:00,completed
+PL-13-1065,PL-USER-13,debit,40.25,USD,grocery,2026-09-10 10:00:00,completed
+PL-13-1066,PL-USER-13,debit,30.92,USD,gas,2026-09-11 09:00:00,completed
+PL-13-1067,PL-USER-13,debit,20.18,USD,dining,2026-09-11 12:00:00,completed
+PL-13-1068,PL-USER-13,debit,10.18,USD,food,2026-09-11 15:00:00,completed
+PL-13-1069,PL-USER-13,debit,40.48,USD,dining,2026-09-11 18:00:00,completed
+PL-13-1070,PL-USER-13,debit,25.95,USD,dining,2026-09-12 12:00:00,completed
+PL-13-1071,PL-USER-13,debit,14.68,USD,entertainment,2026-09-13 13:00:00,completed
+PL-13-1072,PL-USER-13,debit,50.97,USD,home improvement,2026-09-14 09:00:00,completed
+PL-13-1073,PL-USER-13,debit,107.92,USD,electricity bill,2026-09-15 00:00:00,completed
+PL-13-1074,PL-USER-13,debit,120.92,USD,auto maintenance,2026-09-15 10:00:00,completed
+PL-13-1075,PL-USER-13,debit,15.87,USD,dining,2026-09-15 12:00:00,completed
+PL-13-1076,PL-USER-13,debit,25.92,USD,dining,2026-09-16 18:00:00,completed
+PL-13-1077,PL-USER-13,debit,35.35,USD,office supplies,2026-09-17 10:00:00,completed
+PL-13-1078,PL-USER-13,debit,11.06,USD,entertainment,2026-09-18 09:00:00,completed
+PL-13-1079,PL-USER-13,debit,50.25,USD,groceries,2026-09-19 10:00:00,completed
+PL-13-1080,PL-USER-13,debit,49.18,USD,water bill,2026-09-20 00:00:00,completed
+PL-13-1081,PL-USER-13,debit,20.39,USD,recreation,2026-09-20 12:00:00,completed
+PL-13-1082,PL-USER-13,debit,30.0,USD,gas,2026-09-22 09:00:00,completed
+PL-13-1083,PL-USER-13,debit,15.66,USD,dining,2026-09-22 12:00:00,completed
+PL-13-1084,PL-USER-13,transfer,1000.0,USD,payment,2026-09-23 18:00:00,completed
+PL-13-1085,PL-USER-13,transfer,201.21,USD,payment,2026-09-25 00:00:00,completed
+PL-13-1086,PL-USER-13,debit,20.65,USD,dining,2026-09-25 12:00:00,completed
+PL-13-1087,PL-USER-13,debit,50.87,USD,grocery,2026-09-26 10:00:00,completed
+PL-13-1088,PL-USER-13,transfer,500.0,USD,payment,2026-09-27 18:00:00,completed
+PL-13-1089,PL-USER-13,debit,25.3,USD,gas,2026-09-29 09:00:00,completed
+PL-13-1090,PL-USER-13,debit,30.06,USD,retail,2026-09-29 11:00:00,completed
+PL-13-1091,PL-USER-13,debit,15.69,USD,dining,2026-09-29 12:30:00,completed
+PL-13-1092,PL-USER-13,debit,10.11,USD,dining,2026-10-01 09:00:00,completed
+PL-13-1093,PL-USER-13,debit,20.91,USD,retail,2026-10-01 11:00:00,completed
+PL-13-1094,PL-USER-13,debit,40.51,USD,entertainment,2026-10-01 18:00:00,completed
+PL-13-1095,PL-USER-13,debit,35.54,USD,dining,2026-10-02 18:00:00,completed
+PL-13-1096,PL-USER-13,debit,50.54,USD,grocery,2026-10-03 10:00:00,completed
+PL-13-1097,PL-USER-13,debit,25.37,USD,pharmacy,2026-10-03 12:00:00,completed
+PL-13-1098,PL-USER-13,debit,20.47,USD,dining,2026-10-04 18:00:00,completed
+PL-13-1099,PL-USER-13,debit,56.44,USD,phone service,2026-10-05 00:00:00,completed
+PL-13-1100,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-10-05 00:00:00,completed
+PL-13-1101,PL-USER-13,debit,50.62,USD,retail,2026-10-05 11:00:00,completed
+PL-13-1102,PL-USER-13,debit,30.14,USD,retail,2026-10-06 10:00:00,completed
+PL-13-1103,PL-USER-13,debit,5.34,USD,dining,2026-10-06 14:00:00,completed
+PL-13-1104,PL-USER-13,debit,15.05,USD,grocery,2026-10-07 18:00:00,completed
+PL-13-1105,PL-USER-13,debit,25.85,USD,gas,2026-10-08 10:00:00,completed
+PL-13-1106,PL-USER-13,debit,10.38,USD,retail,2026-10-08 14:00:00,completed
+PL-13-1107,PL-USER-13,debit,5.06,USD,dining,2026-10-08 15:00:00,completed
+PL-13-1108,PL-USER-13,debit,11.6,USD,subscription,2026-10-09 12:00:00,completed
+PL-13-1109,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-10-10 00:00:00,completed
+PL-13-1110,PL-USER-13,debit,750.39,USD,retail,2026-10-10 11:00:00,completed
+PL-13-1111,PL-USER-13,debit,21.0,USD,dining,2026-10-11 18:00:00,completed
+PL-13-1112,PL-USER-13,transfer,1000.0,USD,payment,2026-10-11 19:00:00,completed
+PL-13-1113,PL-USER-13,debit,30.38,USD,dining,2026-10-12 18:00:00,completed
+PL-13-1114,PL-USER-13,debit,10.87,USD,convenience,2026-10-12 19:30:00,completed
+PL-13-1115,PL-USER-13,debit,20.85,USD,retail,2026-10-13 10:00:00,completed
+PL-13-1116,PL-USER-13,debit,50.91,USD,grocery,2026-10-13 14:00:00,completed
+PL-13-1117,PL-USER-13,debit,120.6,USD,retail,2026-10-14 11:00:00,completed
+PL-13-1118,PL-USER-13,debit,101.36,USD,electricity bill,2026-10-15 00:00:00,completed
+PL-13-1119,PL-USER-13,debit,12.0,USD,fishing magazine,2026-10-15 00:00:00,completed
+PL-13-1120,PL-USER-13,debit,250.5,USD,retail,2026-10-15 12:00:00,completed
+PL-13-1121,PL-USER-13,debit,30.72,USD,retail,2026-10-16 14:00:00,completed
+PL-13-1122,PL-USER-13,debit,25.14,USD,dining,2026-10-16 18:00:00,completed
+PL-13-1123,PL-USER-13,debit,15.96,USD,dining,2026-10-17 12:00:00,completed
+PL-13-1124,PL-USER-13,debit,20.32,USD,convenience,2026-10-17 16:00:00,completed
+PL-13-1125,PL-USER-13,debit,220.52,USD,medical,2026-10-18 10:00:00,completed
+PL-13-1126,PL-USER-13,debit,30.7,USD,gas,2026-10-19 10:00:00,completed
+PL-13-1127,PL-USER-13,debit,5.52,USD,dining,2026-10-19 12:00:00,completed
+PL-13-1128,PL-USER-13,debit,44.27,USD,water bill,2026-10-20 00:00:00,completed
+PL-13-1129,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2026-10-20 00:00:00,completed
+PL-13-1130,PL-USER-13,debit,12.1,USD,dining,2026-10-20 12:00:00,completed
+PL-13-1131,PL-USER-13,debit,18.03,USD,dining,2026-10-20 18:00:00,completed
+PL-13-1132,PL-USER-13,debit,50.33,USD,grocery,2026-10-21 10:00:00,completed
+PL-13-1133,PL-USER-13,debit,10.5,USD,dining,2026-10-22 12:00:00,completed
+PL-13-1134,PL-USER-13,transfer,500.0,USD,payment,2026-10-22 16:00:00,completed
+PL-13-1135,PL-USER-13,debit,20.49,USD,dining,2026-10-23 12:00:00,completed
+PL-13-1136,PL-USER-13,debit,15.67,USD,dining,2026-10-24 12:00:00,completed
+PL-13-1137,PL-USER-13,debit,150.42,USD,electronics,2026-10-25 10:00:00,completed
+PL-13-1138,PL-USER-13,debit,180.6,USD,dining,2026-10-26 19:00:00,completed
+PL-13-1139,PL-USER-13,debit,25.54,USD,gas,2026-10-27 10:00:00,completed
+PL-13-1140,PL-USER-13,debit,50.48,USD,grocery,2026-10-28 14:00:00,completed
+PL-13-1141,PL-USER-13,debit,20.09,USD,retail,2026-10-29 10:00:00,completed
+PL-13-1142,PL-USER-13,transfer,500.0,USD,payment,2026-10-29 11:00:00,completed
+PL-13-1143,PL-USER-13,debit,12.67,USD,dining,2026-10-30 18:00:00,completed
+PL-13-1144,PL-USER-13,debit,35.83,USD,retail,2026-10-31 10:00:00,completed
+PL-13-1145,PL-USER-13,debit,20.44,USD,dining,2026-11-01 18:00:00,completed
+PL-13-1146,PL-USER-13,debit,30.8,USD,retail,2026-11-02 16:00:00,completed
+PL-13-1147,PL-USER-13,debit,750.92,USD,retail,2026-11-04 14:00:00,completed
+PL-13-1148,PL-USER-13,debit,52.76,USD,phone service,2026-11-05 00:00:00,completed
+PL-13-1149,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-11-05 00:00:00,completed
+PL-13-1150,PL-USER-13,debit,750.96,USD,retail,2026-11-05 16:00:00,completed
+PL-13-1151,PL-USER-13,debit,50.74,USD,grocery,2026-11-06 10:00:00,completed
+PL-13-1152,PL-USER-13,debit,26.0,USD,dining,2026-11-06 19:00:00,completed
+PL-13-1153,PL-USER-13,debit,15.64,USD,food and beverage,2026-11-07 13:00:00,completed
+PL-13-1154,PL-USER-13,debit,20.36,USD,entertainment,2026-11-07 14:00:00,completed
+PL-13-1155,PL-USER-13,debit,20.41,USD,dining,2026-11-08 18:00:00,completed
+PL-13-1156,PL-USER-13,debit,35.22,USD,health and beauty,2026-11-09 11:00:00,completed
+PL-13-1157,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-11-10 00:00:00,completed
+PL-13-1158,PL-USER-13,debit,40.41,USD,retail,2026-11-10 12:00:00,completed
+PL-13-1159,PL-USER-13,debit,15.68,USD,dining,2026-11-11 18:00:00,completed
+PL-13-1160,PL-USER-13,debit,10.73,USD,shipping,2026-11-12 14:00:00,completed
+PL-13-1161,PL-USER-13,debit,5.39,USD,food and beverage,2026-11-12 16:00:00,completed
+PL-13-1162,PL-USER-13,debit,120.53,USD,healthcare,2026-11-13 11:00:00,completed
+PL-13-1163,PL-USER-13,debit,20.25,USD,entertainment,2026-11-14 13:00:00,completed
+PL-13-1164,PL-USER-13,debit,25.76,USD,dining,2026-11-14 18:00:00,completed
+PL-13-1165,PL-USER-13,debit,124.26,USD,electricity bill,2026-11-15 00:00:00,completed
+PL-13-1166,PL-USER-13,debit,20.5,USD,food and beverage,2026-11-15 18:00:00,completed
+PL-13-1167,PL-USER-13,debit,50.82,USD,grocery,2026-11-16 10:00:00,completed
+PL-13-1168,PL-USER-13,debit,30.29,USD,gas,2026-11-16 16:00:00,completed
+PL-13-1169,PL-USER-13,debit,18.55,USD,dining,2026-11-17 18:00:00,completed
+PL-13-1170,PL-USER-13,transfer,3476.76,USD,payment,2026-11-18 10:00:00,completed
+PL-13-1171,PL-USER-13,debit,250.1,USD,retail,2026-11-19 14:00:00,completed
+PL-13-1172,PL-USER-13,debit,25.21,USD,dining,2026-11-19 18:00:00,completed
+PL-13-1173,PL-USER-13,debit,44.45,USD,water bill,2026-11-20 00:00:00,completed
+PL-13-1174,PL-USER-13,debit,20.19,USD,dining,2026-11-20 18:00:00,completed
+PL-13-1175,PL-USER-13,debit,40.85,USD,food and beverage,2026-11-21 10:00:00,completed
+PL-13-1176,PL-USER-13,debit,30.21,USD,dining,2026-11-22 18:00:00,completed
+PL-13-1177,PL-USER-13,debit,50.65,USD,grocery,2026-11-23 10:00:00,completed
+PL-13-1178,PL-USER-13,debit,25.82,USD,gas,2026-11-23 12:00:00,completed
+PL-13-1179,PL-USER-13,debit,600.23,USD,veterinary care,2026-11-24 11:00:00,completed
+PL-13-1180,PL-USER-13,debit,20.91,USD,dining,2026-11-25 18:00:00,completed
+PL-13-1181,PL-USER-13,transfer,500.0,USD,payment,2026-11-26 10:00:00,completed
+PL-13-1182,PL-USER-13,debit,50.24,USD,retail,2026-11-27 12:00:00,completed
+PL-13-1183,PL-USER-13,debit,100.42,USD,retail,2026-11-27 14:00:00,completed
+PL-13-1184,PL-USER-13,debit,25.49,USD,dining,2026-11-27 18:00:00,completed
+PL-13-1185,PL-USER-13,debit,40.9,USD,entertainment,2026-11-28 13:00:00,completed
+PL-13-1186,PL-USER-13,debit,30.54,USD,dining,2026-11-28 18:00:00,completed
+PL-13-1187,PL-USER-13,debit,60.7,USD,grocery,2026-11-29 12:00:00,completed
+PL-13-1188,PL-USER-13,debit,30.08,USD,gas,2026-11-29 14:00:00,completed
+PL-13-1189,PL-USER-13,debit,20.59,USD,dining,2026-11-30 18:00:00,completed
+PL-13-1190,PL-USER-13,debit,5.75,USD,dining,2026-12-01 14:00:00,completed
+PL-13-1191,PL-USER-13,transfer,200.0,USD,payment,2026-12-01 16:00:00,completed
+PL-13-1192,PL-USER-13,debit,25.97,USD,dining,2026-12-02 18:00:00,completed
+PL-13-1193,PL-USER-13,debit,15.1,USD,retail,2026-12-03 12:00:00,completed
+PL-13-1194,PL-USER-13,debit,20.86,USD,dining,2026-12-03 18:00:00,completed
+PL-13-1195,PL-USER-13,debit,30.61,USD,dining,2026-12-04 18:00:00,completed
+PL-13-1196,PL-USER-13,debit,10.35,USD,retail,2026-12-04 20:00:00,completed
+PL-13-1197,PL-USER-13,debit,48.01,USD,phone service,2026-12-05 00:00:00,completed
+PL-13-1198,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2026-12-05 00:00:00,completed
+PL-13-1199,PL-USER-13,debit,10.14,USD,convenience,2026-12-05 16:00:00,completed
+PL-13-1200,PL-USER-13,debit,50.82,USD,grocery,2026-12-06 12:00:00,completed
+PL-13-1201,PL-USER-13,debit,25.91,USD,gas,2026-12-06 15:00:00,completed
+PL-13-1202,PL-USER-13,debit,35.72,USD,retail,2026-12-07 10:00:00,completed
+PL-13-1203,PL-USER-13,debit,20.27,USD,dining,2026-12-08 18:00:00,completed
+PL-13-1204,PL-USER-13,transfer,500.0,USD,payment,2026-12-08 20:00:00,completed
+PL-13-1205,PL-USER-13,debit,5.15,USD,retail,2026-12-09 12:00:00,completed
+PL-13-1206,PL-USER-13,debit,15.45,USD,dining,2026-12-09 18:00:00,completed
+PL-13-1207,PL-USER-13,debit,9.99,USD,music streaming (classic country),2026-12-10 00:00:00,completed
+PL-13-1208,PL-USER-13,debit,20.54,USD,entertainment,2026-12-10 13:00:00,completed
+PL-13-1209,PL-USER-13,debit,10.16,USD,food,2026-12-10 16:00:00,completed
+PL-13-1210,PL-USER-13,debit,200.2,USD,retail,2026-12-11 14:00:00,completed
+PL-13-1211,PL-USER-13,debit,15.67,USD,dining,2026-12-12 18:00:00,completed
+PL-13-1212,PL-USER-13,debit,120.64,USD,auto service,2026-12-13 10:00:00,completed
+PL-13-1213,PL-USER-13,debit,30.24,USD,grocery,2026-12-14 18:00:00,completed
+PL-13-1214,PL-USER-13,debit,155.08,USD,electricity bill,2026-12-15 00:00:00,completed
+PL-13-1215,PL-USER-13,debit,10.49,USD,retail,2026-12-15 12:00:00,completed
+PL-13-1216,PL-USER-13,debit,12.56,USD,dining,2026-12-15 18:00:00,completed
+PL-13-1217,PL-USER-13,debit,25.49,USD,gas,2026-12-16 10:00:00,completed
+PL-13-1218,PL-USER-13,debit,8.73,USD,dining,2026-12-17 10:00:00,completed
+PL-13-1219,PL-USER-13,debit,20.08,USD,entertainment,2026-12-17 14:00:00,completed
+PL-13-1220,PL-USER-13,debit,25.7,USD,dining,2026-12-17 18:00:00,completed
+PL-13-1221,PL-USER-13,debit,18.89,USD,dining,2026-12-18 18:00:00,completed
+PL-13-1222,PL-USER-13,transfer,500.0,USD,payment,2026-12-18 20:00:00,completed
+PL-13-1223,PL-USER-13,debit,50.6,USD,grocery,2026-12-19 14:00:00,completed
+PL-13-1224,PL-USER-13,debit,67.6,USD,water bill,2026-12-20 00:00:00,completed
+PL-13-1225,PL-USER-13,debit,250.41,USD,retail,2026-12-21 12:00:00,completed
+PL-13-1226,PL-USER-13,debit,250.53,USD,retail,2026-12-22 12:00:00,completed
+PL-13-1227,PL-USER-13,debit,75.09,USD,grocery,2026-12-22 15:00:00,completed
+PL-13-1228,PL-USER-13,debit,25.07,USD,gas,2026-12-24 10:00:00,completed
+PL-13-1229,PL-USER-13,debit,20.74,USD,retail,2026-12-24 14:00:00,completed
+PL-13-1230,PL-USER-13,transfer,103.68,USD,payment,2026-12-25 00:00:00,completed
+PL-13-1231,PL-USER-13,debit,30.54,USD,restaurant,2026-12-25 18:00:00,completed
+PL-13-1232,PL-USER-13,debit,6.04,USD,restaurant,2026-12-26 14:00:00,completed
+PL-13-1233,PL-USER-13,debit,20.25,USD,restaurant,2026-12-27 18:00:00,completed
+PL-13-1234,PL-USER-13,debit,50.27,USD,grocery,2026-12-28 13:00:00,completed
+PL-13-1235,PL-USER-13,debit,4.73,USD,restaurant,2026-12-28 15:00:00,completed
+PL-13-1236,PL-USER-13,debit,25.98,USD,restaurant,2026-12-29 18:00:00,completed
+PL-13-1237,PL-USER-13,debit,10.93,USD,convenience store,2026-12-30 15:00:00,completed
+PL-13-1238,PL-USER-13,debit,25.72,USD,online retailer,2026-12-31 14:00:00,completed
+PL-13-1239,PL-USER-13,debit,1500.0,USD,property tax,2027-01-01 00:00:00,completed
+PL-13-1240,PL-USER-13,debit,800.0,USD,homeowner's insurance,2027-01-01 00:00:00,completed
+PL-13-1241,PL-USER-13,debit,30.47,USD,gas station,2027-01-02 10:00:00,completed
+PL-13-1242,PL-USER-13,debit,20.86,USD,hardware store,2027-01-02 14:00:00,completed
+PL-13-1243,PL-USER-13,debit,22.84,USD,restaurant,2027-01-03 18:00:00,completed
+PL-13-1244,PL-USER-13,debit,50.58,USD,grocery store,2027-01-04 14:00:00,completed
+PL-13-1245,PL-USER-13,debit,4.53,USD,coffee shop,2027-01-04 15:30:00,completed
+PL-13-1246,PL-USER-13,debit,59.27,USD,phone service,2027-01-05 00:00:00,completed
+PL-13-1247,PL-USER-13,debit,15.99,USD,toledo mud hens streaming,2027-01-05 00:00:00,completed
+PL-13-1248,PL-USER-13,debit,18.87,USD,restaurant,2027-01-05 18:00:00,completed
+PL-13-1249,PL-USER-13,debit,25.71,USD,sports venue,2027-01-07 13:00:00,completed
+PL-13-1250,PL-USER-13,debit,10.66,USD,food and beverage,2027-01-07 15:00:00,completed
+PL-13-1251,PL-USER-13,debit,25.25,USD,charitable organization,2027-01-08 10:00:00,completed
+PL-13-1252,PL-USER-13,debit,30.72,USD,gas station,2027-01-09 16:00:00,completed
+PL-13-1253,PL-USER-13,debit,9.99,USD,music streaming (classic country),2027-01-10 00:00:00,completed
+PL-13-1254,PL-USER-13,debit,250.65,USD,retail,2027-01-10 14:00:00,completed
+PL-13-1255,PL-USER-13,debit,57.01,USD,grocery,2027-01-11 13:00:00,completed
+PL-13-1256,PL-USER-13,debit,23.98,USD,food and beverage,2027-01-12 18:00:00,completed
+PL-13-1257,PL-USER-13,debit,150.01,USD,retail,2027-01-13 14:00:00,completed
+PL-13-1258,PL-USER-13,debit,80.61,USD,retail,2027-01-14 13:00:00,completed
+PL-13-1259,PL-USER-13,debit,127.86,USD,electricity bill,2027-01-15 00:00:00,completed
+PL-13-1260,PL-USER-13,debit,12.0,USD,fishing magazine,2027-01-15 00:00:00,completed
+PL-13-1261,PL-USER-13,debit,90.66,USD,retail,2027-01-15 15:00:00,completed
+PL-13-1262,PL-USER-13,debit,25.69,USD,entertainment,2027-01-16 12:00:00,completed
+PL-13-1263,PL-USER-13,debit,16.39,USD,food and beverage,2027-01-16 18:00:00,completed
+PL-13-1264,PL-USER-13,debit,70.04,USD,retail,2027-01-17 14:00:00,completed
+PL-13-1265,PL-USER-13,debit,32.8,USD,food and beverage,2027-01-18 17:00:00,completed
+PL-13-1266,PL-USER-13,debit,120.48,USD,automotive,2027-01-19 10:00:00,completed
+PL-13-1267,PL-USER-13,debit,46.77,USD,water bill,2027-01-20 00:00:00,completed
+PL-13-1268,PL-USER-13,debit,20.0,USD,woodworking hobby magazine,2027-01-20 00:00:00,completed
+PL-13-1269,PL-USER-13,debit,45.26,USD,grocery,2027-01-20 14:00:00,completed
+PL-13-1270,PL-USER-13,debit,5.77,USD,food and beverage,2027-01-20 16:00:00,completed
+PL-13-1271,PL-USER-13,debit,150.06,USD,retail,2027-01-21 15:00:00,completed
+PL-13-1272,PL-USER-13,debit,28.1,USD,dining,2027-01-22 18:00:00,completed
+PL-13-1273,PL-USER-13,debit,12.64,USD,convenience store,2027-01-23 17:00:00,completed
+PL-16-0,PL-USER-16,debit,35.36,USD,entertainment,2024-07-14 13:30:00,completed
+PL-16-1,PL-USER-16,debit,75.57,USD,home improvement,2024-07-16 16:00:00,completed
+PL-16-2,PL-USER-16,debit,21.15,USD,grocery,2024-07-17 18:30:00,completed
+PL-16-3,PL-USER-16,debit,9.43,USD,food/beverage,2024-07-18 19:00:00,completed
+PL-16-4,PL-USER-16,debit,25.75,USD,dining,2024-07-19 19:30:00,completed
+PL-16-5,PL-USER-16,debit,132.72,USD,home & auto insurance,2024-07-20 00:00:00,completed
+PL-16-6,PL-USER-16,debit,9.99,USD,music streaming,2024-07-20 00:00:00,completed
+PL-16-7,PL-USER-16,debit,15.82,USD,entertainment,2024-07-20 11:00:00,completed
+PL-16-8,PL-USER-16,debit,5.47,USD,food/beverage,2024-07-20 14:00:00,completed
+PL-16-9,PL-USER-16,debit,10.02,USD,membership,2024-07-21 10:00:00,completed
+PL-16-10,PL-USER-16,debit,50.24,USD,grocery,2024-07-21 12:00:00,completed
+PL-16-11,PL-USER-16,debit,30.08,USD,bookstore,2024-07-22 17:00:00,completed
+PL-16-12,PL-USER-16,debit,6.79,USD,food/beverage,2024-07-22 17:30:00,completed
+PL-16-13,PL-USER-16,debit,120.55,USD,auto service,2024-07-23 17:00:00,completed
+PL-16-14,PL-USER-16,debit,28.82,USD,dining,2024-07-24 19:00:00,completed
+PL-16-15,PL-USER-16,transfer,200.0,USD,payment,2024-07-24 21:00:00,completed
+PL-16-16,PL-USER-16,debit,76.28,USD,phone & internet bill,2024-07-25 00:00:00,completed
+PL-16-17,PL-USER-16,debit,23.18,USD,art supplies,2024-07-25 17:30:00,completed
+PL-16-18,PL-USER-16,debit,10.67,USD,entertainment,2024-07-26 19:00:00,completed
+PL-16-19,PL-USER-16,debit,35.11,USD,dining,2024-07-26 20:30:00,completed
+PL-16-20,PL-USER-16,debit,35.53,USD,housewares,2024-07-27 10:00:00,completed
+PL-16-21,PL-USER-16,debit,25.43,USD,grocery,2024-07-28 09:00:00,completed
+PL-16-22,PL-USER-16,debit,30.63,USD,gas,2024-07-29 17:00:00,completed
+PL-16-23,PL-USER-16,transfer,300.0,USD,payment,2024-07-29 20:00:00,completed
+PL-16-24,PL-USER-16,debit,19.0,USD,gardening,2024-07-30 18:00:00,completed
+PL-16-25,PL-USER-16,debit,28.66,USD,dining,2024-07-31 19:30:00,completed
+PL-16-26,PL-USER-16,debit,28.99,USD,warriors streaming service,2024-08-01 00:00:00,completed
+PL-16-27,PL-USER-16,debit,40.41,USD,grocery,2024-08-01 12:00:00,completed
+PL-16-28,PL-USER-16,debit,10.04,USD,entertainment,2024-08-02 19:00:00,completed
+PL-16-29,PL-USER-16,debit,20.74,USD,grocery,2024-08-03 10:00:00,completed
+PL-16-30,PL-USER-16,debit,15.36,USD,books,2024-08-03 14:00:00,completed
+PL-16-31,PL-USER-16,debit,25.27,USD,dining,2024-08-04 12:00:00,completed
+PL-16-32,PL-USER-16,debit,38.85,USD,water bill,2024-08-05 00:00:00,completed
+PL-16-33,PL-USER-16,debit,35.73,USD,gas,2024-08-05 17:00:00,completed
+PL-16-34,PL-USER-16,debit,75.1,USD,gift,2024-08-06 12:00:00,completed
+PL-16-35,PL-USER-16,debit,45.83,USD,electronics,2024-08-07 18:00:00,completed
+PL-16-36,PL-USER-16,transfer,200.0,USD,payment,2024-08-08 20:00:00,completed
+PL-16-37,PL-USER-16,debit,30.67,USD,dining,2024-08-09 19:00:00,completed
+PL-16-38,PL-USER-16,debit,98.45,USD,electricity bill,2024-08-10 00:00:00,completed
+PL-16-39,PL-USER-16,debit,20.62,USD,gift,2024-08-10 10:00:00,completed
+PL-16-40,PL-USER-16,debit,10.86,USD,convenience,2024-08-10 23:00:00,completed
+PL-16-41,PL-USER-16,debit,50.35,USD,grocery,2024-08-11 14:00:00,completed
+PL-16-42,PL-USER-16,debit,25.64,USD,gas,2024-08-12 17:00:00,completed
+PL-16-43,PL-USER-16,transfer,200.0,USD,payment,2024-08-12 20:00:00,completed
+PL-16-44,PL-USER-16,debit,5.5,USD,dining,2024-08-13 18:00:00,completed
+PL-16-45,PL-USER-16,debit,28.64,USD,dining,2024-08-14 19:00:00,completed
+PL-16-46,PL-USER-16,debit,15.15,USD,entertainment,2024-08-14 20:30:00,completed
+PL-16-47,PL-USER-16,debit,22.14,USD,dining,2024-08-15 19:30:00,completed
+PL-16-48,PL-USER-16,debit,12.22,USD,dining,2024-08-16 19:00:00,completed
+PL-16-49,PL-USER-16,debit,10.81,USD,entertainment,2024-08-16 21:00:00,completed
+PL-16-50,PL-USER-16,debit,20.5,USD,entertainment,2024-08-17 13:00:00,completed
+PL-16-51,PL-USER-16,debit,18.51,USD,dining,2024-08-17 16:00:00,completed
+PL-16-52,PL-USER-16,debit,30.32,USD,grocery,2024-08-18 10:00:00,completed
+PL-16-53,PL-USER-16,debit,50.52,USD,grocery,2024-08-18 18:00:00,completed
+PL-16-54,PL-USER-16,debit,35.78,USD,retail,2024-08-19 18:00:00,completed
+PL-16-55,PL-USER-16,debit,9.99,USD,music streaming,2024-08-20 00:00:00,completed
+PL-16-56,PL-USER-16,debit,5.67,USD,dining,2024-08-20 17:00:00,completed
+PL-16-57,PL-USER-16,debit,40.53,USD,gas,2024-08-20 18:00:00,completed
+PL-16-58,PL-USER-16,debit,28.65,USD,dining,2024-08-21 19:00:00,completed
+PL-16-59,PL-USER-16,transfer,200.0,USD,payment,2024-08-22 18:00:00,completed
+PL-16-60,PL-USER-16,debit,2800.47,USD,auto repair,2024-08-23 14:00:00,completed
+PL-16-61,PL-USER-16,debit,850.19,USD,retail,2024-08-24 11:00:00,completed
+PL-16-62,PL-USER-16,debit,60.7,USD,grocery,2024-08-24 15:00:00,completed
+PL-16-63,PL-USER-16,debit,80.39,USD,phone & internet bill,2024-08-25 00:00:00,completed
+PL-16-64,PL-USER-16,debit,499.7,USD,education,2024-08-25 14:00:00,completed
+PL-16-65,PL-USER-16,debit,30.3,USD,dining,2024-08-26 19:00:00,completed
+PL-16-66,PL-USER-16,transfer,500.0,USD,payment,2024-08-26 20:00:00,completed
+PL-16-67,PL-USER-16,debit,20.48,USD,entertainment,2024-08-27 18:00:00,completed
+PL-16-68,PL-USER-16,debit,40.75,USD,retail,2024-08-27 19:30:00,completed
+PL-16-69,PL-USER-16,debit,25.36,USD,gas,2024-08-28 14:00:00,completed
+PL-16-70,PL-USER-16,debit,15.28,USD,retail,2024-08-28 17:00:00,completed
+PL-16-71,PL-USER-16,debit,35.65,USD,dining,2024-08-29 19:00:00,completed
+PL-16-72,PL-USER-16,debit,20.71,USD,dining,2024-08-30 18:00:00,completed
+PL-16-73,PL-USER-16,debit,15.6,USD,entertainment,2024-08-31 11:00:00,completed
+PL-16-74,PL-USER-16,debit,50.46,USD,grocery,2024-08-31 14:00:00,completed
+PL-16-75,PL-USER-16,debit,28.99,USD,warriors streaming service,2024-09-01 00:00:00,completed
+PL-16-76,PL-USER-16,debit,30.87,USD,grocery,2024-09-01 18:00:00,completed
+PL-16-77,PL-USER-16,debit,25.4,USD,retail,2024-09-02 13:00:00,completed
+PL-16-78,PL-USER-16,debit,15.42,USD,dining,2024-09-02 15:00:00,completed
+PL-16-79,PL-USER-16,debit,23.26,USD,dining,2024-09-03 18:00:00,completed
+PL-16-80,PL-USER-16,debit,5.69,USD,dining,2024-09-04 14:00:00,completed
+PL-16-81,PL-USER-16,debit,40.5,USD,retail,2024-09-04 17:00:00,completed
+PL-16-82,PL-USER-16,debit,48.74,USD,water bill,2024-09-05 00:00:00,completed
+PL-16-83,PL-USER-16,debit,901.0,USD,insurance,2024-09-05 10:00:00,completed
+PL-16-84,PL-USER-16,debit,1800.15,USD,retail,2024-09-06 14:00:00,completed
+PL-16-85,PL-USER-16,debit,35.66,USD,dining,2024-09-06 19:00:00,completed
+PL-16-86,PL-USER-16,debit,10.89,USD,dining,2024-09-07 12:00:00,completed
+PL-16-87,PL-USER-16,debit,30.57,USD,retail,2024-09-07 16:00:00,completed
+PL-16-88,PL-USER-16,debit,50.46,USD,grocery,2024-09-08 14:00:00,completed
+PL-16-89,PL-USER-16,debit,35.66,USD,gas,2024-09-09 17:00:00,completed
+PL-16-90,PL-USER-16,debit,156.41,USD,electricity bill,2024-09-10 00:00:00,completed
+PL-16-91,PL-USER-16,debit,750.86,USD,retail,2024-09-10 15:00:00,completed
+PL-16-92,PL-USER-16,debit,25.09,USD,dining,2024-09-11 18:00:00,completed
+PL-16-93,PL-USER-16,debit,130.43,USD,entertainment,2024-09-11 19:30:00,completed
+PL-16-94,PL-USER-16,debit,20.51,USD,grocery,2024-09-12 18:00:00,completed
+PL-16-95,PL-USER-16,transfer,500.0,USD,payment,2024-09-12 20:00:00,completed
+PL-16-96,PL-USER-16,debit,15.26,USD,dining,2024-09-13 18:00:00,completed
+PL-16-97,PL-USER-16,debit,450.31,USD,retail,2024-09-13 20:00:00,completed
+PL-16-98,PL-USER-16,transfer,4129.36,USD,payment,2024-09-14 00:00:00,completed
+PL-16-99,PL-USER-16,debit,20.26,USD,entertainment,2024-09-14 11:00:00,completed
+PL-16-100,PL-USER-16,debit,10.77,USD,dining,2024-09-14 13:00:00,completed
+PL-16-101,PL-USER-16,debit,30.04,USD,retail,2024-09-14 15:00:00,completed
+PL-16-102,PL-USER-16,debit,50.69,USD,grocery,2024-09-15 10:00:00,completed
+PL-16-103,PL-USER-16,debit,5.53,USD,dining,2024-09-16 17:00:00,completed
+PL-16-104,PL-USER-16,debit,10.2,USD,entertainment,2024-09-17 18:00:00,completed
+PL-16-105,PL-USER-16,debit,75.09,USD,retail,2024-09-17 19:30:00,completed
+PL-16-106,PL-USER-16,debit,35.9,USD,gas,2024-09-18 09:00:00,completed
+PL-16-107,PL-USER-16,debit,20.3,USD,dining,2024-09-18 12:30:00,completed
+PL-16-108,PL-USER-16,debit,25.56,USD,retail,2024-09-18 15:00:00,completed
+PL-16-109,PL-USER-16,debit,12.21,USD,dining,2024-09-19 18:00:00,completed
+PL-16-110,PL-USER-16,debit,15.28,USD,entertainment,2024-09-19 20:00:00,completed
+PL-16-111,PL-USER-16,debit,9.99,USD,music streaming,2024-09-20 00:00:00,completed
+PL-16-112,PL-USER-16,debit,130.92,USD,government services,2024-09-20 10:00:00,completed
+PL-16-113,PL-USER-16,debit,8.74,USD,dining,2024-09-20 15:00:00,completed
+PL-16-114,PL-USER-16,debit,30.91,USD,grocery,2024-09-21 11:00:00,completed
+PL-16-115,PL-USER-16,debit,20.77,USD,retail,2024-09-21 18:00:00,completed
+PL-16-116,PL-USER-16,debit,60.07,USD,retail,2024-09-22 12:00:00,completed
+PL-16-117,PL-USER-16,debit,5.01,USD,dining,2024-09-23 14:00:00,completed
+PL-16-118,PL-USER-16,debit,10.42,USD,entertainment,2024-09-24 18:00:00,completed
+PL-16-119,PL-USER-16,debit,15.37,USD,dining,2024-09-24 19:30:00,completed
+PL-16-120,PL-USER-16,debit,91.64,USD,phone & internet bill,2024-09-25 00:00:00,completed
+PL-16-121,PL-USER-16,debit,35.84,USD,gas,2024-09-25 12:00:00,completed
+PL-16-122,PL-USER-16,debit,10.2,USD,retail,2024-09-25 14:00:00,completed
+PL-16-123,PL-USER-16,debit,5.48,USD,shipping,2024-09-25 15:00:00,completed
+PL-16-124,PL-USER-16,debit,12.98,USD,dining,2024-09-26 12:00:00,completed
+PL-16-125,PL-USER-16,debit,0.48,USD,entertainment,2024-09-27 18:00:00,completed
+PL-16-126,PL-USER-16,debit,25.24,USD,dining,2024-09-27 20:00:00,completed
+PL-16-127,PL-USER-16,debit,50.97,USD,grocery,2024-09-28 10:00:00,completed
+PL-16-128,PL-USER-16,debit,35.78,USD,entertainment,2024-09-29 13:00:00,completed
+PL-16-129,PL-USER-16,debit,4.88,USD,dining,2024-09-30 10:00:00,completed
+PL-16-130,PL-USER-16,debit,28.99,USD,warriors streaming service,2024-10-01 00:00:00,completed
+PL-16-131,PL-USER-16,debit,15.4,USD,dining,2024-10-01 18:00:00,completed
+PL-16-132,PL-USER-16,debit,10.62,USD,entertainment,2024-10-01 20:00:00,completed
+PL-16-133,PL-USER-16,debit,20.84,USD,dining,2024-10-02 19:00:00,completed
+PL-16-134,PL-USER-16,debit,120.76,USD,healthcare,2024-10-03 15:00:00,completed
+PL-16-135,PL-USER-16,debit,30.06,USD,dining,2024-10-04 19:00:00,completed
+PL-16-136,PL-USER-16,debit,47.97,USD,water bill,2024-10-05 00:00:00,completed
+PL-16-137,PL-USER-16,debit,12.29,USD,dining,2024-10-05 10:00:00,completed
+PL-16-138,PL-USER-16,debit,75.3,USD,grocery,2024-10-05 15:00:00,completed
+PL-16-139,PL-USER-16,debit,18.91,USD,dining,2024-10-06 13:00:00,completed
+PL-16-140,PL-USER-16,transfer,500.0,USD,payment,2024-10-06 18:00:00,completed
+PL-16-141,PL-USER-16,debit,8.74,USD,dining,2024-10-07 14:00:00,completed
+PL-16-142,PL-USER-16,debit,15.73,USD,retail,2024-10-08 19:00:00,completed
+PL-16-143,PL-USER-16,debit,35.83,USD,gas,2024-10-08 20:30:00,completed
+PL-16-144,PL-USER-16,debit,22.48,USD,dining,2024-10-09 18:00:00,completed
+PL-16-145,PL-USER-16,debit,122.21,USD,electricity bill,2024-10-10 00:00:00,completed
+PL-16-146,PL-USER-16,debit,6.2,USD,dining,2024-10-10 18:00:00,completed
+PL-16-147,PL-USER-16,debit,120.52,USD,retail,2024-10-10 20:00:00,completed
+PL-16-148,PL-USER-16,debit,10.89,USD,dining,2024-10-11 08:00:00,completed
+PL-16-149,PL-USER-16,transfer,500.0,USD,payment,2024-10-11 14:00:00,completed
+PL-16-150,PL-USER-16,debit,44.62,USD,grocery,2024-10-12 10:00:00,completed
+PL-16-151,PL-USER-16,debit,25.88,USD,dining,2024-10-13 11:00:00,completed
+PL-16-152,PL-USER-16,debit,15.55,USD,entertainment,2024-10-13 18:00:00,completed
+PL-16-153,PL-USER-16,transfer,4555.76,USD,payment,2024-10-14 00:00:00,completed
+PL-16-154,PL-USER-16,debit,180.31,USD,dining,2024-10-14 19:00:00,completed
+PL-16-155,PL-USER-16,debit,35.28,USD,gas,2024-10-15 08:00:00,completed
+PL-16-156,PL-USER-16,debit,4.79,USD,dining,2024-10-15 08:15:00,completed
+PL-16-157,PL-USER-16,debit,12.93,USD,dining,2024-10-16 12:30:00,completed
+PL-16-158,PL-USER-16,debit,29.24,USD,retail,2024-10-17 19:00:00,completed
+PL-16-159,PL-USER-16,debit,23.67,USD,dining,2024-10-18 18:30:00,completed
+PL-16-160,PL-USER-16,debit,50.83,USD,retail,2024-10-19 10:00:00,completed
+PL-16-161,PL-USER-16,debit,139.96,USD,home & auto insurance,2024-10-20 00:00:00,completed
+PL-16-162,PL-USER-16,debit,9.99,USD,music streaming,2024-10-20 00:00:00,completed
+PL-16-163,PL-USER-16,debit,67.93,USD,grocery,2024-10-20 10:00:00,completed
+PL-16-164,PL-USER-16,debit,15.5,USD,dining,2024-10-21 12:30:00,completed
+PL-16-165,PL-USER-16,debit,600.91,USD,veterinary care,2024-10-22 14:00:00,completed
+PL-16-166,PL-USER-16,debit,4.58,USD,dining,2024-10-23 12:30:00,completed
+PL-16-167,PL-USER-16,debit,20.67,USD,entertainment,2024-10-24 14:00:00,completed
+PL-16-168,PL-USER-16,debit,12.36,USD,dining,2024-10-24 18:00:00,completed
+PL-16-169,PL-USER-16,debit,102.12,USD,phone & internet bill,2024-10-25 00:00:00,completed
+PL-16-170,PL-USER-16,debit,250.95,USD,gift,2024-10-25 12:00:00,completed
+PL-16-171,PL-USER-16,debit,35.1,USD,gas,2024-10-26 10:00:00,completed
+PL-16-172,PL-USER-16,debit,50.01,USD,gardening,2024-10-26 12:00:00,completed
+PL-16-173,PL-USER-16,debit,10.97,USD,entertainment,2024-10-27 11:00:00,completed
+PL-16-174,PL-USER-16,debit,75.12,USD,groceries,2024-10-27 15:00:00,completed
+PL-16-175,PL-USER-16,debit,8.66,USD,dining,2024-10-28 12:30:00,completed
+PL-16-176,PL-USER-16,debit,30.76,USD,retail,2024-10-29 14:00:00,completed
+PL-16-177,PL-USER-16,debit,20.24,USD,membership,2024-10-29 18:30:00,completed
+PL-16-178,PL-USER-16,debit,600.22,USD,veterinary care,2024-10-30 10:00:00,completed
+PL-16-179,PL-USER-16,debit,25.48,USD,dining,2024-10-31 18:00:00,completed
+PL-16-180,PL-USER-16,debit,28.99,USD,warriors streaming service,2024-11-01 00:00:00,completed
+PL-16-181,PL-USER-16,debit,10.53,USD,entertainment,2024-11-01 19:00:00,completed
+PL-16-182,PL-USER-16,debit,40.99,USD,dining,2024-11-01 20:30:00,completed
+PL-16-183,PL-USER-16,debit,80.32,USD,groceries,2024-11-02 10:00:00,completed
+PL-16-184,PL-USER-16,transfer,2000.0,USD,payment,2024-11-02 16:00:00,completed
+PL-16-185,PL-USER-16,debit,20.32,USD,workshop,2024-11-03 10:00:00,completed
+PL-16-186,PL-USER-16,debit,30.05,USD,dining,2024-11-03 18:00:00,completed
+PL-16-187,PL-USER-16,debit,5.97,USD,dining,2024-11-04 18:00:00,completed
+PL-16-188,PL-USER-16,debit,29.71,USD,water bill,2024-11-05 00:00:00,completed
+PL-16-189,PL-USER-16,debit,25.02,USD,dining,2024-11-05 18:00:00,completed
+PL-16-190,PL-USER-16,debit,130.96,USD,entertainment,2024-11-05 19:30:00,completed
+PL-16-191,PL-USER-16,debit,50.64,USD,home improvement,2024-11-06 18:00:00,completed
+PL-16-192,PL-USER-16,debit,250.58,USD,home improvement,2024-11-07 18:00:00,completed
+PL-16-193,PL-USER-16,debit,45.95,USD,medical,2024-11-08 10:00:00,completed
+PL-16-194,PL-USER-16,debit,100.44,USD,groceries,2024-11-08 18:00:00,completed
+PL-16-195,PL-USER-16,debit,75.78,USD,home improvement,2024-11-09 10:00:00,completed
+PL-16-196,PL-USER-16,debit,30.62,USD,gas,2024-11-09 16:00:00,completed
+PL-16-197,PL-USER-16,debit,103.59,USD,electricity bill,2024-11-10 00:00:00,completed
+PL-16-198,PL-USER-16,debit,70.99,USD,home goods,2024-11-10 12:00:00,completed
+PL-16-199,PL-USER-16,transfer,500.0,USD,payment,2024-11-11 18:00:00,completed
+PL-16-200,PL-USER-16,debit,50.75,USD,groceries,2024-11-12 10:00:00,completed
+PL-16-201,PL-USER-16,debit,20.93,USD,shipping,2024-11-12 12:00:00,completed
+PL-16-202,PL-USER-16,debit,30.14,USD,groceries,2024-11-13 19:00:00,completed
+PL-16-203,PL-USER-16,transfer,143.33,USD,payment,2024-11-14 00:00:00,completed
+PL-16-204,PL-USER-16,debit,15.42,USD,entertainment,2024-11-14 18:00:00,completed
+PL-16-205,PL-USER-16,debit,25.25,USD,dining,2024-11-14 20:00:00,completed
+PL-16-206,PL-USER-16,debit,40.46,USD,books,2024-11-14 21:00:00,completed
+PL-16-207,PL-USER-16,debit,35.98,USD,dining,2024-11-15 20:00:00,completed
+PL-16-208,PL-USER-16,debit,20.36,USD,groceries,2024-11-16 11:00:00,completed
+PL-16-209,PL-USER-16,debit,30.04,USD,beverages,2024-11-16 18:00:00,completed
+PL-16-210,PL-USER-16,debit,2800.83,USD,auto repair,2024-11-17 14:00:00,completed
+PL-16-211,PL-USER-16,debit,180.6,USD,subscription,2024-11-18 20:00:00,completed
+PL-16-212,PL-USER-16,debit,50.69,USD,groceries,2024-11-19 14:00:00,completed
+PL-16-213,PL-USER-16,debit,9.99,USD,music streaming,2024-11-20 00:00:00,completed
+PL-16-214,PL-USER-16,debit,20.77,USD,dining,2024-11-20 12:30:00,completed
+PL-16-215,PL-USER-16,debit,15.81,USD,books,2024-11-20 14:00:00,completed
+PL-16-216,PL-USER-16,debit,120.26,USD,clothing,2024-11-21 18:00:00,completed
+PL-16-217,PL-USER-16,debit,35.76,USD,gas,2024-11-22 13:00:00,completed
+PL-16-218,PL-USER-16,debit,10.0,USD,dining,2024-11-22 15:00:00,completed
+PL-16-219,PL-USER-16,debit,25.09,USD,dining,2024-11-23 12:30:00,completed
+PL-16-220,PL-USER-16,debit,21.0,USD,home improvement,2024-11-23 14:00:00,completed
+PL-16-221,PL-USER-16,debit,30.19,USD,beverages,2024-11-24 17:00:00,completed
+PL-16-222,PL-USER-16,debit,87.51,USD,phone & internet bill,2024-11-25 00:00:00,completed
+PL-16-223,PL-USER-16,debit,60.14,USD,groceries,2024-11-25 10:00:00,completed
+PL-16-224,PL-USER-16,debit,8.28,USD,dining,2024-11-25 12:00:00,completed
+PL-16-225,PL-USER-16,debit,40.65,USD,art supplies,2024-11-26 14:00:00,completed
+PL-16-226,PL-USER-16,debit,12.01,USD,dining,2024-11-26 17:00:00,completed
+PL-16-227,PL-USER-16,debit,15.99,USD,dining,2024-11-27 11:00:00,completed
+PL-16-228,PL-USER-16,debit,22.9,USD,dining,2024-11-27 19:00:00,completed
+PL-16-229,PL-USER-16,debit,25.81,USD,gifts,2024-11-28 09:00:00,completed
+PL-16-230,PL-USER-16,debit,35.36,USD,beverages,2024-11-28 18:00:00,completed
+PL-16-231,PL-USER-16,debit,40.55,USD,food subscription,2024-11-29 14:00:00,completed
+PL-16-232,PL-USER-16,debit,10.25,USD,dining,2024-11-30 11:00:00,completed
+PL-16-233,PL-USER-16,debit,30.57,USD,books,2024-11-30 16:00:00,completed
+PL-16-234,PL-USER-16,debit,28.99,USD,warriors streaming service,2024-12-01 00:00:00,completed
+PL-16-235,PL-USER-16,debit,30.04,USD,gas,2024-12-01 08:00:00,completed
+PL-16-236,PL-USER-16,debit,20.13,USD,groceries,2024-12-01 12:00:00,completed
+PL-16-237,PL-USER-16,debit,10.52,USD,dining,2024-12-01 15:00:00,completed
+PL-16-238,PL-USER-16,debit,40.8,USD,dining,2024-12-01 18:00:00,completed
+PL-16-239,PL-USER-16,debit,50.24,USD,groceries,2024-12-02 17:00:00,completed
+PL-16-240,PL-USER-16,debit,15.44,USD,pharmacy,2024-12-02 19:00:00,completed
+PL-16-241,PL-USER-16,debit,20.27,USD,museum,2024-12-03 13:00:00,completed
+PL-16-242,PL-USER-16,debit,8.11,USD,dining,2024-12-03 15:00:00,completed
+PL-16-243,PL-USER-16,debit,25.34,USD,books,2024-12-03 18:00:00,completed
+PL-16-244,PL-USER-16,debit,35.26,USD,dining,2024-12-04 18:00:00,completed
+PL-16-245,PL-USER-16,debit,49.62,USD,water bill,2024-12-05 00:00:00,completed
+PL-16-246,PL-USER-16,debit,40.41,USD,groceries,2024-12-05 10:00:00,completed
+PL-16-247,PL-USER-16,debit,100.4,USD,bill payment,2024-12-05 12:00:00,completed
+PL-16-248,PL-USER-16,debit,25.76,USD,entertainment,2024-12-06 18:00:00,completed
+PL-16-249,PL-USER-16,debit,45.21,USD,dining,2024-12-06 20:00:00,completed
+PL-16-250,PL-USER-16,debit,30.95,USD,home improvement,2024-12-07 10:00:00,completed
+PL-16-251,PL-USER-16,debit,20.7,USD,art supplies,2024-12-07 12:00:00,completed
+PL-16-252,PL-USER-16,transfer,500.0,USD,payment,2024-12-07 18:00:00,completed
+PL-16-253,PL-USER-16,debit,30.58,USD,gas,2024-12-08 10:00:00,completed
+PL-16-254,PL-USER-16,debit,50.16,USD,groceries,2024-12-09 14:00:00,completed
+PL-16-255,PL-USER-16,debit,145.61,USD,electricity bill,2024-12-10 00:00:00,completed
+PL-16-256,PL-USER-16,debit,120.1,USD,auto service,2024-12-10 10:00:00,completed
+PL-16-257,PL-USER-16,debit,40.57,USD,food subscription,2024-12-11 19:00:00,completed
+PL-16-258,PL-USER-16,debit,20.53,USD,entertainment,2024-12-12 18:00:00,completed
+PL-16-259,PL-USER-16,debit,15.37,USD,dining,2024-12-12 21:00:00,completed
+PL-16-260,PL-USER-16,debit,25.11,USD,books,2024-12-13 10:00:00,completed
+PL-16-261,PL-USER-16,transfer,500.0,USD,payment,2024-12-13 18:00:00,completed
+PL-16-262,PL-USER-16,transfer,4656.12,USD,payment,2024-12-14 00:00:00,completed
+PL-16-263,PL-USER-16,debit,30.23,USD,dining,2024-12-14 13:00:00,completed
+PL-16-264,PL-USER-16,debit,15.65,USD,entertainment,2024-12-14 16:00:00,completed
+PL-16-265,PL-USER-16,debit,20.72,USD,education,2024-12-15 10:00:00,completed
+PL-16-266,PL-USER-16,debit,40.0,USD,dining,2024-12-15 19:00:00,completed
+PL-16-267,PL-USER-16,debit,50.41,USD,groceries,2024-12-16 14:00:00,completed
+PL-16-268,PL-USER-16,debit,10.29,USD,dining,2024-12-17 18:00:00,completed
+PL-16-269,PL-USER-16,debit,30.07,USD,entertainment,2024-12-17 20:00:00,completed
+PL-16-270,PL-USER-16,debit,15.5,USD,entertainment,2024-12-17 22:00:00,completed
+PL-16-271,PL-USER-16,debit,25.53,USD,dining,2024-12-18 19:00:00,completed
+PL-16-272,PL-USER-16,debit,250.15,USD,gift,2024-12-19 20:00:00,completed
+PL-16-273,PL-USER-16,debit,9.99,USD,music streaming,2024-12-20 00:00:00,completed
+PL-16-274,PL-USER-16,debit,500.33,USD,electronics,2024-12-20 21:00:00,completed
+PL-16-275,PL-USER-16,debit,180.07,USD,subscription,2024-12-21 10:00:00,completed
+PL-16-276,PL-USER-16,debit,35.07,USD,gas,2024-12-23 09:00:00,completed
+PL-16-277,PL-USER-16,debit,75.39,USD,grocery,2024-12-23 10:30:00,completed
+PL-16-278,PL-USER-16,transfer,2000.0,USD,payment,2024-12-24 18:00:00,completed
+PL-16-279,PL-USER-16,debit,94.81,USD,phone & internet bill,2024-12-25 00:00:00,completed
+PL-16-280,PL-USER-16,debit,25.36,USD,bakery,2024-12-25 14:00:00,completed
+PL-16-281,PL-USER-16,debit,20.51,USD,restaurant,2024-12-26 12:30:00,completed
+PL-16-282,PL-USER-16,debit,50.41,USD,art,2024-12-26 15:00:00,completed
+PL-16-283,PL-USER-16,debit,30.89,USD,liquor,2024-12-27 17:00:00,completed
+PL-16-284,PL-USER-16,debit,10.4,USD,coffee,2024-12-27 21:30:00,completed
+PL-16-285,PL-USER-16,debit,40.37,USD,art,2024-12-28 10:00:00,completed
+PL-16-286,PL-USER-16,debit,15.11,USD,restaurant,2024-12-28 12:30:00,completed
+PL-16-287,PL-USER-16,debit,25.59,USD,restaurant,2024-12-28 18:00:00,completed
+PL-16-288,PL-USER-16,debit,140.97,USD,sporting goods,2024-12-29 11:00:00,completed
+PL-16-289,PL-USER-16,debit,50.92,USD,grocery,2024-12-30 10:00:00,completed
+PL-16-290,PL-USER-16,debit,75.09,USD,art,2024-12-30 14:00:00,completed
+PL-16-291,PL-USER-16,debit,600.93,USD,veterinary care,2024-12-31 10:00:00,completed
+PL-16-292,PL-USER-16,debit,3000.0,USD,property tax,2025-01-01 00:00:00,completed
+PL-16-293,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-01-01 00:00:00,completed
+PL-16-294,PL-USER-16,transfer,1000.0,USD,payment,2025-01-01 12:00:00,completed
+PL-16-295,PL-USER-16,debit,30.12,USD,restaurant,2025-01-01 18:00:00,completed
+PL-16-296,PL-USER-16,debit,35.2,USD,gas,2025-01-02 09:00:00,completed
+PL-16-297,PL-USER-16,debit,20.11,USD,shipping,2025-01-02 11:00:00,completed
+PL-16-298,PL-USER-16,debit,0.73,USD,art,2025-01-02 15:00:00,completed
+PL-16-299,PL-USER-16,debit,125.94,USD,medical,2025-01-03 10:00:00,completed
+PL-16-300,PL-USER-16,debit,40.36,USD,restaurant,2025-01-03 19:00:00,completed
+PL-16-301,PL-USER-16,debit,15.95,USD,museum,2025-01-04 12:00:00,completed
+PL-16-302,PL-USER-16,debit,25.93,USD,bookstore,2025-01-04 14:00:00,completed
+PL-16-303,PL-USER-16,debit,10.03,USD,coffee shop,2025-01-04 17:00:00,completed
+PL-16-304,PL-USER-16,debit,36.92,USD,water bill,2025-01-05 00:00:00,completed
+PL-16-305,PL-USER-16,debit,85.0,USD,museum membership,2025-01-05 00:00:00,completed
+PL-16-306,PL-USER-16,debit,60.01,USD,grocery,2025-01-05 11:00:00,completed
+PL-16-307,PL-USER-16,debit,15.89,USD,restaurant,2025-01-06 12:00:00,completed
+PL-16-308,PL-USER-16,debit,10.32,USD,art,2025-01-07 10:00:00,completed
+PL-16-309,PL-USER-16,debit,25.43,USD,bar,2025-01-07 18:00:00,completed
+PL-16-310,PL-USER-16,debit,60.54,USD,spa,2025-01-08 10:00:00,completed
+PL-16-311,PL-USER-16,debit,30.69,USD,grocery,2025-01-08 18:00:00,completed
+PL-16-312,PL-USER-16,debit,35.64,USD,restaurant,2025-01-09 19:00:00,completed
+PL-16-313,PL-USER-16,debit,112.36,USD,electricity bill,2025-01-10 00:00:00,completed
+PL-16-314,PL-USER-16,debit,25.64,USD,gas,2025-01-10 14:00:00,completed
+PL-16-315,PL-USER-16,debit,20.16,USD,restaurant,2025-01-10 18:00:00,completed
+PL-16-316,PL-USER-16,debit,15.3,USD,restaurant,2025-01-11 11:00:00,completed
+PL-16-317,PL-USER-16,debit,30.2,USD,restaurant,2025-01-11 19:00:00,completed
+PL-16-318,PL-USER-16,debit,80.69,USD,retail,2025-01-12 14:00:00,completed
+PL-16-319,PL-USER-16,debit,12.95,USD,restaurant,2025-01-13 12:00:00,completed
+PL-16-320,PL-USER-16,debit,45.15,USD,retail,2025-01-14 14:00:00,completed
+PL-16-321,PL-USER-16,debit,30.0,USD,gardening magazine,2025-01-15 00:00:00,completed
+PL-16-322,PL-USER-16,debit,25.63,USD,restaurant,2025-01-15 18:00:00,completed
+PL-16-323,PL-USER-16,debit,130.73,USD,government services,2025-01-16 10:00:00,completed
+PL-16-324,PL-USER-16,debit,20.8,USD,restaurant,2025-01-17 19:00:00,completed
+PL-16-325,PL-USER-16,debit,15.46,USD,entertainment,2025-01-17 21:00:00,completed
+PL-16-326,PL-USER-16,debit,50.09,USD,online education,2025-01-18 10:00:00,completed
+PL-16-327,PL-USER-16,debit,56.8,USD,grocery,2025-01-19 11:00:00,completed
+PL-16-328,PL-USER-16,debit,166.11,USD,home & auto insurance,2025-01-20 00:00:00,completed
+PL-16-329,PL-USER-16,debit,9.99,USD,music streaming,2025-01-20 00:00:00,completed
+PL-16-330,PL-USER-16,debit,29.34,USD,restaurant,2025-01-20 18:00:00,completed
+PL-16-331,PL-USER-16,debit,33.05,USD,art supplies,2025-01-21 16:00:00,completed
+PL-16-332,PL-USER-16,debit,700.75,USD,travel,2025-01-22 14:00:00,completed
+PL-16-333,PL-USER-16,debit,36.18,USD,gas,2025-01-23 16:00:00,completed
+PL-16-334,PL-USER-16,debit,24.55,USD,restaurant,2025-01-24 18:30:00,completed
+PL-16-335,PL-USER-16,debit,83.62,USD,phone & internet bill,2025-01-25 00:00:00,completed
+PL-16-336,PL-USER-16,debit,42.26,USD,bookstore,2025-01-25 14:00:00,completed
+PL-16-337,PL-USER-16,debit,30.53,USD,gas,2025-01-26 09:00:00,completed
+PL-16-338,PL-USER-16,debit,25.79,USD,restaurant,2025-01-26 12:30:00,completed
+PL-16-339,PL-USER-16,debit,16.0,USD,food,2025-01-26 15:00:00,completed
+PL-16-340,PL-USER-16,debit,30.99,USD,coffee shop,2025-01-26 17:00:00,completed
+PL-16-341,PL-USER-16,debit,57.02,USD,grocery,2025-01-27 17:00:00,completed
+PL-16-342,PL-USER-16,debit,38.9,USD,restaurant,2025-01-28 19:00:00,completed
+PL-16-343,PL-USER-16,debit,13.43,USD,coffee shop,2025-01-29 14:30:00,completed
+PL-16-344,PL-USER-16,debit,200.76,USD,retail,2025-01-30 17:00:00,completed
+PL-16-345,PL-USER-16,debit,90.5,USD,retail,2025-01-31 13:00:00,completed
+PL-16-346,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-02-01 00:00:00,completed
+PL-16-347,PL-USER-16,debit,42.37,USD,restaurant,2025-02-01 18:00:00,completed
+PL-16-348,PL-USER-16,debit,700.25,USD,travel,2025-02-03 15:00:00,completed
+PL-16-349,PL-USER-16,debit,35.55,USD,gas,2025-02-04 10:00:00,completed
+PL-16-350,PL-USER-16,debit,43.88,USD,water bill,2025-02-05 00:00:00,completed
+PL-16-351,PL-USER-16,debit,56.74,USD,grocery,2025-02-05 12:00:00,completed
+PL-16-352,PL-USER-16,debit,60.63,USD,retail,2025-02-06 14:00:00,completed
+PL-16-353,PL-USER-16,debit,12.91,USD,restaurant,2025-02-07 10:00:00,completed
+PL-16-354,PL-USER-16,debit,20.99,USD,entertainment,2025-02-08 12:00:00,completed
+PL-16-355,PL-USER-16,debit,10.04,USD,restaurant,2025-02-08 14:00:00,completed
+PL-16-356,PL-USER-16,debit,30.08,USD,grocery,2025-02-09 10:00:00,completed
+PL-16-357,PL-USER-16,transfer,500.0,USD,payment,2025-02-09 18:00:00,completed
+PL-16-358,PL-USER-16,debit,121.35,USD,electricity bill,2025-02-10 00:00:00,completed
+PL-16-359,PL-USER-16,debit,220.39,USD,medical,2025-02-10 09:00:00,completed
+PL-16-360,PL-USER-16,debit,250.54,USD,retail,2025-02-11 13:00:00,completed
+PL-16-361,PL-USER-16,debit,450.9,USD,retail,2025-02-12 15:00:00,completed
+PL-16-362,PL-USER-16,debit,35.65,USD,gas,2025-02-13 10:00:00,completed
+PL-16-363,PL-USER-16,debit,25.89,USD,restaurant,2025-02-13 18:00:00,completed
+PL-16-364,PL-USER-16,transfer,5802.62,USD,payment,2025-02-14 00:00:00,completed
+PL-16-365,PL-USER-16,debit,120.55,USD,auto_service,2025-02-14 09:00:00,completed
+PL-16-366,PL-USER-16,debit,45.83,USD,retail,2025-02-15 11:00:00,completed
+PL-16-367,PL-USER-16,debit,10.01,USD,restaurant,2025-02-15 14:00:00,completed
+PL-16-368,PL-USER-16,debit,50.61,USD,grocery,2025-02-16 18:00:00,completed
+PL-16-369,PL-USER-16,debit,20.87,USD,restaurant,2025-02-17 12:00:00,completed
+PL-16-370,PL-USER-16,debit,30.25,USD,retail,2025-02-17 15:00:00,completed
+PL-16-371,PL-USER-16,debit,10.26,USD,shipping,2025-02-18 10:00:00,completed
+PL-16-372,PL-USER-16,debit,15.56,USD,restaurant,2025-02-18 13:00:00,completed
+PL-16-373,PL-USER-16,debit,25.96,USD,retail,2025-02-19 11:00:00,completed
+PL-16-374,PL-USER-16,debit,25.7,USD,restaurant,2025-02-19 18:00:00,completed
+PL-16-375,PL-USER-16,debit,9.99,USD,music streaming,2025-02-20 00:00:00,completed
+PL-16-376,PL-USER-16,debit,5.5,USD,restaurant,2025-02-20 10:00:00,completed
+PL-16-377,PL-USER-16,debit,30.63,USD,restaurant,2025-02-20 19:00:00,completed
+PL-16-378,PL-USER-16,debit,50.14,USD,entertainment,2025-02-21 12:00:00,completed
+PL-16-379,PL-USER-16,debit,20.32,USD,restaurant,2025-02-21 18:00:00,completed
+PL-16-380,PL-USER-16,debit,25.33,USD,restaurant,2025-02-22 11:00:00,completed
+PL-16-381,PL-USER-16,debit,35.57,USD,restaurant,2025-02-22 19:00:00,completed
+PL-16-382,PL-USER-16,debit,15.21,USD,retail,2025-02-23 10:00:00,completed
+PL-16-383,PL-USER-16,debit,40.41,USD,grocery,2025-02-23 18:00:00,completed
+PL-16-384,PL-USER-16,transfer,200.0,USD,payment,2025-02-23 20:00:00,completed
+PL-16-385,PL-USER-16,debit,10.4,USD,shipping,2025-02-24 10:00:00,completed
+PL-16-386,PL-USER-16,debit,5.93,USD,restaurant,2025-02-24 14:00:00,completed
+PL-16-387,PL-USER-16,debit,20.51,USD,retail,2025-02-24 16:00:00,completed
+PL-16-388,PL-USER-16,debit,73.78,USD,phone & internet bill,2025-02-25 00:00:00,completed
+PL-16-389,PL-USER-16,debit,15.0,USD,retail,2025-02-25 12:00:00,completed
+PL-16-390,PL-USER-16,debit,28.92,USD,restaurant,2025-02-25 18:00:00,completed
+PL-16-391,PL-USER-16,debit,150.17,USD,retail,2025-02-26 12:00:00,completed
+PL-16-392,PL-USER-16,debit,20.94,USD,grocery,2025-02-26 18:00:00,completed
+PL-16-393,PL-USER-16,debit,20.71,USD,personal care,2025-02-27 10:00:00,completed
+PL-16-394,PL-USER-16,debit,5.59,USD,restaurant,2025-02-27 14:00:00,completed
+PL-16-395,PL-USER-16,transfer,200.0,USD,payment,2025-02-27 20:00:00,completed
+PL-16-396,PL-USER-16,debit,30.19,USD,gas,2025-02-28 10:00:00,completed
+PL-16-397,PL-USER-16,debit,25.75,USD,restaurant,2025-02-28 18:00:00,completed
+PL-16-398,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-03-01 00:00:00,completed
+PL-16-399,PL-USER-16,debit,10.23,USD,retail,2025-03-01 12:00:00,completed
+PL-16-400,PL-USER-16,debit,25.84,USD,retail,2025-03-01 14:00:00,completed
+PL-16-401,PL-USER-16,debit,20.3,USD,restaurant,2025-03-01 18:00:00,completed
+PL-16-402,PL-USER-16,debit,20.24,USD,donation,2025-03-02 10:00:00,completed
+PL-16-403,PL-USER-16,debit,50.45,USD,grocery,2025-03-02 14:00:00,completed
+PL-16-404,PL-USER-16,debit,15.12,USD,shipping,2025-03-03 10:00:00,completed
+PL-16-405,PL-USER-16,debit,5.54,USD,restaurant,2025-03-03 14:00:00,completed
+PL-16-406,PL-USER-16,debit,75.41,USD,retail,2025-03-04 10:00:00,completed
+PL-16-407,PL-USER-16,debit,30.18,USD,grocery,2025-03-04 18:00:00,completed
+PL-16-408,PL-USER-16,debit,40.76,USD,water bill,2025-03-05 00:00:00,completed
+PL-16-409,PL-USER-16,debit,15.77,USD,entertainment,2025-03-05 12:00:00,completed
+PL-16-410,PL-USER-16,debit,40.13,USD,education,2025-03-05 14:00:00,completed
+PL-16-411,PL-USER-16,debit,25.9,USD,restaurant,2025-03-05 18:00:00,completed
+PL-16-412,PL-USER-16,debit,120.44,USD,auto_service,2025-03-06 10:00:00,completed
+PL-16-413,PL-USER-16,debit,20.43,USD,retail,2025-03-06 14:00:00,completed
+PL-16-414,PL-USER-16,debit,30.59,USD,restaurant,2025-03-06 18:00:00,completed
+PL-16-415,PL-USER-16,debit,220.33,USD,medical,2025-03-07 10:00:00,completed
+PL-16-416,PL-USER-16,debit,15.52,USD,restaurant,2025-03-07 12:00:00,completed
+PL-16-417,PL-USER-16,debit,35.38,USD,restaurant,2025-03-08 18:00:00,completed
+PL-16-418,PL-USER-16,debit,20.7,USD,entertainment,2025-03-08 20:00:00,completed
+PL-16-419,PL-USER-16,debit,10.63,USD,restaurant,2025-03-08 22:00:00,completed
+PL-16-420,PL-USER-16,debit,30.56,USD,education,2025-03-09 10:00:00,completed
+PL-16-421,PL-USER-16,debit,50.05,USD,grocery,2025-03-09 14:00:00,completed
+PL-16-422,PL-USER-16,debit,99.87,USD,electricity bill,2025-03-10 00:00:00,completed
+PL-16-423,PL-USER-16,debit,20.41,USD,shipping,2025-03-10 10:00:00,completed
+PL-16-424,PL-USER-16,debit,100.69,USD,utility,2025-03-10 14:00:00,completed
+PL-16-425,PL-USER-16,debit,10.58,USD,restaurant,2025-03-11 12:00:00,completed
+PL-16-426,PL-USER-16,debit,25.63,USD,gift,2025-03-11 18:00:00,completed
+PL-16-427,PL-USER-16,debit,15.57,USD,education,2025-03-12 10:00:00,completed
+PL-16-428,PL-USER-16,debit,30.99,USD,retail,2025-03-12 13:00:00,completed
+PL-16-429,PL-USER-16,debit,20.78,USD,retail,2025-03-12 16:00:00,completed
+PL-16-430,PL-USER-16,debit,35.28,USD,entertainment,2025-03-13 13:00:00,completed
+PL-16-431,PL-USER-16,transfer,2952.76,USD,payment,2025-03-14 00:00:00,completed
+PL-16-432,PL-USER-16,debit,125.83,USD,medical,2025-03-14 10:00:00,completed
+PL-16-433,PL-USER-16,debit,140.26,USD,retail,2025-03-15 12:00:00,completed
+PL-16-434,PL-USER-16,debit,10.43,USD,entertainment,2025-03-16 11:00:00,completed
+PL-16-435,PL-USER-16,debit,25.78,USD,retail,2025-03-16 14:00:00,completed
+PL-16-436,PL-USER-16,debit,50.01,USD,grocery,2025-03-16 17:00:00,completed
+PL-16-437,PL-USER-16,debit,5.57,USD,restaurant,2025-03-17 08:00:00,completed
+PL-16-438,PL-USER-16,debit,30.7,USD,retail,2025-03-17 12:00:00,completed
+PL-16-439,PL-USER-16,debit,10.99,USD,restaurant,2025-03-18 12:00:00,completed
+PL-16-440,PL-USER-16,debit,20.03,USD,retail,2025-03-18 18:00:00,completed
+PL-16-441,PL-USER-16,debit,15.79,USD,entertainment,2025-03-19 10:00:00,completed
+PL-16-442,PL-USER-16,debit,25.34,USD,retail,2025-03-19 13:00:00,completed
+PL-16-443,PL-USER-16,debit,9.99,USD,music streaming,2025-03-20 00:00:00,completed
+PL-16-444,PL-USER-16,debit,30.8,USD,gas,2025-03-20 09:00:00,completed
+PL-16-445,PL-USER-16,debit,10.08,USD,shipping,2025-03-20 11:00:00,completed
+PL-16-446,PL-USER-16,debit,250.18,USD,retail,2025-03-21 12:00:00,completed
+PL-16-447,PL-USER-16,debit,40.06,USD,restaurant,2025-03-21 19:00:00,completed
+PL-16-448,PL-USER-16,debit,180.11,USD,retail,2025-03-22 11:00:00,completed
+PL-16-449,PL-USER-16,debit,30.25,USD,grocery,2025-03-22 14:00:00,completed
+PL-16-450,PL-USER-16,debit,10.4,USD,entertainment,2025-03-23 12:00:00,completed
+PL-16-451,PL-USER-16,debit,8.3,USD,restaurant,2025-03-23 14:00:00,completed
+PL-16-452,PL-USER-16,transfer,2000.0,USD,payment,2025-03-24 10:00:00,completed
+PL-16-453,PL-USER-16,debit,15.98,USD,shipping,2025-03-24 12:00:00,completed
+PL-16-454,PL-USER-16,debit,79.85,USD,phone & internet bill,2025-03-25 00:00:00,completed
+PL-16-455,PL-USER-16,debit,20.03,USD,entertainment,2025-03-25 11:00:00,completed
+PL-16-456,PL-USER-16,debit,50.68,USD,retail,2025-03-25 13:00:00,completed
+PL-16-457,PL-USER-16,debit,35.76,USD,restaurant,2025-03-25 19:00:00,completed
+PL-16-458,PL-USER-16,debit,10.09,USD,restaurant,2025-03-26 10:00:00,completed
+PL-16-459,PL-USER-16,debit,25.18,USD,retail,2025-03-26 14:00:00,completed
+PL-16-460,PL-USER-16,debit,15.11,USD,restaurant,2025-03-27 09:00:00,completed
+PL-16-461,PL-USER-16,debit,20.49,USD,retail,2025-03-27 12:00:00,completed
+PL-16-462,PL-USER-16,debit,30.64,USD,grocery,2025-03-27 18:00:00,completed
+PL-16-463,PL-USER-16,debit,25.82,USD,restaurant,2025-03-28 12:00:00,completed
+PL-16-464,PL-USER-16,debit,40.28,USD,retail,2025-03-28 14:00:00,completed
+PL-16-465,PL-USER-16,debit,30.51,USD,entertainment,2025-03-28 20:00:00,completed
+PL-16-466,PL-USER-16,debit,80.16,USD,retail,2025-03-29 11:00:00,completed
+PL-16-467,PL-USER-16,debit,14.61,USD,entertainment,2025-03-30 13:00:00,completed
+PL-16-468,PL-USER-16,debit,30.32,USD,gas,2025-03-31 17:00:00,completed
+PL-16-469,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-04-01 00:00:00,completed
+PL-16-470,PL-USER-16,debit,250.75,USD,retail,2025-04-01 12:00:00,completed
+PL-16-471,PL-USER-16,debit,120.82,USD,auto_service,2025-04-02 14:00:00,completed
+PL-16-472,PL-USER-16,debit,15.33,USD,entertainment,2025-04-03 10:00:00,completed
+PL-16-473,PL-USER-16,debit,10.25,USD,restaurant,2025-04-03 13:00:00,completed
+PL-16-474,PL-USER-16,debit,50.41,USD,grocery,2025-04-04 12:00:00,completed
+PL-16-475,PL-USER-16,debit,49.77,USD,water bill,2025-04-05 00:00:00,completed
+PL-16-476,PL-USER-16,debit,25.66,USD,restaurant,2025-04-05 13:00:00,completed
+PL-16-477,PL-USER-16,debit,10.44,USD,entertainment,2025-04-05 15:00:00,completed
+PL-16-478,PL-USER-16,debit,45.57,USD,retail,2025-04-06 11:00:00,completed
+PL-16-479,PL-USER-16,debit,9.25,USD,restaurant,2025-04-07 10:00:00,completed
+PL-16-480,PL-USER-16,debit,30.99,USD,retail,2025-04-08 12:00:00,completed
+PL-16-481,PL-USER-16,debit,20.52,USD,entertainment,2025-04-08 18:00:00,completed
+PL-16-482,PL-USER-16,debit,22.67,USD,restaurant,2025-04-09 18:00:00,completed
+PL-16-483,PL-USER-16,debit,103.77,USD,electricity bill,2025-04-10 00:00:00,completed
+PL-16-484,PL-USER-16,debit,7.3,USD,restaurant,2025-04-10 10:00:00,completed
+PL-16-485,PL-USER-16,debit,40.28,USD,entertainment,2025-04-10 14:00:00,completed
+PL-16-486,PL-USER-16,debit,500.26,USD,retail,2025-04-11 12:00:00,completed
+PL-16-487,PL-USER-16,debit,50.9,USD,grocery,2025-04-12 10:00:00,completed
+PL-16-488,PL-USER-16,debit,120.68,USD,auto_service,2025-04-12 12:00:00,completed
+PL-16-489,PL-USER-16,debit,25.06,USD,restaurant,2025-04-13 11:00:00,completed
+PL-16-490,PL-USER-16,debit,15.04,USD,restaurant,2025-04-13 14:00:00,completed
+PL-16-491,PL-USER-16,transfer,913.01,USD,payment,2025-04-14 00:00:00,completed
+PL-16-492,PL-USER-16,debit,5.17,USD,restaurant,2025-04-14 10:00:00,completed
+PL-16-493,PL-USER-16,debit,150.58,USD,retail,2025-04-14 12:00:00,completed
+PL-16-494,PL-USER-16,debit,35.55,USD,gas,2025-04-15 10:00:00,completed
+PL-16-495,PL-USER-16,debit,12.45,USD,restaurant,2025-04-16 12:00:00,completed
+PL-16-496,PL-USER-16,debit,99.89,USD,software,2025-04-16 14:00:00,completed
+PL-16-497,PL-USER-16,debit,30.33,USD,retail,2025-04-17 14:00:00,completed
+PL-16-498,PL-USER-16,debit,18.09,USD,restaurant,2025-04-18 08:00:00,completed
+PL-16-499,PL-USER-16,debit,40.23,USD,restaurant,2025-04-18 18:00:00,completed
+PL-16-500,PL-USER-16,debit,75.2,USD,grocery,2025-04-19 10:00:00,completed
+PL-16-501,PL-USER-16,debit,20.75,USD,entertainment,2025-04-19 14:00:00,completed
+PL-16-502,PL-USER-16,debit,133.27,USD,home & auto insurance,2025-04-20 00:00:00,completed
+PL-16-503,PL-USER-16,debit,9.99,USD,music streaming,2025-04-20 00:00:00,completed
+PL-16-504,PL-USER-16,debit,25.21,USD,restaurant,2025-04-20 18:00:00,completed
+PL-16-505,PL-USER-16,debit,6.46,USD,restaurant,2025-04-21 08:00:00,completed
+PL-16-506,PL-USER-16,debit,15.2,USD,restaurant,2025-04-21 12:00:00,completed
+PL-16-507,PL-USER-16,debit,20.5,USD,entertainment,2025-04-22 10:00:00,completed
+PL-16-508,PL-USER-16,debit,40.69,USD,retail,2025-04-22 14:00:00,completed
+PL-16-509,PL-USER-16,debit,12.13,USD,restaurant,2025-04-23 12:00:00,completed
+PL-16-510,PL-USER-16,transfer,200.0,USD,payment,2025-04-23 16:00:00,completed
+PL-16-511,PL-USER-16,debit,130.99,USD,government services,2025-04-24 10:00:00,completed
+PL-16-512,PL-USER-16,debit,15.27,USD,restaurant,2025-04-24 12:00:00,completed
+PL-16-513,PL-USER-16,debit,82.77,USD,phone & internet bill,2025-04-25 00:00:00,completed
+PL-16-514,PL-USER-16,debit,30.72,USD,restaurant,2025-04-25 18:00:00,completed
+PL-16-515,PL-USER-16,debit,60.26,USD,grocery,2025-04-25 19:30:00,completed
+PL-16-516,PL-USER-16,debit,10.01,USD,restaurant,2025-04-26 09:00:00,completed
+PL-16-517,PL-USER-16,debit,50.38,USD,entertainment,2025-04-26 12:00:00,completed
+PL-16-518,PL-USER-16,debit,25.34,USD,restaurant,2025-04-26 18:00:00,completed
+PL-16-519,PL-USER-16,debit,250.44,USD,gift,2025-04-27 10:00:00,completed
+PL-16-520,PL-USER-16,debit,20.47,USD,retail,2025-04-27 15:00:00,completed
+PL-16-521,PL-USER-16,debit,30.39,USD,grocery,2025-04-27 18:00:00,completed
+PL-16-522,PL-USER-16,debit,35.75,USD,gas,2025-04-28 10:00:00,completed
+PL-16-523,PL-USER-16,debit,18.5,USD,restaurant,2025-04-28 18:00:00,completed
+PL-16-524,PL-USER-16,debit,15.16,USD,entertainment,2025-04-29 10:00:00,completed
+PL-16-525,PL-USER-16,debit,8.15,USD,restaurant,2025-04-29 14:00:00,completed
+PL-16-526,PL-USER-16,transfer,200.0,USD,payment,2025-04-29 16:00:00,completed
+PL-16-527,PL-USER-16,debit,150.86,USD,pet,2025-04-30 10:00:00,completed
+PL-16-528,PL-USER-16,debit,250.89,USD,retail,2025-04-30 12:00:00,completed
+PL-16-529,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-05-01 00:00:00,completed
+PL-16-530,PL-USER-16,debit,20.65,USD,fitness,2025-05-01 07:00:00,completed
+PL-16-531,PL-USER-16,debit,40.53,USD,restaurant,2025-05-01 18:00:00,completed
+PL-16-532,PL-USER-16,debit,10.2,USD,entertainment,2025-05-02 10:00:00,completed
+PL-16-533,PL-USER-16,debit,12.9,USD,restaurant,2025-05-02 14:00:00,completed
+PL-16-534,PL-USER-16,debit,50.03,USD,grocery,2025-05-02 17:00:00,completed
+PL-16-535,PL-USER-16,debit,15.48,USD,retail,2025-05-03 12:00:00,completed
+PL-16-536,PL-USER-16,debit,25.79,USD,restaurant,2025-05-03 18:00:00,completed
+PL-16-537,PL-USER-16,debit,20.46,USD,retail,2025-05-04 10:00:00,completed
+PL-16-538,PL-USER-16,transfer,200.0,USD,payment,2025-05-04 16:00:00,completed
+PL-16-539,PL-USER-16,debit,36.21,USD,water bill,2025-05-05 00:00:00,completed
+PL-16-540,PL-USER-16,debit,120.44,USD,healthcare,2025-05-05 09:00:00,completed
+PL-16-541,PL-USER-16,debit,5.05,USD,restaurant,2025-05-05 14:00:00,completed
+PL-16-542,PL-USER-16,debit,16.0,USD,entertainment,2025-05-06 10:00:00,completed
+PL-16-543,PL-USER-16,debit,30.16,USD,restaurant,2025-05-06 18:00:00,completed
+PL-16-544,PL-USER-16,debit,20.44,USD,restaurant,2025-05-07 18:00:00,completed
+PL-16-545,PL-USER-16,debit,25.26,USD,retail,2025-05-08 10:00:00,completed
+PL-16-546,PL-USER-16,debit,10.57,USD,restaurant,2025-05-08 14:00:00,completed
+PL-16-547,PL-USER-16,debit,30.21,USD,gas,2025-05-09 12:00:00,completed
+PL-16-548,PL-USER-16,debit,35.41,USD,restaurant,2025-05-09 18:00:00,completed
+PL-16-549,PL-USER-16,debit,121.17,USD,electricity bill,2025-05-10 00:00:00,completed
+PL-16-550,PL-USER-16,debit,20.17,USD,entertainment,2025-05-10 11:00:00,completed
+PL-16-551,PL-USER-16,debit,50.54,USD,grocery,2025-05-10 15:00:00,completed
+PL-16-552,PL-USER-16,transfer,2000.0,USD,payment,2025-05-11 10:00:00,completed
+PL-16-553,PL-USER-16,debit,15.18,USD,restaurant,2025-05-12 12:00:00,completed
+PL-16-554,PL-USER-16,debit,40.43,USD,retail,2025-05-13 17:00:00,completed
+PL-16-555,PL-USER-16,transfer,512.62,USD,payment,2025-05-14 00:00:00,completed
+PL-16-556,PL-USER-16,debit,28.19,USD,restaurant,2025-05-14 19:00:00,completed
+PL-16-557,PL-USER-16,debit,10.52,USD,restaurant,2025-05-15 12:00:00,completed
+PL-16-558,PL-USER-16,debit,60.69,USD,retail,2025-05-16 15:00:00,completed
+PL-16-559,PL-USER-16,debit,35.91,USD,restaurant,2025-05-17 18:00:00,completed
+PL-16-560,PL-USER-16,debit,75.68,USD,grocery,2025-05-18 14:00:00,completed
+PL-16-561,PL-USER-16,debit,6.4,USD,restaurant,2025-05-19 17:00:00,completed
+PL-16-562,PL-USER-16,debit,9.99,USD,music streaming,2025-05-20 00:00:00,completed
+PL-16-563,PL-USER-16,debit,40.09,USD,restaurant,2025-05-20 19:00:00,completed
+PL-16-564,PL-USER-16,debit,25.27,USD,restaurant,2025-05-21 18:00:00,completed
+PL-16-565,PL-USER-16,debit,14.18,USD,entertainment,2025-05-22 13:00:00,completed
+PL-16-566,PL-USER-16,debit,32.94,USD,gas,2025-05-23 10:00:00,completed
+PL-16-567,PL-USER-16,debit,12.58,USD,restaurant,2025-05-23 18:00:00,completed
+PL-16-568,PL-USER-16,debit,20.76,USD,entertainment,2025-05-24 11:00:00,completed
+PL-16-569,PL-USER-16,debit,35.53,USD,retail,2025-05-24 16:00:00,completed
+PL-16-570,PL-USER-16,debit,85.13,USD,phone & internet bill,2025-05-25 00:00:00,completed
+PL-16-571,PL-USER-16,debit,75.88,USD,grocery,2025-05-25 10:00:00,completed
+PL-16-572,PL-USER-16,debit,50.23,USD,grocery,2025-05-26 10:00:00,completed
+PL-16-573,PL-USER-16,debit,250.08,USD,gift,2025-05-27 14:00:00,completed
+PL-16-574,PL-USER-16,debit,25.95,USD,restaurant,2025-05-28 18:00:00,completed
+PL-16-575,PL-USER-16,debit,15.76,USD,retail,2025-05-29 19:00:00,completed
+PL-16-576,PL-USER-16,debit,40.7,USD,restaurant,2025-05-30 19:00:00,completed
+PL-16-577,PL-USER-16,debit,10.52,USD,cafe,2025-05-30 21:30:00,completed
+PL-16-578,PL-USER-16,debit,29.97,USD,retail,2025-05-31 10:00:00,completed
+PL-16-579,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-06-01 00:00:00,completed
+PL-16-580,PL-USER-16,debit,30.35,USD,restaurant,2025-06-01 18:00:00,completed
+PL-16-581,PL-USER-16,debit,35.75,USD,gas,2025-06-02 08:00:00,completed
+PL-16-582,PL-USER-16,debit,60.02,USD,grocery,2025-06-02 12:00:00,completed
+PL-16-583,PL-USER-16,debit,220.25,USD,medical,2025-06-03 10:00:00,completed
+PL-16-584,PL-USER-16,debit,5.35,USD,cafe,2025-06-03 11:30:00,completed
+PL-16-585,PL-USER-16,debit,3.9,USD,subscription,2025-06-04 09:00:00,completed
+PL-16-586,PL-USER-16,debit,25.19,USD,restaurant,2025-06-04 12:30:00,completed
+PL-16-587,PL-USER-16,debit,35.67,USD,water bill,2025-06-05 00:00:00,completed
+PL-16-588,PL-USER-16,debit,30.66,USD,donation,2025-06-05 10:00:00,completed
+PL-16-589,PL-USER-16,debit,10.01,USD,cafe,2025-06-05 14:00:00,completed
+PL-16-590,PL-USER-16,debit,50.28,USD,retail,2025-06-06 17:00:00,completed
+PL-16-591,PL-USER-16,debit,150.71,USD,restaurant,2025-06-06 19:00:00,completed
+PL-16-592,PL-USER-16,debit,750.08,USD,retail,2025-06-07 12:00:00,completed
+PL-16-593,PL-USER-16,debit,6.0,USD,cafe,2025-06-07 14:00:00,completed
+PL-16-594,PL-USER-16,debit,20.45,USD,retail,2025-06-08 10:00:00,completed
+PL-16-595,PL-USER-16,debit,30.99,USD,grocery,2025-06-08 18:00:00,completed
+PL-16-596,PL-USER-16,debit,45.56,USD,retail,2025-06-09 12:00:00,completed
+PL-16-597,PL-USER-16,debit,5.03,USD,cafe,2025-06-09 14:00:00,completed
+PL-16-598,PL-USER-16,debit,179.38,USD,electricity bill,2025-06-10 00:00:00,completed
+PL-16-599,PL-USER-16,debit,10.51,USD,laundry,2025-06-10 12:00:00,completed
+PL-16-600,PL-USER-16,debit,15.18,USD,restaurant,2025-06-10 13:00:00,completed
+PL-16-601,PL-USER-16,debit,75.8,USD,retail,2025-06-11 10:00:00,completed
+PL-16-602,PL-USER-16,debit,20.41,USD,museum,2025-06-12 11:00:00,completed
+PL-16-603,PL-USER-16,debit,10.86,USD,cafe,2025-06-12 14:00:00,completed
+PL-16-604,PL-USER-16,debit,120.41,USD,auto repair,2025-06-13 10:00:00,completed
+PL-16-605,PL-USER-16,debit,15.39,USD,restaurant,2025-06-13 12:00:00,completed
+PL-16-606,PL-USER-16,transfer,2139.09,USD,payment,2025-06-14 00:00:00,completed
+PL-16-607,PL-USER-16,debit,60.8,USD,retail,2025-06-14 11:00:00,completed
+PL-16-608,PL-USER-16,debit,900.93,USD,insurance,2025-06-15 10:00:00,completed
+PL-16-609,PL-USER-16,debit,30.45,USD,retail,2025-06-16 10:00:00,completed
+PL-16-610,PL-USER-16,debit,5.78,USD,cafe,2025-06-16 12:00:00,completed
+PL-16-611,PL-USER-16,debit,150.27,USD,rental,2025-06-17 11:00:00,completed
+PL-16-612,PL-USER-16,debit,25.49,USD,restaurant,2025-06-18 12:30:00,completed
+PL-16-613,PL-USER-16,debit,40.97,USD,retail,2025-06-18 15:00:00,completed
+PL-16-614,PL-USER-16,debit,20.52,USD,food,2025-06-19 14:00:00,completed
+PL-16-615,PL-USER-16,debit,35.5,USD,restaurant,2025-06-19 17:00:00,completed
+PL-16-616,PL-USER-16,debit,9.99,USD,music streaming,2025-06-20 00:00:00,completed
+PL-16-617,PL-USER-16,debit,33.19,USD,gas,2025-06-20 10:00:00,completed
+PL-16-618,PL-USER-16,debit,22.61,USD,food,2025-06-20 18:00:00,completed
+PL-16-619,PL-USER-16,debit,15.7,USD,retail,2025-06-21 09:00:00,completed
+PL-16-620,PL-USER-16,debit,30.44,USD,grocery,2025-06-21 17:00:00,completed
+PL-16-621,PL-USER-16,debit,35.48,USD,entertainment,2025-06-22 13:00:00,completed
+PL-16-622,PL-USER-16,transfer,3492.49,USD,payment,2025-06-23 10:00:00,completed
+PL-16-623,PL-USER-16,debit,5.74,USD,food,2025-06-23 14:00:00,completed
+PL-16-624,PL-USER-16,debit,750.33,USD,retail,2025-06-24 12:00:00,completed
+PL-16-625,PL-USER-16,debit,76.19,USD,phone & internet bill,2025-06-25 00:00:00,completed
+PL-16-626,PL-USER-16,debit,250.97,USD,retail,2025-06-25 14:00:00,completed
+PL-16-627,PL-USER-16,debit,5.24,USD,food,2025-06-26 10:00:00,completed
+PL-16-628,PL-USER-16,debit,50.65,USD,grocery,2025-06-26 12:00:00,completed
+PL-16-629,PL-USER-16,debit,150.33,USD,electronics,2025-06-27 11:00:00,completed
+PL-16-630,PL-USER-16,debit,20.8,USD,entertainment,2025-06-28 11:00:00,completed
+PL-16-631,PL-USER-16,debit,25.08,USD,food,2025-06-28 13:30:00,completed
+PL-16-632,PL-USER-16,debit,15.48,USD,food,2025-06-29 18:00:00,completed
+PL-16-633,PL-USER-16,transfer,1350.81,USD,payment,2025-06-30 10:00:00,completed
+PL-16-634,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-07-01 00:00:00,completed
+PL-16-635,PL-USER-16,debit,8.74,USD,food,2025-07-01 14:00:00,completed
+PL-16-636,PL-USER-16,debit,18.75,USD,food,2025-07-02 12:30:00,completed
+PL-16-637,PL-USER-16,debit,30.84,USD,gas,2025-07-03 10:00:00,completed
+PL-16-638,PL-USER-16,debit,50.77,USD,grocery,2025-07-04 09:00:00,completed
+PL-16-639,PL-USER-16,debit,20.32,USD,retail,2025-07-04 11:00:00,completed
+PL-16-640,PL-USER-16,debit,72.87,USD,water bill,2025-07-05 00:00:00,completed
+PL-16-641,PL-USER-16,debit,120.72,USD,medical,2025-07-05 11:00:00,completed
+PL-16-642,PL-USER-16,debit,15.11,USD,entertainment,2025-07-05 14:00:00,completed
+PL-16-643,PL-USER-16,debit,25.75,USD,grocery,2025-07-06 10:00:00,completed
+PL-16-644,PL-USER-16,debit,10.74,USD,food,2025-07-06 14:00:00,completed
+PL-16-645,PL-USER-16,debit,23.44,USD,food,2025-07-07 12:30:00,completed
+PL-16-646,PL-USER-16,debit,10.51,USD,entertainment,2025-07-08 11:00:00,completed
+PL-16-647,PL-USER-16,debit,35.54,USD,retail,2025-07-08 14:30:00,completed
+PL-16-648,PL-USER-16,debit,50.44,USD,education,2025-07-09 18:00:00,completed
+PL-16-649,PL-USER-16,debit,133.68,USD,electricity bill,2025-07-10 00:00:00,completed
+PL-16-650,PL-USER-16,debit,24.28,USD,retail,2025-07-10 13:00:00,completed
+PL-16-651,PL-USER-16,debit,8.95,USD,food,2025-07-10 13:30:00,completed
+PL-16-652,PL-USER-16,debit,18.79,USD,food,2025-07-11 11:30:00,completed
+PL-16-653,PL-USER-16,debit,32.64,USD,food,2025-07-11 19:00:00,completed
+PL-16-654,PL-USER-16,debit,380.14,USD,entertainment,2025-07-12 10:00:00,completed
+PL-16-655,PL-USER-16,transfer,500.0,USD,payment,2025-07-13 15:00:00,completed
+PL-16-656,PL-USER-16,debit,5.3,USD,food,2025-07-14 13:30:00,completed
+PL-16-657,PL-USER-16,debit,30.66,USD,grocery,2025-07-14 14:00:00,completed
+PL-16-658,PL-USER-16,debit,15.85,USD,entertainment,2025-07-15 12:00:00,completed
+PL-16-659,PL-USER-16,debit,25.1,USD,retail,2025-07-15 14:30:00,completed
+PL-16-660,PL-USER-16,debit,40.19,USD,food,2025-07-15 18:30:00,completed
+PL-16-661,PL-USER-16,debit,180.72,USD,retail,2025-07-16 14:00:00,completed
+PL-16-662,PL-USER-16,debit,3.85,USD,food,2025-07-17 18:00:00,completed
+PL-16-663,PL-USER-16,debit,900.99,USD,insurance,2025-07-18 10:00:00,completed
+PL-16-664,PL-USER-16,debit,10.82,USD,entertainment,2025-07-19 12:00:00,completed
+PL-16-665,PL-USER-16,debit,20.18,USD,food,2025-07-19 14:00:00,completed
+PL-16-666,PL-USER-16,debit,35.12,USD,gas,2025-07-19 17:00:00,completed
+PL-16-667,PL-USER-16,debit,179.29,USD,home & auto insurance,2025-07-20 00:00:00,completed
+PL-16-668,PL-USER-16,debit,9.99,USD,music streaming,2025-07-20 00:00:00,completed
+PL-16-669,PL-USER-16,debit,25.26,USD,food,2025-07-20 18:00:00,completed
+PL-16-670,PL-USER-16,debit,50.18,USD,grocery,2025-07-21 13:00:00,completed
+PL-16-671,PL-USER-16,debit,5.5,USD,food,2025-07-21 16:00:00,completed
+PL-16-672,PL-USER-16,debit,15.59,USD,entertainment,2025-07-22 11:00:00,completed
+PL-16-673,PL-USER-16,debit,10.48,USD,food,2025-07-22 14:00:00,completed
+PL-16-674,PL-USER-16,debit,20.54,USD,retail,2025-07-22 16:00:00,completed
+PL-16-675,PL-USER-16,debit,25.77,USD,personal care,2025-07-23 13:00:00,completed
+PL-16-676,PL-USER-16,debit,30.82,USD,grocery,2025-07-23 18:00:00,completed
+PL-16-677,PL-USER-16,debit,40.05,USD,retail,2025-07-24 15:00:00,completed
+PL-16-678,PL-USER-16,debit,70.49,USD,phone & internet bill,2025-07-25 00:00:00,completed
+PL-16-679,PL-USER-16,debit,30.73,USD,donation,2025-07-25 10:00:00,completed
+PL-16-680,PL-USER-16,debit,35.1,USD,food,2025-07-25 19:00:00,completed
+PL-16-681,PL-USER-16,debit,80.21,USD,retail,2025-07-26 10:00:00,completed
+PL-16-682,PL-USER-16,debit,30.69,USD,gas,2025-07-26 12:00:00,completed
+PL-16-683,PL-USER-16,debit,20.67,USD,food,2025-07-27 18:00:00,completed
+PL-16-684,PL-USER-16,debit,10.87,USD,entertainment,2025-07-28 14:00:00,completed
+PL-16-685,PL-USER-16,debit,8.08,USD,food,2025-07-28 15:00:00,completed
+PL-16-686,PL-USER-16,debit,20.77,USD,education,2025-07-29 17:00:00,completed
+PL-16-687,PL-USER-16,debit,30.46,USD,retail,2025-07-29 18:00:00,completed
+PL-16-688,PL-USER-16,debit,15.9,USD,entertainment,2025-07-30 13:00:00,completed
+PL-16-689,PL-USER-16,debit,40.26,USD,food,2025-07-30 19:00:00,completed
+PL-16-690,PL-USER-16,debit,50.33,USD,grocery,2025-07-31 10:00:00,completed
+PL-16-691,PL-USER-16,debit,25.04,USD,retail,2025-07-31 14:00:00,completed
+PL-16-692,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-08-01 00:00:00,completed
+PL-16-693,PL-USER-16,debit,150.82,USD,charity,2025-08-01 12:00:00,completed
+PL-16-694,PL-USER-16,debit,250.55,USD,retail,2025-08-01 14:00:00,completed
+PL-16-695,PL-USER-16,debit,60.39,USD,food,2025-08-02 15:00:00,completed
+PL-16-696,PL-USER-16,debit,30.8,USD,retail,2025-08-02 16:00:00,completed
+PL-16-697,PL-USER-16,debit,10.04,USD,food,2025-08-03 14:00:00,completed
+PL-16-698,PL-USER-16,debit,10.64,USD,entertainment,2025-08-04 12:00:00,completed
+PL-16-699,PL-USER-16,debit,35.53,USD,gas,2025-08-04 17:00:00,completed
+PL-16-700,PL-USER-16,debit,60.26,USD,water bill,2025-08-05 00:00:00,completed
+PL-16-701,PL-USER-16,debit,20.52,USD,education,2025-08-05 14:00:00,completed
+PL-16-702,PL-USER-16,debit,8.22,USD,food,2025-08-05 15:30:00,completed
+PL-16-703,PL-USER-16,debit,25.43,USD,personal care,2025-08-06 13:00:00,completed
+PL-16-704,PL-USER-16,debit,40.81,USD,grocery,2025-08-06 16:00:00,completed
+PL-16-705,PL-USER-16,debit,3.16,USD,software,2025-08-07 10:00:00,completed
+PL-16-706,PL-USER-16,debit,20.88,USD,food,2025-08-08 11:00:00,completed
+PL-16-707,PL-USER-16,debit,15.84,USD,entertainment,2025-08-08 14:00:00,completed
+PL-16-708,PL-USER-16,debit,35.27,USD,food,2025-08-08 18:00:00,completed
+PL-16-709,PL-USER-16,debit,50.54,USD,home improvement,2025-08-09 10:00:00,completed
+PL-16-710,PL-USER-16,debit,30.63,USD,education,2025-08-09 13:00:00,completed
+PL-16-711,PL-USER-16,debit,10.76,USD,food,2025-08-09 15:00:00,completed
+PL-16-712,PL-USER-16,debit,126.98,USD,electricity bill,2025-08-10 00:00:00,completed
+PL-16-713,PL-USER-16,debit,25.56,USD,food,2025-08-10 18:00:00,completed
+PL-16-714,PL-USER-16,transfer,500.0,USD,payment,2025-08-10 20:00:00,completed
+PL-16-715,PL-USER-16,debit,5.36,USD,food,2025-08-11 14:00:00,completed
+PL-16-716,PL-USER-16,debit,30.87,USD,gas,2025-08-11 16:00:00,completed
+PL-16-717,PL-USER-16,debit,10.96,USD,entertainment,2025-08-12 11:00:00,completed
+PL-16-718,PL-USER-16,debit,40.62,USD,education,2025-08-12 14:00:00,completed
+PL-16-719,PL-USER-16,debit,28.4,USD,food,2025-08-12 18:00:00,completed
+PL-16-720,PL-USER-16,debit,35.07,USD,housewares,2025-08-13 10:00:00,completed
+PL-16-721,PL-USER-16,transfer,2142.33,USD,payment,2025-08-14 00:00:00,completed
+PL-16-722,PL-USER-16,debit,60.95,USD,groceries,2025-08-14 15:00:00,completed
+PL-16-723,PL-USER-16,debit,32.27,USD,food,2025-08-15 18:00:00,completed
+PL-16-724,PL-USER-16,debit,15.32,USD,food,2025-08-15 20:00:00,completed
+PL-16-725,PL-USER-16,debit,12.79,USD,entertainment,2025-08-16 11:00:00,completed
+PL-16-726,PL-USER-16,debit,20.62,USD,food,2025-08-16 18:00:00,completed
+PL-16-727,PL-USER-16,transfer,1000.0,USD,payment,2025-08-17 15:00:00,completed
+PL-16-728,PL-USER-16,debit,220.57,USD,medical,2025-08-18 10:00:00,completed
+PL-16-729,PL-USER-16,debit,25.24,USD,gas,2025-08-19 14:00:00,completed
+PL-16-730,PL-USER-16,debit,9.99,USD,music streaming,2025-08-20 00:00:00,completed
+PL-16-731,PL-USER-16,debit,60.01,USD,home and garden,2025-08-20 12:00:00,completed
+PL-16-732,PL-USER-16,debit,50.72,USD,grocery,2025-08-21 14:00:00,completed
+PL-16-733,PL-USER-16,debit,15.82,USD,food,2025-08-22 10:00:00,completed
+PL-16-734,PL-USER-16,debit,30.67,USD,entertainment,2025-08-22 18:00:00,completed
+PL-16-735,PL-USER-16,debit,20.88,USD,entertainment,2025-08-23 12:00:00,completed
+PL-16-736,PL-USER-16,debit,40.96,USD,home and garden,2025-08-23 15:00:00,completed
+PL-16-737,PL-USER-16,debit,12.04,USD,food,2025-08-24 11:00:00,completed
+PL-16-738,PL-USER-16,debit,20.69,USD,grocery,2025-08-24 17:00:00,completed
+PL-16-739,PL-USER-16,debit,73.08,USD,phone & internet bill,2025-08-25 00:00:00,completed
+PL-16-740,PL-USER-16,transfer,950.0,USD,payment,2025-08-25 10:00:00,completed
+PL-16-741,PL-USER-16,debit,10.32,USD,food,2025-08-25 14:00:00,completed
+PL-16-742,PL-USER-16,debit,25.16,USD,gas,2025-08-26 08:00:00,completed
+PL-16-743,PL-USER-16,debit,15.39,USD,food,2025-08-26 12:00:00,completed
+PL-16-744,PL-USER-16,debit,30.72,USD,entertainment,2025-08-27 10:00:00,completed
+PL-16-745,PL-USER-16,debit,8.0,USD,food,2025-08-27 15:00:00,completed
+PL-16-746,PL-USER-16,debit,25.8,USD,food,2025-08-28 12:00:00,completed
+PL-16-747,PL-USER-16,debit,20.02,USD,beverage,2025-08-28 18:00:00,completed
+PL-16-748,PL-USER-16,debit,75.38,USD,home and garden,2025-08-29 10:00:00,completed
+PL-16-749,PL-USER-16,debit,15.97,USD,entertainment,2025-08-30 11:00:00,completed
+PL-16-750,PL-USER-16,debit,12.98,USD,food,2025-08-30 13:00:00,completed
+PL-16-751,PL-USER-16,debit,25.72,USD,donation,2025-08-31 10:00:00,completed
+PL-16-752,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-09-01 00:00:00,completed
+PL-16-753,PL-USER-16,debit,50.3,USD,grocery,2025-09-01 10:00:00,completed
+PL-16-754,PL-USER-16,debit,30.29,USD,beverage,2025-09-01 14:00:00,completed
+PL-16-755,PL-USER-16,debit,5.96,USD,food,2025-09-02 14:00:00,completed
+PL-16-756,PL-USER-16,debit,10.33,USD,entertainment,2025-09-03 11:00:00,completed
+PL-16-757,PL-USER-16,debit,20.07,USD,education,2025-09-03 14:00:00,completed
+PL-16-758,PL-USER-16,debit,30.37,USD,dining,2025-09-04 19:00:00,completed
+PL-16-759,PL-USER-16,debit,47.62,USD,water bill,2025-09-05 00:00:00,completed
+PL-16-760,PL-USER-16,debit,20.95,USD,dining,2025-09-05 12:00:00,completed
+PL-16-761,PL-USER-16,debit,15.61,USD,retail,2025-09-05 15:00:00,completed
+PL-16-762,PL-USER-16,debit,25.58,USD,entertainment,2025-09-05 19:00:00,completed
+PL-16-763,PL-USER-16,debit,40.32,USD,gardening,2025-09-06 13:00:00,completed
+PL-16-764,PL-USER-16,debit,60.66,USD,grocery,2025-09-07 10:00:00,completed
+PL-16-765,PL-USER-16,debit,5.85,USD,food,2025-09-08 14:00:00,completed
+PL-16-766,PL-USER-16,transfer,700.0,USD,payment,2025-09-08 17:00:00,completed
+PL-16-767,PL-USER-16,debit,15.84,USD,entertainment,2025-09-09 11:00:00,completed
+PL-16-768,PL-USER-16,debit,30.55,USD,retail,2025-09-09 14:00:00,completed
+PL-16-769,PL-USER-16,debit,128.63,USD,electricity bill,2025-09-10 00:00:00,completed
+PL-16-770,PL-USER-16,debit,25.34,USD,gas,2025-09-10 09:00:00,completed
+PL-16-771,PL-USER-16,debit,10.22,USD,shipping,2025-09-10 11:00:00,completed
+PL-16-772,PL-USER-16,debit,20.8,USD,personal care,2025-09-10 14:00:00,completed
+PL-16-773,PL-USER-16,debit,40.84,USD,food,2025-09-11 10:00:00,completed
+PL-16-774,PL-USER-16,debit,20.09,USD,food,2025-09-12 12:00:00,completed
+PL-16-775,PL-USER-16,debit,10.44,USD,entertainment,2025-09-12 18:00:00,completed
+PL-16-776,PL-USER-16,debit,50.46,USD,food,2025-09-12 20:00:00,completed
+PL-16-777,PL-USER-16,debit,30.9,USD,grocery,2025-09-13 11:00:00,completed
+PL-16-778,PL-USER-16,debit,25.58,USD,retail,2025-09-13 13:00:00,completed
+PL-16-779,PL-USER-16,debit,15.21,USD,food,2025-09-14 10:00:00,completed
+PL-16-780,PL-USER-16,transfer,400.0,USD,payment,2025-09-14 17:00:00,completed
+PL-16-781,PL-USER-16,debit,220.21,USD,medical,2025-09-15 09:00:00,completed
+PL-16-782,PL-USER-16,debit,20.17,USD,entertainment,2025-09-16 10:00:00,completed
+PL-16-783,PL-USER-16,debit,15.16,USD,education,2025-09-16 14:00:00,completed
+PL-16-784,PL-USER-16,debit,1800.45,USD,tax payment,2025-09-18 10:00:00,completed
+PL-16-785,PL-USER-16,debit,120.84,USD,automotive,2025-09-19 14:00:00,completed
+PL-16-786,PL-USER-16,debit,9.99,USD,music streaming,2025-09-20 00:00:00,completed
+PL-16-787,PL-USER-16,debit,25.32,USD,home improvement,2025-09-20 10:00:00,completed
+PL-16-788,PL-USER-16,debit,10.17,USD,entertainment,2025-09-20 14:00:00,completed
+PL-16-789,PL-USER-16,debit,50.06,USD,grocery,2025-09-20 18:00:00,completed
+PL-16-790,PL-USER-16,debit,30.02,USD,gas,2025-09-21 09:00:00,completed
+PL-16-791,PL-USER-16,debit,20.83,USD,grocery,2025-09-21 12:00:00,completed
+PL-16-792,PL-USER-16,debit,10.83,USD,food,2025-09-21 15:00:00,completed
+PL-16-793,PL-USER-16,debit,40.45,USD,food,2025-09-21 18:00:00,completed
+PL-16-794,PL-USER-16,debit,5.76,USD,food,2025-09-22 08:00:00,completed
+PL-16-795,PL-USER-16,debit,12.45,USD,food,2025-09-22 12:00:00,completed
+PL-16-796,PL-USER-16,debit,15.49,USD,entertainment,2025-09-23 10:00:00,completed
+PL-16-797,PL-USER-16,debit,20.83,USD,retail,2025-09-23 14:00:00,completed
+PL-16-798,PL-USER-16,debit,0.29,USD,food,2025-09-24 12:00:00,completed
+PL-16-799,PL-USER-16,debit,30.46,USD,retail,2025-09-24 18:00:00,completed
+PL-16-800,PL-USER-16,debit,76.09,USD,phone & internet bill,2025-09-25 00:00:00,completed
+PL-16-801,PL-USER-16,debit,5.38,USD,food,2025-09-25 08:00:00,completed
+PL-16-802,PL-USER-16,debit,12.9,USD,food,2025-09-25 12:00:00,completed
+PL-16-803,PL-USER-16,debit,10.19,USD,shipping,2025-09-25 15:00:00,completed
+PL-16-804,PL-USER-16,debit,25.63,USD,home improvement,2025-09-26 10:00:00,completed
+PL-16-805,PL-USER-16,debit,30.52,USD,grocery,2025-09-26 18:00:00,completed
+PL-16-806,PL-USER-16,debit,200.82,USD,retail,2025-09-27 12:00:00,completed
+PL-16-807,PL-USER-16,debit,50.71,USD,food,2025-09-27 18:00:00,completed
+PL-16-808,PL-USER-16,debit,20.78,USD,food,2025-09-28 12:00:00,completed
+PL-16-809,PL-USER-16,debit,15.19,USD,retail,2025-09-28 15:00:00,completed
+PL-16-810,PL-USER-16,debit,5.95,USD,food,2025-09-29 08:00:00,completed
+PL-16-811,PL-USER-16,transfer,500.0,USD,payment,2025-09-29 12:00:00,completed
+PL-16-812,PL-USER-16,debit,15.54,USD,entertainment,2025-09-30 10:00:00,completed
+PL-16-813,PL-USER-16,debit,10.33,USD,food,2025-09-30 13:00:00,completed
+PL-16-814,PL-USER-16,debit,20.46,USD,retail,2025-09-30 16:00:00,completed
+PL-16-815,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-10-01 00:00:00,completed
+PL-16-816,PL-USER-16,debit,99.05,USD,software,2025-10-01 10:00:00,completed
+PL-16-817,PL-USER-16,debit,5.71,USD,food,2025-10-01 12:00:00,completed
+PL-16-818,PL-USER-16,debit,25.45,USD,food,2025-10-02 18:00:00,completed
+PL-16-819,PL-USER-16,debit,10.09,USD,entertainment,2025-10-02 20:00:00,completed
+PL-16-820,PL-USER-16,debit,150.84,USD,pet,2025-10-03 12:00:00,completed
+PL-16-821,PL-USER-16,debit,250.92,USD,pet,2025-10-03 14:00:00,completed
+PL-16-822,PL-USER-16,debit,50.66,USD,grocery,2025-10-04 10:00:00,completed
+PL-16-823,PL-USER-16,debit,20.8,USD,pet,2025-10-04 12:00:00,completed
+PL-16-824,PL-USER-16,debit,42.54,USD,water bill,2025-10-05 00:00:00,completed
+PL-16-825,PL-USER-16,debit,30.53,USD,food,2025-10-05 13:00:00,completed
+PL-16-826,PL-USER-16,debit,5.86,USD,food,2025-10-06 08:00:00,completed
+PL-16-827,PL-USER-16,debit,15.52,USD,entertainment,2025-10-07 11:00:00,completed
+PL-16-828,PL-USER-16,debit,20.92,USD,food,2025-10-07 13:00:00,completed
+PL-16-829,PL-USER-16,debit,30.71,USD,retail,2025-10-07 15:00:00,completed
+PL-16-830,PL-USER-16,debit,35.96,USD,food,2025-10-08 18:00:00,completed
+PL-16-831,PL-USER-16,debit,600.13,USD,pet,2025-10-09 10:00:00,completed
+PL-16-832,PL-USER-16,debit,122.52,USD,electricity bill,2025-10-10 00:00:00,completed
+PL-16-833,PL-USER-16,debit,100.88,USD,retail,2025-10-10 12:00:00,completed
+PL-16-834,PL-USER-16,debit,25.62,USD,food,2025-10-11 13:00:00,completed
+PL-16-835,PL-USER-16,debit,10.82,USD,entertainment,2025-10-11 16:00:00,completed
+PL-16-836,PL-USER-16,debit,18.37,USD,food,2025-10-12 11:00:00,completed
+PL-16-837,PL-USER-16,debit,14.41,USD,entertainment,2025-10-13 13:00:00,completed
+PL-16-838,PL-USER-16,transfer,2499.3,USD,payment,2025-10-14 00:00:00,completed
+PL-16-839,PL-USER-16,debit,12.6,USD,food,2025-10-14 12:00:00,completed
+PL-16-840,PL-USER-16,debit,30.08,USD,gas,2025-10-14 15:00:00,completed
+PL-16-841,PL-USER-16,debit,20.58,USD,retail,2025-10-15 18:00:00,completed
+PL-16-842,PL-USER-16,debit,150.68,USD,retail,2025-10-16 14:00:00,completed
+PL-16-843,PL-USER-16,debit,30.8,USD,gas,2025-10-17 10:00:00,completed
+PL-16-844,PL-USER-16,debit,40.62,USD,food,2025-10-17 12:00:00,completed
+PL-16-845,PL-USER-16,debit,30.95,USD,entertainment,2025-10-17 14:00:00,completed
+PL-16-846,PL-USER-16,debit,15.34,USD,entertainment,2025-10-18 11:00:00,completed
+PL-16-847,PL-USER-16,debit,20.76,USD,food,2025-10-18 13:00:00,completed
+PL-16-848,PL-USER-16,debit,50.1,USD,food,2025-10-19 10:00:00,completed
+PL-16-849,PL-USER-16,debit,172.67,USD,home & auto insurance,2025-10-20 00:00:00,completed
+PL-16-850,PL-USER-16,debit,9.99,USD,music streaming,2025-10-20 00:00:00,completed
+PL-16-851,PL-USER-16,debit,150.0,USD,retail,2025-10-20 12:00:00,completed
+PL-16-852,PL-USER-16,debit,75.26,USD,gift,2025-10-20 14:00:00,completed
+PL-16-853,PL-USER-16,debit,12.74,USD,food,2025-10-21 12:00:00,completed
+PL-16-854,PL-USER-16,debit,10.83,USD,entertainment,2025-10-22 11:00:00,completed
+PL-16-855,PL-USER-16,debit,8.3,USD,food,2025-10-22 12:30:00,completed
+PL-16-856,PL-USER-16,debit,25.1,USD,retail,2025-10-22 14:30:00,completed
+PL-16-857,PL-USER-16,debit,15.01,USD,food,2025-10-23 12:30:00,completed
+PL-16-858,PL-USER-16,debit,30.32,USD,food,2025-10-24 18:00:00,completed
+PL-16-859,PL-USER-16,debit,20.7,USD,entertainment,2025-10-24 20:00:00,completed
+PL-16-860,PL-USER-16,debit,60.35,USD,phone & internet bill,2025-10-25 00:00:00,completed
+PL-16-861,PL-USER-16,debit,60.63,USD,food,2025-10-25 10:00:00,completed
+PL-16-862,PL-USER-16,debit,12.41,USD,food,2025-10-25 12:30:00,completed
+PL-16-863,PL-USER-16,debit,15.56,USD,entertainment,2025-10-26 11:00:00,completed
+PL-16-864,PL-USER-16,debit,20.2,USD,food,2025-10-26 12:30:00,completed
+PL-16-865,PL-USER-16,transfer,200.0,USD,payment,2025-10-26 16:00:00,completed
+PL-16-866,PL-USER-16,debit,10.82,USD,food,2025-10-27 12:00:00,completed
+PL-16-867,PL-USER-16,debit,25.85,USD,retail,2025-10-28 10:00:00,completed
+PL-16-868,PL-USER-16,debit,8.9,USD,food,2025-10-28 11:30:00,completed
+PL-16-869,PL-USER-16,debit,40.82,USD,education,2025-10-28 14:00:00,completed
+PL-16-870,PL-USER-16,debit,35.32,USD,food,2025-10-29 18:00:00,completed
+PL-16-871,PL-USER-16,debit,10.91,USD,entertainment,2025-10-29 20:00:00,completed
+PL-16-872,PL-USER-16,debit,12.48,USD,food,2025-10-30 12:00:00,completed
+PL-16-873,PL-USER-16,transfer,200.0,USD,payment,2025-10-30 16:00:00,completed
+PL-16-874,PL-USER-16,debit,15.62,USD,food,2025-10-31 09:00:00,completed
+PL-16-875,PL-USER-16,debit,30.94,USD,food,2025-10-31 18:00:00,completed
+PL-16-876,PL-USER-16,debit,25.51,USD,gas,2025-10-31 20:00:00,completed
+PL-16-877,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-11-01 00:00:00,completed
+PL-16-878,PL-USER-16,debit,50.88,USD,grocery,2025-11-01 10:00:00,completed
+PL-16-879,PL-USER-16,debit,12.51,USD,food,2025-11-01 12:30:00,completed
+PL-16-880,PL-USER-16,debit,15.96,USD,entertainment,2025-11-02 11:00:00,completed
+PL-16-881,PL-USER-16,debit,20.43,USD,food,2025-11-02 12:30:00,completed
+PL-16-882,PL-USER-16,debit,10.94,USD,food,2025-11-03 12:00:00,completed
+PL-16-883,PL-USER-16,transfer,200.0,USD,payment,2025-11-03 16:00:00,completed
+PL-16-884,PL-USER-16,debit,30.85,USD,food,2025-11-04 18:00:00,completed
+PL-16-885,PL-USER-16,debit,20.12,USD,home improvement,2025-11-04 19:30:00,completed
+PL-16-886,PL-USER-16,debit,45.32,USD,water bill,2025-11-05 00:00:00,completed
+PL-16-887,PL-USER-16,debit,15.46,USD,food,2025-11-05 12:00:00,completed
+PL-16-888,PL-USER-16,debit,250.26,USD,office supply,2025-11-05 14:00:00,completed
+PL-16-889,PL-USER-16,debit,12.08,USD,food,2025-11-06 11:00:00,completed
+PL-16-890,PL-USER-16,debit,250.29,USD,home improvement,2025-11-06 13:00:00,completed
+PL-16-891,PL-USER-16,debit,75.32,USD,grocery,2025-11-06 15:00:00,completed
+PL-16-892,PL-USER-16,debit,25.1,USD,food,2025-11-07 12:30:00,completed
+PL-16-893,PL-USER-16,debit,15.45,USD,entertainment,2025-11-07 15:00:00,completed
+PL-16-894,PL-USER-16,debit,10.32,USD,entertainment,2025-11-08 11:00:00,completed
+PL-16-895,PL-USER-16,debit,18.21,USD,food,2025-11-08 12:30:00,completed
+PL-16-896,PL-USER-16,debit,30.59,USD,retail,2025-11-08 14:00:00,completed
+PL-16-897,PL-USER-16,transfer,200.0,USD,payment,2025-11-08 16:00:00,completed
+PL-16-898,PL-USER-16,debit,150.19,USD,home improvement,2025-11-09 12:00:00,completed
+PL-16-899,PL-USER-16,debit,40.17,USD,electricity bill,2025-11-10 00:00:00,completed
+PL-16-900,PL-USER-16,debit,12.14,USD,food,2025-11-10 12:00:00,completed
+PL-16-901,PL-USER-16,transfer,100.0,USD,payment,2025-11-10 16:00:00,completed
+PL-16-902,PL-USER-16,debit,20.09,USD,food,2025-11-11 12:30:00,completed
+PL-16-903,PL-USER-16,debit,15.32,USD,entertainment,2025-11-11 14:00:00,completed
+PL-16-904,PL-USER-16,debit,80.01,USD,retail,2025-11-12 11:00:00,completed
+PL-16-905,PL-USER-16,debit,10.27,USD,food,2025-11-12 12:30:00,completed
+PL-16-906,PL-USER-16,debit,15.6,USD,food,2025-11-13 12:00:00,completed
+PL-16-907,PL-USER-16,debit,350.32,USD,entertainment,2025-11-13 14:00:00,completed
+PL-16-908,PL-USER-16,transfer,2104.78,USD,payment,2025-11-14 00:00:00,completed
+PL-16-909,PL-USER-16,debit,12.07,USD,food,2025-11-14 12:00:00,completed
+PL-16-910,PL-USER-16,transfer,100.0,USD,payment,2025-11-14 16:00:00,completed
+PL-16-911,PL-USER-16,debit,15.85,USD,food,2025-11-15 12:30:00,completed
+PL-16-912,PL-USER-16,debit,30.22,USD,retail,2025-11-15 14:30:00,completed
+PL-16-913,PL-USER-16,debit,50.06,USD,grocery,2025-11-16 14:00:00,completed
+PL-16-914,PL-USER-16,debit,10.86,USD,food,2025-11-17 12:00:00,completed
+PL-16-915,PL-USER-16,debit,25.74,USD,gas,2025-11-17 15:00:00,completed
+PL-16-916,PL-USER-16,debit,12.57,USD,food,2025-11-18 12:30:00,completed
+PL-16-917,PL-USER-16,debit,20.42,USD,retail,2025-11-18 14:30:00,completed
+PL-16-918,PL-USER-16,transfer,50.0,USD,payment,2025-11-19 16:00:00,completed
+PL-16-919,PL-USER-16,debit,9.99,USD,music streaming,2025-11-20 00:00:00,completed
+PL-16-920,PL-USER-16,debit,15.15,USD,food,2025-11-20 09:00:00,completed
+PL-16-921,PL-USER-16,debit,30.13,USD,food,2025-11-20 18:00:00,completed
+PL-16-922,PL-USER-16,debit,20.22,USD,food,2025-11-21 18:30:00,completed
+PL-16-923,PL-USER-16,debit,25.88,USD,retail,2025-11-21 19:30:00,completed
+PL-16-924,PL-USER-16,debit,12.89,USD,food,2025-11-22 12:30:00,completed
+PL-16-925,PL-USER-16,debit,30.76,USD,retail,2025-11-22 14:30:00,completed
+PL-16-926,PL-USER-16,debit,50.66,USD,grocery,2025-11-23 10:00:00,completed
+PL-16-927,PL-USER-16,transfer,100.0,USD,payment,2025-11-23 16:00:00,completed
+PL-16-928,PL-USER-16,debit,10.4,USD,food,2025-11-24 12:00:00,completed
+PL-16-929,PL-USER-16,debit,25.38,USD,gas,2025-11-24 14:00:00,completed
+PL-16-930,PL-USER-16,debit,5.43,USD,food,2025-11-24 15:00:00,completed
+PL-16-931,PL-USER-16,debit,66.93,USD,phone & internet bill,2025-11-25 00:00:00,completed
+PL-16-932,PL-USER-16,debit,300.34,USD,government,2025-11-25 11:00:00,completed
+PL-16-933,PL-USER-16,debit,20.46,USD,food,2025-11-25 12:30:00,completed
+PL-16-934,PL-USER-16,debit,75.24,USD,grocery,2025-11-26 10:00:00,completed
+PL-16-935,PL-USER-16,debit,50.51,USD,charity,2025-11-27 10:00:00,completed
+PL-16-936,PL-USER-16,debit,40.64,USD,entertainment,2025-11-28 19:00:00,completed
+PL-16-937,PL-USER-16,debit,30.31,USD,charity,2025-11-29 10:00:00,completed
+PL-16-938,PL-USER-16,debit,15.41,USD,retail,2025-11-29 14:00:00,completed
+PL-16-939,PL-USER-16,debit,30.03,USD,grocery,2025-11-30 18:00:00,completed
+PL-16-940,PL-USER-16,debit,28.99,USD,warriors streaming service,2025-12-01 00:00:00,completed
+PL-16-941,PL-USER-16,debit,350.75,USD,entertainment,2025-12-01 10:00:00,completed
+PL-16-942,PL-USER-16,debit,130.98,USD,entertainment,2025-12-02 10:00:00,completed
+PL-16-943,PL-USER-16,debit,6.18,USD,food,2025-12-02 14:00:00,completed
+PL-16-944,PL-USER-16,debit,12.55,USD,food,2025-12-03 12:00:00,completed
+PL-16-945,PL-USER-16,debit,25.55,USD,gas,2025-12-03 15:00:00,completed
+PL-16-946,PL-USER-16,debit,20.25,USD,food,2025-12-04 18:00:00,completed
+PL-16-947,PL-USER-16,debit,42.67,USD,water bill,2025-12-05 00:00:00,completed
+PL-16-948,PL-USER-16,debit,9.11,USD,food,2025-12-05 10:00:00,completed
+PL-16-949,PL-USER-16,debit,10.32,USD,entertainment,2025-12-05 14:00:00,completed
+PL-16-950,PL-USER-16,debit,40.72,USD,grocery,2025-12-06 12:00:00,completed
+PL-16-951,PL-USER-16,debit,150.08,USD,food,2025-12-07 19:00:00,completed
+PL-16-952,PL-USER-16,debit,12.06,USD,food,2025-12-08 12:00:00,completed
+PL-16-953,PL-USER-16,transfer,200.0,USD,payment,2025-12-08 16:00:00,completed
+PL-16-954,PL-USER-16,debit,15.54,USD,entertainment,2025-12-09 10:00:00,completed
+PL-16-955,PL-USER-16,debit,8.99,USD,food,2025-12-09 12:00:00,completed
+PL-16-956,PL-USER-16,debit,30.18,USD,retail,2025-12-09 14:00:00,completed
+PL-16-957,PL-USER-16,debit,125.57,USD,electricity bill,2025-12-10 00:00:00,completed
+PL-16-958,PL-USER-16,debit,25.91,USD,retail,2025-12-10 11:00:00,completed
+PL-16-959,PL-USER-16,debit,10.43,USD,food,2025-12-11 08:00:00,completed
+PL-16-960,PL-USER-16,debit,15.21,USD,food,2025-12-11 12:00:00,completed
+PL-16-961,PL-USER-16,debit,30.07,USD,gas,2025-12-11 15:00:00,completed
+PL-16-962,PL-USER-16,debit,50.93,USD,grocery,2025-12-12 13:00:00,completed
+PL-16-963,PL-USER-16,debit,25.94,USD,food,2025-12-13 18:00:00,completed
+PL-16-964,PL-USER-16,transfer,2236.54,USD,payment,2025-12-14 00:00:00,completed
+PL-16-965,PL-USER-16,debit,5.88,USD,food,2025-12-15 10:00:00,completed
+PL-16-966,PL-USER-16,debit,130.7,USD,government,2025-12-16 11:00:00,completed
+PL-16-967,PL-USER-16,debit,20.44,USD,food,2025-12-17 18:00:00,completed
+PL-16-968,PL-USER-16,debit,40.51,USD,bookstore,2025-12-17 20:00:00,completed
+PL-16-969,PL-USER-16,debit,15.47,USD,food,2025-12-18 12:00:00,completed
+PL-16-970,PL-USER-16,debit,30.27,USD,gas,2025-12-18 14:00:00,completed
+PL-16-971,PL-USER-16,debit,12.79,USD,food,2025-12-19 09:00:00,completed
+PL-16-972,PL-USER-16,debit,28.7,USD,food,2025-12-19 18:00:00,completed
+PL-16-973,PL-USER-16,debit,25.86,USD,entertainment,2025-12-19 20:00:00,completed
+PL-16-974,PL-USER-16,debit,9.99,USD,music streaming,2025-12-20 00:00:00,completed
+PL-16-975,PL-USER-16,debit,18.39,USD,home improvement,2025-12-20 10:00:00,completed
+PL-16-976,PL-USER-16,debit,10.86,USD,entertainment,2025-12-20 14:00:00,completed
+PL-16-977,PL-USER-16,debit,50.59,USD,grocery,2025-12-20 18:00:00,completed
+PL-16-978,PL-USER-16,debit,1800.91,USD,government,2025-12-21 10:00:00,completed
+PL-16-979,PL-USER-16,debit,8.03,USD,food,2025-12-22 07:00:00,completed
+PL-16-980,PL-USER-16,debit,12.15,USD,food,2025-12-22 17:00:00,completed
+PL-16-981,PL-USER-16,debit,20.49,USD,entertainment,2025-12-23 12:00:00,completed
+PL-16-982,PL-USER-16,debit,30.32,USD,bookstore,2025-12-23 14:00:00,completed
+PL-16-983,PL-USER-16,debit,35.57,USD,food,2025-12-23 18:00:00,completed
+PL-16-984,PL-USER-16,debit,15.02,USD,entertainment,2025-12-23 20:00:00,completed
+PL-16-985,PL-USER-16,debit,25.83,USD,home goods,2025-12-24 10:00:00,completed
+PL-16-986,PL-USER-16,debit,50.91,USD,charity,2025-12-24 14:00:00,completed
+PL-16-987,PL-USER-16,debit,10.37,USD,food,2025-12-24 16:00:00,completed
+PL-16-988,PL-USER-16,debit,30.16,USD,entertainment,2025-12-24 19:00:00,completed
+PL-16-989,PL-USER-16,debit,74.4,USD,phone & internet bill,2025-12-25 00:00:00,completed
+PL-16-990,PL-USER-16,debit,0.64,USD,food,2025-12-25 18:00:00,completed
+PL-16-991,PL-USER-16,debit,220.09,USD,medical,2025-12-26 10:00:00,completed
+PL-16-992,PL-USER-16,debit,15.44,USD,pharmacy,2025-12-26 14:00:00,completed
+PL-16-993,PL-USER-16,debit,20.25,USD,entertainment,2025-12-27 12:00:00,completed
+PL-16-994,PL-USER-16,debit,10.08,USD,entertainment,2025-12-27 15:00:00,completed
+PL-16-995,PL-USER-16,debit,40.93,USD,food,2025-12-27 18:00:00,completed
+PL-16-996,PL-USER-16,debit,25.7,USD,entertainment,2025-12-27 20:00:00,completed
+PL-16-997,PL-USER-16,debit,35.6,USD,home goods,2025-12-28 10:00:00,completed
+PL-16-998,PL-USER-16,debit,50.73,USD,grocery,2025-12-28 12:00:00,completed
+PL-16-999,PL-USER-16,debit,15.77,USD,food,2025-12-29 12:00:00,completed
+PL-16-1000,PL-USER-16,debit,20.43,USD,entertainment,2025-12-29 19:00:00,completed
+PL-16-1001,PL-USER-16,debit,50.96,USD,education,2025-12-30 14:00:00,completed
+PL-16-1002,PL-USER-16,debit,30.82,USD,gas,2025-12-31 10:00:00,completed
+PL-16-1003,PL-USER-16,debit,40.37,USD,food,2025-12-31 12:00:00,completed
+PL-16-1004,PL-USER-16,debit,30.03,USD,entertainment,2025-12-31 14:00:00,completed
+PL-16-1005,PL-USER-16,debit,3000.0,USD,property tax,2026-01-01 00:00:00,completed
+PL-16-1006,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-01-01 00:00:00,completed
+PL-16-1007,PL-USER-16,debit,20.57,USD,retail,2026-01-01 10:00:00,completed
+PL-16-1008,PL-USER-16,debit,80.34,USD,food,2026-01-01 12:00:00,completed
+PL-16-1009,PL-USER-16,debit,15.15,USD,food,2026-01-02 12:00:00,completed
+PL-16-1010,PL-USER-16,transfer,7000.0,USD,payment,2026-01-02 14:00:00,completed
+PL-16-1011,PL-USER-16,debit,10.03,USD,entertainment,2026-01-03 10:00:00,completed
+PL-16-1012,PL-USER-16,debit,10.19,USD,food,2026-01-03 12:00:00,completed
+PL-16-1013,PL-USER-16,debit,20.23,USD,entertainment,2026-01-03 14:00:00,completed
+PL-16-1014,PL-USER-16,debit,25.48,USD,food,2026-01-04 18:00:00,completed
+PL-16-1015,PL-USER-16,debit,37.76,USD,water bill,2026-01-05 00:00:00,completed
+PL-16-1016,PL-USER-16,debit,85.0,USD,museum membership,2026-01-05 00:00:00,completed
+PL-16-1017,PL-USER-16,debit,12.12,USD,food,2026-01-05 12:00:00,completed
+PL-16-1018,PL-USER-16,debit,50.37,USD,retail,2026-01-05 14:00:00,completed
+PL-16-1019,PL-USER-16,debit,15.18,USD,entertainment,2026-01-06 14:00:00,completed
+PL-16-1020,PL-USER-16,debit,8.14,USD,food,2026-01-06 16:00:00,completed
+PL-16-1021,PL-USER-16,debit,180.61,USD,education,2026-01-07 10:00:00,completed
+PL-16-1022,PL-USER-16,debit,75.29,USD,grocery,2026-01-08 10:00:00,completed
+PL-16-1023,PL-USER-16,debit,20.34,USD,food,2026-01-09 11:00:00,completed
+PL-16-1024,PL-USER-16,debit,15.93,USD,entertainment,2026-01-09 19:00:00,completed
+PL-16-1025,PL-USER-16,debit,118.13,USD,electricity bill,2026-01-10 00:00:00,completed
+PL-16-1026,PL-USER-16,debit,10.09,USD,food,2026-01-10 14:00:00,completed
+PL-16-1027,PL-USER-16,debit,12.82,USD,entertainment,2026-01-10 18:00:00,completed
+PL-16-1028,PL-USER-16,transfer,500.0,USD,payment,2026-01-11 20:00:00,completed
+PL-16-1029,PL-USER-16,debit,30.43,USD,gas,2026-01-12 17:00:00,completed
+PL-16-1030,PL-USER-16,debit,25.29,USD,food,2026-01-13 19:00:00,completed
+PL-16-1031,PL-USER-16,debit,20.08,USD,home and garden,2026-01-14 14:00:00,completed
+PL-16-1032,PL-USER-16,debit,15.67,USD,books,2026-01-14 16:00:00,completed
+PL-16-1033,PL-USER-16,debit,30.0,USD,gardening magazine,2026-01-15 00:00:00,completed
+PL-16-1034,PL-USER-16,debit,30.9,USD,food,2026-01-15 18:00:00,completed
+PL-16-1035,PL-USER-16,debit,50.06,USD,grocery,2026-01-16 19:00:00,completed
+PL-16-1036,PL-USER-16,debit,25.3,USD,food,2026-01-17 17:00:00,completed
+PL-16-1037,PL-USER-16,debit,40.42,USD,entertainment,2026-01-17 19:00:00,completed
+PL-16-1038,PL-USER-16,transfer,500.0,USD,payment,2026-01-18 20:00:00,completed
+PL-16-1039,PL-USER-16,debit,10.82,USD,food,2026-01-19 14:00:00,completed
+PL-16-1040,PL-USER-16,debit,141.18,USD,home & auto insurance,2026-01-20 00:00:00,completed
+PL-16-1041,PL-USER-16,debit,9.99,USD,music streaming,2026-01-20 00:00:00,completed
+PL-16-1042,PL-USER-16,debit,75.06,USD,art supplies,2026-01-20 18:00:00,completed
+PL-16-1043,PL-USER-16,debit,30.76,USD,personal care,2026-01-21 10:00:00,completed
+PL-16-1044,PL-USER-16,debit,25.16,USD,gas,2026-01-21 12:00:00,completed
+PL-16-1045,PL-USER-16,debit,12.94,USD,food,2026-01-22 17:00:00,completed
+PL-16-1046,PL-USER-16,debit,75.41,USD,gift,2026-01-23 12:00:00,completed
+PL-16-1047,PL-USER-16,debit,99.96,USD,subscription,2026-01-24 20:00:00,completed
+PL-16-1048,PL-USER-16,debit,76.97,USD,phone & internet bill,2026-01-25 00:00:00,completed
+PL-16-1049,PL-USER-16,debit,25.13,USD,donation,2026-01-25 12:00:00,completed
+PL-16-1050,PL-USER-16,debit,50.49,USD,groceries,2026-01-26 17:00:00,completed
+PL-16-1051,PL-USER-16,debit,850.58,USD,home goods,2026-01-27 20:00:00,completed
+PL-16-1052,PL-USER-16,debit,180.22,USD,subscription,2026-01-28 20:00:00,completed
+PL-16-1053,PL-USER-16,debit,35.97,USD,gas,2026-01-29 14:00:00,completed
+PL-16-1054,PL-USER-16,debit,40.09,USD,dining,2026-01-30 19:00:00,completed
+PL-16-1055,PL-USER-16,debit,60.35,USD,groceries,2026-01-31 14:00:00,completed
+PL-16-1056,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-02-01 00:00:00,completed
+PL-16-1057,PL-USER-16,debit,20.67,USD,entertainment,2026-02-01 12:00:00,completed
+PL-16-1058,PL-USER-16,debit,25.94,USD,dining,2026-02-01 18:00:00,completed
+PL-16-1059,PL-USER-16,transfer,2000.0,USD,payment,2026-02-02 18:00:00,completed
+PL-16-1060,PL-USER-16,debit,15.28,USD,entertainment,2026-02-03 14:00:00,completed
+PL-16-1061,PL-USER-16,debit,10.58,USD,education,2026-02-03 19:00:00,completed
+PL-16-1062,PL-USER-16,debit,50.16,USD,groceries,2026-02-04 15:00:00,completed
+PL-16-1063,PL-USER-16,debit,20.06,USD,dining,2026-02-04 18:00:00,completed
+PL-16-1064,PL-USER-16,debit,35.83,USD,water bill,2026-02-05 00:00:00,completed
+PL-16-1065,PL-USER-16,debit,10.13,USD,entertainment,2026-02-05 14:00:00,completed
+PL-16-1066,PL-USER-16,debit,12.96,USD,dining,2026-02-05 19:00:00,completed
+PL-16-1067,PL-USER-16,debit,40.13,USD,gift,2026-02-06 15:00:00,completed
+PL-16-1068,PL-USER-16,debit,30.36,USD,gas,2026-02-07 12:00:00,completed
+PL-16-1069,PL-USER-16,debit,60.96,USD,groceries,2026-02-07 13:30:00,completed
+PL-16-1070,PL-USER-16,debit,120.12,USD,healthcare,2026-02-08 10:00:00,completed
+PL-16-1071,PL-USER-16,debit,25.96,USD,dining,2026-02-09 19:00:00,completed
+PL-16-1072,PL-USER-16,debit,131.12,USD,electricity bill,2026-02-10 00:00:00,completed
+PL-16-1073,PL-USER-16,debit,15.45,USD,entertainment,2026-02-10 18:00:00,completed
+PL-16-1074,PL-USER-16,debit,18.22,USD,dining,2026-02-10 19:30:00,completed
+PL-16-1075,PL-USER-16,debit,50.56,USD,groceries,2026-02-11 14:00:00,completed
+PL-16-1076,PL-USER-16,debit,10.9,USD,dining,2026-02-12 14:00:00,completed
+PL-16-1077,PL-USER-16,debit,50.82,USD,entertainment,2026-02-12 18:00:00,completed
+PL-16-1078,PL-USER-16,debit,220.71,USD,healthcare,2026-02-13 14:00:00,completed
+PL-16-1079,PL-USER-16,transfer,198.73,USD,payment,2026-02-14 00:00:00,completed
+PL-16-1080,PL-USER-16,debit,10.6,USD,entertainment,2026-02-14 10:00:00,completed
+PL-16-1081,PL-USER-16,debit,30.28,USD,gifts,2026-02-14 17:00:00,completed
+PL-16-1082,PL-USER-16,debit,25.54,USD,beverages,2026-02-14 18:00:00,completed
+PL-16-1083,PL-USER-16,transfer,198.73,USD,payment,2026-02-15 00:00:00,completed
+PL-16-1084,PL-USER-16,debit,12.79,USD,entertainment,2026-02-16 13:00:00,completed
+PL-16-1085,PL-USER-16,debit,60.77,USD,groceries,2026-02-16 18:00:00,completed
+PL-16-1086,PL-USER-16,debit,35.76,USD,gas,2026-02-17 14:00:00,completed
+PL-16-1087,PL-USER-16,debit,5.28,USD,dining,2026-02-17 15:00:00,completed
+PL-16-1088,PL-USER-16,debit,20.9,USD,art supplies,2026-02-18 15:00:00,completed
+PL-16-1089,PL-USER-16,debit,15.3,USD,dining,2026-02-19 15:00:00,completed
+PL-16-1090,PL-USER-16,debit,9.99,USD,music streaming,2026-02-20 00:00:00,completed
+PL-16-1091,PL-USER-16,debit,50.86,USD,groceries,2026-02-20 16:00:00,completed
+PL-16-1092,PL-USER-16,debit,10.59,USD,entertainment,2026-02-21 13:00:00,completed
+PL-16-1093,PL-USER-16,debit,30.71,USD,dining,2026-02-21 19:00:00,completed
+PL-16-1094,PL-USER-16,debit,25.78,USD,donation,2026-02-22 10:00:00,completed
+PL-16-1095,PL-USER-16,debit,25.9,USD,books,2026-02-23 15:00:00,completed
+PL-16-1096,PL-USER-16,debit,10.01,USD,fitness,2026-02-24 17:00:00,completed
+PL-16-1097,PL-USER-16,debit,40.51,USD,groceries,2026-02-24 19:00:00,completed
+PL-16-1098,PL-USER-16,debit,73.88,USD,phone & internet bill,2026-02-25 00:00:00,completed
+PL-16-1099,PL-USER-16,debit,8.73,USD,dining,2026-02-25 18:00:00,completed
+PL-16-1100,PL-USER-16,debit,20.7,USD,education,2026-02-26 15:00:00,completed
+PL-16-1101,PL-USER-16,debit,35.56,USD,dining,2026-02-27 18:00:00,completed
+PL-16-1102,PL-USER-16,debit,25.57,USD,gas,2026-02-27 20:00:00,completed
+PL-16-1103,PL-USER-16,debit,60.7,USD,groceries,2026-02-28 11:00:00,completed
+PL-16-1104,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-03-01 00:00:00,completed
+PL-16-1105,PL-USER-16,debit,80.94,USD,accessories,2026-03-01 10:00:00,completed
+PL-16-1106,PL-USER-16,debit,15.61,USD,entertainment,2026-03-02 18:00:00,completed
+PL-16-1107,PL-USER-16,debit,12.8,USD,dining,2026-03-02 19:30:00,completed
+PL-16-1108,PL-USER-16,debit,1800.37,USD,taxes,2026-03-03 20:00:00,completed
+PL-16-1109,PL-USER-16,debit,40.49,USD,hobbies,2026-03-04 19:00:00,completed
+PL-16-1110,PL-USER-16,debit,48.15,USD,water bill,2026-03-05 00:00:00,completed
+PL-16-1111,PL-USER-16,debit,28.3,USD,dining,2026-03-05 19:00:00,completed
+PL-16-1112,PL-USER-16,debit,25.5,USD,gas,2026-03-06 17:00:00,completed
+PL-16-1113,PL-USER-16,debit,50.28,USD,groceries,2026-03-06 18:00:00,completed
+PL-16-1114,PL-USER-16,debit,200.21,USD,gifts,2026-03-07 14:00:00,completed
+PL-16-1115,PL-USER-16,debit,15.24,USD,dining,2026-03-08 13:00:00,completed
+PL-16-1116,PL-USER-16,debit,20.92,USD,health,2026-03-09 18:00:00,completed
+PL-16-1117,PL-USER-16,debit,24.7,USD,electricity bill,2026-03-10 00:00:00,completed
+PL-16-1118,PL-USER-16,debit,12.92,USD,entertainment,2026-03-10 18:00:00,completed
+PL-16-1119,PL-USER-16,debit,10.54,USD,dining,2026-03-11 12:00:00,completed
+PL-16-1120,PL-USER-16,debit,30.63,USD,groceries,2026-03-12 18:00:00,completed
+PL-16-1121,PL-USER-16,debit,25.34,USD,dining,2026-03-13 19:00:00,completed
+PL-16-1122,PL-USER-16,transfer,1432.5,USD,payment,2026-03-14 00:00:00,completed
+PL-16-1123,PL-USER-16,debit,18.51,USD,dining,2026-03-14 13:00:00,completed
+PL-16-1124,PL-USER-16,transfer,2000.0,USD,payment,2026-03-15 10:00:00,completed
+PL-16-1125,PL-USER-16,debit,25.63,USD,gas,2026-03-16 17:00:00,completed
+PL-16-1126,PL-USER-16,debit,15.38,USD,entertainment,2026-03-17 19:00:00,completed
+PL-16-1127,PL-USER-16,debit,40.95,USD,groceries,2026-03-18 18:00:00,completed
+PL-16-1128,PL-USER-16,debit,9.04,USD,dining,2026-03-19 17:00:00,completed
+PL-16-1129,PL-USER-16,debit,9.99,USD,music streaming,2026-03-20 00:00:00,completed
+PL-16-1130,PL-USER-16,debit,23.72,USD,retail,2026-03-20 18:00:00,completed
+PL-16-1131,PL-USER-16,debit,240.37,USD,subscription,2026-03-21 11:00:00,completed
+PL-16-1132,PL-USER-16,debit,20.4,USD,groceries,2026-03-22 10:00:00,completed
+PL-16-1133,PL-USER-16,transfer,500.0,USD,payment,2026-03-22 20:00:00,completed
+PL-16-1134,PL-USER-16,debit,12.04,USD,entertainment,2026-03-23 18:00:00,completed
+PL-16-1135,PL-USER-16,debit,180.96,USD,subscription,2026-03-24 20:00:00,completed
+PL-16-1136,PL-USER-16,debit,89.25,USD,phone & internet bill,2026-03-25 00:00:00,completed
+PL-16-1137,PL-USER-16,debit,25.01,USD,dining,2026-03-25 19:00:00,completed
+PL-16-1138,PL-USER-16,debit,50.96,USD,groceries,2026-03-25 21:00:00,completed
+PL-16-1139,PL-USER-16,debit,30.76,USD,retail,2026-03-26 18:00:00,completed
+PL-16-1140,PL-USER-16,debit,150.76,USD,electronics,2026-03-27 19:00:00,completed
+PL-16-1141,PL-USER-16,debit,35.48,USD,gas,2026-03-28 10:00:00,completed
+PL-16-1142,PL-USER-16,debit,40.29,USD,dining,2026-03-28 19:00:00,completed
+PL-16-1143,PL-USER-16,debit,75.75,USD,groceries,2026-03-29 12:00:00,completed
+PL-16-1144,PL-USER-16,transfer,500.0,USD,payment,2026-03-30 19:00:00,completed
+PL-16-1145,PL-USER-16,debit,20.87,USD,entertainment,2026-03-31 18:00:00,completed
+PL-16-1146,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-04-01 00:00:00,completed
+PL-16-1147,PL-USER-16,debit,50.75,USD,gardening,2026-04-01 17:00:00,completed
+PL-16-1148,PL-USER-16,debit,60.25,USD,dining,2026-04-02 19:00:00,completed
+PL-16-1149,PL-USER-16,debit,100.33,USD,gift,2026-04-03 18:00:00,completed
+PL-16-1150,PL-USER-16,debit,90.62,USD,clothing,2026-04-04 14:00:00,completed
+PL-16-1151,PL-USER-16,debit,45.29,USD,water bill,2026-04-05 00:00:00,completed
+PL-16-1152,PL-USER-16,debit,120.65,USD,automotive,2026-04-05 11:00:00,completed
+PL-16-1153,PL-USER-16,debit,150.6,USD,grocery,2026-04-06 18:00:00,completed
+PL-16-1154,PL-USER-16,debit,20.49,USD,museum,2026-04-07 17:00:00,completed
+PL-16-1155,PL-USER-16,debit,25.99,USD,donation,2026-04-09 19:00:00,completed
+PL-16-1156,PL-USER-16,debit,140.87,USD,electricity bill,2026-04-10 00:00:00,completed
+PL-16-1157,PL-USER-16,debit,35.38,USD,dining,2026-04-10 19:30:00,completed
+PL-16-1158,PL-USER-16,debit,700.78,USD,travel,2026-04-11 11:00:00,completed
+PL-16-1159,PL-USER-16,debit,45.79,USD,gas,2026-04-12 15:00:00,completed
+PL-16-1160,PL-USER-16,transfer,689.01,USD,payment,2026-04-14 00:00:00,completed
+PL-16-1161,PL-USER-16,debit,68.38,USD,grocery,2026-04-14 18:00:00,completed
+PL-16-1162,PL-USER-16,transfer,689.01,USD,payment,2026-04-15 00:00:00,completed
+PL-16-1163,PL-USER-16,debit,15.61,USD,entertainment,2026-04-16 14:00:00,completed
+PL-16-1164,PL-USER-16,debit,23.61,USD,dining,2026-04-16 18:30:00,completed
+PL-16-1165,PL-USER-16,debit,18.95,USD,dining,2026-04-17 19:00:00,completed
+PL-16-1166,PL-USER-16,debit,450.0,USD,auto repair,2026-04-18 12:00:00,completed
+PL-16-1167,PL-USER-16,debit,30.85,USD,retail,2026-04-19 10:00:00,completed
+PL-16-1168,PL-USER-16,debit,25.74,USD,gas,2026-04-19 12:00:00,completed
+PL-16-1169,PL-USER-16,debit,45.58,USD,dining,2026-04-19 14:00:00,completed
+PL-16-1170,PL-USER-16,debit,127.61,USD,home & auto insurance,2026-04-20 00:00:00,completed
+PL-16-1171,PL-USER-16,debit,9.99,USD,music streaming,2026-04-20 00:00:00,completed
+PL-16-1172,PL-USER-16,debit,120.32,USD,auto repair,2026-04-20 14:00:00,completed
+PL-16-1173,PL-USER-16,debit,28.98,USD,dining,2026-04-21 19:00:00,completed
+PL-16-1174,PL-USER-16,debit,180.71,USD,retail,2026-04-22 17:00:00,completed
+PL-16-1175,PL-USER-16,debit,32.57,USD,retail,2026-04-23 18:00:00,completed
+PL-16-1176,PL-USER-16,debit,0.22,USD,dining,2026-04-24 19:00:00,completed
+PL-16-1177,PL-USER-16,debit,83.9,USD,phone & internet bill,2026-04-25 00:00:00,completed
+PL-16-1178,PL-USER-16,debit,75.74,USD,retail,2026-04-25 10:00:00,completed
+PL-16-1179,PL-USER-16,debit,44.57,USD,grocery,2026-04-26 18:00:00,completed
+PL-16-1180,PL-USER-16,debit,3.0,USD,digital service,2026-04-28 19:00:00,completed
+PL-16-1181,PL-USER-16,debit,180.99,USD,retail,2026-04-29 19:00:00,completed
+PL-16-1182,PL-USER-16,debit,15.12,USD,museum,2026-04-30 14:00:00,completed
+PL-16-1183,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-05-01 00:00:00,completed
+PL-16-1184,PL-USER-16,debit,30.21,USD,non-profit,2026-05-01 19:00:00,completed
+PL-16-1185,PL-USER-16,debit,130.66,USD,entertainment,2026-05-02 12:00:00,completed
+PL-16-1186,PL-USER-16,transfer,2000.0,USD,payment,2026-05-04 19:00:00,completed
+PL-16-1187,PL-USER-16,debit,57.65,USD,water bill,2026-05-05 00:00:00,completed
+PL-16-1188,PL-USER-16,debit,25.7,USD,gas,2026-05-05 14:00:00,completed
+PL-16-1189,PL-USER-16,debit,50.29,USD,grocery,2026-05-05 15:00:00,completed
+PL-16-1190,PL-USER-16,debit,10.12,USD,museum,2026-05-06 18:00:00,completed
+PL-16-1191,PL-USER-16,debit,35.35,USD,restaurant,2026-05-07 19:00:00,completed
+PL-16-1192,PL-USER-16,debit,15.01,USD,restaurant,2026-05-08 17:00:00,completed
+PL-16-1193,PL-USER-16,debit,20.39,USD,gardening,2026-05-09 10:00:00,completed
+PL-16-1194,PL-USER-16,debit,30.82,USD,grocery,2026-05-09 12:00:00,completed
+PL-16-1195,PL-USER-16,debit,129.45,USD,electricity bill,2026-05-10 00:00:00,completed
+PL-16-1196,PL-USER-16,debit,12.59,USD,museum,2026-05-10 12:00:00,completed
+PL-16-1197,PL-USER-16,debit,8.36,USD,restaurant,2026-05-10 15:00:00,completed
+PL-16-1198,PL-USER-16,debit,30.4,USD,gas,2026-05-11 09:00:00,completed
+PL-16-1199,PL-USER-16,debit,40.08,USD,restaurant,2026-05-11 12:00:00,completed
+PL-16-1200,PL-USER-16,debit,30.72,USD,entertainment,2026-05-11 15:00:00,completed
+PL-16-1201,PL-USER-16,transfer,200.0,USD,payment,2026-05-12 18:00:00,completed
+PL-16-1202,PL-USER-16,debit,25.06,USD,liquor,2026-05-13 18:00:00,completed
+PL-16-1203,PL-USER-16,debit,18.06,USD,restaurant,2026-05-13 19:00:00,completed
+PL-16-1204,PL-USER-16,transfer,134.97,USD,payment,2026-05-14 00:00:00,completed
+PL-16-1205,PL-USER-16,debit,250.21,USD,furniture,2026-05-14 11:00:00,completed
+PL-16-1206,PL-USER-16,debit,50.04,USD,grocery,2026-05-15 10:00:00,completed
+PL-16-1207,PL-USER-16,transfer,134.97,USD,payment,2026-05-15 12:00:00,completed
+PL-16-1208,PL-USER-16,debit,20.55,USD,art,2026-05-16 10:00:00,completed
+PL-16-1209,PL-USER-16,debit,12.05,USD,restaurant,2026-05-16 13:00:00,completed
+PL-16-1210,PL-USER-16,debit,30.16,USD,gas,2026-05-18 12:00:00,completed
+PL-16-1211,PL-USER-16,debit,25.06,USD,restaurant,2026-05-18 18:00:00,completed
+PL-16-1212,PL-USER-16,debit,15.32,USD,entertainment,2026-05-19 10:00:00,completed
+PL-16-1213,PL-USER-16,debit,10.98,USD,restaurant,2026-05-19 14:00:00,completed
+PL-16-1214,PL-USER-16,debit,20.72,USD,education,2026-05-19 18:00:00,completed
+PL-16-1215,PL-USER-16,debit,9.99,USD,music streaming,2026-05-20 00:00:00,completed
+PL-16-1216,PL-USER-16,debit,40.12,USD,grocery,2026-05-20 13:00:00,completed
+PL-16-1217,PL-USER-16,debit,10.41,USD,entertainment,2026-05-20 19:00:00,completed
+PL-16-1218,PL-USER-16,debit,60.34,USD,home improvement,2026-05-21 12:00:00,completed
+PL-16-1219,PL-USER-16,debit,25.46,USD,restaurant,2026-05-22 11:00:00,completed
+PL-16-1220,PL-USER-16,debit,10.27,USD,entertainment,2026-05-22 14:00:00,completed
+PL-16-1221,PL-USER-16,debit,50.21,USD,entertainment,2026-05-22 19:00:00,completed
+PL-16-1222,PL-USER-16,debit,20.31,USD,grocery,2026-05-23 10:00:00,completed
+PL-16-1223,PL-USER-16,debit,30.04,USD,retail,2026-05-23 14:00:00,completed
+PL-16-1224,PL-USER-16,debit,15.32,USD,home improvement,2026-05-24 10:00:00,completed
+PL-16-1225,PL-USER-16,transfer,200.0,USD,payment,2026-05-24 18:00:00,completed
+PL-16-1226,PL-USER-16,debit,91.14,USD,phone & internet bill,2026-05-25 00:00:00,completed
+PL-16-1227,PL-USER-16,debit,15.19,USD,restaurant,2026-05-25 12:00:00,completed
+PL-16-1228,PL-USER-16,debit,30.71,USD,restaurant,2026-05-25 18:00:00,completed
+PL-16-1229,PL-USER-16,debit,40.76,USD,retail,2026-05-26 13:00:00,completed
+PL-16-1230,PL-USER-16,debit,10.1,USD,restaurant,2026-05-26 18:00:00,completed
+PL-16-1231,PL-USER-16,debit,180.7,USD,education,2026-05-27 11:00:00,completed
+PL-16-1232,PL-USER-16,debit,12.66,USD,restaurant,2026-05-28 13:00:00,completed
+PL-16-1233,PL-USER-16,debit,8.13,USD,restaurant,2026-05-28 15:00:00,completed
+PL-16-1234,PL-USER-16,debit,15.8,USD,restaurant,2026-05-28 19:00:00,completed
+PL-16-1235,PL-USER-16,debit,10.14,USD,laundry,2026-05-29 10:00:00,completed
+PL-16-1236,PL-USER-16,debit,50.8,USD,grocery,2026-05-29 12:00:00,completed
+PL-16-1237,PL-USER-16,debit,12.33,USD,restaurant,2026-05-30 12:00:00,completed
+PL-16-1238,PL-USER-16,debit,20.92,USD,retail,2026-05-30 14:00:00,completed
+PL-16-1239,PL-USER-16,debit,35.75,USD,restaurant,2026-05-30 19:00:00,completed
+PL-16-1240,PL-USER-16,debit,25.67,USD,education,2026-05-31 10:00:00,completed
+PL-16-1241,PL-USER-16,debit,30.69,USD,retail,2026-05-31 14:00:00,completed
+PL-16-1242,PL-USER-16,debit,28.99,USD,warriors streaming service,2026-06-01 00:00:00,completed
+PL-16-1243,PL-USER-16,debit,8.72,USD,restaurant,2026-06-01 18:00:00,completed
+PL-16-1244,PL-USER-16,debit,22.6,USD,retail,2026-06-01 20:00:00,completed
+PL-16-1245,PL-USER-16,debit,15.75,USD,restaurant,2026-06-02 12:00:00,completed
+PL-16-1246,PL-USER-16,debit,40.65,USD,event,2026-06-02 18:00:00,completed
+PL-16-1247,PL-USER-16,debit,60.49,USD,health,2026-06-03 14:00:00,completed
+PL-16-1248,PL-USER-16,debit,30.39,USD,grocery,2026-06-03 18:00:00,completed
+PL-16-1249,PL-USER-16,debit,20.52,USD,entertainment,2026-06-04 12:00:00,completed
+PL-16-1250,PL-USER-16,debit,45.61,USD,restaurant,2026-06-04 19:00:00,completed
+PL-16-1251,PL-USER-16,debit,62.0,USD,water bill,2026-06-05 00:00:00,completed
+PL-16-1252,PL-USER-16,debit,12.66,USD,restaurant,2026-06-05 13:00:00,completed
+PL-16-1253,PL-USER-16,debit,18.56,USD,entertainment,2026-06-05 20:00:00,completed
+PL-16-1254,PL-USER-16,debit,75.62,USD,retail,2026-06-06 10:00:00,completed
+PL-16-1255,PL-USER-16,debit,0.65,USD,restaurant,2026-06-07 19:00:00,completed
+PL-16-1256,PL-USER-16,debit,40.07,USD,retail,2026-06-08 17:00:00,completed
+PL-16-1257,PL-USER-16,debit,25.83,USD,restaurant,2026-06-09 19:00:00,completed
+PL-16-1258,PL-USER-16,debit,97.49,USD,electricity bill,2026-06-10 00:00:00,completed
+PL-16-1259,PL-USER-16,debit,9.27,USD,convenience store,2026-06-10 20:30:00,completed
+PL-16-1260,PL-USER-16,debit,10.48,USD,restaurant,2026-06-11 19:00:00,completed
+PL-16-1261,PL-USER-16,debit,35.54,USD,gas,2026-06-12 17:00:00,completed
+PL-16-1262,PL-USER-16,debit,12.71,USD,restaurant,2026-06-13 14:00:00,completed
+PL-16-1263,PL-USER-16,debit,50.72,USD,grocery,2026-06-13 18:00:00,completed
+PL-16-1264,PL-USER-16,transfer,1764.74,USD,payment,2026-06-14 00:00:00,completed
+PL-16-1265,PL-USER-16,debit,28.82,USD,restaurant,2026-06-14 19:00:00,completed

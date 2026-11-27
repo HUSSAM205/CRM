@@ -23,3 +23,6 @@ checkpoints/**/*.parquet
 
 # Secrets
 .env
+
+# Supplementary public datasets (Dataset B): downloaded by scripts/download_supplementary.py, never committed
+/data/supplementary/

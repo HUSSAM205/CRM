@@ -10,6 +10,7 @@ from src.data.schema import ALLOWED_CURRENCIES
 from src.utils.configuration import PROJECT_ROOT
 
 DEMO_FILE = PROJECT_ROOT / "data/samples/demo_transactions.csv"
+DEMO_B_FILE = PROJECT_ROOT / "data/samples/demo_personaledger.csv"     # Dataset B sample (CC BY 4.0), D-24
 LABELS = {"transaction_timestamp": "Date / time *", "amount": "Amount *", "currency": "Currency *",
           "transaction_type": "Transaction type", "status": "Status", "merchant_category": "Category",
           "description": "Description (used for keyword categories)", "transaction_id": "Transaction ID",
@@ -33,6 +34,12 @@ def render() -> None:
             data = DEMO_FILE.read_bytes()
             df = read_csv_bytes(data)
             load_bytes(data, suggest_mapping(df.columns), "demo (public synthetic dataset)")
+            st.rerun()
+        if DEMO_B_FILE.exists() and st.button("Load PersonaLedger demo",
+                                              help="Two synthetic card users from PersonaLedger (Capital One Research, "
+                                                   "CC BY 4.0); continuous monthly spending"):
+            data = DEMO_B_FILE.read_bytes()
+            load_bytes(data, suggest_mapping(read_csv_bytes(data).columns), "demo (PersonaLedger, CC BY 4.0)")
             st.rerun()
     with c1:
         up = st.file_uploader("Upload a CSV export", type=["csv"], key=f"uploader_{st.session_state['uploader_key']}")

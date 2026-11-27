@@ -1,0 +1,389 @@
+{
+ "protocol": "E2-B: next-month spending forecasting on Dataset B (PersonaLedger normal users; CC BY 4.0; revision c90078ae).\nA SEPARATE experiment: it does not change HW2 E2 (Dataset A) or E2-QG.\n\nPre-registered protocol (fixed in this docstring before any result was produced):\n  * Unit: one user (single, unstated currency in the source; never combined with Dataset A amounts).\n    Monthly spending = sum of positive amounts (integer cents). Each user's first and last month are partial\n    (users start/stop mid-month) and are never used as targets or features.\n  * Calendar split by TARGET month: train <= 2026-06, validation 2026-07..2026-12, test 2027-01..2027-06.\n    Rolling origin, one month ahead: features use the user's full months before the target only.\n  * Eligibility: >= 12 full months of history before the target month (HW2 12-month rule).\n  * Deterministic baselines: naive, seasonal_naive, moving_average_3, zero, historical_mean, historical_median,\n    rolling_median_6.\n  * ML: scale-free HistGradientBoosting (absolute error) on ratios to the user's historical mean\n    (lag1..3, rolling mean/median/std 6, history length, calendar month); prediction = ratio x mean.\n    Config chosen on validation MAE from 8 configurations (depth 3/6, lr 0.05/0.1, iterations 100/300); seed 42.\n  * QUALITY GATE: ACCEPTED only if validation MAE AND MASE are both lower than every deterministic baseline,\n    AND test MAE is also lower than the best deterministic baseline on test (no test-based tuning).\n  * 80% interval: multiplicative residual quantiles (actual / predicted) on validation in 5 bins of the\n    prediction; test coverage reported once.\n  * Transfer check: the selected model applied to Dataset A's primary panel (test months), compared with A's\n    baselines, to show whether a model learned on B is usable on A.\nOutputs: reports/experiments/forecasting_dataset_b/*; artifact only if ACCEPTED.\n",
+ "dataset_id": "B-PERSONALEDGER-NORMAL",
+ "source_sha256": "8ec0979c4e578638e81a2665bae9a4a4604675c10cee41578a7377385425ccb5",
+ "sizes": {
+  "train_rows": 159526,
+  "train_users": 16215,
+  "validation_rows": 66919,
+  "validation_users": 11942,
+  "test_rows": 42565,
+  "test_users": 9368
+ },
+ "validation": {
+  "naive": {
+   "MAE": 1294.4720780346388,
+   "RMSE": 1833.497741473805,
+   "MASE": 1.0268426783537437,
+   "R2": -0.39025030774474256,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "seasonal_naive": {
+   "MAE": 1290.643957769841,
+   "RMSE": 1837.8708411841799,
+   "MASE": 1.005067493792979,
+   "R2": -0.396890025341043,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "moving_average_3": {
+   "MAE": 1083.1905678506853,
+   "RMSE": 1538.3487202749343,
+   "MASE": 0.8561576222992664,
+   "R2": 0.0213174826306195,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "zero": {
+   "MAE": 3435.206706764895,
+   "RMSE": 3770.7703373219783,
+   "MASE": 2.7267103550554146,
+   "R2": -4.880204164716303,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 1.0
+  },
+  "historical_mean": {
+   "MAE": 964.3051449961275,
+   "RMSE": 1385.0324201847186,
+   "MASE": 0.757906294398219,
+   "R2": 0.20667321094373392,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "historical_median": {
+   "MAE": 939.6391004796844,
+   "RMSE": 1424.7833120164623,
+   "MASE": 0.7448622307521285,
+   "R2": 0.16048225420489026,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "rolling_median_6": {
+   "MAE": 1006.6259151362096,
+   "RMSE": 1470.3959510447971,
+   "MASE": 0.7974627367713958,
+   "R2": 0.10586964818879396,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "gbr_scale_free": {
+   "MAE": 929.7089979613249,
+   "RMSE": 1407.7558288750997,
+   "MASE": 0.737275473542894,
+   "R2": 0.18042838304453823,
+   "rows": 66919,
+   "users": 11942,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  }
+ },
+ "test": {
+  "naive": {
+   "MAE": 1433.7067019851993,
+   "RMSE": 1948.9444537332542,
+   "MASE": 1.1376153580349242,
+   "R2": -0.48698443526960067,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "seasonal_naive": {
+   "MAE": 1274.4087290027016,
+   "RMSE": 1814.0880477540227,
+   "MASE": 0.9901544872337101,
+   "R2": -0.28832140755114777,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "moving_average_3": {
+   "MAE": 1193.7081946826422,
+   "RMSE": 1601.7165261727478,
+   "MASE": 0.9498233268799408,
+   "R2": -0.004335497001818123,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "zero": {
+   "MAE": 3520.746832843886,
+   "RMSE": 3866.5332542187743,
+   "MASE": 2.8228714319543444,
+   "R2": -4.852629052670686,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 1.0
+  },
+  "historical_mean": {
+   "MAE": 1038.8647274175555,
+   "RMSE": 1436.9208467501126,
+   "MASE": 0.8275225845826358,
+   "R2": 0.19169886145552917,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "historical_median": {
+   "MAE": 1022.6570734171268,
+   "RMSE": 1494.289208128792,
+   "MASE": 0.8260291163782303,
+   "R2": 0.12586840196598648,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "rolling_median_6": {
+   "MAE": 1095.0936948196875,
+   "RMSE": 1517.1437334580023,
+   "MASE": 0.8802510997102369,
+   "R2": 0.09892497074069795,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  },
+  "gbr_scale_free": {
+   "MAE": 971.3417245734076,
+   "RMSE": 1400.2071353634508,
+   "MASE": 0.7806076060040386,
+   "R2": 0.2324758093391036,
+   "rows": 42565,
+   "users": 9368,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.0
+  }
+ },
+ "fit_seconds_selected_train": 1.61,
+ "grid": [
+  {
+   "max_depth": 3,
+   "learning_rate": 0.05,
+   "max_iter": 100,
+   "MAE": 931.0578055790419,
+   "RMSE": 1417.531236873382,
+   "MASE": 0.738902462321768,
+   "fit_seconds": 0.67
+  },
+  {
+   "max_depth": 3,
+   "learning_rate": 0.05,
+   "max_iter": 300,
+   "MAE": 929.7089979613249,
+   "RMSE": 1407.7558288750997,
+   "MASE": 0.7372754735428938,
+   "fit_seconds": 1.88
+  },
+  {
+   "max_depth": 3,
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "MAE": 929.8288298252374,
+   "RMSE": 1410.638690546192,
+   "MASE": 0.7374536041742832,
+   "fit_seconds": 0.74
+  },
+  {
+   "max_depth": 3,
+   "learning_rate": 0.1,
+   "max_iter": 300,
+   "MAE": 929.7475135781856,
+   "RMSE": 1403.176926496564,
+   "MASE": 0.7371257861237136,
+   "fit_seconds": 1.92
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "max_iter": 100,
+   "MAE": 930.1926662997158,
+   "RMSE": 1410.471940405097,
+   "MASE": 0.7377471923020292,
+   "fit_seconds": 1.05
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "max_iter": 300,
+   "MAE": 930.7888969179811,
+   "RMSE": 1405.0650520468712,
+   "MASE": 0.7378853144018808,
+   "fit_seconds": 2.59
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "MAE": 930.4898756006892,
+   "RMSE": 1406.8325579818907,
+   "MASE": 0.7377760198130346,
+   "fit_seconds": 0.96
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "max_iter": 300,
+   "MAE": 933.5094321465799,
+   "RMSE": 1402.712980399475,
+   "MASE": 0.7397590462286174,
+   "fit_seconds": 2.61
+  }
+ ],
+ "selected_params": {
+  "max_depth": 3,
+  "learning_rate": 0.05,
+  "max_iter": 300
+ },
+ "best_baseline_validation": "historical_median",
+ "interval": {
+  "edges": [
+   2599.310230790886,
+   2843.6120700301162,
+   3088.0280923521545,
+   3527.1950436208135
+  ],
+  "ratio_quantiles": {
+   "0": [
+    0.6837801968203323,
+    1.8168465688726112
+   ],
+   "1": [
+    0.6697572577792159,
+    1.693490641201774
+   ],
+   "2": [
+    0.6603388993819007,
+    1.664207629297005
+   ],
+   "3": [
+    0.6501494672605319,
+    1.6047469095278841
+   ],
+   "4": [
+    0.7257569600638317,
+    1.4843796247918808
+   ]
+  },
+  "level": 0.8,
+  "validation_coverage": 0.7999073506776849,
+  "test_coverage": 0.7765300129214143
+ },
+ "frozen_at_utc": "2026-11-27T11:37:06.235490+00:00",
+ "gate": {
+  "gbr_scale_free": "ACCEPTED",
+  "passes_validation": true,
+  "passes_test": true,
+  "best_baseline_test": "historical_median"
+ },
+ "breakdown_test": {
+  "by_month": {
+   "2027-01": {
+    "gbr": 1200.5130824169896,
+    "best_baseline": 1370.9532365499572
+   },
+   "2027-02": {
+    "gbr": 861.395120865365,
+    "best_baseline": 907.3406185688941
+   },
+   "2027-03": {
+    "gbr": 932.2861044811106,
+    "best_baseline": 943.683997338656
+   },
+   "2027-04": {
+    "gbr": 913.7616016977447,
+    "best_baseline": 917.8995820153638
+   },
+   "2027-05": {
+    "gbr": 929.4306706151785,
+    "best_baseline": 933.348457437511
+   },
+   "2027-06": {
+    "gbr": 909.3470285662142,
+    "best_baseline": 922.4032032052598
+   }
+  },
+  "by_spending_quartile": {
+   "0": {
+    "gbr": 865.695575578659,
+    "best_baseline": 915.5555553989286
+   },
+   "1": {
+    "gbr": 939.5812988576357,
+    "best_baseline": 987.5265191241424
+   },
+   "2": {
+    "gbr": 997.943406262461,
+    "best_baseline": 1060.6322277041631
+   },
+   "3": {
+    "gbr": 1082.1362055583195,
+    "best_baseline": 1126.9041947002445
+   }
+  },
+  "share_users_gbr_better": 0.6090947907771136
+ },
+ "transfer_to_dataset_A_test": {
+  "gbr_scale_free_trained_on_B": {
+   "MAE": 36.28420663822026,
+   "RMSE": 70.14600298732944,
+   "MASE": 0.7370742346251598,
+   "R2": -0.02703881425252841,
+   "rows": 60000,
+   "users": 20000,
+   "failed_predictions": 0,
+   "zero_prediction_share": 1.6666666666666667e-05
+  },
+  "zero": {
+   "MAE": 25.373847166666668,
+   "RMSE": 72.76397648366257,
+   "MASE": 0.5422820176234497,
+   "R2": -0.105131219721462,
+   "rows": 60000,
+   "users": 20000,
+   "failed_predictions": 0,
+   "zero_prediction_share": 1.0
+  },
+  "historical_median": {
+   "MAE": 26.546022833333335,
+   "RMSE": 71.90934906423851,
+   "MASE": 0.5640548600964302,
+   "R2": -0.07932369897926272,
+   "rows": 60000,
+   "users": 20000,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.49846666666666667
+  },
+  "moving_average_3": {
+   "MAE": 39.25868722222222,
+   "RMSE": 79.53404651084968,
+   "MASE": 0.8045214050417973,
+   "R2": -0.3203441817173267,
+   "rows": 60000,
+   "users": 20000,
+   "failed_predictions": 0,
+   "zero_prediction_share": 0.2413
+  }
+ },
+ "seconds": 58.6,
+ "artifact": "artifacts/forecasting/gbr_personaledger/v_20261127T113730Z"
+}

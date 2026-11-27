@@ -256,3 +256,24 @@ def test_transactions_import_summary_counts(demo_state):
     shown = {m.label: m.value for m in at.metric}
     assert shown["Input rows"] == f"{demo_state['clean'].height + 3:,}" and shown["Duplicates"] == "1"
     assert any("missing fields: 1 · parsing failures: 1 · unsupported values: 0" in c.value for c in at.caption)
+
+
+def test_personaledger_demo_shows_accepted_model_and_assistant_agrees():
+    """D-24 end to end: continuous demo series -> model estimate on the AI page; the assistant reports the same value."""
+    import polars as pl
+
+    from src.assistant.response_generator import answer
+    from src.models.forecasting.inference import forecast_product
+    res, mapping = ingest((ROOT / "data/samples/demo_personaledger.csv").read_bytes())
+    state = {"clean": res.clean, "rejected": res.rejected, "summaries": build_summaries(res.clean), "source": "demo-b",
+             "mapping": mapping, "loaded_at": 1e18}
+    at = seeded("ai_predictions", state)
+    assert not at.exception
+    s, acc = state["summaries"], state["summaries"].accounts[0]
+    f = forecast_product(s.monthly.filter((pl.col("account_id") == acc) & (pl.col("currency") == "USD")))
+    assert f["method"] == "gbr_personaledger"
+    shown = {m.label: m.value for m in at.metric}
+    assert shown[f"Model estimate for {f['target_month']}"] == f"{f['point_cents'] / 100:,.2f} USD"
+    assert any("accepted by the quality gate" in x.value for x in at.success)
+    text, _ = answer("What is my expected spending next month?", s, acc, "USD", forecast=f)
+    assert f"{f['point_cents'] / 100:,.2f} USD" in text and "gbr_personaledger" in text

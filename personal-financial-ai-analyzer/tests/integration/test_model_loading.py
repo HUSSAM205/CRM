@@ -87,4 +87,40 @@ def test_artifact_verification_runs_without_derived_data(tmp_path):
     assert r.returncode == 0, r.stdout[-1500:] + r.stderr[-1500:]
     out = json.loads((tmp_path / "v.json").read_text())
     loaded = [a for a in out["artifacts"] if a["fresh_process_load"] is True]
-    assert len(loaded) == 3 and all(a["detail"]["input"] == "demo sample" for a in loaded)
+    with_model = [a for a in out["artifacts"] if (ROOT / a["path"] / "model.joblib").exists()]
+    assert len(loaded) == len(with_model) >= 3                      # every saved model loaded (count from the registry)
+    assert all(a["detail"]["input"].startswith("demo") for a in loaded)
+
+
+def test_scale_free_features_match_experiment():
+    """D-24: the app's feature code must equal the E2-B experiment's feature code exactly."""
+    import sys
+
+    import numpy as np
+    sys.path.insert(0, str(ROOT / "scripts/research"))
+    import forecast_dataset_b as E
+
+    from src.models.forecasting import scale_free
+    rng = np.random.default_rng(0)
+    months = [f"{2024 + i // 12}-{i % 12 + 1:02d}" for i in range(20)]
+    for y in (rng.gamma(2.0, 500.0, 20), np.r_[np.zeros(3), rng.gamma(2.0, 50.0, 17)]):
+        rows = E.rows_from_series(0, months, y)
+        for r in rows:
+            i = months.index(r["month"])
+            x, mean = scale_free.features(y[:i], r["month"])
+            assert np.allclose(x[0], [r[f] for f in scale_free.FEATURES]) and mean == r["historical_mean"]
+
+
+def test_forecast_product_routes_by_training_domain():
+    """Continuous history -> accepted E2-B model; intermittent history -> deterministic outlook; short -> none."""
+    reg = inference.registry()["forecasting"]
+    if "gbr_personaledger" not in reg:
+        pytest.skip("E2-B artifact not registered")
+    cont = inference.forecast_product(monthly([300000 + (i % 5) * 20000 for i in range(20)]))
+    assert cont["method"] == "gbr_personaledger" and cont["model_status"].startswith("ACCEPTED")
+    lo, hi = cont["interval_cents"]
+    assert lo < cont["point_cents"] < hi and "best baseline" in cont["evidence"]
+    inter = inference.forecast_product(monthly(ACTIVE_13))                      # contains a zero month
+    assert inter["method"] == "historical_median" and "without spending" in inter["domain_check"]
+    assert inter["point_cents"] == inference.outlook_next(monthly(ACTIVE_13))["point_cents"]
+    assert not inference.forecast_product(monthly([1000] * 8))["eligible"]

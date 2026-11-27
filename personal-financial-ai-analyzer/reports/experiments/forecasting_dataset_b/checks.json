@@ -1,0 +1,28 @@
+{
+ "bootstrap_validation_vs_historical_median": {
+  "mae_diff": -9.930102518359284,
+  "ci95": [
+   -11.421591014413313,
+   -8.40190546259877
+  ],
+  "relative": -0.010567996279944059,
+  "users": 11942
+ },
+ "bootstrap_test_vs_historical_median": {
+  "mae_diff": -51.31534884371906,
+  "ci95": [
+   -55.44960088029815,
+   -47.49641393222087
+  ],
+  "relative": -0.05017845197339997,
+  "users": 9368
+ },
+ "guard_on_dataset_A_test": {
+  "cells": 60000,
+  "guarded_cells": 0,
+  "guarded_share": 0.0,
+  "guarded": null,
+  "product_policy_MAE_on_A": 26.546022833333335,
+  "historical_median_only_MAE_on_A": 26.546022833333335
+ }
+}

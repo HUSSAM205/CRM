@@ -1,0 +1,163 @@
+# Project Structure Audit
+
+Generated 2026-11-27 03:17 UTC from `reports/verification/project_inventory.json` (`scripts/project_inventory.py`).
+A file counts as present only if it exists **and is non-empty**.
+
+| Item | Result |
+|---|---|
+| Required directories | 49/49 present |
+| Required files (master prompt section 5) | 42/174 present |
+| Empty placeholder files | 0 |
+| Traceability rows / status tally | 69 / {'PARTIAL': 22, 'PASS': 15, 'NOT TESTED': 31, 'N/A': 1} |
+
+## Why files are missing
+Per the strict verification gate, implementation files for preprocessing, models, experiments, the app and the
+remaining tests were **deliberately not created yet**: no empty files were created to claim completion. They are
+created in Gates 4–16 (`docs/implementation_roadmap.md`).
+
+## Additional files not in the master list (each has a real role)
+* `scripts/benchmark_resources.py`
+* `scripts/generate_verification_reports.py`
+* `scripts/investigate_ledger.py`
+* `scripts/project_inventory.py`
+* `scripts/verify_methodology.py`
+* `scripts/workers/audit_global.py`
+* `scripts/workers/audit_partition.py`
+* `scripts/workers/crosscheck_partition.py`
+* `scripts/workers/id_partition.py`
+* `scripts/workers/ledger_partition.py`
+* `scripts/workers/methodology_partition.py`
+
+## Missing files at this gate
+* `README.md`
+* `pyproject.toml`
+* `.python-version`
+* `.env.example`
+* `setup.bat`
+* `run.bat`
+* `test.bat`
+* `train.bat`
+* `setup.ps1`
+* `run.ps1`
+* `test.ps1`
+* `train.ps1`
+* `configs/app.yaml`
+* `configs/preprocessing.yaml`
+* `configs/financial_rules.yaml`
+* `configs/forecasting.yaml`
+* `configs/anomaly_detection.yaml`
+* `configs/experiments.yaml`
+* `configs/logging.yaml`
+* `configs/model_registry.yaml`
+* `app/__init__.py`
+* `app/main.py`
+* `app/components/__init__.py`
+* `app/components/sidebar.py`
+* `app/components/metrics.py`
+* `app/components/charts.py`
+* `app/components/tables.py`
+* `app/components/alerts.py`
+* `app/components/upload.py`
+* `app/pages/overview.py`
+* `app/pages/transactions.py`
+* `app/pages/analytics.py`
+* `app/pages/ai_predictions.py`
+* `app/pages/budget.py`
+* `app/pages/financial_assistant.py`
+* `app/utils/__init__.py`
+* `app/utils/formatting.py`
+* `app/utils/validation.py`
+* `app/utils/session.py`
+* `app/utils/exports.py`
+* `src/data/download.py`
+* `src/data/ingestion.py`
+* `src/data/preprocessing.py`
+* `src/data/profiling.py`
+* `src/data/storage.py`
+* `src/analytics/aggregation.py`
+* `src/analytics/monthly_analysis.py`
+* `src/analytics/category_analysis.py`
+* `src/features/__init__.py`
+* `src/features/feature_engineering.py`
+* `src/features/temporal_features.py`
+* `src/features/account_features.py`
+* `src/features/feature_validation.py`
+* `src/models/__init__.py`
+* `src/models/forecasting/__init__.py`
+* `src/models/forecasting/baselines.py`
+* `src/models/forecasting/ets.py`
+* `src/models/forecasting/gradient_boosting.py`
+* `src/models/forecasting/forecasting_pipeline.py`
+* `src/models/forecasting/inference.py`
+* `src/models/anomaly/__init__.py`
+* `src/models/anomaly/robust_zscore.py`
+* `src/models/anomaly/isolation_forest.py`
+* `src/models/anomaly/anomaly_pipeline.py`
+* `src/models/anomaly/anomaly_scoring.py`
+* `src/models/anomaly/synthetic_injection.py`
+* `src/experiments/__init__.py`
+* `src/experiments/data_splitting.py`
+* `src/experiments/forecasting_experiment.py`
+* `src/experiments/anomaly_experiment.py`
+* `src/experiments/experiment_runner.py`
+* `src/experiments/experiment_tracking.py`
+* `src/evaluation/__init__.py`
+* `src/evaluation/forecasting_metrics.py`
+* `src/evaluation/anomaly_metrics.py`
+* `src/evaluation/comparison.py`
+* `src/evaluation/visualizations.py`
+* `src/evaluation/error_analysis.py`
+* `src/assistant/__init__.py`
+* `src/assistant/intent_detection.py`
+* `src/assistant/query_executor.py`
+* `src/assistant/response_generator.py`
+* `src/budget/__init__.py`
+* `src/budget/budget_calculator.py`
+* `src/budget/budget_alerts.py`
+* `src/utils/logging.py`
+* `src/utils/reproducibility.py`
+* `scripts/setup_environment.py`
+* `scripts/run_preprocessing.py`
+* `scripts/build_aggregates.py`
+* `scripts/create_splits.py`
+* `scripts/train_forecasting.py`
+* `scripts/train_anomaly.py`
+* `scripts/evaluate_models.py`
+* `scripts/run_all_tests.py`
+* `scripts/run_full_pipeline.py`
+* `scripts/run_application.py`
+* `scripts/verify_artifacts.py`
+* `scripts/generate_final_evidence.py`
+* `tests/unit/test_ingestion.py`
+* `tests/unit/test_preprocessing.py`
+* `tests/unit/test_aggregation.py`
+* `tests/unit/test_forecasting.py`
+* `tests/unit/test_anomaly.py`
+* `tests/unit/test_budget.py`
+* `tests/unit/test_assistant.py`
+* `tests/integration/test_full_pipeline.py`
+* `tests/integration/test_model_loading.py`
+* `tests/integration/test_csv_upload.py`
+* `tests/integration/test_dashboard.py`
+* `tests/regression/test_financial_correctness.py`
+* `tests/regression/test_data_leakage.py`
+* `tests/regression/test_reproducibility.py`
+* `docs/academic_implementation_matrix.md`
+* `docs/architecture.md`
+* `docs/architecture_decisions.md`
+* `docs/implementation_roadmap.md`
+* `docs/hardware_audit.md`
+* `docs/environment_audit.md`
+* `docs/resource_budget.md`
+* `docs/connectors_and_tools_audit.md`
+* `docs/local_vs_colab_benchmark.md`
+* `docs/data_dictionary.md`
+* `docs/data_quality.md`
+* `docs/preprocessing.md`
+* `docs/model_methodology.md`
+* `docs/evaluation_methodology.md`
+* `docs/limitations.md`
+* `docs/reproducibility.md`
+* `docs/installation_guide.md`
+* `docs/user_guide.md`
+* `docs/troubleshooting.md`

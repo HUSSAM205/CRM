@@ -1,0 +1,5 @@
+check,value,source
+duplicate transaction_id rows,0,ledger_semantics.json transaction_id_structure (full scan)
+fully identical rows (all 9 columns),0,implied: identical rows would share a transaction_id; ids are unique
+"same content (8 non-id columns), different transaction_id",0,audit_partition.py n_unique per account partition
+ids with non-standard suffix -zdl26nr51f60aaa959f,200,ledger_semantics.json

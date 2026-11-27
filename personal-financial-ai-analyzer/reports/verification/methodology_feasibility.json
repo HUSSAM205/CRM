@@ -1,0 +1,92 @@
+{
+  "generated_at_utc": "2026-11-27T03:02:10.999189+00:00",
+  "checks": [
+    {
+      "check": "M1_data_months_equal_train_val_test_union",
+      "status": "PASS",
+      "evidence": {
+        "train": "2024-01..2025-12 (24 months)",
+        "val": "2026-01..2026-04 (4 months)",
+        "test": "2026-05..2026-07 (3 months)"
+      }
+    },
+    {
+      "check": "M1_every_month_has_data",
+      "status": "PASS",
+      "evidence": "min rows/month 1,484,356"
+    },
+    {
+      "check": "M2_eligible_series_available",
+      "status": "PASS",
+      "evidence": "106,945 account-currency series in 106,941 accounts"
+    },
+    {
+      "check": "M3_eligible_series_have_eval_months",
+      "status": "PASS",
+      "evidence": "mean active months: val 1.42/4, test 1.08/3 (zero-spend months are valid targets)"
+    },
+    {
+      "check": "M4_test_records_for_injection",
+      "status": "PASS",
+      "evidence": "2,423,173 completed spending records in test period; mean 2.42/account"
+    },
+    {
+      "check": "M5_hour_distribution_measured",
+      "status": "PASS",
+      "evidence": "max/min rows per hour = 1.0027 (near-uniform: no globally unusual hour)"
+    }
+  ],
+  "series_total": 5151815,
+  "eligible_series": 106945,
+  "eligible_accounts": 106941,
+  "eligible_by_currency": {
+    "EUR": 15,
+    "USD": 106930
+  },
+  "train_active_months_hist_all": {
+    "0": 351884,
+    "1": 1520747,
+    "2": 1082453,
+    "3": 626095,
+    "4": 347378,
+    "5": 211780,
+    "6": 166952,
+    "7": 165931,
+    "8": 173783,
+    "9": 165895,
+    "10": 135765,
+    "11": 96207,
+    "12": 57922,
+    "13": 29629,
+    "14": 12815,
+    "15": 4647,
+    "16": 1429,
+    "17": 387,
+    "18": 96,
+    "19": 17,
+    "20": 3
+  },
+  "eligible_train_active_mean": 12.725326102202066,
+  "eligible_zero_month_share_train_mean": 0.46977807907491387,
+  "eligible_val_active_months_mean": 1.4155219972883257,
+  "eligible_test_active_months_mean": 1.0752068820421712,
+  "test_spend_records_total": 2423173,
+  "test_spend_records_per_account_mean": 2.423173,
+  "expected_injected_if_1000_accounts": {
+    "0.5": 12,
+    "1": 24,
+    "2": 48
+  },
+  "expected_injected_if_5000_accounts": {
+    "0.5": 61,
+    "1": 121,
+    "2": 242
+  },
+  "expected_injected_if_10000_accounts": {
+    "0.5": 121,
+    "1": 242,
+    "2": 485
+  },
+  "hour_max_min_ratio": 1.0026979121947843,
+  "overall": "PASS"
+}

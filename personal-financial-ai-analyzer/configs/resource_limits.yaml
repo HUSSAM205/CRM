@@ -1,0 +1,16 @@
+# Memory/CPU budget for a 16 GB Windows laptop (user-reported: i7-1355U, 16 GB DDR4).
+# Windows + VS Code + Claude desktop + browser commonly hold 6-8 GB, so heavy work is
+# capped far below physical RAM. These limits are enforced by src/utils/resource_monitor.py.
+memory:
+  worker_rss_soft_gb: 3.0        # target peak for one worker process
+  worker_rss_hard_gb: 4.0        # worker is terminated above this (checkpoint kept)
+  min_system_available_gb: 3.0   # stop new work / kill worker if system free RAM falls below
+  sample_interval_seconds: 0.25
+
+parallelism:
+  polars_max_threads: 4          # fewer threads -> fewer concurrent buffers -> lower peak RAM
+  max_concurrent_workers: 1      # partitions run one at a time
+
+partitioning:
+  account_partitions: 50         # ~1M rows / ~20k accounts per partition
+  pyarrow_batch_rows: 500000

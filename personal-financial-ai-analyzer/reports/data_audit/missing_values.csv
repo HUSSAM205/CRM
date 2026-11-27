@@ -1,0 +1,10 @@
+column,null,empty_string,rows
+transaction_id,0,0,50000000
+account_id,0,0,50000000
+transaction_type,0,0,50000000
+amount,0,0,50000000
+currency,0,0,50000000
+merchant_category,0,0,50000000
+balance_after,0,0,50000000
+transaction_timestamp,0,0,50000000
+status,0,0,50000000

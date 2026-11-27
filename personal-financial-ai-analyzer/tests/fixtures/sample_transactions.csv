@@ -1,0 +1,20 @@
+transaction_id,account_id,transaction_type,amount,currency,merchant_category,balance_after,transaction_timestamp,status
+T01,A1,debit,100.10,USD,groceries,,2026-01-03 09:15:00,completed
+T02,A1,debit,50.25,USD,dining,,2026-01-05 19:30:00,completed
+T03,A1,credit,1000.00,USD,other,,2026-01-10 08:00:00,completed
+T04,A1,refund,20.10,USD,groceries,,2026-01-12 12:00:00,completed
+T05,A1,fee,2.50,USD,other,,2026-01-15 00:00:01,completed
+T06,A1,transfer,300.00,USD,other,,2026-01-20 10:00:00,completed
+T07,A1,debit,999.99,USD,groceries,,2026-01-25 11:00:00,pending
+T08,A1,debit,888.88,USD,dining,,2026-01-26 11:00:00,failed
+T09,A1,credit,777.77,USD,other,,2026-01-27 11:00:00,reversed
+T10,A1,interest,1.15,USD,other,,2026-01-31 23:59:59,completed
+T11,A1,withdrawal,200.00,USD,cash,,2026-02-01 00:00:00,completed
+T12,A1,debit,30.30,USD,groceries,,2026-02-02 10:00:00,completed
+T13,A1,deposit,500.00,USD,other,,2026-02-03 10:00:00,completed
+T14,A1,refund,40.00,USD,dining,,2026-02-04 10:00:00,completed
+T15,A1,debit,10.01,USD,dining,,2026-02-28 23:00:00,completed
+T16,A1,debit,70.00,EUR,groceries,,2026-01-08 10:00:00,completed
+T17,A1,credit,25.00,EUR,other,,2026-01-09 10:00:00,completed
+T18,A2,debit,15.00,USD,groceries,,2026-01-04 10:00:00,completed
+T19,A2,withdrawal,5.55,USD,cash,,2026-01-06 10:00:00,reversed

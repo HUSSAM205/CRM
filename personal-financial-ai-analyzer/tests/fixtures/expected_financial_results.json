@@ -1,0 +1,35 @@
+{
+  "_note": "Hand-calculated, independently of src/ code. Amounts in integer cents. Rules: docs/financial_rules.md",
+  "monthly_summary": [
+    {"account_id": "A1", "currency": "EUR", "month": "2026-01",
+     "income_cents": 2500, "outflow_cents": 7000, "fee_cents": 0, "refund_cents": 0, "transfer_cents": 0,
+     "expenses_cents": 7000, "net_cash_flow_cents": -4500,
+     "completed_records": 2, "excluded_status_records": 0,
+     "_work": "income T17 25.00; outflow T16 70.00; net 25.00-70.00=-45.00"},
+    {"account_id": "A1", "currency": "USD", "month": "2026-01",
+     "income_cents": 100115, "outflow_cents": 15035, "fee_cents": 250, "refund_cents": 2010, "transfer_cents": 30000,
+     "expenses_cents": 13275, "net_cash_flow_cents": 86840,
+     "completed_records": 7, "excluded_status_records": 3,
+     "_work": "income T03 1000.00 + T10 1.15 = 1001.15; outflow T01 100.10 + T02 50.25 = 150.35; fee T05 2.50; refund T04 20.10; transfer T06 300.00 (excluded); expenses 150.35+2.50-20.10=132.75; net 1001.15-132.75=868.40; excluded statuses T07 pending, T08 failed, T09 reversed"},
+    {"account_id": "A1", "currency": "USD", "month": "2026-02",
+     "income_cents": 50000, "outflow_cents": 24031, "fee_cents": 0, "refund_cents": 4000, "transfer_cents": 0,
+     "expenses_cents": 20031, "net_cash_flow_cents": 29969,
+     "completed_records": 5, "excluded_status_records": 0,
+     "_work": "income T13 500.00; outflow T11 200.00 + T12 30.30 + T15 10.01 = 240.31; refund T14 40.00; expenses 240.31-40.00=200.31; net 500.00-200.31=299.69"},
+    {"account_id": "A2", "currency": "USD", "month": "2026-01",
+     "income_cents": 0, "outflow_cents": 1500, "fee_cents": 0, "refund_cents": 0, "transfer_cents": 0,
+     "expenses_cents": 1500, "net_cash_flow_cents": -1500,
+     "completed_records": 1, "excluded_status_records": 1,
+     "_work": "outflow T18 15.00; T19 reversed excluded"}
+  ],
+  "category_spending": [
+    {"account_id": "A1", "currency": "EUR", "month": "2026-01", "merchant_category": "groceries", "gross_spending_cents": 7000, "refund_cents": 0, "net_spending_cents": 7000},
+    {"account_id": "A1", "currency": "USD", "month": "2026-01", "merchant_category": "dining", "gross_spending_cents": 5025, "refund_cents": 0, "net_spending_cents": 5025},
+    {"account_id": "A1", "currency": "USD", "month": "2026-01", "merchant_category": "groceries", "gross_spending_cents": 10010, "refund_cents": 2010, "net_spending_cents": 8000},
+    {"account_id": "A1", "currency": "USD", "month": "2026-02", "merchant_category": "cash", "gross_spending_cents": 20000, "refund_cents": 0, "net_spending_cents": 20000},
+    {"account_id": "A1", "currency": "USD", "month": "2026-02", "merchant_category": "dining", "gross_spending_cents": 1001, "refund_cents": 4000, "net_spending_cents": -2999},
+    {"account_id": "A1", "currency": "USD", "month": "2026-02", "merchant_category": "groceries", "gross_spending_cents": 3030, "refund_cents": 0, "net_spending_cents": 3030},
+    {"account_id": "A2", "currency": "USD", "month": "2026-01", "merchant_category": "groceries", "gross_spending_cents": 1500, "refund_cents": 0, "net_spending_cents": 1500}
+  ],
+  "_identity_check": "For each account-currency-month: sum(category net_spending) + fee = expenses. A1/USD/2026-01: 8000+5025+250=13275. A1/USD/2026-02: 20000+3030-2999+0=20031."
+}

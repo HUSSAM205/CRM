@@ -18,7 +18,6 @@ from __future__ import annotations
 import json
 import os
 import platform
-import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -35,7 +34,7 @@ md = pq.ParquetFile(RAW).metadata; rows = md.num_rows
 """,
 "B2_projection_scan": """
 import polars as pl
-r = pl.scan_parquet(RAW).select(pl.len(), pl.col('amount').min(), pl.col('amount').max(),
+r = pl.scan_parquet(RAW).select(pl.len(), pl.col('amount').min().alias('amin'), pl.col('amount').max().alias('amax'),
     pl.col('transaction_timestamp').min()).collect(engine='streaming'); rows = 50_000_000
 """,
 "B3_groupby_account": """
@@ -64,7 +63,7 @@ trace = []
 for p in range(6):
     df = lf.filter(pl.col('n') % 20 == p).collect(engine='streaming')
     d = df.sort('account_id','transaction_id'); del df, d; gc.collect()
-    trace.append(round(psutil.Process().memory_info().rss/1e9, 2))
+    trace.append(round(psutil.Process().memory_info().rss/1e9, 2)); print('trace', trace, flush=True)
 rows = 6 * 2_500_000; extra = {'rss_after_each_partition_gb': trace}
 """,
 }
@@ -88,11 +87,17 @@ print(json.dumps({{'seconds': round(time.time()-t, 2), 'rows': rows,
 
 
 def run(body: str, p: int = 0) -> dict:
+    """Run one benchmark in a memory-guarded child process (configs/resource_limits.yaml)."""
+    sys.path.insert(0, str(ROOT))
+    from src.utils.resource_monitor import run_guarded
     code = WRAP.format(raw=str(RAW), p=p, body=body)
-    r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, cwd=ROOT)
-    if r.returncode != 0:
-        return {"error": r.stderr[-2000:]}
-    res = json.loads(r.stdout.strip().splitlines()[-1])
+    g = run_guarded([sys.executable, "-c", code], cwd=ROOT)
+    guard = {"guard_peak_rss_gb": g.peak_rss_gb, "guard_min_system_available_gb": g.min_system_available_gb,
+             "killed_reason": g.killed_reason}
+    if not g.ok:
+        return {"error": (g.killed_reason or g.stderr_tail[-1500:]), "partial_stdout": g.stdout_tail[-1500:], **guard}
+    res = json.loads(g.stdout_tail.strip().splitlines()[-1])
+    res.update(guard)
     if res.get("seconds"):
         res["rows_per_second"] = int(res["rows"] / res["seconds"])
     return res

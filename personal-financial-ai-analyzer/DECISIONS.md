@@ -1,0 +1,23 @@
+# Decisions Log
+
+Each decision records its evidence and the HW requirement it serves. The HW1/HW2 conflicts are in `docs/requirements_conflicts.md` (CF-01…CF-16).
+
+| ID | Date (UTC) | Decision | Reason / evidence | Affects |
+|---|---|---|---|---|
+| D-01 | 2026-11-27 | The project lives in `personal-financial-ai-analyzer/` inside the existing workspace repo. | The workspace already held an unrelated GradTrack CRM app. It is preserved untouched, and nothing is nested twice. | Layout |
+| D-02 | 2026-11-27 | Python **3.12** in project `.venv`. Direct dependencies pinned (`requirements.txt`); the full lock is `requirements-lock.txt`. | 3.12 is available and every dependency has wheels for it. Resolution for Windows x64 / CPython 3.12 is verified with binary wheels only (`reports/verification/requirements-windows-resolved.txt`). | Env |
+| D-03 | 2026-11-27 | `balance_after` is **never** used in calculations or features. | HW1 Table 4.2 and HW2 4.6 flag a leakage risk. The ledger report adds two more reasons: one balance mixes all currencies, and it follows ID order, not time order. | Rules, features |
+| D-04 | 2026-11-27 | Calendar logic (months, splits, lags, hour, weekday) uses `transaction_timestamp`. | It is the only time field: 0 unparseable values, 943 of 943 calendar days present. Limitation: in 0 of 1M accounts does time order equal ledger order. | Splits, features |
+| D-05 | 2026-11-27 | The 200 IDs with suffix `-zdl26nr51f60aaa959f` are kept and flagged. | They are unique, their numeric parts complete the range 0…49,999,999, and they break no rule. Their meaning is unknown. | Validation |
+| D-06 | 2026-11-27 | `transfer` is neutral: excluded from income and expenses, reported separately. | HW2 5.2. There is no counterparty field (CF-08). Measured direction is outgoing. | Rules |
+| D-07 | 2026-11-27 | Anomaly detection has two Isolation Forest variants. **(a) per-account IF** is the HW2 5.5 primary experiment. **(b) a global IF on account-relative historical features** is saved as the artifact the app loads. | HW2 5.5 says "per account", but HW2 6.4 says the app only loads saved models and never retrains. A per-account model cannot exist in advance for an uploaded user's account. Both are evaluated and reported (CF-16). | Anomaly, app |
+| D-08 | 2026-11-27 | Forecast eligibility requires ≥ 12 active spending months **within the training period** (2024-01..2025-12). | This applies HW2 5.4 without using validation or test months to choose series. Measured result: 106,945 eligible series. | Splits |
+| D-09 | 2026-11-27 | The "unusual hour" injection sets the hour to one **never observed in that account's training history** (ties broken by seed). | Hours are uniform across the dataset (max/min 1.0027), so no hour is unusual globally. HW2 8.4 does not define the term. | Injection |
+| D-10 | 2026-11-27 | Precision@k uses k = number of injected positives in the evaluated set. Precision@50 and @100 are also reported. | HW2 Table 8.2 leaves k undefined. | Metrics |
+| D-11 | 2026-11-27 | Memory budget: worker hard limit 4.0 GB, soft target 3.0 GB, system-available floor 3.0 GB, 50 account partitions, one partition per child process, checkpoints for resume. | The user's 16 GB laptop. Measured single-process growth to 12.1 GB; with the fix, ≤ 1.02 GB per audit step and 0.81 GB per ledger worker. | All heavy jobs |
+| D-12 | 2026-11-27 | Forecast target = monthly **expenses** (outflow + fee − refund) per account and currency. An active month has ≥ 1 completed debit, withdrawal or fee. | HW2 5.4 "total monthly spending". Refunds reduce spending (HW2 5.2). | Forecasting |
+| D-13 | 2026-11-27 | Category spending = outflow − refund per category. Fees are reported on their own line. Identity: Σ category + fees = expenses. | HW2 5.2 lists fee as its own meaning. Budgets reflect merchant spending. Tested in `test_category_plus_fees_equals_expenses`. | Analytics, budget |
+| D-14 | 2026-11-27 | The forecasting experiment is reported as effectively **USD-only**: 106,930 of 106,945 eligible series are USD, 15 are EUR. | Measured (`methodology_feasibility.json`). No currency is converted or mixed. | Reporting |
+| D-15 | 2026-11-27 | All money is integer cents. Float is used only for ML features and metrics. | Exact totals (HW1 perf. requirement P2). Audit: 0 amounts with more than 2 decimals. | Rules |
+| D-16 | 2026-11-27 | Model and hyperparameter selection uses validation months only. Test months are scored once, at the end. | HW2 Table 8.1. | Experiments |
+| D-17 | 2026-11-27 | Unknown `transaction_type` values (possible in user CSVs) become meaning `unresolved` and are excluded and reported, not rejected and not guessed. | Master prompt section 13. Real data has 0 such rows. | Validation |

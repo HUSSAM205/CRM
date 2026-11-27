@@ -1,0 +1,64 @@
+{
+  "generated_at_utc": "2026-11-27T02:57:17.568420+00:00",
+  "partitions": 50,
+  "rows": 50000000,
+  "accounts": 1000000,
+  "records_compared": 49000000,
+  "match_by_transaction_id": 49000000,
+  "match_by_timestamp": 1071037,
+  "match_rate_by_transaction_id": 1.0,
+  "match_rate_by_timestamp": 0.021857897959183675,
+  "accounts_fully_reconciled_by_id": 1000000,
+  "accounts_fully_reconciled_by_timestamp": 0,
+  "accounts_id_order_equals_time_order": 0,
+  "accounts_with_negative_balance": 37742,
+  "accounts_multi_currency_single_balance": 1000000,
+  "transaction_id_structure": {
+    "rows": 50000000,
+    "ids_TX_plus_10_digits": 49999800,
+    "ids_with_suffix": 200,
+    "unique_ids": 50000000,
+    "unique_numeric_parts": 50000000,
+    "min_numeric": 0,
+    "max_numeric": 49999999,
+    "numeric_range_size": 50000000
+  },
+  "resources": {
+    "system_before": {
+      "ram_total_gb": 16.87,
+      "ram_available_gb": 15.57,
+      "ram_used_pct": 7.7,
+      "disk_free_gb": 61.32,
+      "cpu_logical": 4,
+      "cpu_percent_1s": 0.5
+    },
+    "system_after": {
+      "ram_total_gb": 16.87,
+      "ram_available_gb": 15.44,
+      "ram_used_pct": 8.5,
+      "disk_free_gb": 61.32,
+      "cpu_logical": 4,
+      "cpu_percent_1s": 0.0
+    },
+    "max_worker_peak_rss_gb": 0.807,
+    "min_system_available_gb": 14.8,
+    "id_partitions_max_peak_rss_gb": 0.251,
+    "total_worker_seconds": 139.2,
+    "limits": {
+      "memory": {
+        "worker_rss_soft_gb": 3.0,
+        "worker_rss_hard_gb": 4.0,
+        "min_system_available_gb": 3.0,
+        "sample_interval_seconds": 0.25
+      },
+      "parallelism": {
+        "polars_max_threads": 4,
+        "max_concurrent_workers": 1
+      },
+      "partitioning": {
+        "account_partitions": 50,
+        "pyarrow_batch_rows": 500000
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "partition": 33,
+  "rows": 1000786,
+  "clean": 1000786,
+  "rejected": 0,
+  "reject_reasons": {},
+  "unresolved_type_rows": 0,
+  "summary_cells": 775662,
+  "independent_groups": 726260,
+  "value_mismatches": 0,
+  "groups_missing_from_project_output": 0
+}

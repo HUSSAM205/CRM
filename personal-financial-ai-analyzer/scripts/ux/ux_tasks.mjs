@@ -103,11 +103,11 @@ await task(7, "Change a budget", async () => {
   await nav("Budget");
   await main().getByRole("combobox").first().click(); await page.keyboard.type(EXP.budget_month); await page.keyboard.press("Enter"); await idle();
   await page.waitForTimeout(2000);   // the editor re-renders under a new key after the month changes
-  const grid = main().locator('[data-testid="stDataFrame"] canvas').first();   // the grid canvas, not its container
-  const box = await grid.boundingBox();
-  // double-click the budget cell (2nd column) of the target row: header ~35px, rows ~35px (CSS px)
+  const box = await main().locator('[data-testid="stDataFrame"] canvas').first().boundingBox();
   await page.mouse.dblclick(box.x + 250, box.y + 35 + 35 * (EXP.budget_row_index + 0.5)); await page.waitForTimeout(800);
-  await page.keyboard.press("ControlOrMeta+a"); await page.keyboard.type("0.01"); await page.keyboard.press("Enter"); await idle();
+  // the grid's number editor needs a moment to register typed text; an immediate Enter commits the old value
+  await page.keyboard.press("ControlOrMeta+a"); await page.keyboard.type("0.01"); await page.waitForTimeout(600);
+  await page.keyboard.press("Enter"); await idle();
   await expectText(main(), `${EXP.budget_category}: Over budget`);
   return `${EXP.budget_category} budget set to 0.01 -> over-budget alert shown`;
 });

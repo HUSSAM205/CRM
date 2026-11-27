@@ -53,7 +53,8 @@ def test_L11_account_disjoint_panel_shares_no_accounts():
 INJ = ROOT / "reports/experiments/anomaly/injections"
 
 
-@pytest.mark.skipif(not INJ.exists(), reason="anomaly experiment not run")
+@pytest.mark.skipif(not (INJ.exists() and (SPLITS / "anomaly_transactions.parquet").exists()),
+                    reason="anomaly experiment outputs or derived data not present (fresh clone)")
 def test_L10_injected_records_are_test_period_only_and_never_in_history():
     from src.experiments.anomaly_experiment import prepare
     tx = pl.read_parquet(SPLITS / "anomaly_transactions.parquet")

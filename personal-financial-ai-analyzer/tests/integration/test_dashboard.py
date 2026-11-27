@@ -129,3 +129,25 @@ def test_transactions_date_filter(demo_state):
     expected = view.filter(pl.col("transaction_timestamp").dt.date() >= dt.date(2026, 1, 1)).height
     assert before.startswith(f"{view.height} transactions.") and after.startswith(f"{expected} transactions.")
     assert expected < view.height
+
+
+def test_saved_budget_changes_drive_alerts_and_assistant(demo_state):
+    """Server side of 'change a budget': a stored (edited) budget must drive progress, alerts and the assistant."""
+    from src.assistant.response_generator import answer
+    from src.budget.budget_calculator import suggest_budgets
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    month = "2026-06"
+    sug = suggest_budgets(s.category, acc, "USD", month)
+    edited = dict(zip(sug["merchant_category"], sug["suggested_cents"]))
+    edited["dining"] = 1                                     # user sets dining to 0.01
+    at = page_app("budget")
+    at.session_state["data"], at.session_state["account"], at.session_state["currency"] = demo_state, acc, "USD"
+    at.session_state["budgets"] = {f"{acc}|USD|{month}": edited}
+    at.session_state["bud_month"] = month
+    at.run()
+    assert any("dining" in e.value and "Over budget" in e.value for e in at.error)
+    assert at.session_state["budgets"][f"active|{acc}|USD"]["dining"] == 1
+    text, r = answer("Am I exceeding my budget?", s, acc, "USD", budgets=at.session_state["budgets"][f"active|{acc}|USD"])
+    # the assistant reports the LATEST data month (2026-07), where dining spending is 0 -> "ok", not exceeded
+    assert r["month"] == "2026-07"
+    assert next(x for x in r["rows"] if x["category"] == "dining")["level"] == "ok"

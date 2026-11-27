@@ -26,6 +26,18 @@
 | K-20 | 2026-11-27 | Default currency after delete was the alphabetically first one (CAD) | First-of-sorted default | Confusing empty totals | Most-used currency first | UX task 5 |
 | K-21 | 2026-11-27 | Test inputs with only 10 active months (test-data error, not a code defect) | Test author error | False failure | Input corrected to 13 active months; assertions unchanged | `test_model_loading.py` |
 
+| A-01 | 2026-11-27 (final audit) | Validator crashed on an amount beyond int64 cents | Unchecked f64→i64 cast | Upload crash (P1) | `amount_out_of_range` rejection | `test_huge_amounts_are_rejected_not_crashing` |
+| A-02 | final audit | HW1 S7 date filter missing (traceability had marked it PASS) | Not implemented | Requirement gap (P2) | Date-range filter on Transactions | `test_transactions_date_filter` |
+| A-03 | final audit | User strings rendered as Markdown | `st.markdown` on raw text | Injection and display issue (P2) | `md_escape`; assistant via `st.text` | `test_assistant_answer_matches_dashboard` |
+| A-04 | final audit | Streamlit telemetry on; tracebacks in the browser | Defaults | Privacy (P3) | `.streamlit/config.toml` | `reports/audit/static_security_scan.txt` |
+| A-05 | final audit | ISO `T` timestamps rejected | Strict format | Usability (P3) | Accept `T`; offsets still rejected | `test_iso_t_separator_accepted_and_offsets_rejected_not_shifted` |
+| A-06 | final audit | Deprecated `use_container_width` | API change | Warnings (P3) | `width="stretch"` | Test log has no deprecation warnings |
+| A-08 | final audit | **A fresh clone could not run** (10 test collection errors, app crash, UX 0/15) | The parent repo `.gitignore` (`data/`, `*.log`) excluded `src/data/`, samples and evidence logs | Delivery broken (P0) | Re-include rules in the project `.gitignore` | `test_repository_completeness.py`; fresh clone 3 PASS |
+| A-09 | final audit | Leakage test L10 failed in a fresh clone | Incomplete skip condition | Test failure without data (P2) | Skip requires the derived data | Fresh clone 3 |
+| A-10 | final audit | Browser step "change a budget" flaky | Enter pressed before the grid editor registered the text (harness) | False UX failure (P3) | 600 ms settle in the script | 15/15 ×3 |
+
+Audit-method corrections: A-07 (determinism now compared by content, not IPC bytes) and A-11 (stale screenshot removed). Details: `reports/final_audit/KNOWN_ISSUES.md`.
+
 ## Open issues and limitations (not defects)
 
 | # | Issue | Status | Handling |
@@ -38,3 +50,7 @@
 | O-05 | User laptop hardware not measurable from the cloud container | Recorded as user-reported | Budget D-11 chosen conservatively |
 | O-06 | Amount distributions are identical across currencies (synthetic labels) | Accepted | Limitation |
 | O-07 | 37,742 accounts have negative running balances at some point | Informational | `balance_after` unused |
+| O-09 | Seed-43 resample: both GBR variants predict a constant 0 (identical metrics) | Measured (final audit) | `reports/audit/training_audit.json` |
+| O-10 | All forecasting R² are negative (best −0.061); GBR beats the zero forecast on only 39.4% of series | Measured (final audit) | `reports/audit/forecasting_audit.md` |
+| O-11 | Anomaly F1@k is 0.008–0.041 at about 1% FPR (k = 241) | Measured (final audit) | `reports/audit/anomaly_detection_audit.md` |
+| O-12 | 0.70% of training panel cells (3,357 of 480,000) are zero-filled before the account's first record | Measured (final audit); frozen experiment not changed | `reports/audit/panel_lifespan_check.json` |

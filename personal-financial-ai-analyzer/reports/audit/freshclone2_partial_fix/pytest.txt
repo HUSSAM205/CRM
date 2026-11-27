@@ -1,0 +1,60 @@
+................................ssF.......s............................. [ 58%]
+...................................................                      [100%]
+=================================== FAILURES ===================================
+_____ test_L10_injected_records_are_test_period_only_and_never_in_history ______
+
+    @pytest.mark.skipif(not INJ.exists(), reason="anomaly experiment not run")
+    def test_L10_injected_records_are_test_period_only_and_never_in_history():
+        from src.experiments.anomaly_experiment import prepare
+>       tx = pl.read_parquet(SPLITS / "anomaly_transactions.parquet")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/regression/test_data_leakage.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/polars/_utils/expired.py:114: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/polars/_utils/expired.py:114: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/polars/io/parquet/functions.py:321: in read_parquet
+    return lf._collect_eager()
+           ^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:1954: in _collect_eager
+    return _eager_engine().collect(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = InMemoryEngine(), lf = <LazyFrame at 0x7F03C0100A10>
+optimizations = <polars.lazyframe.opt_flags.QueryOptFlags object at 0x7f03c018bd10>
+background = False, post_opt_callback = None
+
+    def collect(
+        self,
+        lf: LazyFrame,
+        *,
+        optimizations: QueryOptFlags,
+        background: bool = False,
+        post_opt_callback: PostOptCallback | None = None,
+    ) -> DataFrame | InProcessQuery:
+        callback = self._post_opt_callback(
+            background=background, eager=optimizations._pyoptflags.eager
+        )
+        optimizations = self._with_monitoring(optimizations)
+    
+        ldf = lf._ldf.with_optimizations(optimizations._pyoptflags)
+        if background:
+            issue_unstable_warning("background mode is considered unstable.")
+            return InProcessQuery(ldf.collect_concurrently())
+    
+        if post_opt_callback is not None:
+            callback = post_opt_callback
+>       return wrap_df(ldf.collect(self.name, callback))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: No such file or directory (os error 2): ...2/repo/personal-financial-ai-analyzer/data/processed/splits/anomaly_transactions.parquet (set POLARS_VERBOSE=1 to see full path)
+
+.venv/lib/python3.12/site-packages/polars/lazyframe/engine.py:410: FileNotFoundError
+=========================== short test summary info ============================
+SKIPPED [1] tests/regression/test_data_leakage.py:37: splits not built
+SKIPPED [1] tests/regression/test_data_leakage.py:46: splits not built
+SKIPPED [1] tests/regression/test_reproducibility.py:31: panel not built
+1 failed, 119 passed, 3 skipped in 7.45s

@@ -1,0 +1,16 @@
+PASS 1. Upload a valid CSV
+PASS 2. Reject an invalid timestamp
+PASS 3. Reject an invalid amount
+PASS 4. Map missing columns
+PASS 5. View monthly totals
+PASS 6. Filter a category
+FAIL 7. Change a budget — locator.waitFor: Timeout 15000ms exceeded.
+PASS 8. View a forecast
+PASS 9. View anomaly candidates
+PASS 10. Ask a supported question
+PASS 11. Ask an unsupported question
+PASS 12. Delete uploaded data
+PASS 13. Switch account (isolation)
+PASS 14. Invalid upload keeps existing data
+PASS 16. Reload the application
+completed 14/15

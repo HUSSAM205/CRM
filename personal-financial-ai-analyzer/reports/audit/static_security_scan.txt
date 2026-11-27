@@ -1,0 +1,21 @@
+# Static security scans (2026-11-27T05:33:40Z)
+## secret-like patterns in tracked files
+0
+## network calls in app/ and src/ (requests/urllib/httpx/socket imports)
+0
+8:import requests
+## raw-value leakage in logs: lines with 'TX' ids or 'ACC-' ids in logs/application (pattern TX[0-9]{10}|ACC-?[0-9]{6,})
+logs/application/app.log:0
+logs/application/streamlit_audit.log:0
+logs/application/streamlit_ux.log:0
+## streamlit config
+# Project Streamlit settings (read automatically when the app is started from this folder).
+[browser]
+gatherUsageStats = false       # privacy: no usage telemetry leaves the computer (security audit S-03)
+
+[client]
+showErrorDetails = "type"      # show only the error type, not tracebacks or data in the browser (S-04)
+toolbarMode = "minimal"
+
+[server]
+maxUploadSize = 50             # MB; matches configs/app.yaml upload.max_bytes (HW2 Table 10.1)

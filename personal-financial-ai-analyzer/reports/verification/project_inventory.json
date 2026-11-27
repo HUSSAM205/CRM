@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-27T04:06:56.723648+00:00",
+  "generated_at_utc": "2026-11-27T05:40:06.725419+00:00",
   "dirs_present": 49,
   "dirs_required": 49,
   "dirs_missing": [],
@@ -17,6 +17,8 @@
   ],
   "extra_python_files_not_in_master_list": [
     "app/pages/__init__.py",
+    "scripts/audit/reconcile_totals.py",
+    "scripts/audit/training_audit.py",
     "scripts/benchmark_resources.py",
     "scripts/generate_verification_reports.py",
     "scripts/investigate_ledger.py",
@@ -30,7 +32,8 @@
     "scripts/workers/crosscheck_partition.py",
     "scripts/workers/id_partition.py",
     "scripts/workers/ledger_partition.py",
-    "scripts/workers/methodology_partition.py"
+    "scripts/workers/methodology_partition.py",
+    "tests/regression/test_repository_completeness.py"
   ],
   "traceability_rows": 69,
   "traceability_status_tally": {

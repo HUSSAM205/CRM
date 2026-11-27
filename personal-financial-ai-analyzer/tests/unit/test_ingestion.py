@@ -85,3 +85,13 @@ def test_canonical_dataset_columns_map_one_to_one():
     m = suggest_mapping(cols)
     assert all(m[c] == c for c in cols if c != "balance_after")
     assert isinstance(apply_mapping(pl.DataFrame({c: ["1"] for c in cols}), m), pl.DataFrame)
+
+
+def test_iso_t_separator_accepted_and_offsets_rejected_not_shifted():
+    """Audit A-05: ISO 'T' timestamps are accepted; timezone offsets are rejected, never silently shifted."""
+    data = (b"Date,Amount,Currency\n2026-01-05T10:00:00,-5,USD\n2026-01-06 11:30:00,-6,USD\n"
+            b"2026-01-07T09:00:00+03:00,-7,USD\n")
+    res, _ = ingest(data, assume_completed=True)
+    ts = res.clean.sort("transaction_timestamp")["transaction_timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S").to_list()
+    assert ts == ["2026-01-05 10:00:00", "2026-01-06 11:30:00"]
+    assert res.reason_counts == {"invalid_timestamp": 1}

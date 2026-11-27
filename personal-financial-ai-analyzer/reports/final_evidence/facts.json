@@ -1,8 +1,8 @@
 {
-  "tests": "118 passed",
+  "tests": "125 passed",
   "artifacts": "PASS",
-  "ux_completed": 12,
-  "ux_tasks": 12,
+  "ux_completed": 15,
+  "ux_tasks": 15,
   "forecast_selected": "gbr",
   "forecast_kept": [
     "ets",

@@ -1,0 +1,8 @@
+2026-11-27 05:27:51.744 Could not bind IPv6 wildcard address :::8502; falling back to 0.0.0.0:8502.
+2026-11-27 05:27:51.881 Uvicorn server started on 0.0.0.0:8502
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8502
+
+  Stopping...

@@ -28,3 +28,20 @@ Every run that produces numbers is listed here with its command, time and output
 | D-01 | 03:33:55 | `scripts/evaluate_models.py` + autocorrelation check | Diagnostic: zero forecast beats GBR | `reports/evaluation/forecasting_error_analysis.json` |
 | D-02 | 03:38:55 | anomaly positive control | PASS: ×1000 AUC 0.999 | `reports/evaluation/anomaly_positive_control.json` |
 | U-01 | 03:58:28 (final run) | `scripts/ux/ux_tasks.mjs` (Playwright, 7 iterations while fixing script and app defects) | Final: 12/12 | `reports/ux_tasks/ux_task_results.json` |
+
+## Final audit runs (2026-11-27, no change to frozen experiments)
+
+| Run | Completed (UTC) | Command | Outcome | Outputs |
+|---|---|---|---|---|
+| AU-01 | 04:15 | `python scripts/verify_dataset.py` plus live `curl -I` | PASS 27/27; identity unchanged | `logs/execution/audit_verify_dataset.log`, `reports/audit/dataset_identity_audit.md` |
+| AU-02 | 04:17 | `python scripts/audit/reconcile_totals.py` | 54/54 exact | `reports/audit/reconciliation.json` |
+| AU-03 | 04:18 | Delete 3 partitions, then `scripts/build_aggregates.py` (resume) | Only those 3 reran; 9/9 content-identical (after A-07) | `logs/execution/audit_resume_build_aggregates.log` |
+| AU-04 | 04:27 | `python scripts/audit/training_audit.py` (guarded) | PASS: 472.7 s, peak 1.859 GB; Δ = 0.0 for all metrics; full-population check | `reports/audit/training_audit.json`, `logs/execution/audit_training.log` |
+| AU-05 | 04:36 | Inference and latency micro-benchmarks | Recorded | `reports/audit/inference_performance.json` |
+| AU-06 | 05:17:21 | `node scripts/ux/ux_tasks.mjs` | 15/15 | `reports/ux_tasks/ux_task_results.json` |
+| AU-07 | 05:29:33 | `python scripts/run_all_tests.py` | 124 passed | `logs/testing/pytest_20261127T052933Z.log` |
+| AU-08 | — | Fresh clones 1, 2 and 3 | 1: FAIL (A-08); 2: FAIL (A-09, A-10); 3: PASS (120 passed, 4 skipped, UX 15/15) | `reports/audit/freshclone*/` |
+| AU-09 | 05:33 | `pip-audit`; static scans | 0 vulnerabilities, 0 secrets | `reports/audit/pip_audit.txt`, `static_security_scan.txt` |
+| AU-10 | 05:29 | `python scripts/verify_artifacts.py` | Exit 0 | `logs/execution/audit_verify_artifacts.log` |
+
+Completion times are output-file mtimes (UTC). A final test run after the report edits is recorded in `reports/final_audit/FINAL_TEST_RESULTS.md`.

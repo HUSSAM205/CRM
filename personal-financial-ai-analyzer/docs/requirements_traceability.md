@@ -4,7 +4,7 @@ Sources: HW1 = `ST_HW1_Hussam_Aburahmah_2357138_2.pdf` (18 pages); HW2 = `ST_HW2
 
 Status meanings: **PASS** = implemented and verified with the cited evidence. **PARTIAL** = partly verified, with the reason given. **N/A** = not applicable, with a justification from the HWs themselves. **NOT TESTED** = not verified.
 
-Final update: 2026-11-27 (after Gate 16). Tests are referenced by file; the last full run was 118 passed (`logs/testing/latest.log`).
+Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Last full run: 124 passed (`logs/testing/latest.log`). In a fresh clone: 120 passed and 4 skipped (data-dependent).
 
 ## A. Functional requirements (HW1 1.2.1)
 
@@ -24,7 +24,7 @@ Final update: 2026-11-27 (after Gate 16). Tests are referenced by file; the last
 
 | ID | Src | Pg | Requirement | Evidence | Status |
 |---|---|---|---|---|---|
-| P1 | HW1 | 5 | 100% of malformed CSVs end in controlled failures | 14 malformed-file and malformed-row cases in `test_ingestion.py` and `test_validation.py`: all controlled, no crash | PASS |
+| P1 | HW1 | 5 | 100% of malformed CSVs end in controlled failures | Malformed-file and malformed-row cases in `test_ingestion.py`, `test_validation.py` incl. `test_huge_amounts_are_rejected_not_crashing` | PASS. Corrected in the final audit: an amount beyond the int64-cents range crashed the validator (A-01, fixed) |
 | P2 | HW1 | 5 | Totals exactly equal independent references | Hand fixtures; 0 mismatches against independent `Decimal` (`financial_rules_validation.md`) | PASS |
 | P3 | HW1 | 5 | Macro-F1 classification against baselines | No labeled descriptions exist (CF-02; HW1 3.1.6 makes it conditional on real labels) | N/A |
 | P4 | HW1 | 5 | MAE and MASE against seasonal-naive or last-period, rolling chronological | `reports/experiments/forecasting/*` | PASS |
@@ -53,7 +53,7 @@ Final update: 2026-11-27 (after Gate 16). Tests are referenced by file; the last
 | S4 | HW1 | 14 | Validation reports, summaries, score tables; versioned models; input schema | `schema.py`, registry, `artifact_verification.json` | PASS |
 | S5 | HW1 | 14 | Audit, account-oriented extraction, reference calculations, train after quality criteria | Readiness gate before any training | PASS |
 | S6 | HW1 | 14 | Evaluation rules | E1–E3 as specified; macro-F1 N/A (CF-02) | PASS |
-| S7 | HW1 | 14 | Dashboard scope; no investment advice or fraud claims | Pages; unsupported "stocks" question gets the fixed reply (UX task 11) | PASS |
+| S7 | HW1 | 14 | Dashboard scope, incl. filters by account, **date** and type; no investment advice or fraud claims | Pages; date-range filter on Transactions (`test_transactions_date_filter`); unsupported "stocks" question gets the fixed reply (UX task 11) | PASS. Corrected in the final audit: the earlier PASS was wrong, because the date filter was missing (A-02, fixed) |
 | S8 | HW1 | 14–15 | Streamlit; deterministic templates | `app/`, `src/assistant/` | PASS |
 | S9 | HW1 | 15 | Confirm schema, choose account and currency, charts, budget screen, example question | UX tasks 1–12 | PASS |
 | S10 | HW1 | 15 | Summary-table queries, session isolation, retention | `test_csv_upload.py::test_sessions_are_isolated`, retention tests | PASS |

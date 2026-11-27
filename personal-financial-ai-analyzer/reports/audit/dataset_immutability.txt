@@ -1,0 +1,4 @@
+# Dataset immutability
+before: b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17  data/raw/transactions_50M.parquet
+after:  b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17  data/raw/transactions_50M.parquet (utc 2026-11-27T05:29:33Z)
+size 1594749644 bytes, mtime 2026-11-27 02:40:04.492438208 +0000

@@ -15,8 +15,14 @@ Each limitation is backed by evidence in the files referenced.
 
 ## Methods
 
-9. **Forecasting.** GBR passes HW2's selection rule, but a **zero forecast** has lower MAE and MASE on both validation and test, because 62% of test months are zero and MAE rewards the median. GBR is better only on RMSE against zero. The reported "improvement over baselines" must not be read as predictive skill.
-10. **Anomaly ranking.** ×5–10 amounts are detected with AUC of about 0.63–0.80. The positive control (×1000: AUC 0.999) shows the pipeline itself works. The weak results reflect heavy-tailed amounts (log σ ≈ 1.1) and a lack of behavioural regularity.
+9. **Forecasting.** GBR passes HW2's selection rule, but a **zero forecast** has lower MAE and MASE on both validation and test, because 62% of test months are zero and MAE rewards the median. GBR is better only on RMSE against zero. The reported "improvement over baselines" must not be read as predictive skill. The final audit adds three measurements (`reports/audit/forecasting_audit.md`):
+   * every model has a negative R²;
+   * GBR beats zero on only 39.4% of series;
+   * in the seed-43 resample GBR is a constant 0.
+
+   The same holds on the full eligible population of 106,945 series (test MAE: GBR 27.045, zero 25.438).
+9a. **Panel zero-fill.** 0.70% of training cells precede an account's first record. They are filled with 0, which is indistinguishable from inactivity.
+10. **Anomaly ranking.** At 1% injection and k = 241, F1 is 0.008–0.041 with an FPR of about 1%: roughly 23 of 24 flagged rows are normal. ×5–10 amounts are detected with AUC of about 0.63–0.80. The positive control (×1000: AUC 0.999) shows the pipeline itself works. The weak results reflect heavy-tailed amounts (log σ ≈ 1.1) and a lack of behavioural regularity.
 11. **Per-account Isolation Forest** has only about 22 history records per account and performs worst. It also cannot score accounts it has not seen, which is why a global forest is the deployed artifact (D-07).
 12. **Transfers** are assumed internal (CF-08), because the dataset has no counterparty field.
 13. **Assistant** coverage is limited to five intents, recognized by English month names and keywords.
@@ -25,4 +31,6 @@ Each limitation is backed by evidence in the files referenced.
 
 14. **Windows install not executed.** The pinned stack resolves for Windows/CPython 3.12 with wheels only, but no install was run on the user's laptop.
 15. **Timings were measured on the cloud container,** not the laptop. The memory limits are host-independent.
-16. **The UX validation is scripted** (Playwright). It is not a study with human participants.
+16. **The UX validation is scripted** (Playwright, 15 tasks). It is not a study with human participants.
+17. **Timezones.** Timestamps are naive. Uploads with a UTC offset are rejected, not converted.
+18. **No authentication.** The app is for local single-user use only (HW1 C2).

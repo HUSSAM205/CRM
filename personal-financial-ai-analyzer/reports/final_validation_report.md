@@ -1,3 +1,5 @@
+> **Superseded (2026-11-27).** The independent final audit found that this report's "27/27 PASS" was overstated: a fresh clone failed (A-08), the S7 date filter was missing (A-02), and an overflow amount crashed the validator (A-01). See `reports/final_audit/FINAL_VALIDATION_REPORT.md` (final status: READY WITH DOCUMENTED LIMITATIONS) and `reports/final_audit/EVIDENCE_AUDIT.md`. Kept unchanged below for the record.
+
 # Final Validation Report
 
 Date: 2026-11-27. Environment: cloud execution container (Ubuntu 24.04, 4 vCPU, 16.9 GB RAM, Python 3.12.3). Branch: `claude/hopeful-noether-t6vfi7`.

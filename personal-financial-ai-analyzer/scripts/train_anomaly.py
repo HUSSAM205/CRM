@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.experiments.anomaly_experiment import MODELS, run  # noqa: E402
 from src.features.account_features import FEATURES  # noqa: E402
+from src.features.feature_validation import assert_allowed  # noqa: E402
 from src.utils.configuration import load_config  # noqa: E402
 from src.utils.reproducibility import fingerprint, new_artifact_dir, register, set_seed  # noqa: E402
 
@@ -56,6 +57,7 @@ def main() -> None:
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
 
     # artifacts
+    assert_allowed(list(FEATURES))   # leakage guard before saving
     d = new_artifact_dir("anomaly", "isolation_forest_global")
     joblib.dump(res["global_model"], d / "model.joblib")
     (d / "feature_schema.json").write_text(json.dumps({"features": FEATURES, "history": acfg["history"],

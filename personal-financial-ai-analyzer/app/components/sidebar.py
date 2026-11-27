@@ -1,6 +1,7 @@
 """Sidebar: data status, account/currency selection, retention and deletion controls."""
 from __future__ import annotations
 
+import polars as pl
 import streamlit as st
 
 from app.utils import session
@@ -16,7 +17,10 @@ def render() -> None:
             st.success(f"Loaded: {data['source']}")
             st.selectbox("Account", s.accounts, key="account")
             acc = st.session_state["account"]
-            curs = sorted(s.monthly.filter(s.monthly["account_id"] == acc)["currency"].unique().to_list())
+            by_cur = (s.monthly.filter(s.monthly["account_id"] == acc).group_by("currency")
+                       .agg(pl.col("completed_records").sum()).sort(["completed_records", "currency"],
+                                                                  descending=[True, False]))
+            curs = by_cur["currency"].to_list()          # most-used currency first (default)
             if st.session_state.get("currency") not in curs:
                 st.session_state["currency"] = curs[0]
             st.selectbox("Currency", curs, key="currency",

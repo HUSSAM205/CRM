@@ -9,7 +9,7 @@ import logging
 import re
 from pathlib import Path
 
-from src.utils.configuration import PROJECT_ROOT
+from src.utils.configuration import PROJECT_ROOT, load_config
 
 _MONEY = re.compile(r"(?<![\w.])-?\d{1,3}(?:[,\d]{0,12})\.\d{2}(?!\d)")
 _IDS = re.compile(r"\b(?:TX\d{6,}[\w-]*|ACC-\d+)\b")
@@ -22,7 +22,8 @@ class RedactFilter(logging.Filter):
         return True
 
 
-def get_logger(name: str, logfile: str = "logs/application/app.log") -> logging.Logger:
+def get_logger(name: str, logfile: str | None = None) -> logging.Logger:
+    logfile = logfile or load_config("logging")["app_log"]
     logger = logging.getLogger(name)
     if not logger.handlers:
         path = PROJECT_ROOT / logfile

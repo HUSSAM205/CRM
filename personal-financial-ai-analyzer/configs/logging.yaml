@@ -1,0 +1,3 @@
+# Application logging (loaded by src/utils/logging.py). Raw amounts and IDs are always redacted.
+app_log: logs/application/app.log
+level: INFO

@@ -15,6 +15,16 @@
 | K-09 | 2026-11-27 | `monthly_coverage.csv` gained a duplicate column on rerun | Combine step re-joined onto a file it had rewritten in place (not idempotent) | Malformed report column (values identical) | Worker writes `monthly_coverage_base.csv`; combine writes the final file | Two consecutive reruns give identical files; before-fix copy kept in scratch |
 | K-10 | 2026-11-27 | Benchmark B2 errored | Two unaliased `amount` expressions | One benchmark missing | Aliases | B2: 69M rows/s, 0.47 GB |
 | K-11 | 2026-11-27 | Traceability summary stated unmeasured counts (77/16/26/33) | Numbers written before tallying | Inaccurate document | Replaced with the counts measured by `project_inventory.py` (69 rows: 15/22/31/1) | `project_inventory.json` |
+| K-12 | 2026-11-27 | Keyword fallback produced "uncategorized" while blanks produced "Uncategorized" | Validator lowercased every non-empty category | One fallback split into two labels (budgets and charts) | Canonical label kept after normalization | `test_fallback_label_is_canonical_whatever_its_source` |
+| K-13 | 2026-11-27 | `inject()` added an `amount_cents` column to inputs without one | Unconditional recompute | Schema change in a supposedly copy-only function | Recompute only if the column exists | `test_injection_keeps_amount_cents_consistent_when_present` |
+| K-14 | 2026-11-27 | Hour injection crashed (empty candidate list) | Took the minimum count before excluding the current hour | Anomaly run 1 failed; no outputs written | Exclude the current hour first, then take the least used | `test_hour_injection_when_least_used_hour_is_the_current_one` |
+| K-15 | 2026-11-27 | Budget editor showed unsaved suggestions **100× too high** | Used cents instead of units for the initial value | Wrong budgets shown and stored | `/100`, plus regression test | Test fails on the pre-fix file and passes after (logged in session) |
+| K-16 | 2026-11-27 | Analytics page crashed for every user | `is_between("2025-12", …)` treats strings as column names | Page unusable | `pl.lit()` bounds | `test_every_page_renders_without_exception[analytics]` |
+| K-17 | 2026-11-27 | The assistant could use another account's budgets | Budget hand-off key not scoped to account and currency | Wrong budget status after switching accounts | Key `active\|account\|currency` | `test_budget_page_alerts_and_editing` |
+| K-18 | 2026-11-27 | Budget values displayed rounded to whole units | `NumberColumn(step=1.0)` | Shown budget differed from the applied value | `step=0.01` | UX task 7 screenshot |
+| K-19 | 2026-11-27 | Rejection reasons unreadable by screen readers | Rendered inside a canvas table | Accessibility | Plain-text list | UX tasks 2–3 |
+| K-20 | 2026-11-27 | Default currency after delete was the alphabetically first one (CAD) | First-of-sorted default | Confusing empty totals | Most-used currency first | UX task 5 |
+| K-21 | 2026-11-27 | Test inputs with only 10 active months (test-data error, not a code defect) | Test author error | False failure | Input corrected to 13 active months; assertions unchanged | `test_model_loading.py` |
 
 ## Open issues and limitations (not defects)
 
@@ -22,7 +32,8 @@
 |---|---|---|---|
 | O-01 | Timestamps are independent of the ledger order (0 of 1M accounts consistent) | Accepted, documented | D-04; `docs/limitations.md` |
 | O-02 | Forecast-eligible series are effectively USD-only | Accepted, documented | D-14 |
-| O-03 | Hours and categories are near-uniform, so the hour-shift and rare-category anomaly scenarios may be weakly detectable | Expected; will be measured | D-09; reported per scenario |
+| O-03 | Hours and categories are near-uniform, so the hour-shift and rare-category anomaly scenarios are not detectable | Measured: AUC ≈ 0.5 | Reported per scenario |
+| O-08 | A zero forecast beats the selected GBR on MAE and MASE (no temporal signal in the data) | Measured, reported | D-20; `docs/final_results.md` |
 | O-04 | Windows install of the pinned stack not executed (only resolution verified) | NOT TESTED | `setup.ps1` / `setup.bat` provided; user runs once |
 | O-05 | User laptop hardware not measurable from the cloud container | Recorded as user-reported | Budget D-11 chosen conservatively |
 | O-06 | Amount distributions are identical across currencies (synthetic labels) | Accepted | Limitation |

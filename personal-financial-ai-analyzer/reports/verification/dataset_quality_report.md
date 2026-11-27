@@ -1,6 +1,6 @@
 # Dataset Quality Report
 
-Generated 2026-11-27 03:17 UTC. Scope: **all 50,000,000 rows, 1,000,000 accounts (no sampling)**.
+Generated 2026-11-27 04:06 UTC. Scope: **all 50,000,000 rows, 1,000,000 accounts (no sampling)**.
 Scripts: `scripts/run_audit.py` (+ workers). Raw tables: `reports/data_audit/`.
 
 ## Summary of findings

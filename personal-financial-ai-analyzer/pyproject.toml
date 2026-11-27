@@ -1,0 +1,12 @@
+[project]
+name = "personal-financial-ai-analyzer"
+version = "1.0.0"
+description = "Academic prototype: deterministic personal-finance analytics with forecasting and anomaly review (BAU, Special Topics in AI Engineering 1)"
+requires-python = ">=3.12,<3.13"
+readme = "README.md"
+authors = [{ name = "Hussam Aburahmah" }]
+# Exact pins live in requirements.txt (direct) and requirements-lock.txt (full, verified environment).
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

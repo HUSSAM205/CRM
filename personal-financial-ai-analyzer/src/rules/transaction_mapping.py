@@ -17,25 +17,16 @@ from __future__ import annotations
 
 import polars as pl
 
+from src.utils.configuration import load_config
+
 OUTFLOW, FEE, INFLOW, REFUND, TRANSFER, UNRESOLVED = (
     "outflow", "fee", "inflow", "refund", "transfer", "unresolved")
 
-TYPE_MEANING: dict[str, str] = {
-    "debit": OUTFLOW,
-    "withdrawal": OUTFLOW,
-    "fee": FEE,
-    "credit": INFLOW,
-    "deposit": INFLOW,
-    "interest": INFLOW,
-    "refund": REFUND,
-    "transfer": TRANSFER,
-}
-
+_RULES = load_config("financial_rules")
+TYPE_MEANING: dict[str, str] = dict(_RULES["type_meaning"])           # configs/financial_rules.yaml
 # Direction of the balance change for a completed record (+1 increases balance).
-BALANCE_DIRECTION: dict[str, int] = {
-    "debit": -1, "withdrawal": -1, "fee": -1, "transfer": -1,
-    "credit": +1, "deposit": +1, "interest": +1, "refund": +1,
-}
+BALANCE_DIRECTION: dict[str, int] = {k: int(v) for k, v in _RULES["balance_direction"].items()}
+assert set(TYPE_MEANING.values()) <= {OUTFLOW, FEE, INFLOW, REFUND, TRANSFER}, "unknown meaning in config"
 
 
 def meaning_expr(type_col: str = "transaction_type") -> pl.Expr:

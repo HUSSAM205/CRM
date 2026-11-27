@@ -1,6 +1,6 @@
 # Dataset Integrity Report
 
-Generated 2026-11-27 03:17 UTC from `reports/verification/dataset_integrity.json` (run 2026-11-27T02:44:21.320755+00:00).
+Generated 2026-11-27 04:06 UTC from `reports/verification/dataset_integrity.json` (run 2026-11-27T02:44:21.320755+00:00).
 Script: `scripts/verify_dataset.py` (does not trust download-time provenance; re-derives everything).
 
 **Overall: PASS** (27/27 checks). Identity: see `docs/dataset_provenance.md`, **DATASET IDENTITY VERIFIED**.

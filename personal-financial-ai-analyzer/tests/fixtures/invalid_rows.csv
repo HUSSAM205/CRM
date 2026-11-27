@@ -1,0 +1,5 @@
+transaction_id,account_id,transaction_type,amount,currency,merchant_category,transaction_timestamp,status
+U1,me,debit,12.50,USD,groceries,2026-01-05 10:00:00,completed
+U2,me,debit,abc,USD,groceries,2026-01-06 10:00:00,completed
+U3,me,debit,7.00,USD,dining,2026-13-40 10:00:00,completed
+U4,me,credit,100.00,USD,other,2026-01-07 10:00:00,completed

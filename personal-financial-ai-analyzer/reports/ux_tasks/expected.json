@@ -1,0 +1,29 @@
+{
+  "account": "ACC-000481167",
+  "income": "92.89 USD",
+  "expenses": "1,150.75 USD",
+  "net": "-1,057.86 USD",
+  "groceries_rows": 5,
+  "last_month": "2026-07",
+  "last_month_spend": "9.06 USD",
+  "invalid_file_valid_rows": 2,
+  "invalid_file_rejected_rows": 2,
+  "unmapped_rows": 3,
+  "budget_month": "2026-06",
+  "budget_row_index": 1,
+  "budget_category": "dining",
+  "budget_suggested": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    5.37,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

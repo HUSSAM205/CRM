@@ -16,6 +16,15 @@ Every run that produces numbers is listed here with its command, time and output
 | V-08 | 03:07:38 / 03:10:50 | real-data cross-check, partitions 7 and 33 | PASS, 0 mismatches | `crosscheck_partition_*.json` |
 | V-09 | 03:12:34 | `python scripts/benchmark_resources.py` | B4 killed at 4.14 GB (expected evidence); others ok | `reports/benchmarks/resource_benchmarks.json` |
 
-## Model experiments
+## Pipeline and model runs
 
-None yet.
+| Run | Completed (UTC) | Command | Outcome | Outputs |
+|---|---|---|---|---|
+| P-01 | 03:22:43 | `scripts/build_aggregates.py` | PASS: 50M rows, 0 rejected, peak 1.19 GB | `reports/data_audit/preprocessing_summary.json` |
+| P-02 | 03:23:11 | `scripts/create_splits.py` | PASS: 106,945 eligible; 4 panels of 20k; 10k anomaly accounts | `data/processed/splits/split_metadata.json` |
+| M-01 | 03:32:18 | `scripts/train_forecasting.py` (guarded) | PASS: 529 s, peak 1.35 GB; selected `gbr` | `reports/experiments/forecasting/`, `artifacts/forecasting/*/v_20261127T033218Z_*` |
+| M-02 | between 03:32 and 03:38 (log overwritten by M-03) | `scripts/train_anomaly.py` | **FAILED** (K-14 injection crash, 3 s); no outputs | log overwritten by M-03; defect recorded |
+| M-03 | 03:38:06 | `scripts/train_anomaly.py` (guarded) | PASS: 241 s, peak 1.44 GB | `reports/experiments/anomaly/`, `artifacts/anomaly/*/v_20261127T033806Z_*` |
+| D-01 | 03:33:55 | `scripts/evaluate_models.py` + autocorrelation check | Diagnostic: zero forecast beats GBR | `reports/evaluation/forecasting_error_analysis.json` |
+| D-02 | 03:38:55 | anomaly positive control | PASS: ×1000 AUC 0.999 | `reports/evaluation/anomaly_positive_control.json` |
+| U-01 | 03:58:28 (final run) | `scripts/ux/ux_tasks.mjs` (Playwright, 7 iterations while fixing script and app defects) | Final: 12/12 | `reports/ux_tasks/ux_task_results.json` |

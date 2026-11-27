@@ -1,0 +1,80 @@
+{
+  "overall": "PASS",
+  "artifacts": [
+    {
+      "kind": "forecasting",
+      "model": "gbr",
+      "path": "artifacts/forecasting/gbr/v_20261127T033218Z_d8ea2159",
+      "role": "kept",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": true,
+      "detail": {
+        "n_pred": 500,
+        "mean": 5.456890518383358,
+        "type": "HistGradientBoostingRegressor"
+      },
+      "status": "PASS"
+    },
+    {
+      "kind": "forecasting",
+      "model": "gbr_seasonal",
+      "path": "artifacts/forecasting/gbr_seasonal/v_20261127T033218Z_d8ea2159",
+      "role": "kept",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": true,
+      "detail": {
+        "n_pred": 500,
+        "mean": 2.6656123951577406,
+        "type": "HistGradientBoostingRegressor"
+      },
+      "status": "PASS"
+    },
+    {
+      "kind": "forecasting",
+      "model": "selection",
+      "path": "artifacts/forecasting/selection/v_20261127T033218Z_fce4aa93",
+      "role": "deployed choice",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": "n/a (no trainable artifact by design)",
+      "status": "PASS"
+    },
+    {
+      "kind": "anomaly",
+      "model": "isolation_forest_global",
+      "path": "artifacts/anomaly/isolation_forest_global/v_20261127T033806Z_ef2215e8",
+      "role": "deployed (loaded by app)",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": true,
+      "detail": {
+        "n_pred": 121,
+        "mean": 0.49601117599203776,
+        "type": "IsolationForest"
+      },
+      "status": "PASS"
+    },
+    {
+      "kind": "anomaly",
+      "model": "robust_zscore",
+      "path": "artifacts/anomaly/robust_zscore/v_20261127T033806Z_ef2215e8",
+      "role": "experiment/app-computed",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": "n/a (no trainable artifact by design)",
+      "status": "PASS"
+    },
+    {
+      "kind": "anomaly",
+      "model": "isolation_forest_per_account",
+      "path": "artifacts/anomaly/isolation_forest_per_account/v_20261127T033806Z_ef2215e8",
+      "role": "experiment/app-computed",
+      "versions": 1,
+      "metadata": true,
+      "fresh_process_load": "n/a (no trainable artifact by design)",
+      "status": "PASS"
+    }
+  ]
+}

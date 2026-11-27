@@ -45,7 +45,10 @@ def render() -> None:
                 backtest[r["target_month"]] = r["forecast_cents"] / 100
         st.plotly_chart(charts.forecast_chart(months, y, backtest, f["target_month"], f["forecast_cents"] / 100, cur),
                         use_container_width=True)
-        st.caption("A forecast is an estimate from past spending only; it cannot know about future events.")
+        st.caption("A forecast is an estimate from past spending only; it cannot know about future events. "
+                   "In the synthetic training data, monthly spending showed no repeatable month-to-month pattern "
+                   "and most months had no spending, so the model tends to forecast low or zero values. "
+                   "Treat it as a rough reference, not a prediction you can rely on.")
 
     summ = PROJECT_ROOT / "reports/experiments/forecasting/summary.json"
     if summ.exists():
@@ -74,4 +77,6 @@ def render() -> None:
         st.markdown("- Models were trained and evaluated on a **synthetic** public dataset; real behaviour differs.\n"
                     "- Forecasts need at least 12 active months; otherwise none is shown.\n"
                     "- Anomalies are statistical outliers compared with your own history, **not fraud findings**.\n"
-                    "- No income is forecast: the data has no salary labels (see project documentation).")
+                    "- No income is forecast: the data has no salary labels (see project documentation).\n"
+                    "- In evaluation, a simple 'zero spending' guess was about as accurate as the model on MAE, "
+                    "because the training series had no learnable pattern (see reports/evaluation).")

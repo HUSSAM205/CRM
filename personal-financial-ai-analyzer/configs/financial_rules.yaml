@@ -1,0 +1,25 @@
+# Single source of the transaction rules (loaded by src/rules/transaction_mapping.py).
+# Directions were MEASURED: 49,000,000/49,000,000 records reconcile balance_after in transaction_id
+# order (reports/verification/ledger_semantics_report.md).
+type_meaning:
+  debit: outflow
+  withdrawal: outflow
+  fee: fee
+  credit: inflow
+  deposit: inflow
+  interest: inflow
+  refund: refund
+  transfer: transfer        # neutral: not income, not expense (HW2 5.2; CF-08)
+balance_direction:
+  debit: -1
+  withdrawal: -1
+  fee: -1
+  transfer: -1
+  credit: 1
+  deposit: 1
+  interest: 1
+  refund: 1
+counted_statuses: [completed]
+excluded_statuses: [pending, failed, reversed]
+category_spending_excludes_fees: true     # D-13
+clip_negative_net_spending: false         # refunds may exceed purchases; reported as-is

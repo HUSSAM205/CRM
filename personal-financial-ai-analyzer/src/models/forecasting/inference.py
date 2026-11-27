@@ -16,14 +16,14 @@ import polars as pl
 from src.experiments.data_splitting import month_range
 from src.features.temporal_features import features_at
 from src.models.forecasting.baselines import BASELINES
-from src.utils.configuration import PROJECT_ROOT
+from src.utils.configuration import PROJECT_ROOT, load_config
 
 MIN_ACTIVE_MONTHS = 12
 
 
 @lru_cache(maxsize=1)
 def registry() -> dict:
-    p = PROJECT_ROOT / "artifacts/metadata/model_registry.json"
+    p = PROJECT_ROOT / load_config("model_registry")["registry_file"]
     return json.loads(p.read_text()) if p.exists() else {}
 
 

@@ -19,9 +19,7 @@ import polars as pl
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from src.analytics.financial_metrics import category_spending, monthly_summary  # noqa: E402
-from src.data.validation import validate_transactions  # noqa: E402
-from src.experiments.data_splitting import period_expr  # noqa: E402
+from src.data.preprocessing import process_partition  # noqa: E402
 from src.utils.configuration import load_config  # noqa: E402
 
 RAW = ROOT / "data/raw/transactions_50M.parquet"
@@ -36,16 +34,12 @@ def main() -> None:
     raw = (pl.scan_parquet(RAW)
              .filter(pl.col("account_id").str.slice(4).cast(pl.Int64) % n_parts == part)
              .collect(engine="streaming"))
-    res = validate_transactions(raw)
+    out_p = process_partition(raw)
+    res, ms, stats = out_p.validation, out_p.monthly, out_p.series_stats
     name = f"part_{part:03d}.parquet"
     res.rejected.write_parquet(out["rejected_dir"] / name)
-    ms = monthly_summary(res.clean).with_columns(period_expr("month").alias("period"))
     ms.write_parquet(out["monthly_dir"] / name)
-    category_spending(res.clean).write_parquet(out["monthly_category_dir"] / name)
-    active = (pl.col("outflow_cents") + pl.col("fee_cents")) > 0     # >=1 completed debit/withdrawal/fee
-    stats = (ms.group_by("account_id", "currency")
-               .agg(*[(active & (pl.col("period") == p)).sum().alias(f"{p}_active_months")
-                      for p in ("train", "validation", "test")]))
+    out_p.category.write_parquet(out["monthly_category_dir"] / name)
     stats.write_parquet(out["series_stats_dir"] / name)
     (ck / f"part_{part:03d}.json").write_text(json.dumps({
         "partition": part, "rows": raw.height, "clean": res.clean.height, "rejected": res.rejected.height,

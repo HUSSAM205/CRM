@@ -101,3 +101,14 @@ def test_delete_button_purges_session(demo_state):
     at.sidebar.button[0].click().run()
     assert at.session_state["data"] is None if "data" in at.session_state else True
     assert any("Load data first" in i.value for i in at.info)
+
+
+def test_budget_editor_initial_values_are_suggestions_in_currency_units(demo_state):
+    """Regression (K-15): unsaved budgets were shown in cents (100x too high)."""
+    from src.budget.budget_calculator import suggest_budgets
+    at = seeded("budget", demo_state)
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    month = s.months(acc, "USD")[-1]
+    sug = suggest_budgets(s.category, acc, "USD", month)
+    stored = at.session_state["budgets"][f"active|{acc}|USD"]
+    assert stored == dict(zip(sug["merchant_category"], sug["suggested_cents"]))

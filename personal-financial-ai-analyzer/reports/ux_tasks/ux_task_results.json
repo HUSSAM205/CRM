@@ -1,0 +1,122 @@
+{
+  "run_at_utc": "2026-11-27T03:58:28.015Z",
+  "base_url": "http://localhost:8501",
+  "tasks": 12,
+  "completed": 12,
+  "errors": 0,
+  "mean_seconds": 2.2078333333333333,
+  "results": [
+    {
+      "id": 1,
+      "task": "Upload a valid CSV",
+      "completed": true,
+      "seconds": 3.118,
+      "error": null,
+      "detail": "bank-style signed CSV mapped and loaded",
+      "screenshot": "reports/screenshots/ux_01_upload_a_valid_csv.png"
+    },
+    {
+      "id": 2,
+      "task": "Reject an invalid timestamp",
+      "completed": true,
+      "seconds": 3.039,
+      "error": null,
+      "detail": "invalid_timestamp row reported with explanation",
+      "screenshot": "reports/screenshots/ux_02_reject_an_invalid_timestamp.png"
+    },
+    {
+      "id": 3,
+      "task": "Reject an invalid amount",
+      "completed": true,
+      "seconds": 0.134,
+      "error": null,
+      "detail": "rejected rows shown = 2",
+      "screenshot": "reports/screenshots/ux_03_reject_an_invalid_amount.png"
+    },
+    {
+      "id": 4,
+      "task": "Map missing columns",
+      "completed": true,
+      "seconds": 5.383,
+      "error": null,
+      "detail": "When->date and Kind->category mapped by the user; 3 rows valid",
+      "screenshot": "reports/screenshots/ux_04_map_missing_columns.png"
+    },
+    {
+      "id": 5,
+      "task": "View monthly totals",
+      "completed": true,
+      "seconds": 3.972,
+      "error": null,
+      "detail": {
+        "income": "92.89 USD",
+        "expenses": "1,150.75 USD",
+        "net": "-1,057.86 USD"
+      },
+      "screenshot": "reports/screenshots/ux_05_view_monthly_totals.png"
+    },
+    {
+      "id": 6,
+      "task": "Filter a category",
+      "completed": true,
+      "seconds": 1.783,
+      "error": null,
+      "detail": "5 groceries transactions shown",
+      "screenshot": "reports/screenshots/ux_06_filter_a_category.png"
+    },
+    {
+      "id": 7,
+      "task": "Change a budget",
+      "completed": true,
+      "seconds": 3.909,
+      "error": null,
+      "detail": "dining budget set to 0.01 -> over-budget alert shown",
+      "screenshot": "reports/screenshots/ux_07_change_a_budget.png"
+    },
+    {
+      "id": 8,
+      "task": "View a forecast",
+      "completed": true,
+      "seconds": 0.884,
+      "error": null,
+      "detail": "Expected spending in 2026-08  0.00 USD",
+      "screenshot": "reports/screenshots/ux_08_view_a_forecast.png"
+    },
+    {
+      "id": 9,
+      "task": "View anomaly candidates",
+      "completed": true,
+      "seconds": 0.135,
+      "error": null,
+      "detail": "candidate table labelled as review candidates",
+      "screenshot": "reports/screenshots/ux_09_view_anomaly_candidates.png"
+    },
+    {
+      "id": 10,
+      "task": "Ask a supported question",
+      "completed": true,
+      "seconds": 1.639,
+      "error": null,
+      "detail": "answer matched dashboard value 9.06 USD",
+      "screenshot": "reports/screenshots/ux_10_ask_a_supported_question.png"
+    },
+    {
+      "id": 11,
+      "task": "Ask an unsupported question",
+      "completed": true,
+      "seconds": 0.911,
+      "error": null,
+      "detail": "fixed unsupported reply",
+      "screenshot": "reports/screenshots/ux_11_ask_an_unsupported_question.png"
+    },
+    {
+      "id": 12,
+      "task": "Delete uploaded data",
+      "completed": true,
+      "seconds": 1.587,
+      "error": null,
+      "detail": "data purged; pages show the empty state",
+      "screenshot": "reports/screenshots/ux_12_delete_uploaded_data.png"
+    }
+  ]
+}

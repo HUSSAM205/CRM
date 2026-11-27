@@ -12,7 +12,7 @@ from pathlib import Path
 
 import numpy as np
 
-from src.utils.configuration import PROJECT_ROOT
+from src.utils.configuration import PROJECT_ROOT, load_config
 
 LIBS = ["polars", "pyarrow", "numpy", "pandas", "scikit-learn", "statsmodels", "joblib", "streamlit", "plotly"]
 
@@ -41,7 +41,7 @@ def new_artifact_dir(kind: str, model: str, payload_hint: str = "") -> Path:
 
 def register(kind: str, model: str, path: Path, role: str) -> None:
     """Record the current version of a model in artifacts/metadata/model_registry.json."""
-    reg_path = PROJECT_ROOT / "artifacts/metadata/model_registry.json"
+    reg_path = PROJECT_ROOT / load_config("model_registry")["registry_file"]
     reg_path.parent.mkdir(parents=True, exist_ok=True)
     reg = json.loads(reg_path.read_text()) if reg_path.exists() else {}
     entry = reg.setdefault(kind, {}).setdefault(model, {"history": []})

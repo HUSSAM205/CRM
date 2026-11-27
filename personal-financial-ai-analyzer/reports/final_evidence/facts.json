@@ -1,0 +1,14 @@
+{
+  "tests": "118 passed",
+  "artifacts": "PASS",
+  "ux_completed": 12,
+  "ux_tasks": 12,
+  "forecast_selected": "gbr",
+  "forecast_kept": [
+    "ets",
+    "gbr",
+    "gbr_seasonal"
+  ],
+  "rows": 50000000,
+  "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17"
+}

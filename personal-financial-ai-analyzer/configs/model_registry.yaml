@@ -1,0 +1,4 @@
+# Where trained artifacts are registered (src/utils/reproducibility.register; read by
+# src/models/forecasting/inference.registry). Versions are never overwritten.
+registry_file: artifacts/metadata/model_registry.json
+artifact_root: artifacts

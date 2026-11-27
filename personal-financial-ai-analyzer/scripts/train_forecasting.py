@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT))
 from src.experiments import forecasting_experiment as fe  # noqa: E402
 from src.experiments.data_splitting import ALL_MONTHS  # noqa: E402
 from src.features.temporal_features import BASE_FEATURES, SEASONAL_FEATURES  # noqa: E402
+from src.features.feature_validation import assert_allowed  # noqa: E402
 from src.utils.configuration import load_config  # noqa: E402
 from src.utils.reproducibility import fingerprint, new_artifact_dir, register, set_seed  # noqa: E402
 
@@ -93,6 +94,7 @@ def main() -> None:
 
     # Versioned artifacts (never overwrite an existing version)
     for label, feats in (("gbr", BASE_FEATURES), ("gbr_seasonal", SEASONAL_FEATURES)):
+        assert_allowed(list(feats))   # leakage guard before saving
         d = new_artifact_dir("forecasting", label, json.dumps(res["selected_params"][label]))
         joblib.dump(res["models"][label], d / "model.joblib")
         (d / "feature_schema.json").write_text(json.dumps({"features": feats, "target": "monthly expenses (currency units)",

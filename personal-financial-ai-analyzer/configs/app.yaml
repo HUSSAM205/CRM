@@ -1,0 +1,11 @@
+# Streamlit app settings (loaded by src/data/ingestion.py and app/utils/session.py)
+upload:
+  max_bytes: 52428800        # 50 MB (HW2 Table 10.1 "very large file" -> rejected with size message)
+  max_rows: 1000000
+retention_minutes:           # user-selectable retention (HW1 3.2.4, HW2 6.5); null = until tab closed
+  "15 minutes": 15
+  "1 hour": 60
+  "Until I close the tab": null
+default_retention: "1 hour"
+anomaly_recent_months: 3
+min_forecast_active_months: 12

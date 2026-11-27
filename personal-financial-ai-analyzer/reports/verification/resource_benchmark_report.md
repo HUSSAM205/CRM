@@ -1,6 +1,6 @@
 # Resource Benchmark Report
 
-Generated 2026-11-27 03:17 UTC from `reports/benchmarks/resource_benchmarks.json`, `ledger_semantics.json` and `data_audit/dataset_overview.json`.
+Generated 2026-11-27 04:06 UTC from `reports/benchmarks/resource_benchmarks.json`, `ledger_semantics.json` and `data_audit/dataset_overview.json`.
 
 ## Host (measured: the cloud execution container, NOT the user's laptop)
 `{'platform': 'Linux-6.18.44-fc-v880-x86_64-with-glibc2.39', 'cpus_logical': 4, 'ram_total_gb': 16.87, 'ram_available_gb_at_start': 15.14, 'polars': '2.2.0', 'polars_threads': 4}`

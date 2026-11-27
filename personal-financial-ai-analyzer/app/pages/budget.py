@@ -26,26 +26,35 @@ def render() -> None:
         return
     key = f"{acc}|{cur}|{current}"
     saved = st.session_state["budgets"].get(key)
-    table = sug.select("merchant_category", (pl.col("suggested_cents") / 100).alias("suggested"),
-                       pl.col("explanation")).with_columns(
-        pl.Series("budget", [saved.get(c, v) / 100 if saved else v
-                             for c, v in zip(sug["merchant_category"], sug["suggested_cents"])]))
+    table = sug.select("merchant_category").with_columns(
+        pl.Series("budget", [saved.get(c, v) / 100 if saved else v / 100
+                             for c, v in zip(sug["merchant_category"], sug["suggested_cents"])]),
+        (sug["suggested_cents"] / 100).alias("suggested"), sug["explanation"])
     st.caption("Suggestion = median net spending of the three months before the budget month. "
                "It is a historical rule of thumb, not a prediction or financial advice. Edit any value.")
     edited = st.data_editor(table.to_pandas(), disabled=["merchant_category", "suggested", "explanation"],
                             hide_index=True, use_container_width=True, key=f"editor_{key}",
                             column_config={"budget": st.column_config.NumberColumn(f"budget ({cur})", min_value=0.0,
-                                                                                   step=1.0, format="%.2f")})
+                                                                                   step=0.01, format="%.2f"),
+                                           "suggested": st.column_config.NumberColumn(f"suggested ({cur})",
+                                                                                      format="%.2f")})
     budgets = {r["merchant_category"]: int(round(float(r["budget"]) * 100)) for _, r in edited.iterrows()}
     st.session_state["budgets"][key] = budgets
     st.session_state["budgets"][f"active|{acc}|{cur}"] = budgets   # assistant reads budgets for THIS account/currency
     st.subheader(f"Progress in {current}")
+    shown = 0
     for row in sug.iter_rows(named=True):
         b = budgets[row["merchant_category"]]
+        if b <= 0 and row["spent_current_cents"] == 0:
+            continue                                   # nothing budgeted and nothing spent: no row
+        shown += 1
         stt = budget_status(row["spent_current_cents"], b)
         c1, c2 = st.columns([1, 3])
         c1.write(f"**{row['merchant_category']}**")
         c2.progress(min(max(stt["ratio"] or 0.0, 0.0), 1.0),
-                    text=f"{money(row['spent_current_cents'], cur)} of {money(b, cur)}")
+                    text=f"{money(row['spent_current_cents'], cur)} of "
+                         + (money(b, cur) if b > 0 else "no budget set"))
         if stt["level"] in ("warning", "exceeded"):
             alerts.budget_alert(stt["level"], f"{row['merchant_category']}: {stt['message']}")
+    if not shown:
+        st.caption("No category spending and no budgets for this month.")

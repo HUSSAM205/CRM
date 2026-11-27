@@ -23,8 +23,8 @@ def render() -> None:
     if rej.height:
         with st.expander("Why rows were rejected", expanded=True):
             counts = rej.group_by("reject_reason").len().sort("len", descending=True)
-            st.dataframe(counts.with_columns(pl.col("reject_reason").map_elements(explain, return_dtype=pl.String)
-                                             .alias("explanation")), hide_index=True, use_container_width=True)
+            # plain text (not a canvas table) so the reasons are readable by screen readers
+            st.markdown("\n".join(f"- **{n}** row(s): {explain(r)}" for r, n in counts.iter_rows()))
             tables.show(rej.with_columns((pl.col("source_row") + 2).alias("file_line")).head(200), height=240)
     acc, cur = st.session_state["account"], st.session_state["currency"]
     view = clean.filter((pl.col("account_id") == acc) & (pl.col("currency") == cur))

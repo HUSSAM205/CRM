@@ -6,8 +6,10 @@ from __future__ import annotations
 
 import polars as pl
 
-COUNTED_STATUSES = frozenset({"completed"})
-EXCLUDED_STATUSES = frozenset({"pending", "failed", "reversed"})
+from src.utils.configuration import load_config
+
+COUNTED_STATUSES = frozenset(load_config("financial_rules")["counted_statuses"])
+EXCLUDED_STATUSES = frozenset(load_config("financial_rules")["excluded_statuses"])
 
 
 def is_counted() -> pl.Expr:

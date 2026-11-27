@@ -1,11 +1,7 @@
 # Next Action
 
-1. **Gate 4/6:** `scripts/build_aggregates.py`. Use account-partitioned guarded workers to build:
-   * the account × currency × month table (all accounts);
-   * a seeded subset of eligible series plus their transactions for the anomaly experiment.
+The implementation is complete. Remaining steps for the student:
 
-   Checkpoint each partition.
-2. **Gate 6:** `scripts/create_splits.py`. Produce split metadata with actual counts and the account-disjoint holdout.
-3. **Gates 7–9:** forecasting and anomaly modules, experiments and leakage regression tests.
-
-Constraints: D-11 memory budget; no `balance_after` in features; selection on validation only.
+1. On the Windows laptop, run `setup.bat` then `run.bat`, and check the dashboard. This install has not been executed by the agent.
+2. Write the final report and presentation from `reports/final_evidence/results_tables.md`, `docs/final_results.md` and `docs/limitations.md`. Discuss the forecasting finding (D-20) explicitly.
+3. Optional future work: add a zero or median baseline and an intermittent-demand metric to the forecasting protocol; test on real (de-identified) data if permitted (HW1 R3).

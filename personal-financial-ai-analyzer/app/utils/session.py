@@ -13,17 +13,18 @@ import uuid
 
 import streamlit as st
 
+from src.utils.configuration import load_config
 from src.utils.logging import get_logger
 
 log = get_logger("app.session")
-RETENTION_CHOICES = {"15 minutes": 15, "1 hour": 60, "Until I close the tab": None}
+RETENTION_CHOICES = dict(load_config("app")["retention_minutes"])
 DATA_KEYS = ("data", "budgets", "assistant_history")
 
 
 def init() -> None:
     ss = st.session_state
     ss.setdefault("session_id", uuid.uuid4().hex[:12])
-    ss.setdefault("retention", "1 hour")
+    ss.setdefault("retention", load_config("app")["default_retention"])
     ss.setdefault("uploader_key", 0)
     ss.setdefault("budgets", {})
     ss.setdefault("assistant_history", [])

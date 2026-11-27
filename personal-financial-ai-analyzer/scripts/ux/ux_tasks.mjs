@@ -7,6 +7,7 @@ import { createRequire } from "node:module";
 const { chromium } = createRequire(import.meta.url)("playwright");
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 
 const BASE = process.argv[2] || "http://localhost:8501";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
@@ -160,9 +161,10 @@ await task(13, "Switch account (isolation)", async () => {
 });
 
 await task(14, "Invalid upload keeps existing data", async () => {
-  fs.writeFileSync("/tmp/all_invalid.csv", "Date,Amount,Currency\nnot-a-date,abc,XXX\n");
+  const bad = path.join(os.tmpdir(), "all_invalid.csv");   // portable temp dir (Windows has no /tmp)
+  fs.writeFileSync(bad, "Date,Amount,Currency\nnot-a-date,abc,XXX\n");
   await nav("Transactions");
-  await page.locator('[data-testid="stFileUploader"] input[type="file"]').setInputFiles("/tmp/all_invalid.csv"); await idle();
+  await page.locator('[data-testid="stFileUploader"] input[type="file"]').setInputFiles(bad); await idle();
   await page.getByText("All rows in this file are completed").click(); await idle();
   await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
   await expectText(main(), "No valid rows remained");

@@ -41,6 +41,7 @@ Every run that produces numbers is listed here with its command, time and output
 | AU-06 | 05:17:21 | `node scripts/ux/ux_tasks.mjs` | 15/15 | `reports/ux_tasks/ux_task_results.json` |
 | AU-07 | 05:29:33 | `python scripts/run_all_tests.py` | 124 passed | `logs/testing/pytest_20261127T052933Z.log` |
 | AU-08 | — | Fresh clones 1, 2 and 3 | 1: FAIL (A-08); 2: FAIL (A-09, A-10); 3: PASS (120 passed, 4 skipped, UX 15/15) | `reports/audit/freshclone*/` |
+| AU-11 | — | Fresh clone 4 of `ed4d45c` | PASS: setup 26 s; 121 passed, 4 skipped; UX 15/15 | `reports/audit/freshclone4_final/` |
 | AU-09 | 05:33 | `pip-audit`; static scans | 0 vulnerabilities, 0 secrets | `reports/audit/pip_audit.txt`, `static_security_scan.txt` |
 | AU-10 | 05:29 | `python scripts/verify_artifacts.py` | Exit 0 | `logs/execution/audit_verify_artifacts.log` |
 

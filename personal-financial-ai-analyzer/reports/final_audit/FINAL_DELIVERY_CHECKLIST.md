@@ -39,4 +39,4 @@
 8. Optional full pipeline (1.6 GB download, then preprocessing and training; duration not measured on a laptop): run `train.bat`.
 9. Record the results in `reports/final_audit/KNOWN_ISSUES.md` (Open items).
 
-Note on step 3: 120 passed and 4 skipped were measured on Linux at `0da7bbb`. With the A-05 test, a clone of the final commit should give 121 passed and 4 skipped (see `FINAL_TEST_RESULTS.md` for the verified count).
+Note on step 3: 121 passed and 4 skipped is the result measured on Linux in fresh clone 4 of `ed4d45c`.

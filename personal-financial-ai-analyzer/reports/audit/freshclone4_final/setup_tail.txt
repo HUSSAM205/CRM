@@ -1,0 +1,6 @@
+    "cpu_percent_1s": 0.0
+  },
+  "status": "PASS"
+}
+Environment ready. Next: run.bat (Windows) or `python scripts/run_application.py`.
+setup_environment.py wall time: 26 s (measured with date +%s)

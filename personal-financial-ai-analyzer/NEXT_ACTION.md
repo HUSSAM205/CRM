@@ -4,7 +4,7 @@ The implementation and the independent final audit are complete (`reports/final_
 
 1. **Windows verification (NOT TESTED by the agent).** On the laptop, follow the steps in `reports/final_audit/FINAL_DELIVERY_CHECKLIST.md` § "Windows verification":
    1. run `setup.bat`;
-   2. run `python -m pytest` (expect 120 passed and 4 skipped without the dataset);
+   2. run `python -m pytest` (expect 121 passed and 4 skipped without the dataset);
    3. run `run.bat`;
    4. load the demo data.
 

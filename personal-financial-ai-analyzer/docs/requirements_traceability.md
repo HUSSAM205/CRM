@@ -4,7 +4,7 @@ Sources: HW1 = `ST_HW1_Hussam_Aburahmah_2357138_2.pdf` (18 pages); HW2 = `ST_HW2
 
 Status meanings: **PASS** = implemented and verified with the cited evidence. **PARTIAL** = partly verified, with the reason given. **N/A** = not applicable, with a justification from the HWs themselves. **NOT TESTED** = not verified.
 
-Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Last full run: 124 passed (`logs/testing/latest.log`). In a fresh clone: 120 passed and 4 skipped (data-dependent).
+Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Last full run: 125 passed (`logs/testing/latest.log`). In a fresh clone of the final commit: 121 passed and 4 skipped (data-dependent).
 
 ## A. Functional requirements (HW1 1.2.1)
 

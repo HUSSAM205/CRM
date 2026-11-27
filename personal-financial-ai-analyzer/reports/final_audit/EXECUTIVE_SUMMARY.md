@@ -66,7 +66,7 @@ All 16 gates A–P (`FINAL_VALIDATION_REPORT.md`): 12 PASS, 3 PARTIAL (A, M, N),
 * **Requirements:** 69 traced: 67 PASS, 1 PARTIAL, 1 N/A, 0 FAIL.
 * **Tests:**
   * Development run: 125 passed.
-  * Fresh clone (`0da7bbb`): 120 passed, 4 skipped.
+  * Fresh clone of the final commit `ed4d45c`: 121 passed, 4 skipped.
   * UX: 15/15 real-browser tasks.
 
 Details: [`REQUIREMENTS_TRACEABILITY.md`](REQUIREMENTS_TRACEABILITY.md), [`FINAL_TEST_RESULTS.md`](FINAL_TEST_RESULTS.md), [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md), [`FINAL_DELIVERY_CHECKLIST.md`](FINAL_DELIVERY_CHECKLIST.md). Detailed audits: [`../audit/`](../audit/).

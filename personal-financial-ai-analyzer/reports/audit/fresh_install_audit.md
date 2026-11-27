@@ -1,6 +1,6 @@
 # Fresh Install Audit
 
-The procedure was run three times, each time in a new clean directory:
+The procedure was run four times, each time in a new clean directory:
 
 1. `git clone` of the pushed branch.
 2. `python scripts/setup_environment.py`, which creates a stdlib venv and installs the pinned requirements with pip.
@@ -13,9 +13,11 @@ The procedure was run three times, each time in a new clean directory:
 | 1 (before fix) | `157bf5d` | PASS | **10 collection errors**: `ModuleNotFoundError: No module named 'src.data'` | Crashed on the Transactions page (same import) | **0/15** (15 FAIL; the script then aborted) | **FAIL → defect A-08 (P0)** |
 | 2 (after the A-08 fix) | `b64e65b` | PASS | 119 passed, 3 skipped, **1 failed**: L10 `FileNotFoundError` on the derived `anomaly_transactions.parquet` (wrong skip condition) | OK | 14/15 (task 7, budget edit, timed out) | FAIL → A-09 and A-10 |
 | 3 (after all fixes) | `0da7bbb` | PASS | **120 passed, 4 skipped** (data-dependent, correctly skipped without the dataset) | Started, **0 tracebacks** | **15/15** | **PASS** |
+| 4 (final delivered commit) | `ed4d45c` | PASS (26 s) | **121 passed, 4 skipped, 0 failed** | Started, **0 tracebacks** | **15/15** | **PASS** |
 
 Evidence:
 * `freshclone_before_fix/` (pytest, app tail, UX output of clone 1);
+* `freshclone2_partial_fix/`, `freshclone4_final/` (same file set);
 * `freshclone3_after_fix/` (`setup_tail.txt`, `pytest.txt`, `app_log.txt` with network URLs removed, `ux_results.txt`, `commit.txt`).
 
 ## Root cause of A-08

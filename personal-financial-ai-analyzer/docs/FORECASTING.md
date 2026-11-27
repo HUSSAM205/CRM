@@ -59,3 +59,53 @@ This experiment and its artifacts are unchanged (`reports/experiments/forecastin
 * **No history:** fewer than 12 active months gives an explicit notice.
 
 Artifact: `artifacts/forecasting/outlook/v_20261127T060820Z/metadata.json`, with a checksum. It has no learned weights.
+
+## 4. Experiment E2-B on Dataset B (master audit 2, separate from HW2)
+
+Script: `scripts/research/forecast_dataset_b.py`. The protocol is fixed in its docstring. Dataset: PersonaLedger normal users (CC BY 4.0; see `DATASET_REGISTRY.md`).
+
+* **Split** by target month: train ≤ 2026-06 (159,526 rows from 16,215 users), validation 2026-07..12 (66,919 / 11,942), test 2027-01..06 (42,565 / 9,368).
+* **History:** at least 12 full months; partial first and last months are excluded.
+* **Model:** scale-free HistGradientBoosting on ratios to the user's historical mean, absolute error. Selected on validation: depth 3, learning rate 0.05, 300 iterations, seed 42; fit time 1.6 s.
+
+| Test (2027-01..06) | MAE | MASE | RMSE | R² |
+|---|---|---|---|---|
+| **GBR scale-free** | **971.34** | **0.781** | 1,400.2 | **+0.232** |
+| historical median (best baseline) | 1,022.66 | 0.826 | 1,494.3 | 0.126 |
+| historical mean | 1,038.86 | 0.828 | 1,436.9 | 0.192 |
+| moving average 3 | 1,193.71 | 0.950 | 1,601.7 | −0.004 |
+| seasonal naive | 1,274.41 | 0.990 | 1,814.1 | −0.288 |
+| naive | 1,433.71 | 1.138 | 1,948.9 | −0.487 |
+| zero | 3,520.75 | 2.823 | 3,866.5 | −4.853 |
+
+**Gate result: ACCEPTED.** On validation, MAE was 929.71 vs 939.64 and MASE 0.737 vs 0.745 (historical median). On test, it is also better than the best baseline.
+
+**Is the gain real?** Paired bootstrap over users, 2,000 resamples:
+* validation −9.93 MAE (−1.1%), 95% CI [−11.42, −8.40];
+* test −51.32 (−5.0%), CI [−55.45, −47.50].
+
+The gain is small but distinguishable from zero.
+
+**80% range:** multiplicative and calibrated on validation (80.0%); test coverage was **77.7%**, slightly below the target.
+
+**Transfer to Dataset A:** test MAE 36.28 vs zero 25.37. The model is **not** usable on intermittent series. Hence a **domain guard** (D-24): use the model only when there are at least 12 months **and** no month without spending. On Dataset A's test cells the guard applies to 0% of cells, so A's behaviour is unchanged (MAE 26.546 either way).
+
+## 5. Controlled positive control C3 (Dataset C, synthetic)
+
+With the same HW2 GBR configuration:
+
+| Series | GBR validation MAE | Best baseline validation MAE | Test |
+|---|---|---|---|
+| Structured (AR(1) φ = 0.7 + December seasonality) | 674.07 | 781.47 (MA3) | 786.75 vs 825.79 (naive) |
+| Unstructured (i.i.d.) | 944.98 | 839.30 (historical median) | GBR does **not** beat it |
+
+GBR beats the best baseline on structured series and loses on unstructured ones. **The pipeline learns when monthly structure exists.** Dataset A's failure is therefore a property of the data (`reports/experiments/dataset_c/summary.json`).
+
+## 6. What the product shows (D-24, supersedes section 3 for in-domain series)
+
+`inference.forecast_product`:
+* **In-domain series** (≥ 12 months, no zero month): the E2-B model estimate, its 80% range, evidence and limitations.
+* **Otherwise:** the deterministic historical-median outlook of section 3.
+* **Fewer than 12 active months:** an insufficient-history notice.
+
+The HW2 E2 GBR stays visible as the academic record, labelled REJECTED.

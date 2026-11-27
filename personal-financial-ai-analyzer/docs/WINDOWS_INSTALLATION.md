@@ -13,6 +13,6 @@ Target: Windows laptop, Intel Core i7-1355U, 16 GB RAM, integrated graphics. No 
 | 5. Data and training (optional, 1.6 GB) | `train.bat` | downloads, verifies the SHA-256, preprocesses in 50 partitions (each ≤ 4 GB), trains, evaluates. Resumable after interruption |
 | 6. Audit (after step 5) | `audit.bat` | dataset identity PASS; reconciliation 9,488/9,488; artifacts PASS; tests pass |
 
-Record timings for each page on the laptop. This closes HW1 P5.
+**Step 7: laptop benchmark.** Run `benchmark.bat`. It writes `reports\laptop_benchmark.json` with the CPU model, RAM, Python version, dataset mode, server start, page render times, inference times and peak memory of each operation. It contains no personal data. That file closes HW1 P5. Never copy the container numbers into it.
 
 The test count in step 3 is from the Linux fresh clone of the final commit (see `reports/final_master_audit/TEST_RESULTS.md` for the exact verified number).

@@ -1,5 +1,7 @@
 # Personal Financial AI Analyzer & Advisor
 
+Four cooperating pillars: **Analyzer** (what happened), **Advisor** (what you could do next), **Predictive Intelligence** (only where evaluation justifies it) and a **local Assistant** (no external AI service or API key).
+
 Academic prototype by **Hussam Aburahmah (2357138)**, for Special Topics in Artificial Intelligence Engineering 1, Bahçeşehir University.
 
 It turns a bank-style CSV into reliable financial summaries (**Analyzer**) and evidence-based budgeting, savings, what-if and affordability guidance (**Advisor**). Money totals are **deterministic**, computed in integer cents and kept per currency. Machine learning was evaluated for **forecasting next-month spending** and **ranking unusual transactions for review**, following HW1's hybrid design and HW2's methodology. Forecasting ML did **not** pass the quality gate on this synthetic data, so the app shows a transparent deterministic outlook instead (`docs/FORECASTING.md`).
@@ -38,7 +40,8 @@ The independent master audit is in `reports/final_master_audit/` (start with `EX
 |---|---|---|
 | Dataset identity | HF commit `98cf38f9…`, SHA-256 matches the official LFS hash, 50,000,000 rows | `reports/final_master_audit/DATASET_FORENSIC_REPORT.md` |
 | Financial correctness | Full-data reconciliation 9,488/9,488 exact; curated fixtures exact | `reports/final_master_audit/FINANCIAL_RECONCILIATION.md` |
-| Forecasting | HW2 rule keeps GBR, but the quality gate **rejects** it (a zero forecast is better); the product shows the historical-median outlook with a calibrated 80% interval (test coverage 81.9%) | `docs/FORECASTING.md` |
+| Forecasting | Dataset A (HW2): GBR **rejected** by the quality gate (zero is better). Dataset B (PersonaLedger, CC BY 4.0): a scale-free GBR **accepted** (test MAE −5.0% vs the best baseline, significant). The product uses it only for continuous series and otherwise falls back to the historical-median outlook | `docs/FORECASTING.md` |
+| Datasets | A = original academic benchmark (unchanged); B = supplementary public data; C = controlled synthetic tests | `docs/DATASET_REGISTRY.md` |
 | Unusual transactions | AUC 0.56–0.59, F1 ≤ 0.041 at about 1% FPR: weak; shown as review recommendations only | `docs/ANOMALY_DETECTION.md` |
 | Advisor | goals, what-if, affordability, ranked recommendations with known-answer tests | `docs/ADVISOR.md` |
 | Tests and browser workflows | see the latest results | `reports/final_master_audit/TEST_RESULTS.md`, `BROWSER_TEST_RESULTS.md` |

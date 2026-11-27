@@ -17,3 +17,15 @@
 Verified: saved artifacts reload in a **fresh process** and reproduce the recorded test predictions exactly (`tests/regression/test_reproducibility.py`, `scripts/verify_artifacts.py`). A full rerun of the preprocessing path gives identical tables (refactor regression check in `KNOWN_ISSUES.md`).
 
 A fresh clone **without** the dataset installs, passes every test except the data-dependent ones (they skip with a stated reason), loads all models and runs the app and all browser workflows (`reports/final_master_audit/TEST_RESULTS.md`).
+
+## Supplementary experiments (master audit 2)
+
+| Step | Command |
+|---|---|
+| Download Dataset B (pinned revision; SHA-256 checked) | `.venv/bin/python scripts/download_supplementary.py` |
+| Dataset B audit | `.venv/bin/python scripts/research/dataset_b_audit.py` |
+| E2-B forecasting | `.venv/bin/python scripts/research/forecast_dataset_b.py`, then `forecast_dataset_b_checks.py` (bootstrap and guard) |
+| E3-B anomaly | `.venv/bin/python scripts/research/anomaly_dataset_b.py` |
+| Dataset C experiments | `.venv/bin/python scripts/research/controlled_synthetic.py` (no download) |
+| PersonaLedger demo sample | `.venv/bin/python scripts/prepare_personaledger_demo.py` |
+| Laptop benchmark | `benchmark.bat` / `benchmark.ps1` → `reports/laptop_benchmark.json` |

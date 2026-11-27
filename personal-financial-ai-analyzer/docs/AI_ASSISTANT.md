@@ -16,6 +16,13 @@ Deterministic, with **no language model** (HW1 S8, HW2 5.7). The pipeline:
 | forecast | the product outlook (`inference.outlook_next`) |
 | income (recorded inflows), cash flow | `insights.cash_flow` |
 | spending trend | `insights.spending_statistics`, `behaviour_changes` |
+| this month, last month (relative to the latest month in the data; the resolved month is stated) | `Summaries` |
+| largest expense category, highest-spending months | `Summaries`, `insights.monthly_series` |
+| recurring payments (candidates) | `insights.recurring_candidates` |
+| remaining budget, categories over budget | `Summaries` + user budgets |
+| "Is the prediction reliable?", "Which model?", "Why no forecast?" | `inference.forecast_product` (method, status, evidence, limitations) |
+| inflow change; categories affecting cash flow | `insights.cash_flow` |
+| expense or income what-ifs | `advisor.scenarios` |
 | unusual transactions | `anomaly_scoring.review_candidates` |
 | savings goals, recommendations, what-if, affordability | `src/advisor/*` |
 
@@ -26,3 +33,14 @@ Deterministic, with **no language model** (HW1 S8, HW2 5.7). The pipeline:
 **Limitations:** English keywords and month formats only; one account and currency at a time.
 
 Tests: `tests/unit/test_assistant.py` and `test_assistant_advisor_intents.py`. Browser tasks 10, 11 and 21.
+
+## Clarification and refusal rules (master audit 2)
+
+* **Unknown category** ("How much did I spend on unicorns?"): the assistant asks which category is meant and lists the account's categories. It never falls back to total spending (M-15).
+* **Month name without a year:** it answers for the latest such month and **says so**, naming the other years present.
+* **Other accounts:** mentioning another account's ID ("ACC-…", "PL-USER-…") or "another / someone else's account" gives a refusal. The assistant only answers for the account selected in the sidebar.
+* **Missing parameters** (affordability without an amount, a what-if without a change): it asks with examples.
+* **Out of scope** (fraud, stocks, investments, crypto, loans, mortgages, credit scores, tax): the fixed unsupported reply.
+* **Context:** every answer in the UI shows the account, currency, period and intent it used.
+
+No external API, key or LLM is used or configurable. The assistant is pattern matching plus deterministic calculations.

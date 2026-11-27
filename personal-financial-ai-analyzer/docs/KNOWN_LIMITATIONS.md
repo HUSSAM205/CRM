@@ -26,7 +26,14 @@ Each limitation is backed by evidence in the files referenced.
 11. **Per-account Isolation Forest** has only about 22 history records per account and performs worst. It also cannot score accounts it has not seen, which is why a global forest is the deployed artifact (D-07).
 12. **Transfers** are assumed internal (CF-08), because the dataset has no counterparty field.
 13. **Assistant** coverage is limited to 13 deterministic intents, recognized by English month names and keywords.
-13a. **Forecasting ML is NOT EFFECTIVE on this data.** Both GBR variants were rejected by the quality gate (E2-QG). The product shows a deterministic historical-median outlook; its 80% interval was calibrated on the synthetic benchmark and is only indicative for real data.
+13a. **Forecasting ML on Dataset A is NOT EFFECTIVE.** Both GBR variants were rejected (E2-QG).
+   * A separate scale-free model **was accepted on Dataset B** (E2-B). Its gain over the historical median is small (−1.1% MAE on validation, −5.0% on test), and its 80% range covered 77.7% of test months instead of 80%.
+   * It is used only for continuous series. Everything else gets the deterministic historical-median outlook.
+   * Both datasets are synthetic, so neither result shows real-world accuracy.
+   * The app forecasts only spending; it never forecasts income.
+13d. **Identity-theft-like anomalies are not detectable** with the HW2 features (E3-B: AUC about 0.5). Detection works for large-amount outliers and, after M-14, rule hits (new category, unusual hour).
+13e. **Recurring payment detection** is a heuristic. On Dataset C it reached precision 0.986 and recall 0.865; real exports may differ.
+13f. **Dataset B demo currency.** The source states no currency; the demo labels amounts "USD" for display only.
 13b. **Advisor scope.** Budgeting, cash flow, savings and affordability only. It cannot know balances, obligations, other accounts or whether inflows are income unless the user enters them; affordability is never confirmed without a balance. Recurring payments are candidates, not confirmed subscriptions.
 13c. **Licence.** CC BY-NC 4.0. Commercial distribution of the data or trained models is BLOCKED pending independent legal review.
 

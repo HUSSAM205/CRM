@@ -434,3 +434,6 @@
 2026-11-27 11:58:54,480 INFO app.session session data purged: reason=user request (settings)
 2026-11-27 11:58:56,096 INFO app.session data loaded: source=demo (PersonaLedger, CC BY 4.0) rows=2540 rejected=0
 2026-11-27 11:59:03,281 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 11:59:39,590 INFO app.session session data purged: reason=retention expired
+2026-11-27 11:59:43,669 INFO app.session session data purged: reason=user request
+2026-11-27 11:59:45,542 INFO app.session session data purged: reason=user request (settings)

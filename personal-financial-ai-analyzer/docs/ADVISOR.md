@@ -42,3 +42,18 @@ The page separates:
 Model predictions appear only on the AI predictions page.
 
 Tests: `tests/unit/test_advisor.py` (known answers: required monthly 666.67, scenario differences, affordability verdicts, ranking order, no recommendation without evidence) and `test_dashboard.py` (Advisor page and goal flow). Browser tasks 18–20.
+
+## Additions in master audit 2
+
+* **Financial profile.** Monthly averages split into essential, non-essential (discretionary) and unclassified expenses (other categories plus fees), recurring payment candidates, and the monthly surplus or deficit. Calculated from transactions, so it is not a verified bank balance. The three classes add up exactly to average expenses (tested).
+* **Emergency fund** (`savings.emergency_fund_plan`). The **user chooses** the coverage in months and the basis: essential expenses by default, or all expenses. It shows current emergency savings, the remaining amount, progress, and months to completion at a given contribution. No universal target is assumed.
+* **Goals.**
+  * Status: reached, on track, behind, partially planned or no plan.
+  * **Editing:** saved amount, target, contribution and date.
+  * Milestones at 25, 50, 75 and 100%.
+* **Scenarios.**
+  * A change in all expenses (%) and a one-off unexpected expense.
+  * Income increase or decrease.
+  * **Goal impact:** months to fund a goal under the baseline vs the scenario, assuming the whole monthly net is saved (a stated assumption).
+* **Recommendations.** Every recommendation also lists its *missing information*, *reason* and *next action*.
+* **Affordability.** Shows the remaining monthly surplus or deficit.

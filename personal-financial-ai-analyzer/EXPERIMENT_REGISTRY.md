@@ -57,3 +57,17 @@ Completion times are output-file mtimes (UTC). A final test run after the report
 | MA-04 | 06:08 | `scripts/research/forecast_quality_gate.py` (guarded) | E2-QG: both GBR REJECTED on 5 panels; outlook = historical median; interval test coverage 81.9%; 198 s; 0.74 GB | `reports/experiments/forecasting_quality_gate/`, `artifacts/forecasting/outlook/v_20261127T060820Z` |
 | MA-05 | — | `node scripts/ux/ux_tasks.mjs` | 21/21 | `reports/ux_tasks/ux_task_results.json` |
 | MA-06 | — | `python scripts/audit/benchmark_master.py` | recorded | `reports/final_master_audit/performance_benchmarks.json` |
+
+## Master audit 2 runs (2026-11-27)
+
+| Run | Command | Outcome | Outputs |
+|---|---|---|---|
+| M2-01 | baseline pytest | 177 passed | `reports/final_master_audit/BASELINE_STATE.md` |
+| M2-02 | Dataset B download (pinned `c90078ae`) and `scripts/download_supplementary.py` | 2 files, SHA-256 match | `data/supplementary/` (ignored) |
+| M2-03 | `scripts/research/dataset_b_audit.py` (guarded) | 29,812,435 rows, 22,018 users; 3.5 s, 1.56 GB | `reports/experiments/dataset_b/quality.json` |
+| M2-04 | `scripts/research/forecast_dataset_b.py` (guarded; 1st attempt crashed on a Polars literal, fixed) | E2-B ACCEPTED; 60.2 s, 0.60 GB | `reports/experiments/forecasting_dataset_b/`, `artifacts/forecasting/gbr_personaledger/v_20261127T113730Z` |
+| M2-05 | `scripts/research/forecast_dataset_b_checks.py` | bootstrap CIs exclude 0; guard selects 0% of A | `checks.json` |
+| M2-06 | `scripts/research/anomaly_dataset_b.py` (1st attempt: null labels found → unlabelled sequences excluded) | chance-level AUC | `reports/experiments/anomaly_dataset_b/` |
+| M2-07 | `scripts/research/controlled_synthetic.py` (1st run exposed M-12 TRY rejection; 2nd run before M-14; 3rd after) | C1 exact; C2 P 0.986 / R 0.865; C3 positive control; C4 before/after | `reports/experiments/dataset_c/` |
+| M2-08 | `node scripts/ux/ux_tasks.mjs` | 24/24 | `reports/ux_tasks/ux_task_results.json` |
+| M2-09 | `scripts/audit/benchmark_master.py` | recorded | `reports/final_master_audit/performance_benchmarks.json` |

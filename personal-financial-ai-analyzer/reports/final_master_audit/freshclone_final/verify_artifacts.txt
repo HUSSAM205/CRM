@@ -1,0 +1,7 @@
+PASS forecasting gbr {'n_pred': 17, 'mean': 9.52224710789039, 'type': 'HistGradientBoostingRegressor', 'input': 'demo sample'}
+PASS forecasting gbr_seasonal {'n_pred': 17, 'mean': 7.380993185177593, 'type': 'HistGradientBoostingRegressor', 'input': 'demo sample'}
+PASS forecasting selection 
+PASS forecasting outlook 
+PASS anomaly isolation_forest_global {'n_pred': 9, 'mean': 0.4734832739899685, 'type': 'IsolationForest', 'input': 'demo sample'}
+PASS anomaly robust_zscore 
+PASS anomaly isolation_forest_per_account 

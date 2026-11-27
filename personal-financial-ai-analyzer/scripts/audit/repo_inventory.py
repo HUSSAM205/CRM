@@ -45,7 +45,7 @@ def main() -> None:
             elif isinstance(n, ast.ImportFrom) and n.module and n.level == 0:
                 names = [n.module] + [f"{n.module}.{a.name}" for a in n.names]
             for m in names:
-                if m.split(".")[0] in ("src", "app"):
+                if m.split(".")[0] in ("src", "app", "tests", "scripts"):
                     imported_modules.add(m)
                 else:
                     third_party.add(m.split(".")[0])
@@ -82,6 +82,8 @@ def main() -> None:
                     hard.append(f"{f}:{i}")
     deprecated = []
     for f in py:
+        if f == "scripts/audit/repo_inventory.py":     # this file lists the patterns themselves
+            continue
         t = (ROOT / f).read_text(encoding="utf-8")
         for pat in ("use_container_width", "st.experimental_", "datetime.utcnow(", "pd.np."):
             if pat in t:

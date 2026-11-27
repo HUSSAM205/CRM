@@ -1,3 +1,5 @@
+> **Superseded (2026-11-27)** by the master audit in `reports/final_master_audit/` (Analyzer & Advisor scope, gates A–M). Kept unchanged below for the record.
+
 # Executive Summary: Independent Final Audit
 
 Personal Financial AI Analyzer: BAU Special Topics in AI Engineering 1 (HW1, HW2). Audit date 2026-11-27.

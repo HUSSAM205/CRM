@@ -1,13 +1,10 @@
 # Next Action
 
-The implementation and the independent final audit are complete (`reports/final_audit/`). Remaining steps for the student:
+Engineering work is complete and verified (`reports/final_master_audit/`). Remaining actions need the student's own machine or a decision:
 
-1. **Windows verification (NOT TESTED by the agent).** On the laptop, follow the steps in `reports/final_audit/FINAL_DELIVERY_CHECKLIST.md` § "Windows verification":
-   1. run `setup.bat`;
-   2. run `python -m pytest` (expect 121 passed and 4 skipped without the dataset);
-   3. run `run.bat`;
-   4. load the demo data.
-
-   Record the outcome. This also closes HW1 P5 (responsiveness on the final hardware).
-2. Write the final report from `reports/final_evidence/results_tables.md`, `docs/final_results.md` and `docs/KNOWN_LIMITATIONS.md`. Keep implementation completeness separate from scientific validity, and discuss F-1..F-4 explicitly.
-3. Optional future work: add a zero or median baseline and an intermittent-demand metric to the forecasting protocol; use real (de-identified) data if permitted.
+1. **Windows verification (NOT TESTED).** Follow `docs/WINDOWS_INSTALLATION.md` steps 1–6 on the laptop. Record the outcome and the page timings; the timings close HW1 P5.
+2. **Final report.**
+   * Use `reports/final_master_audit/EXECUTIVE_SUMMARY.md`, `FORECASTING_EXPERIMENTS.md`, `ANOMALY_EXPERIMENTS.md` and `docs/KNOWN_LIMITATIONS.md`.
+   * Keep implementation completeness separate from scientific validity: the forecasting ML was rejected, and the anomaly ranking is weak.
+3. **Commercial use:** blocked pending legal review of CC BY-NC 4.0.
+4. **Optional future work:** real, de-identified data; intermittent-demand metrics; human usability study.

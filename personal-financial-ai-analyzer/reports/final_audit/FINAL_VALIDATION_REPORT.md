@@ -1,3 +1,5 @@
+> **Superseded (2026-11-27)** by the master audit in `reports/final_master_audit/` (Analyzer & Advisor scope, gates A–M). Kept unchanged below for the record.
+
 # Final Validation Report: Gates A–P (independent final audit, 2026-11-27)
 
 **Final project status: READY WITH DOCUMENTED LIMITATIONS.**

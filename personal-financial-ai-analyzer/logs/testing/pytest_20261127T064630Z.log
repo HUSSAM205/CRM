@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/user/CRM/personal-financial-ai-analyzer
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 177 items
+
+tests/integration/test_csv_upload.py .........                           [  5%]
+tests/integration/test_dashboard.py .............................        [ 21%]
+tests/integration/test_full_pipeline.py .                                [ 22%]
+tests/integration/test_model_loading.py ........                         [ 26%]
+tests/regression/test_data_leakage.py .......                            [ 30%]
+tests/regression/test_financial_correctness.py ..                        [ 31%]
+tests/regression/test_repository_completeness.py ..                      [ 32%]
+tests/regression/test_reproducibility.py ..                              [ 33%]
+tests/regression/test_security.py ..........                             [ 39%]
+tests/unit/test_advisor.py ........                                      [ 44%]
+tests/unit/test_aggregation.py ....                                      [ 46%]
+tests/unit/test_anomaly.py ........                                      [ 50%]
+tests/unit/test_assistant.py .............                               [ 58%]
+tests/unit/test_assistant_advisor_intents.py .....                       [ 61%]
+tests/unit/test_budget.py ...                                            [ 62%]
+tests/unit/test_financial_rules.py ..........                            [ 68%]
+tests/unit/test_forecasting.py .......                                   [ 72%]
+tests/unit/test_ingestion.py .....................                       [ 84%]
+tests/unit/test_insights.py ......                                       [ 87%]
+tests/unit/test_preprocessing.py ..                                      [ 88%]
+tests/unit/test_validation.py ....................                       [100%]
+
+============================= 177 passed in 16.70s =============================

@@ -22,7 +22,7 @@ def resolve_month(ym: tuple[int | None, int], available: list[str]) -> str | Non
 
 
 def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: dict[str, int] | None = None,
-            forecast: dict | None = None) -> dict:
+            forecast: dict | None = None, context=None) -> dict:
     avail = s.months(account, currency)
     if not avail:
         return {"intent": intent.name, "error": "no_data"}
@@ -61,4 +61,12 @@ def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: 
         return {"intent": intent.name, "month": current, "rows": rows}
     if intent.name == "forecast":
         return {"intent": intent.name, **(forecast or {"error": "no_forecast"})}
+    from src.assistant.advisor_intents import ADVISOR_INTENTS
+    from src.assistant.advisor_intents import execute as advisor_execute
+    if intent.name in ADVISOR_INTENTS:
+        if context is not None:      # scope validation: only this account's and currency's records (a copy)
+            from dataclasses import replace
+            context = replace(context, clean=context.clean.filter((pl.col("account_id") == account)
+                                                                  & (pl.col("currency") == currency)))
+        return advisor_execute(intent, s, account, currency, months, avail, budgets, context)
     return {"intent": "unsupported"}

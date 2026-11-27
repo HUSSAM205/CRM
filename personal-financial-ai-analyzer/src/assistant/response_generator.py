@@ -1,15 +1,21 @@
 """Fixed response templates (HW2 5.7). Unsupported questions get one fixed reply."""
 from __future__ import annotations
 
+from src.assistant.advisor_intents import AssistantContext
+from src.assistant.advisor_intents import render as advisor_render
 from src.assistant.intent_detection import detect
 from src.assistant.query_executor import execute
 
 UNSUPPORTED = ("Sorry, I can't answer that question. I can answer: total spending in a month, "
-               "spending on a category, a comparison of two months, budget status, and next month's "
-               "expected spending.")
+               "spending on a category, a comparison of two months, budget status, next month's "
+               "expected spending, income (recorded inflows), cash flow, spending trends, unusual transactions, "
+               "savings goals, recommendations, what-if scenarios and whether a purchase is affordable. "
+               "I do not give investment, credit or tax advice and I cannot judge fraud.")
 SUPPORTED_EXAMPLES = ["How much did I spend in March?", "How much did I spend on groceries?",
                       "Compare January and February.", "Am I exceeding my budget?",
-                      "What is my expected spending next month?"]
+                      "What is my expected spending next month?", "What was my cash flow last month?",
+                      "Is my spending increasing?", "Show unusual transactions", "Any recommendations?",
+                      "What if I reduce dining by 10%?", "Can I afford 450?"]
 
 
 def money(cents: int, currency: str) -> str:
@@ -17,6 +23,9 @@ def money(cents: int, currency: str) -> str:
 
 
 def render(r: dict, currency: str) -> str:
+    adv = advisor_render(r, currency)
+    if adv is not None:
+        return adv
     if r.get("intent") == "unsupported":
         return UNSUPPORTED
     err = r.get("error")
@@ -60,7 +69,10 @@ def render(r: dict, currency: str) -> str:
     return UNSUPPORTED
 
 
-def answer(question: str, summaries, account: str, currency: str, budgets=None, forecast=None) -> tuple[str, dict]:
-    intent = detect(question, summaries.category["merchant_category"].unique().to_list())
-    result = execute(intent, summaries, account, currency, budgets, forecast)
+def answer(question: str, summaries, account: str, currency: str, budgets=None, forecast=None,
+           context: AssistantContext | None = None) -> tuple[str, dict]:
+    """Read-only: answers from validated summaries (and, for advisor intents, the validated records of the
+    SAME account and currency in `context`). The question text is only pattern-matched, never executed."""
+    intent = detect(question[:500], summaries.category["merchant_category"].unique().to_list())
+    result = execute(intent, summaries, account, currency, budgets, forecast, context)
     return render(result, currency), result

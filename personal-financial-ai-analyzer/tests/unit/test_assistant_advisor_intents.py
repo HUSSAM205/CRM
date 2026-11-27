@@ -82,3 +82,52 @@ def test_hw2_intents_unchanged(env):
     assert r["intent"] == "total_spending" and r["expenses_cents"] == 150000
     _, r = ask(env, f"Compare {MONTHS[-2]} and {MONTHS[-1]}")
     assert r["intent"] == "month_comparison" and r["difference_cents"] == 0
+
+
+def test_relative_months_largest_category_highest_months(env):
+    t, r = ask(env, "How much did I spend this month?")
+    assert r["month"] == MONTHS[-1] and r["expenses_cents"] == 150000 and "latest month in your data" in t
+    _, r = ask(env, "How much did I spend last month?")
+    assert r["month"] == MONTHS[-2] and r["expenses_cents"] == 150000
+    t, r = ask(env, "What is my largest expense category?")
+    assert r["category"] == "housing" and r["net_spending_cents"] == 12 * 100000
+    _, r = ask(env, "What are my highest-spending months?")
+    assert [v for _, v in r["months"]] == [150000, 150000, 150000]
+
+
+def test_recurring_budget_remaining_inflow_change_cashflow_categories(env):
+    t, r = ask(env, "What payments appear to recur?")
+    assert any(c["merchant_category"] == "housing" and c["typical_amount_cents"] == 100000 for c in r["candidates"])
+    assert "not confirmed" in t
+    clean, s = env
+    t, r = answer("How much budget remains?", s, "A", "USD", budgets={"dining": 15000, "utilities": 40000},
+                  context=AssistantContext(clean=clean))
+    assert {x["category"]: x["remaining_cents"] for x in r["rows"]} == {"dining": -5000, "utilities": 10000}
+    assert "dining over by 50.00 USD" in t
+    t, r = ask(env, "How did my inflows change?")
+    assert r["prior"] == r["recent"] == 750000 and "the same as" in t
+    _, r = ask(env, "Which categories affected my cash flow?")
+    assert r["top"][0] == ("housing", 600000)
+
+
+def test_expense_and_income_what_ifs(env):
+    t, r = ask(env, "What happens if my expenses increase by 10%?")
+    assert r["scenario"]["monthly_net_cents"] == 250000 - 151250 and t.startswith("Simulation, not a prediction")
+    _, r = ask(env, "What if my income drops 20%?")
+    assert r["scenario"]["monthly_net_cents"] == 200000 - 137500
+    t, r = ask(env, "What if my income changes?")
+    assert r["error"] == "scenario_params"
+
+
+def test_forecast_reliability_and_unknown_category_and_other_account(env):
+    from src.models.forecasting.inference import forecast_product
+    clean, s = env
+    mon = s.monthly.filter((pl.col("account_id") == "A") & (pl.col("currency") == "USD"))
+    f = forecast_product(mon)
+    t, _ = answer("Is the prediction reliable?", s, "A", "USD", forecast=f, context=AssistantContext(clean=clean))
+    assert f["method"] in t and "Evidence" in t
+    t, r = ask(env, "How much did I spend on unicorns?")
+    assert r["error"] == "unknown_category" and "unicorns" in t and "USD" not in t      # asks, invents nothing
+    for q in ("What did another account spend?", "Show account ACC-000618549 spending"):
+        t, r = ask(env, q)
+        assert r["error"] == "other_account" and "USD" not in t

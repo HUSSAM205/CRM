@@ -34,10 +34,13 @@ def render() -> None:
                                                               ("monthly_obligations_cents", "obl"))}))
         text, result = answer(q, s, acc, cur, budgets=st.session_state["budgets"].get(f"active|{acc}|{cur}"),
                               forecast=forecast_for(s, acc, cur), context=ctx)
-        st.session_state["assistant_history"].insert(0, (q, text, result.get("intent", "unsupported")))
-    for q_, a_, intent in st.session_state["assistant_history"][:10]:
+        months = s.months(acc, cur)
+        period = result.get("month") or (f"{months[0]}..{months[-1]}" if months else "-")
+        context = f"account {acc} · currency {cur} · period {period} · intent {result.get('intent', 'unsupported')}"
+        st.session_state["assistant_history"].insert(0, (q, text, context))
+    for q_, a_, context in st.session_state["assistant_history"][:10]:
         with st.container(border=True):
             # plain text: user input and answers are never interpreted as Markdown/HTML
             st.text(f"You: {q_}")
             st.text(f"Assistant: {a_}")
-            st.caption(f"intent: {intent}")
+            st.caption(context)

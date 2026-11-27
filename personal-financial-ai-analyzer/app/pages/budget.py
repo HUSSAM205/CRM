@@ -51,9 +51,11 @@ def render() -> None:
         stt = budget_status(row["spent_current_cents"], b)
         c1, c2 = st.columns([1, 3])
         c1.markdown(f"**{md_escape(row['merchant_category'])}**")
+        rem = b - row["spent_current_cents"]
         c2.progress(min(max(stt["ratio"] or 0.0, 0.0), 1.0),
                     text=f"{money(row['spent_current_cents'], cur)} of "
-                         + (money(b, cur) if b > 0 else "no budget set"))
+                         + (f"{money(b, cur)} · {money(rem, cur)} remaining" if b > 0 and rem >= 0 else
+                            f"{money(b, cur)} · over by {money(-rem, cur)}" if b > 0 else "no budget set"))
         if stt["level"] in ("warning", "exceeded"):
             alerts.budget_alert(stt["level"], f"{md_escape(row['merchant_category'])}: {stt['message']}")
     if not shown:

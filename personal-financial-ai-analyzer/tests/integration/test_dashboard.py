@@ -297,3 +297,17 @@ def test_advisor_goal_edit_status_and_emergency_fund(demo_state):
     s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
     p = S.emergency_fund_plan(build_context(demo_state["clean"], s, acc, "USD"), 6.0, 0, None, "essential")
     assert any(f"Target: {p['target_cents'] / 100:,.2f} USD" in t.value for t in at.text)
+
+
+def test_assistant_shows_answer_context_and_budget_shows_remaining(demo_state):
+    """Master audit 2 (8.5): each answer shows account, currency and period; budget rows show what remains."""
+    at = seeded("financial_assistant", demo_state)
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    at.text_input(key="assistant_q").set_value("How much did I spend last month?")
+    at.button[0].click().run()
+    last2 = s.months(acc, "USD")[-1]
+    cap = next(c.value for c in at.caption if c.value.startswith("account "))
+    assert f"account {acc}" in cap and "currency USD" in cap and "period 20" in cap and "intent total_spending" in cap
+    b = seeded("budget", demo_state)
+    texts = [p.proto.text for p in b.get("progress")]
+    assert any("remaining" in t or "over by" in t for t in texts), (last2, texts)

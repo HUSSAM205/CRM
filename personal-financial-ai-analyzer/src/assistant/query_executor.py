@@ -31,18 +31,31 @@ def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: 
     months = [resolve_month(m, avail) for m in intent.months]
     if any(m is None for m in months):
         return {"intent": intent.name, "error": "month_not_in_data", "available": [avail[0], avail[-1]]}
+    note = None
+    if intent.relative is not None and not months:        # "this month" / "last month" = relative to the data
+        y, mo = map(int, avail[-1].split("-"))
+        k = y * 12 + mo - 1 + intent.relative
+        target = f"{k // 12:04d}-{k % 12 + 1:02d}"
+        if target < avail[0]:
+            return {"intent": intent.name, "error": "month_not_in_data", "available": [avail[0], avail[-1]]}
+        months = [target]
+        note = f"'{'this' if intent.relative == 0 else 'last'} month' = {target} (latest month in your data: {avail[-1]})"
+    elif intent.months and intent.months[0][0] is None:   # month name without a year: say which year was used
+        same = [m for m in avail if int(m[5:7]) == intent.months[0][1]]
+        if len(same) > 1:
+            note = f"interpreted as {months[0]}, the latest; your data also has {', '.join(x for x in same if x != months[0])}"
 
     if intent.name == "total_spending":
         target = months[0] if months else avail[-1]
         v = mon.filter(pl.col("month") == target)["expenses_cents"].sum()
-        return {"intent": intent.name, "month": target, "expenses_cents": int(v)}
+        return {"intent": intent.name, "month": target, "expenses_cents": int(v), "note": note}
     if intent.name == "category_spending":
         c = cat.filter(pl.col("merchant_category") == intent.category)
         if months:
             c = c.filter(pl.col("month") == months[0])
         return {"intent": intent.name, "category": intent.category, "month": months[0] if months else None,
                 "period": [avail[0], avail[-1]] if not months else None,
-                "net_spending_cents": int(c["net_spending_cents"].sum())}
+                "net_spending_cents": int(c["net_spending_cents"].sum()), "note": note}
     if intent.name == "month_comparison":
         a, b = months[:2]
         va = int(mon.filter(pl.col("month") == a)["expenses_cents"].sum())
@@ -68,5 +81,5 @@ def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: 
             from dataclasses import replace
             context = replace(context, clean=context.clean.filter((pl.col("account_id") == account)
                                                                   & (pl.col("currency") == currency)))
-        return advisor_execute(intent, s, account, currency, months, avail, budgets, context)
+        return advisor_execute(intent, s, account, currency, months, avail, budgets, context, forecast)
     return {"intent": "unsupported"}

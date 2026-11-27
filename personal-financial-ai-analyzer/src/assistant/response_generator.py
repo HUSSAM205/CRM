@@ -9,13 +9,17 @@ from src.assistant.query_executor import execute
 UNSUPPORTED = ("Sorry, I can't answer that question. I can answer: total spending in a month, "
                "spending on a category, a comparison of two months, budget status, next month's "
                "expected spending, income (recorded inflows), cash flow, spending trends, unusual transactions, "
-               "savings goals, recommendations, what-if scenarios and whether a purchase is affordable. "
+               "savings goals, recommendations, what-if scenarios, whether a purchase is affordable, your largest "
+               "category, highest-spending months, recurring payments, remaining budget and how reliable the "
+               "estimate is. "
                "I do not give investment, credit or tax advice and I cannot judge fraud.")
 SUPPORTED_EXAMPLES = ["How much did I spend in March?", "How much did I spend on groceries?",
                       "Compare January and February.", "Am I exceeding my budget?",
                       "What is my expected spending next month?", "What was my cash flow last month?",
                       "Is my spending increasing?", "Show unusual transactions", "Any recommendations?",
-                      "What if I reduce dining by 10%?", "Can I afford 450?"]
+                      "What if I reduce dining by 10%?", "Can I afford 450?", "How much did I spend last month?",
+                      "What is my largest expense category?", "What payments appear to recur?",
+                      "How much budget remains?", "Is the prediction reliable?"]
 
 
 def money(cents: int, currency: str) -> str:
@@ -36,11 +40,12 @@ def render(r: dict, currency: str) -> str:
     if err == "no_budgets":
         return "No budgets are set yet. Open the Budget page to accept or edit the suggested budgets."
     i = r["intent"]
+    tail = f" ({r['note']})" if r.get("note") else ""
     if i == "total_spending":
-        return f"Your total spending in {r['month']} was {money(r['expenses_cents'], currency)}."
+        return f"Your total spending in {r['month']} was {money(r['expenses_cents'], currency)}.{tail}"
     if i == "category_spending":
         when = f"in {r['month']}" if r["month"] else f"from {r['period'][0]} to {r['period'][1]}"
-        return f"Your net spending on {r['category']} {when} was {money(r['net_spending_cents'], currency)}."
+        return f"Your net spending on {r['category']} {when} was {money(r['net_spending_cents'], currency)}.{tail}"
     if i == "month_comparison":
         (a, b), (va, vb) = r["months"], r["expenses_cents"]
         d = r["difference_cents"]

@@ -163,3 +163,33 @@ def test_saved_budget_changes_drive_alerts_and_assistant(demo_state):
     # the assistant reports the LATEST data month (2026-07), where dining spending is 0 -> "ok", not exceeded
     assert r["month"] == "2026-07"
     assert next(x for x in r["rows"] if x["category"] == "dining")["level"] == "ok"
+
+
+def test_analytics_tabs_show_values_equal_to_insights(demo_state):
+    """Master audit 6.2-6.7: each analytics tab renders and its numbers come from src.analytics.insights."""
+    from src.analytics import insights as I
+    at = seeded("analytics", demo_state)
+    assert not at.exception
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    assert [t.label for t in at.tabs] == ["Categories", "Spending over time", "Income and cash flow",
+                                          "Recurring and behaviour", "Indicators"]
+    st_ = I.spending_statistics(s, acc, "USD")
+    shown = {m.label: m.value for m in at.metric}
+    assert shown["Average month"] == f"{st_['mean_cents'] / 100:,.2f} USD"
+    assert shown["Median month"] == f"{st_['median_cents'] / 100:,.2f} USD"
+    inc = I.income_analysis(demo_state["clean"], s, acc, "USD")
+    assert shown["Months with recorded inflows"] == f"{inc['months_with_inflows']} of {inc['months']}"
+    assert any("not a bank balance" in c.value for c in at.caption)
+    assert not any("health score" == x.value.lower() for x in at.metric)
+
+
+def test_overview_month_over_month_equals_monthly_table(demo_state):
+    import polars as pl
+    at = seeded("overview", demo_state)
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    ms = s.months(acc, "USD")
+    m = s.monthly.filter((pl.col("account_id") == acc) & (pl.col("currency") == "USD")
+                         & pl.col("month").is_in(ms[-2:])).sort("month")["expenses_cents"].to_list()
+    met = next(x for x in at.metric if x.label == f"Expenses in {ms[-1]} vs {ms[-2]}")
+    assert met.value == f"{m[1] / 100:,.2f} USD"
+    assert any("not a verified bank balance" in c.value for c in at.caption)

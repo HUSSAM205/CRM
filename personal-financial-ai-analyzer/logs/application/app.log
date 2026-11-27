@@ -339,3 +339,10 @@
 2026-11-27 06:35:11,744 INFO app.session session data purged: reason=retention expired
 2026-11-27 06:35:16,546 INFO app.session session data purged: reason=user request
 2026-11-27 06:35:18,352 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:38:39,161 INFO app.session session data purged: reason=retention expired
+2026-11-27 06:38:43,124 INFO app.session session data purged: reason=user request
+2026-11-27 06:38:44,837 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:44:27,531 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 06:45:03,560 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 06:45:15,481 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:45:17,112 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0

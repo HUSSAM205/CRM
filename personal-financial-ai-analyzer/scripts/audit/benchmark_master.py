@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import platform
-import statistics
 import subprocess
 import sys
 import time

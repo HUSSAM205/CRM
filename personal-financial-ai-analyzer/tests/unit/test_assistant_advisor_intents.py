@@ -10,7 +10,6 @@ from src.advisor.savings import Goal
 from src.analytics.aggregation import build_summaries
 from src.assistant.advisor_intents import AssistantContext
 from src.assistant.response_generator import UNSUPPORTED, answer
-from src.data.validation import validate_transactions
 from tests.unit.test_advisor import MONTHS, ledger
 
 

@@ -89,3 +89,31 @@ def test_app_upload_path_refuses_overflowing_file(monkeypatch):
     with pytest.raises(IngestionError, match="supported range"):
         upload.load_bytes(data, suggest_mapping(["Date", "Amount", "Currency"]), "t", assume_completed=True)
     assert not stored
+
+
+UPLOAD_SCRIPT = """
+import sys, types
+sys.path.insert(0, {root!r})
+import streamlit as st
+_data = open({path!r}, 'rb').read()
+st.file_uploader = lambda *a, **k: types.SimpleNamespace(getvalue=lambda: _data, name={name!r})   # stand-in widget
+from app.utils import session
+from app.components import upload
+session.init()
+upload.render()
+"""
+
+
+@pytest.mark.parametrize("fixture,sep", [("data/samples/sample_bank_export.csv", "comma"),
+                                         ("tests/fixtures/unmapped_columns.csv", "comma")])
+def test_upload_component_previews_detects_format_and_loads(fixture, sep):
+    """Regression (master audit M-11): the upload component crashed with NameError (detect_format not
+    imported) after the preview was added; AppTest cannot drive st.file_uploader, so a stand-in returns
+    the file bytes and the REAL render() code path runs: detection caption, preview table, mapping, load."""
+    from streamlit.testing.v1 import AppTest
+    root = Path(__file__).resolve().parents[2]
+    at = AppTest.from_string(UPLOAD_SCRIPT.format(root=str(root), path=str(root / fixture), name="x.csv"),
+                             default_timeout=60).run()
+    assert not at.exception, at.exception
+    assert any(f"{sep}-separated" in m.value and "Preview of the first rows" in m.value for m in at.markdown)
+    assert len(at.dataframe) >= 1                                   # the raw preview table

@@ -14,6 +14,7 @@ All defects across the project. Earlier phases are kept in full in [`KNOWN_ISSUE
 | M-08 | P2 (gap) | No raw preview, encoding or delimiter handling for CSV uploads (semicolon or cp1252 exports failed) | not implemented | `detect_format` (UTF-8, BOM, cp1252, latin-1; `, ; tab \|`), preview, import summary | `test_delimiter_is_detected[4]`, `test_encodings_and_bom_are_handled`, `test_transactions_import_summary_counts` | Fixed |
 | M-09 | P2 (gap) | No Advisor pillar, Settings page, analyzer insights or extended assistant intents | out of the original scope | `src/advisor`, `insights.py`, 2 pages, 8 intents | `test_advisor.py`, `test_insights.py`, `test_assistant_advisor_intents.py`, AppTests, browser tasks 17–22 | Fixed |
 | M-10 | P3 | Docs whose names differed only in letter case would collide on Windows if the required uppercase names were added | naming | renamed to the uppercase names; every reference updated | inventory 167/174 (7 merged by design) | Fixed |
+| M-11 | **P1** | CSV upload crashed (`NameError: detect_format`) after the preview was added | import edit missed (ruff had rewritten that line); AppTests cannot drive the file widget | import fixed | `test_upload_component_previews_detects_format_and_loads` (fails before, passes after); real-browser run 8/21 → re-run | Fixed |
 
 ## Earlier defects (fixed; details in `KNOWN_ISSUES.md`)
 

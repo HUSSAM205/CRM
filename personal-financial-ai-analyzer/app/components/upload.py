@@ -5,7 +5,7 @@ import streamlit as st
 
 from app.utils import session
 from src.analytics.aggregation import build_summaries
-from src.data.ingestion import SYNONYMS, IngestionError, ingest, read_csv_bytes, suggest_mapping
+from src.data.ingestion import SYNONYMS, IngestionError, detect_format, ingest, read_csv_bytes, suggest_mapping
 from src.data.schema import ALLOWED_CURRENCIES
 from src.utils.configuration import PROJECT_ROOT
 

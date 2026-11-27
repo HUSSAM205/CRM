@@ -3,24 +3,28 @@ platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
 rootdir: /home/user/CRM/personal-financial-ai-analyzer
 configfile: pyproject.toml
 plugins: anyio-4.16.0
-collected 125 items
+collected 175 items
 
-tests/integration/test_csv_upload.py ......                              [  4%]
-tests/integration/test_dashboard.py ...................                  [ 20%]
-tests/integration/test_full_pipeline.py .                                [ 20%]
-tests/integration/test_model_loading.py .....                            [ 24%]
-tests/regression/test_data_leakage.py .......                            [ 30%]
-tests/regression/test_financial_correctness.py ..                        [ 32%]
-tests/regression/test_repository_completeness.py ..                      [ 33%]
-tests/regression/test_reproducibility.py ..                              [ 35%]
-tests/unit/test_aggregation.py ....                                      [ 38%]
-tests/unit/test_anomaly.py ........                                      [ 44%]
-tests/unit/test_assistant.py .............                               [ 55%]
-tests/unit/test_budget.py ...                                            [ 57%]
-tests/unit/test_financial_rules.py ..........                            [ 65%]
-tests/unit/test_forecasting.py .......                                   [ 71%]
-tests/unit/test_ingestion.py ..............                              [ 82%]
-tests/unit/test_preprocessing.py ..                                      [ 84%]
+tests/integration/test_csv_upload.py .......                             [  4%]
+tests/integration/test_dashboard.py .............................        [ 20%]
+tests/integration/test_full_pipeline.py .                                [ 21%]
+tests/integration/test_model_loading.py ........                         [ 25%]
+tests/regression/test_data_leakage.py .......                            [ 29%]
+tests/regression/test_financial_correctness.py ..                        [ 30%]
+tests/regression/test_repository_completeness.py ..                      [ 32%]
+tests/regression/test_reproducibility.py ..                              [ 33%]
+tests/regression/test_security.py ..........                             [ 38%]
+tests/unit/test_advisor.py ........                                      [ 43%]
+tests/unit/test_aggregation.py ....                                      [ 45%]
+tests/unit/test_anomaly.py ........                                      [ 50%]
+tests/unit/test_assistant.py .............                               [ 57%]
+tests/unit/test_assistant_advisor_intents.py .....                       [ 60%]
+tests/unit/test_budget.py ...                                            [ 62%]
+tests/unit/test_financial_rules.py ..........                            [ 68%]
+tests/unit/test_forecasting.py .......                                   [ 72%]
+tests/unit/test_ingestion.py .....................                       [ 84%]
+tests/unit/test_insights.py ......                                       [ 87%]
+tests/unit/test_preprocessing.py ..                                      [ 88%]
 tests/unit/test_validation.py ....................                       [100%]
 
-============================= 125 passed in 6.80s ==============================
+============================= 175 passed in 15.60s =============================

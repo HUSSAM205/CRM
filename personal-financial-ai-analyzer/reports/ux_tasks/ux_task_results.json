@@ -1,16 +1,16 @@
 {
-  "run_at_utc": "2026-11-27T05:17:21.620Z",
+  "run_at_utc": "2026-11-27T06:24:13.863Z",
   "base_url": "http://localhost:8501",
-  "tasks": 15,
-  "completed": 15,
+  "tasks": 21,
+  "completed": 21,
   "errors": 0,
-  "mean_seconds": 2.395266666666666,
+  "mean_seconds": 2.402285714285714,
   "results": [
     {
       "id": 1,
       "task": "Upload a valid CSV",
       "completed": true,
-      "seconds": 3.12,
+      "seconds": 3.328,
       "error": null,
       "detail": "bank-style signed CSV mapped and loaded",
       "screenshot": "reports/screenshots/ux_01_upload_a_valid_csv.png"
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Reject an invalid timestamp",
       "completed": true,
-      "seconds": 3.09,
+      "seconds": 3.11,
       "error": null,
       "detail": "invalid_timestamp row reported with explanation",
       "screenshot": "reports/screenshots/ux_02_reject_an_invalid_timestamp.png"
@@ -28,7 +28,7 @@
       "id": 3,
       "task": "Reject an invalid amount",
       "completed": true,
-      "seconds": 0.133,
+      "seconds": 0.143,
       "error": null,
       "detail": "rejected rows shown = 2",
       "screenshot": "reports/screenshots/ux_03_reject_an_invalid_amount.png"
@@ -37,7 +37,7 @@
       "id": 4,
       "task": "Map missing columns",
       "completed": true,
-      "seconds": 5.484,
+      "seconds": 5.482,
       "error": null,
       "detail": "When->date and Kind->category mapped by the user; 3 rows valid",
       "screenshot": "reports/screenshots/ux_04_map_missing_columns.png"
@@ -46,7 +46,7 @@
       "id": 5,
       "task": "View monthly totals",
       "completed": true,
-      "seconds": 4.137,
+      "seconds": 4.231,
       "error": null,
       "detail": {
         "income": "92.89 USD",
@@ -59,7 +59,7 @@
       "id": 6,
       "task": "Filter a category",
       "completed": true,
-      "seconds": 1.779,
+      "seconds": 1.815,
       "error": null,
       "detail": "5 groceries transactions shown",
       "screenshot": "reports/screenshots/ux_06_filter_a_category.png"
@@ -68,25 +68,25 @@
       "id": 7,
       "task": "Change a budget",
       "completed": true,
-      "seconds": 5.88,
+      "seconds": 5.91,
       "error": null,
       "detail": "dining budget set to 0.01 -> over-budget alert shown",
       "screenshot": "reports/screenshots/ux_07_change_a_budget.png"
     },
     {
       "id": 8,
-      "task": "View a forecast",
+      "task": "View the spending outlook",
       "completed": true,
-      "seconds": 0.889,
+      "seconds": 0.888,
       "error": null,
-      "detail": "Expected spending in 2026-08  0.00 USD",
-      "screenshot": "reports/screenshots/ux_08_view_a_forecast.png"
+      "detail": "Typical spending for 2026-08  20.73 USD",
+      "screenshot": "reports/screenshots/ux_08_view_the_spending_outlook.png"
     },
     {
       "id": 9,
       "task": "View anomaly candidates",
       "completed": true,
-      "seconds": 0.13,
+      "seconds": 0.951,
       "error": null,
       "detail": "candidate table labelled as review candidates",
       "screenshot": "reports/screenshots/ux_09_view_anomaly_candidates.png"
@@ -95,7 +95,7 @@
       "id": 10,
       "task": "Ask a supported question",
       "completed": true,
-      "seconds": 1.631,
+      "seconds": 1.647,
       "error": null,
       "detail": "answer matched dashboard value 9.06 USD",
       "screenshot": "reports/screenshots/ux_10_ask_a_supported_question.png"
@@ -104,7 +104,7 @@
       "id": 11,
       "task": "Ask an unsupported question",
       "completed": true,
-      "seconds": 0.886,
+      "seconds": 0.917,
       "error": null,
       "detail": "fixed unsupported reply",
       "screenshot": "reports/screenshots/ux_11_ask_an_unsupported_question.png"
@@ -113,7 +113,7 @@
       "id": 12,
       "task": "Delete uploaded data",
       "completed": true,
-      "seconds": 1.583,
+      "seconds": 1.591,
       "error": null,
       "detail": "data purged; pages show the empty state",
       "screenshot": "reports/screenshots/ux_12_delete_uploaded_data.png"
@@ -122,7 +122,7 @@
       "id": 13,
       "task": "Switch account (isolation)",
       "completed": true,
-      "seconds": 3.212,
+      "seconds": 3.23,
       "error": null,
       "detail": "switched to ACC-000618549 (USD); totals equal that account's own data",
       "screenshot": "reports/screenshots/ux_13_switch_account_isolation_.png"
@@ -131,7 +131,7 @@
       "id": 14,
       "task": "Invalid upload keeps existing data",
       "completed": true,
-      "seconds": 3.07,
+      "seconds": 3.083,
       "error": null,
       "detail": "fully invalid file rejected with a message; previously loaded demo data still active",
       "screenshot": "reports/screenshots/ux_14_invalid_upload_keeps_existing_data.png"
@@ -140,10 +140,64 @@
       "id": 16,
       "task": "Reload the application",
       "completed": true,
-      "seconds": 0.905,
+      "seconds": 0.911,
       "error": null,
       "detail": "a reload starts a new session: uploaded data is not persisted (privacy by design)",
       "screenshot": "reports/screenshots/ux_16_reload_the_application.png"
+    },
+    {
+      "id": 17,
+      "task": "Analytics: income and cash-flow tab",
+      "completed": true,
+      "seconds": 4.129,
+      "error": null,
+      "detail": "cash flow labelled as transaction-derived; indicators shown with formulas",
+      "screenshot": "reports/screenshots/ux_17_analytics_income_and_cash_flow_tab.png"
+    },
+    {
+      "id": 18,
+      "task": "Advisor: add a savings goal",
+      "completed": true,
+      "seconds": 3.232,
+      "error": null,
+      "detail": "surplus -29.46 USD; goal plan shows 45.46 USD per month",
+      "screenshot": "reports/screenshots/ux_18_advisor_add_a_savings_goal.png"
+    },
+    {
+      "id": 19,
+      "task": "Advisor: what-if scenario",
+      "completed": true,
+      "seconds": 0.932,
+      "error": null,
+      "detail": "scenario rendered and labelled as a simulation",
+      "screenshot": "reports/screenshots/ux_19_advisor_what_if_scenario.png"
+    },
+    {
+      "id": 20,
+      "task": "Advisor: affordability without a balance",
+      "completed": true,
+      "seconds": 1.64,
+      "error": null,
+      "detail": "affordability is not confirmed when the balance is unknown",
+      "screenshot": "reports/screenshots/ux_20_advisor_affordability_without_a_balance.png"
+    },
+    {
+      "id": 21,
+      "task": "Assistant: cash-flow question",
+      "completed": true,
+      "seconds": 1.662,
+      "error": null,
+      "detail": "answer equals the deterministic calculation",
+      "screenshot": "reports/screenshots/ux_21_assistant_cash_flow_question.png"
+    },
+    {
+      "id": 22,
+      "task": "Settings: delete everything",
+      "completed": true,
+      "seconds": 1.616,
+      "error": null,
+      "detail": "data, budgets and goals purged from the session",
+      "screenshot": "reports/screenshots/ux_22_settings_delete_everything.png"
     }
   ]
 }

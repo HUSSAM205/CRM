@@ -310,3 +310,18 @@
 2026-11-27 06:21:21,735 INFO app.session session data purged: reason=retention expired
 2026-11-27 06:21:26,666 INFO app.session session data purged: reason=user request
 2026-11-27 06:21:28,536 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:22:07,737 INFO app.session session data purged: reason=retention expired
+2026-11-27 06:22:12,177 INFO app.session session data purged: reason=user request
+2026-11-27 06:22:14,264 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:23:04,854 INFO app.session data loaded: source=upload: sample_bank_export.csv rows=38 rejected=0
+2026-11-27 06:23:05,923 INFO app.session session data purged: reason=user request
+2026-11-27 06:23:08,120 INFO app.session data loaded: source=upload: invalid_rows.csv rows=2 rejected=2
+2026-11-27 06:23:09,176 INFO app.session session data purged: reason=user request
+2026-11-27 06:23:13,734 INFO app.session data loaded: source=upload: unmapped_columns.csv rows=3 rejected=0
+2026-11-27 06:23:14,675 INFO app.session session data purged: reason=user request
+2026-11-27 06:23:16,145 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 06:23:30,996 INFO app.session session data purged: reason=user request
+2026-11-27 06:23:33,343 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 06:23:40,581 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0
+2026-11-27 06:23:52,168 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 06:23:53,787 INFO app.session data loaded: source=demo (public synthetic dataset) rows=195 rejected=0

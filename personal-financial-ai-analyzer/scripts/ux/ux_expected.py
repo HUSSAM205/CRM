@@ -37,3 +37,17 @@ exp.update(account2=acc2, account2_currency=cur2, account2_expenses=f"{t2['expen
            account2_income=f"{t2['income_cents']/100:,.2f} {cur2}")
 (ROOT / "reports/ux_tasks/expected.json").write_text(json.dumps(exp, indent=2))
 print("account2", acc2, cur2, exp["account2_expenses"])
+# Advisor / assistant expectations (master audit): first account, USD (the default currency for it)
+from src.advisor import savings as S
+from src.advisor.context import build_context
+from src.assistant.advisor_intents import AssistantContext
+from src.assistant.response_generator import answer
+ctx = build_context(res.clean, s, acc, "USD")
+g = S.Goal("Bike", 60000, 10000, "2027-06")
+p = S.plan(g, ctx.window[-1], ctx)
+cf_text, _ = answer("What is my average cash flow?", s, acc, "USD", context=AssistantContext(clean=res.clean))
+exp.update(advisor_surplus=f"{ctx.monthly_surplus_cents[0]/100:,.2f} USD",
+           goal_required=f"{p['required_monthly_cents']/100:,.2f} USD", goal_start=ctx.window[-1],
+           cashflow_answer=cf_text)
+(ROOT / "reports/ux_tasks/expected.json").write_text(json.dumps(exp, indent=2))
+print("advisor", exp["advisor_surplus"], exp["goal_required"])

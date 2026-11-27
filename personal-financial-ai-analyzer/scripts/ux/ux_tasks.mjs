@@ -113,9 +113,10 @@ await task(7, "Change a budget", async () => {
   return `${EXP.budget_category} budget set to 0.01 -> over-budget alert shown`;
 });
 
-await task(8, "View a forecast", async () => {
+await task(8, "View the spending outlook", async () => {
   await nav("AI predictions");
-  await expectText(main(), "Expected spending in");
+  await expectText(main(), "Typical spending for");
+  await expectText(main(), "NOT EFFECTIVE");
   return (await main().locator('[data-testid="stMetric"]').first().innerText()).replace(/\n/g, " ");
 });
 
@@ -183,10 +184,69 @@ await task(16, "Reload the application", async () => {
   return "a reload starts a new session: uploaded data is not persisted (privacy by design)";
 });
 
-// fresh screenshots of all six pages with demo data
+// ---- master audit: Analyzer tabs, Advisor, new assistant intents, Settings ----
+await task(17, "Analytics: income and cash-flow tab", async () => {
+  await nav("Transactions"); await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
+  await nav("Analytics");
+  await page.getByRole("tab", { name: "Income and cash flow" }).click(); await idle();
+  await expectText(main(), "not a bank balance");
+  await page.getByRole("tab", { name: "Indicators" }).click(); await idle();
+  await expectText(main(), "no combined 'health score'");
+  return "cash flow labelled as transaction-derived; indicators shown with formulas";
+});
+
+await task(18, "Advisor: add a savings goal", async () => {
+  await nav("Financial advisor");
+  const surplus = (await main().locator('[data-testid="stMetric"]', { hasText: "Average monthly surplus" })
+    .locator('[data-testid="stMetricValue"]').innerText()).trim();
+  if (surplus !== EXP.advisor_surplus) throw new Error(`surplus ${surplus} != ${EXP.advisor_surplus}`);
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  await page.getByLabel("Goal name").fill("Bike");
+  await page.getByLabel("Target amount (USD)").fill("600");
+  await page.getByLabel("Already saved (USD)").fill("100");
+  await page.getByLabel("Target month (YYYY-MM, optional)").fill("2027-06");
+  await page.getByRole("button", { name: "Add goal" }).click(); await idle();
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  await expectText(main(), `Required per month to reach it by 2027-06: ${EXP.goal_required}`);
+  return `surplus ${surplus}; goal plan shows ${EXP.goal_required} per month`;
+});
+
+await task(19, "Advisor: what-if scenario", async () => {
+  await page.getByRole("tab", { name: "What-if scenarios" }).click(); await idle();
+  await expectText(main(), "Simulation, not a prediction");
+  return "scenario rendered and labelled as a simulation";
+});
+
+await task(20, "Advisor: affordability without a balance", async () => {
+  await page.getByRole("tab", { name: "Can I afford this?" }).click(); await idle();
+  await page.getByLabel("Purchase amount (USD)").fill("250"); await page.keyboard.press("Tab"); await idle();
+  await expectText(main(), "Cannot confirm affordability");
+  return "affordability is not confirmed when the balance is unknown";
+});
+
+await task(21, "Assistant: cash-flow question", async () => {
+  await nav("Financial assistant");
+  await page.getByLabel("Ask a question").fill("What is my average cash flow?");
+  await page.getByRole("button", { name: "Ask" }).click(); await idle();
+  await expectText(main(), EXP.cashflow_answer);
+  return "answer equals the deterministic calculation";
+});
+
+await task(22, "Settings: delete everything", async () => {
+  await nav("Settings and privacy");
+  await expectText(main(), "Savings goals: 1");
+  await page.getByRole("button", { name: "Delete all my data" }).click(); await idle();
+  await expectText(page.locator('[data-testid="stSidebar"]'), "No data loaded");
+  await expectText(main(), "Savings goals: 0");
+  return "data, budgets and goals purged from the session";
+});
+
+// fresh screenshots of all eight pages with demo data
 await nav("Transactions"); await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
 for (const [name, file] of [["Overview", "page_1_overview"], ["Transactions", "page_2_transactions"], ["Analytics", "page_3_analytics"],
-                            ["AI predictions", "page_4_ai_predictions"], ["Budget", "page_5_budget"], ["Financial assistant", "page_6_assistant"]]) {
+                            ["AI predictions", "page_4_ai_predictions"], ["Budget", "page_5_budget"],
+                            ["Financial advisor", "page_7_advisor"], ["Financial assistant", "page_6_assistant"],
+                            ["Settings and privacy", "page_8_settings"]]) {
   await nav(name); await page.waitForTimeout(1500);
   await page.screenshot({ path: path.join(SHOTS, `${file}.png`), fullPage: true });
 }

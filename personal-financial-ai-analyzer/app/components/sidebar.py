@@ -10,7 +10,7 @@ from app.utils.formatting import md_escape
 
 def render() -> None:
     with st.sidebar:
-        st.markdown("### Personal Financial AI Analyzer")
+        st.markdown("### Personal Financial AI Analyzer & Advisor")
         st.caption("Educational prototype. Not a bank, investment advisor or fraud service.")
         data = session.get_data()
         if data:

@@ -1,37 +1,33 @@
-# Test Results
+# Test Results (master audit 2)
 
 | Run | Environment | Commit | Passed | Failed | Skipped | Evidence |
 |---|---|---|---|---|---|---|
-| Baseline before the master audit | dev, dataset present | `2cca378` | 125 | 0 | 0 | `baseline_pytest.txt` |
-| **Final development run** | dev (CPython 3.12.3), dataset and derived data present | `0952509` working tree | **177** | **0** | **0** | `logs/testing/pytest_20261127T064630Z.log` |
-| **Fresh clone of `0952509`** | new clone + new venv with `python3.12 scripts/setup_environment.py` (24 s); **no dataset** | `0952509a50302410624240b124d4d7a5c3c7c5ce` | **173** | **0** | **4** | `freshclone_final/pytest.txt` |
+| Baseline (start of master audit 2) | dev, datasets present | `40f366c` | 177 | 0 | 0 | `BASELINE_STATE.md` |
+| **Final development run** | dev, CPython 3.12.3, Datasets A and B present | `09c1ce4` | **196** | **0** | **0** | `logs/testing/pytest_20261127T120859Z.log` |
+| **Fresh clone of the final code** | new clone + `python3.12 scripts/setup_environment.py` (23 s); **no datasets** | `09c1ce4a679bbae87c96a44ce95df59c4d9c3604` | **192** | **0** | **4** | `freshclone_final/pytest.txt` |
 
-**The 4 fresh-clone skips are data-dependent and say why:**
-* L3 eligibility and L11 disjoint panels: "splits not built";
-* L10 injections: "anomaly experiment outputs or derived data not present";
-* fresh-process reproduction of the recorded predictions: "panel not built".
+**Fresh-clone skips** (data-dependent, each with a stated reason, never counted as passed):
+* L3 and L11 need the splits;
+* L10 needs the anomaly outputs;
+* the reproduction test needs the panel.
 
-All 4 pass in the development run. Skipped tests are **not** counted as passed.
+**Composition of the 196 tests:** unit, integration (AppTest pages, upload, model loading, pipeline) and regression (leakage incl. the E2-B leakage test, reproducibility, correctness, repository completeness incl. the `data/supplementary` guard, security).
 
-**Composition (177 tests):** 107 unit, 47 integration (AppTest pages, upload, pipeline, model loading), 23 regression (leakage, reproducibility, financial correctness, repository completeness, security).
-
-**Added in this audit (125 → 177):**
-* insights: 6;
-* advisor: 8;
-* assistant intents: 5;
-* security: 10 parametrized;
-* ingestion: overflow 2, delimiters 4, encodings 1;
-* upload component: 2; app-path overflow: 1;
-* AppTests: analytics, overview, advisor ×2, settings ×2, import summary, and 2 more pages in the render tests;
-* outlook: 2;
-* artifact verification without data: 1.
+**Added in master audit 2 (177 → 196):**
+* E2-B: feature parity, product routing, PersonaLedger demo end to end, E2-B leakage;
+* Dataset C: 3 tests;
+* M-12 currencies;
+* Advisor: 5 known-answer tests plus the goal-edit AppTest;
+* Assistant: 4 tests plus the context/remaining-budget AppTest.
 
 | Other check | Result | Evidence |
 |---|---|---|
-| `scripts/verify_artifacts.py` (dev, derived data) | exit 0; 7/7 PASS | `logs/execution/master_verify_artifacts.log` |
-| `scripts/verify_artifacts.py` (fresh clone, demo sample) | exit 0; 7/7 PASS | `freshclone_final/verify_artifacts.txt` |
-| Real-browser workflows | 21/21 (dev and fresh clone) | `BROWSER_TEST_RESULTS.md` |
-| `ruff check --select F` (pyflakes rules) | clean | final run |
-| `git diff --check` | clean | final run |
-| `pip-audit` | no known vulnerabilities | `reports/audit/pip_audit.txt` |
-| Dataset SHA-256 after all work | `b18c8359…7c17` (unchanged) | re-hashed |
+| `verify_artifacts.py` (dev, derived data) | exit 0, 8/8 | `logs/execution/master2_verify_artifacts.log` |
+| `verify_artifacts.py` (fresh clone, demo samples) | exit 0, 8/8 | `freshclone_final/verify_artifacts.txt` |
+| Real-browser workflows | 24/24 (dev and fresh clone) | `BROWSER_TEST_RESULTS.md` |
+| `ruff --select F` | clean | final run |
+| `git diff --check` (excluding `.bat` CRLF) | clean | final run |
+| `pip-audit -r requirements.txt` | no known vulnerabilities | `pip_audit.txt` |
+| Dataset A SHA-256 | `b18c8359…7c17` (unchanged) | re-hashed |
+| Dataset B SHA-256 (2 files) | equal to the official LFS hashes | `scripts/download_supplementary.py` |
+| Windows-insensitive filename collisions | 0 | `git ls-files` case check |

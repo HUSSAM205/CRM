@@ -1,1 +1,1 @@
-07554c2bd2f1418a960fc1533c9ad3fae749730f Final dev validation evidence: tests 195 passed, artifacts 8/8, benchmarks incl. product forecast path, pip-audit
+09c1ce4a679bbae87c96a44ce95df59c4d9c3604 Master audit 2 reports: phases 01-14, dataset and model registries, E2-B leakage test, defect register M-12..M-15, model comparison incl. E2-B/E3-B

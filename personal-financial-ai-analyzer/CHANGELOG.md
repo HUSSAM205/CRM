@@ -45,3 +45,14 @@
 * Fixed M-01..M-05 (incl. silent int64 total overflow M-02). Security regression tests. `audit.bat`/`audit.ps1`.
 * Docs renamed to avoid case collisions on Windows; new ANALYZER, ADVISOR, FORECASTING, ANOMALY_DETECTION, AI_ASSISTANT, SECURITY_AND_PRIVACY, MODEL_CARD, WINDOWS_INSTALLATION docs.
 * Evidence package `reports/final_master_audit/`.
+
+## 2026-11-27: Master audit 2 (four pillars, supplementary data)
+
+* Dataset B (PersonaLedger, CC BY 4.0): licence verified, SHA-checked, isolated.
+* E2-B forecasting ACCEPTED (significant, small gain) with a domain-guarded product forecast. E3-B anomaly negative result.
+* Dataset C controlled tests (C1–C4) incl. a forecasting positive control.
+* Advisor: profile, emergency fund, goal editing and status, extended scenarios.
+* Assistant: 20 intents, clarification and other-account refusal, answer context.
+* Fixed M-12 (ISO currencies), M-13 (ranges), M-14 (rule hits), M-15 (unknown category).
+* Laptop benchmark tool. Dataset registry and licence register; academic results proposal; phase reports; final master audit.
+

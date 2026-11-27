@@ -23,4 +23,4 @@ PASS 23. PersonaLedger demo: accepted model estimate
 PASS 24. Assistant: is the prediction reliable?
 PASS 25. Advisor: emergency fund coverage
 completed 24/24
-ux 24 24 2.41 5.965
+ux 24/24, mean 2.43 s, max 5.91 s

@@ -1,5 +1,7 @@
 # Browser Test Results
 
+> **Master audit 2 update:** 24 tasks: tasks 23 (PersonaLedger demo shows the accepted model estimate, value equal to the engine), 24 (assistant reliability answer with account context) and 25 (emergency fund at 6 months, target equal to the engine) were added. Results: **24/24** in development and **24/24** in the fresh clone of `09c1ce4` (mean 2.43 s, max 5.91 s, 0 server tracebacks; `freshclone_final/`). Inspecting the screenshots found M-13 (truncated ranges, fixed).
+
 Real Chromium (Playwright) driving `streamlit run app/main.py` like a user: real file-upload widget, clicks and typing. The script is `scripts/ux/ux_tasks.mjs`; expected values come from the deterministic core (`scripts/ux/ux_expected.py`), so a task passes only when the shown value equals the calculated one.
 
 * **Development run** (2026-11-27 06:48 UTC): **21/21**, mean 2.36 s, max 5.87 s per multi-step task (cloud container). Results in `reports/ux_tasks/ux_task_results.json`.

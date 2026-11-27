@@ -2,4 +2,4 @@
   "status": "PASS"
 }
 Environment ready. Next: run.bat (Windows) or `python scripts/run_application.py`.
-interpreter: Python 3.12.3; setup_environment.py wall time 30 s
+interpreter: Python 3.12 (.venv/lib/python3.12); setup_environment.py wall time 23 s

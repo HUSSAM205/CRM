@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-27T06:24:55.695251+00:00",
+  "generated_at_utc": "2026-11-27T06:33:49.478748+00:00",
   "dirs_present": 49,
   "dirs_required": 49,
   "dirs_missing": [],
@@ -19,6 +19,7 @@
     "app/pages/__init__.py",
     "app/pages/financial_advisor.py",
     "app/pages/settings.py",
+    "scripts/audit/benchmark_master.py",
     "scripts/audit/dataset_manifest.py",
     "scripts/audit/reconcile_granular.py",
     "scripts/audit/reconcile_totals.py",

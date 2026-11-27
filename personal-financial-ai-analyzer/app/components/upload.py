@@ -44,7 +44,12 @@ def render() -> None:
     except IngestionError as e:
         st.error(str(e))
         return
-    st.write(f"Detected {df.height:,} rows and {len(df.columns)} columns. Confirm the column mapping:")
+    fmt = detect_format(data)
+    sep = {"\t": "tab", ",": "comma", ";": "semicolon", "|": "pipe"}[fmt["delimiter"]]
+    st.write(f"Detected {df.height:,} rows and {len(df.columns)} columns (encoding {fmt['encoding']}, "
+             f"{sep}-separated). Preview of the first rows as read, before any validation:")
+    st.dataframe(df.head(5), hide_index=True, width="stretch")
+    st.write("Confirm the column mapping:")
     guess = suggest_mapping(df.columns)
     options = ["(not in file)"] + df.columns
     mapping, cols = {}, st.columns(3)

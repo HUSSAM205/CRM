@@ -244,3 +244,15 @@ def test_settings_retention_choice_updates_session(demo_state):
     at = seeded("settings", demo_state)
     at.selectbox(key="settings_retention").set_value("15 minutes").run()
     assert at.session_state["retention"] == "15 minutes"
+
+
+def test_transactions_import_summary_counts(demo_state):
+    """Master audit 5.1: input = valid + rejected; duplicates and reason groups are reported."""
+    import polars as pl
+    rej = pl.DataFrame({"reject_reason": ["duplicate_transaction_id", "invalid_timestamp", "missing_amount"],
+                        "source_row": [5, 6, 7]}, schema_overrides={"source_row": pl.UInt32})
+    state = {**demo_state, "rejected": rej}
+    at = seeded("transactions", state)
+    shown = {m.label: m.value for m in at.metric}
+    assert shown["Input rows"] == f"{demo_state['clean'].height + 3:,}" and shown["Duplicates"] == "1"
+    assert any("missing fields: 1 · parsing failures: 1 · unsupported values: 0" in c.value for c in at.caption)

@@ -109,3 +109,19 @@ def test_large_but_safe_file_totals_stay_exact():
     rows = "\n".join(f"2026-01-{(i % 28) + 1:02d},-999999999999.99,USD" for i in range(1_000))
     res, _ = ingest(("Date,Amount,Currency\n" + rows + "\n").encode(), assume_completed=True)
     assert res.clean["amount_cents"].sum() == 1_000 * 99_999_999_999_999
+
+
+@pytest.mark.parametrize("sep", [",", ";", "\t", "|"])
+def test_delimiter_is_detected(sep):
+    """Master audit 5.1: European (semicolon), tab and pipe exports read correctly, not as one column."""
+    data = sep.join(["Date", "Amount", "Currency"]).encode() + b"\n" + sep.join(["2026-01-05", "-12.50", "EUR"]).encode() + b"\n"
+    df = ingestion.read_csv_bytes(data)
+    assert df.columns == ["Date", "Amount", "Currency"] and df["Amount"].to_list() == ["-12.50"]
+
+
+def test_encodings_and_bom_are_handled():
+    text = "Date,Amount,Currency,Category\n2026-01-05,-3.20,EUR,Café\n"
+    assert ingestion.detect_format(text.encode("cp1252"))["encoding"] == "cp1252"
+    assert ingestion.read_csv_bytes(text.encode("cp1252"))["Category"].to_list() == ["Café"]
+    bom = ingestion.read_csv_bytes(b"\xef\xbb\xbf" + text.encode("utf-8"))
+    assert bom.columns[0] == "Date" and ingestion.detect_format(text.encode("utf-8"))["encoding"] == "utf-8"

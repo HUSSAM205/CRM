@@ -4,7 +4,7 @@ Sources: HW1 = `ST_HW1_Hussam_Aburahmah_2357138_2.pdf` (18 pages); HW2 = `ST_HW2
 
 Status meanings: **PASS** = implemented and verified with the cited evidence. **PARTIAL** = partly verified, with the reason given. **N/A** = not applicable, with a justification from the HWs themselves. **NOT TESTED** = not verified.
 
-Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Last full run: 125 passed (`logs/testing/latest.log`). In a fresh clone of the final commit: 121 passed and 4 skipped (data-dependent).
+Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Updated again by the master audit (`reports/final_master_audit/`); test counts: `reports/final_master_audit/TEST_RESULTS.md`. Master-audit product requirements are traced separately (different denominator) in `reports/final_master_audit/REQUIREMENTS_TRACEABILITY.md`.
 
 ## A. Functional requirements (HW1 1.2.1)
 
@@ -15,8 +15,8 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | F3 | HW1 | 5 | Monthly expenses; income predictions when justified; category distribution; cash flow | `src/analytics/*`; Overview and Analytics pages | `test_aggregation.py`, cross-check (0 mismatches), UX task 5 | PASS (descriptive income; the income forecast is N/A because HW1's own condition is unmet: CF-01) |
 | F4 | HW1 | 5 | Label categories with a fallback policy | `merchant_category`; keyword rules; "Uncategorized" | `test_ingestion.py::test_keyword_rules_and_fallback`, `test_fallback_label_is_canonical…` | PASS |
 | F5 | HW1 | 5 | Adjustable budgets with explainable advice | `src/budget/*`, Budget page | `test_budget.py`, `test_budget_editor_initial_values…`, UX task 7 | PASS |
-| F6 | HW1 | 5 | Short-range estimates when history suffices; otherwise a notice | `src/models/forecasting/inference.py` | `test_model_loading.py`, UX task 8 | PASS |
-| F7 | HW1 | 5 | "Candidates for review", not fraud | `anomaly_scoring.py` (LABEL), AI page | `test_full_pipeline.py`, UX task 9 | PASS |
+| F6 | HW1 | 5 | Short-range estimates when history suffices; otherwise a notice | `src/models/forecasting/inference.py` (`outlook_next`: deterministic outlook with calibrated interval, D-22; GBR kept for the record) | `test_model_loading.py` (`test_outlook_*`), UX task 8 | PASS (estimate shown; ML forecasting found NOT EFFECTIVE by the E2-QG gate) |
+| F7 | HW1 | 5 | "Candidates for review", not fraud | `anomaly_scoring.py` (label "Unusual transaction — review recommended." + not-fraud note + evidence), AI page | `test_full_pipeline.py`, `test_ai_page_shows_outlook_with_quality_gate_and_unusual_label`, UX task 9 | PASS |
 | F8 | HW1 | 5 | Answers from valid summaries, no hallucination | `src/assistant/*` on `Summaries` | `test_assistant.py`, `test_financial_correctness.py`, UX tasks 10–11 | PASS |
 | F9 | HW1 | 5 | Data deletion; no unnecessary sharing | `app/utils/session.py`, redacting logger | `test_csv_upload.py`, UX task 12 | PASS |
 
@@ -24,7 +24,7 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 
 | ID | Src | Pg | Requirement | Evidence | Status |
 |---|---|---|---|---|---|
-| P1 | HW1 | 5 | 100% of malformed CSVs end in controlled failures | Malformed-file and malformed-row cases in `test_ingestion.py`, `test_validation.py` incl. `test_huge_amounts_are_rejected_not_crashing` | PASS. Corrected in the final audit: an amount beyond the int64-cents range crashed the validator (A-01, fixed) |
+| P1 | HW1 | 5 | 100% of malformed CSVs end in controlled failures | Malformed-file and malformed-row cases in `test_ingestion.py`, `test_validation.py` incl. `test_huge_amounts_are_rejected_not_crashing`, `test_file_whose_totals_would_overflow_is_refused_not_wrapped` (M-02), `test_security.py` (binary, empty) | PASS. Corrected in the final audit: an amount beyond the int64-cents range crashed the validator (A-01, fixed) |
 | P2 | HW1 | 5 | Totals exactly equal independent references | Hand fixtures; 0 mismatches against independent `Decimal` (`financial_rules_validation.md`) | PASS |
 | P3 | HW1 | 5 | Macro-F1 classification against baselines | No labeled descriptions exist (CF-02; HW1 3.1.6 makes it conditional on real labels) | N/A |
 | P4 | HW1 | 5 | MAE and MASE against seasonal-naive or last-period, rolling chronological | `reports/experiments/forecasting/*` | PASS |
@@ -57,8 +57,8 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | S8 | HW1 | 14–15 | Streamlit; deterministic templates | `app/`, `src/assistant/` | PASS |
 | S9 | HW1 | 15 | Confirm schema, choose account and currency, charts, budget screen, example question | UX tasks 1–12 | PASS |
 | S10 | HW1 | 15 | Summary-table queries, session isolation, retention | `test_csv_upload.py::test_sessions_are_isolated`, retention tests | PASS |
-| S11 | HW1 | 15 | Required pages and boards | 6 sections (`app/main.py`) | PASS |
-| S12 | HW1 | 15 | Task-based tests with completion and errors | 12/12 (`reports/ux_tasks/ux_task_results.json`) | PASS |
+| S11 | HW1 | 15 | Required pages and boards | 6 required sections plus Financial advisor and Settings (`app/main.py`) | PASS |
+| S12 | HW1 | 15 | Task-based tests with completion and errors | 21/21 (`reports/ux_tasks/ux_task_results.json`) | PASS |
 
 ## E. Dataset (HW1 chapter 4 and HW2 chapter 4)
 
@@ -81,10 +81,10 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | M5.1 | 6 | Pipeline 1–7 | Gates 4–12 | PASS |
 | M5.2 | 6 | Fixed mapping, transfers neutral, refunds reduce category, completed only | Tests plus ledger | PASS |
 | M5.3 | 6 | Category field, keyword rules, no classifier | `ingestion.py` | PASS |
-| M5.4 | 6–7 | Baselines; ETS; GBR; keep-only-if-better rule; 12-month notice | E2; selection `gbr` (validation) | PASS (finding: a post-hoc zero forecast beats GBR, see `docs/final_results.md`) |
+| M5.4 | 6–7 | Baselines; ETS; GBR; keep-only-if-better rule; 12-month notice | E2; selection `gbr` (validation), unchanged | PASS as specified. Scientific finding: the separate E2-QG gate rejects GBR because zero is better (`docs/FORECASTING.md`) |
 | M5.5 | 7 | IF per account plus robust z, review candidates | E3 (per-account IF evaluated; global IF deployed, CF-16) | PASS |
 | M5.6 | 7 | Median of last 3 months, editable, 80%/100% | `test_budget.py`, UX task 7 | PASS |
-| M5.7 | 7 | Five intents, fixed unsupported reply | `test_assistant.py` | PASS |
+| M5.7 | 7 | Five intents, fixed unsupported reply | `test_assistant.py`; the 5 HW2 intents are unchanged, 8 more added (`docs/AI_ASSISTANT.md`) | PASS |
 | I6.1 | 8 | Tool stack, pinned versions | `requirements.txt` | PASS |
 | I6.2 | 8 | Folder roles | CF-12 mapping | PASS |
 | I6.3 | 8 | Batch read; subset; aggregate tables | Partitions; panels; `data/processed/` | PASS |
@@ -94,7 +94,7 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | E1 | 11 | Totals equal hand calculation | Tests and cross-check | PASS |
 | E2 | 11 | Forecasting against baselines | `reports/experiments/forecasting/` | PASS |
 | E3 | 11 | IF against z-score on injected anomalies | `reports/experiments/anomaly/` | PASS |
-| E4 | 11 | Dashboard and assistant tasks | 12/12 | PASS |
+| E4 | 11 | Dashboard and assistant tasks | 21/21 real-browser tasks | PASS |
 | X8.2 | 11 | Split and rolling origin | `split_metadata.json`; `rolling_origin_per_month.csv` | PASS |
 | X8.3 | 11 | Metrics per experiment | Results tables | PASS |
 | X8.4 | 12 | 1% injection with three scenario types | `injections/labels_*.parquet` | PASS |

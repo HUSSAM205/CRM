@@ -55,14 +55,46 @@ class IngestionError(ValueError):
     """A file-level problem reported to the user with a clear message."""
 
 
+ENCODINGS = ("utf-8-sig", "cp1252", "latin-1")     # tried in order; utf-8-sig also strips a UTF-8 BOM
+DELIMITERS = (",", ";", "\t", "|")
+
+
+def detect_format(data: bytes) -> dict:
+    """Encoding and delimiter of a CSV export (master audit 5.1). Encodings are tried in a fixed order; the
+    delimiter is the candidate that splits the header and the first lines into the same, largest number of
+    fields. Returns the UTF-8 bytes to parse plus what was detected, so the UI can show it."""
+    if b"\x00" in data[:4096]:
+        raise IngestionError("The file looks binary, not like a text CSV export.")
+    for enc in ENCODINGS:
+        try:
+            text = data.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    else:   # latin-1 decodes any byte string, so this is unreachable; kept for clarity
+        raise IngestionError("The file's text encoding could not be read; save it as UTF-8.")
+    lines = [ln for ln in text.splitlines()[:20] if ln.strip()]
+    best, score = ",", (0, 0)
+    for d in DELIMITERS:
+        counts = [ln.count(d) for ln in lines]
+        if counts and counts[0] > 0:
+            sc = (sum(c == counts[0] for c in counts), counts[0])
+            if sc > score:
+                best, score = d, sc
+    return {"encoding": "utf-8" if enc == "utf-8-sig" else enc, "delimiter": best,
+            "utf8": text.encode("utf-8")}
+
+
 def read_csv_bytes(data: bytes) -> pl.DataFrame:
     if not data or not data.strip():
         raise IngestionError("The file is empty.")
     if len(data) > MAX_UPLOAD_BYTES:
         raise IngestionError(f"The file is {len(data) / 1e6:.1f} MB; the limit is {MAX_UPLOAD_BYTES / 1e6:.0f} MB. "
                              "Split it into smaller files.")
+    fmt = detect_format(data)
     try:
-        df = pl.read_csv(io.BytesIO(data), infer_schema=False, truncate_ragged_lines=False)
+        df = pl.read_csv(io.BytesIO(fmt["utf8"]), separator=fmt["delimiter"], infer_schema=False,
+                         truncate_ragged_lines=False)
     except Exception as exc:
         raise IngestionError(f"The file could not be read as CSV ({type(exc).__name__}).") from None
     if df.height == 0:

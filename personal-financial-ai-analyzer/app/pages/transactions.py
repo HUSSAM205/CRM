@@ -17,9 +17,19 @@ def render() -> None:
         return
     st.divider()
     clean, rej = d["clean"], d["rejected"]
-    c1, c2 = st.columns(2)
-    c1.metric("Valid rows", f"{clean.height:,}")
-    c2.metric("Rejected rows", f"{rej.height:,}")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Input rows", f"{clean.height + rej.height:,}")
+    c2.metric("Valid rows", f"{clean.height:,}")
+    c3.metric("Rejected rows", f"{rej.height:,}")
+    reasons = rej["reject_reason"] if rej.height else pl.Series([], dtype=pl.String)
+    c4.metric("Duplicates", f"{int((reasons == 'duplicate_transaction_id').sum()):,}")
+    if rej.height:
+        groups = {"missing fields": reasons.str.starts_with("missing_"),
+                  "parsing failures": reasons.is_in(["invalid_timestamp", "invalid_amount", "amount_precision"]),
+                  "unsupported values": reasons.is_in(["unknown_currency", "unknown_status", "amount_out_of_range",
+                                                       "negative_amount"])}
+        st.caption(" · ".join(f"{k}: {int(v.sum()):,}" for k, v in groups.items()) +
+                   ". Every rejected row is listed below; none is dropped silently.")
     if rej.height:
         with st.expander("Why rows were rejected", expanded=True):
             counts = rej.group_by("reject_reason").len().sort("len", descending=True)

@@ -46,3 +46,15 @@ Every run that produces numbers is listed here with its command, time and output
 | AU-10 | 05:29 | `python scripts/verify_artifacts.py` | Exit 0 | `logs/execution/audit_verify_artifacts.log` |
 
 Completion times are output-file mtimes (UTC). A final test run after the report edits is recorded in `reports/final_audit/FINAL_TEST_RESULTS.md`.
+
+## Master audit runs (2026-11-27)
+
+| Run | Completed (UTC, output mtime) | Command | Outcome | Outputs |
+|---|---|---|---|---|
+| MA-01 | 05:56 | baseline `pytest` (psutil-monitored) | 125 passed, 10.2 s, 0.63 GB | `reports/final_master_audit/baseline_pytest.txt` |
+| MA-02 | ~06:00 | `python scripts/audit/dataset_manifest.py` | SHA matches; 8/8 advertised properties; 27/27 integrity | `DATASET_MANIFEST.json`, `DATA_QUALITY_REPORT.json` |
+| MA-03 | ~06:02 | `scripts/audit/reconcile_granular.py` (guarded) | 9,488 checks, 0 mismatches; 53.9 s; 0.90 GB | `financial_reconciliation.json`, `logs/execution/master_reconcile_granular.log` |
+| MA-04 | 06:08 | `scripts/research/forecast_quality_gate.py` (guarded) | E2-QG: both GBR REJECTED on 5 panels; outlook = historical median; interval test coverage 81.9%; 198 s; 0.74 GB | `reports/experiments/forecasting_quality_gate/`, `artifacts/forecasting/outlook/v_20261127T060820Z` |
+| MA-05 | — | `node scripts/ux/ux_tasks.mjs` | 21/21 | `reports/ux_tasks/ux_task_results.json` |
+| MA-06 | — | `python scripts/audit/benchmark_master.py` | recorded | `reports/final_master_audit/performance_benchmarks.json` |
+

@@ -1,5 +1,5 @@
 {
-  "_note": "Hand-calculated, independently of src/ code. Amounts in integer cents. Rules: docs/financial_rules.md",
+  "_note": "Hand-calculated, independently of src/ code. Amounts in integer cents. Rules: docs/FINANCIAL_RULES.md",
   "monthly_summary": [
     {"account_id": "A1", "currency": "EUR", "month": "2026-01",
      "income_cents": 2500, "outflow_cents": 7000, "fee_cents": 0, "refund_cents": 0, "transfer_cents": 0,

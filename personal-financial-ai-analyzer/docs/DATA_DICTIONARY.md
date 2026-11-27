@@ -14,4 +14,4 @@
 | status | string | Only `completed` counts in totals |
 
 ## Derived columns
-`amount_cents`, `month`, `meaning`, and in summaries: `income_cents`, `outflow_cents`, `fee_cents`, `refund_cents`, `transfer_cents`, `expenses_cents`, `net_cash_flow_cents`, `completed_records`, `excluded_status_records`, `unresolved_type_records`. Category tables add `gross_spending_cents`, `refund_cents`, `net_spending_cents`. Definitions are in `docs/financial_rules.md`.
+`amount_cents`, `month`, `meaning`, and in summaries: `income_cents`, `outflow_cents`, `fee_cents`, `refund_cents`, `transfer_cents`, `expenses_cents`, `net_cash_flow_cents`, `completed_records`, `excluded_status_records`, `unresolved_type_records`. Category tables add `gross_spending_cents`, `refund_cents`, `net_spending_cents`. Definitions are in `docs/FINANCIAL_RULES.md`.

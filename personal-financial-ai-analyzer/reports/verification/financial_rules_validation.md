@@ -1,6 +1,6 @@
 # Financial Rules Validation
 
-Generated 2026-11-27 04:06 UTC. Rules: `docs/financial_rules.md`.
+Generated 2026-11-27 04:06 UTC. Rules: `docs/FINANCIAL_RULES.md`.
 
 ## 1. Sign convention: measured on all data
 49,000,000 / 49,000,000 records reconcile `balance_after` in transaction-ID order under the documented directions

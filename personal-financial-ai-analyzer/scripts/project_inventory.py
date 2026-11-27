@@ -69,12 +69,12 @@ tests/regression/test_financial_correctness.py tests/regression/test_data_leakag
 tests/regression/test_reproducibility.py tests/fixtures/sample_transactions.csv
 tests/fixtures/expected_financial_results.json
 docs/academic_source_analysis.md docs/requirements_traceability.md docs/requirements_conflicts.md
-docs/academic_implementation_matrix.md docs/architecture.md docs/architecture_decisions.md
+docs/academic_implementation_matrix.md docs/ARCHITECTURE.md docs/architecture_decisions.md
 docs/implementation_roadmap.md docs/hardware_audit.md docs/environment_audit.md docs/resource_budget.md
 docs/connectors_and_tools_audit.md docs/local_vs_colab_benchmark.md docs/dataset_provenance.md
-docs/data_dictionary.md docs/data_quality.md docs/preprocessing.md docs/financial_rules.md
+docs/DATA_DICTIONARY.md docs/data_quality.md docs/DATA_PIPELINE.md docs/FINANCIAL_RULES.md
 docs/model_methodology.md docs/experimental_design.md docs/leakage_analysis.md docs/evaluation_methodology.md
-docs/limitations.md docs/reproducibility.md docs/installation_guide.md docs/user_guide.md
+docs/KNOWN_LIMITATIONS.md docs/REPRODUCIBILITY.md docs/installation_guide.md docs/USER_GUIDE.md
 docs/troubleshooting.md""".split()
 
 

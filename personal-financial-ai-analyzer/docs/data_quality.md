@@ -6,4 +6,4 @@ The full audit covers all 50,000,000 rows. Details: `reports/verification/datase
 * 200 IDs with an unexplained suffix (kept, flagged).
 * 110 log-IQR outliers (kept).
 * 854,494 negative-balance rows in 37,742 accounts (informational; the balance is unused).
-* Distributions are near-uniform (hours, weekdays, categories) and identical across currencies. That limits ML signal (`docs/limitations.md`).
+* Distributions are near-uniform (hours, weekdays, categories) and identical across currencies. That limits ML signal (`docs/KNOWN_LIMITATIONS.md`).

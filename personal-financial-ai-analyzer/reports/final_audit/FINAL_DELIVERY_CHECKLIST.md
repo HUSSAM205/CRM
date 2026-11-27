@@ -7,11 +7,11 @@
 | Dataset identity documented; dataset not committed | DONE | `docs/dataset_provenance.md` |
 | Trained artifacts and registry committed (1.6 MB) | DONE | `artifacts/` |
 | Results tables (HW2 Tables 9.1 and 9.2) | DONE | `reports/final_evidence/results_tables.md` |
-| Results discussion, with unfavorable findings | DONE | `docs/final_results.md`, `docs/limitations.md` |
+| Results discussion, with unfavorable findings | DONE | `docs/final_results.md`, `docs/KNOWN_LIMITATIONS.md` |
 | Requirements traceability (69 rows) | DONE (1 PARTIAL, 1 N/A) | `docs/requirements_traceability.md` |
 | Independent audit package | DONE | `reports/audit/`, `reports/final_audit/` |
 | Screenshots of the 6 pages and 15 tasks | DONE | `reports/screenshots/` |
-| Installation and user guides | DONE | `docs/installation_guide.md`, `docs/user_guide.md`, `README.md` |
+| Installation and user guides | DONE | `docs/installation_guide.md`, `docs/USER_GUIDE.md`, `README.md` |
 | **Windows install on the student's laptop** | **NOT TESTED**: student action | below |
 | **Responsiveness on the final hardware (HW1 P5)** | **PARTIAL**: student action | below |
 | Final written report and presentation | Student action | Use the files above |

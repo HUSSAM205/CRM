@@ -3,7 +3,7 @@
 1. Run src.data.validation on ~1M real rows; the audit predicts 0 rejections and 0 unresolved types.
 2. Compute monthly account-currency summaries with src.analytics.financial_metrics (Polars, cents).
 3. Recompute the same numbers INDEPENDENTLY with pandas + Python Decimal straight from the raw rows,
-   using only the written definitions (docs/financial_rules.md), not project code.
+   using only the written definitions (docs/FINANCIAL_RULES.md), not project code.
 4. Compare every cell exactly.
 usage: crosscheck_partition.py <part> <n_parts> <out_json>
 """

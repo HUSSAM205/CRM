@@ -16,6 +16,6 @@
 | 10 | Artifacts | PASS | `reports/verification/artifact_verification.json` |
 | 11–12 | App, assistant, budget | PASS | `app/`, `reports/ux_tasks/` |
 | 13 | Automated tests | PASS | `logs/testing/latest.log` |
-| 14 | Reproducibility | PASS (Windows install NOT TESTED) | `docs/reproducibility.md` |
+| 14 | Reproducibility | PASS (Windows install NOT TESTED) | `docs/REPRODUCIBILITY.md` |
 | 15 | End-to-end validation | PASS | `reports/ux_tasks/ux_task_results.json` |
 | 16 | Final evidence | PASS | `reports/final_evidence/`, `reports/final_validation_report.md` |

@@ -170,7 +170,7 @@ Scripts: `scripts/run_audit.py` (+ workers). Raw tables: `reports/data_audit/`.
 
 ## Interpretation (limits of the synthetic data)
 * Hours, weekdays, categories and amount distributions are near-uniform or identical across groups. The data has
-  little behavioural structure, so ML results must be read as a methodology demonstration (see `docs/limitations.md`).
+  little behavioural structure, so ML results must be read as a methodology demonstration (see `docs/KNOWN_LIMITATIONS.md`).
 * Amount distributions are identical in every currency (median about 30 for USD and JPY alike). Currency is a label,
   not a real currency scale.
 * Outliers are rare and consistent with the documented log-normal amounts. They are not removed.

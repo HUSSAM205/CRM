@@ -1,6 +1,20 @@
 # Architecture
 
-This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money calculations**, with ML used only for forecasting and anomaly ranking (HW2 §5).
+This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money calculations**, with ML used only for forecasting and anomaly ranking (HW2 §5). The master audit added a second product pillar, the **Advisor** (`src/advisor/`), which consumes only validated Analyzer outputs and values the user types in.
+
+## Two pillars
+
+```
+            ANALYZER (what happened)                                  ADVISOR (what you could do next)
+ Summaries ─► src/analytics/insights (period spending, income,      src/advisor/context (known vs unknown facts)
+              cash flow, recurring candidates, behaviour,               ├─► savings (goals, required monthly, completion)
+              transparent indicators)                                   ├─► scenarios (what-if, simulation not prediction)
+          ─► src/budget (median of 3 months, 80%/100%)                  ├─► affordability (never "yes" without a balance)
+          ─► src/models (outlook + anomaly review, load only)           └─► recommendations (12 fields, fixed ranking rule)
+                         │                                                              │
+                         └──────────────► src/assistant (13 deterministic intents) ◄────┘
+                                           read-only, scoped to one account and currency
+```
 
 ```
                  OFFLINE (public dataset, training)                          ONLINE (user's browser session)
@@ -13,7 +27,7 @@ This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money
  src/analytics/financial_metrics (integer cents) ──► data/processed/*      src/analytics/aggregation.Summaries
         │                                                                         │
         ▼                                                                         ├─► app pages (Overview, Transactions, Analytics, Budget)
- scripts/create_splits (HW2 Table 8.1, eligibility on train only)                 ├─► src/assistant (5 fixed intents → Summaries)
+ scripts/create_splits (HW2 Table 8.1, eligibility on train only)                 ├─► src/assistant (13 fixed intents → Summaries, insights, advisor)
         │                                                                         ├─► src/budget (median of 3 completed months)
         ▼                                                                         ├─► src/models/forecasting/inference ◄─┐
  src/experiments/{forecasting,anomaly}_experiment ──► artifacts/ (versioned) ─────┴─► src/models/anomaly/anomaly_scoring ◄┘ load only
@@ -24,7 +38,7 @@ This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money
 | HW1 subsystem | Modules |
 |---|---|
 | 3.1 Financial data processing and AI analysis | `src/data`, `src/rules`, `src/analytics`, `src/features`, `src/models`, `src/experiments`, `src/evaluation` |
-| 3.2 Dashboard and financial assistant | `app/` (Streamlit, `st.navigation`, 6 sections), `src/assistant`, `src/budget` |
+| 3.2 Dashboard and financial assistant | `app/` (Streamlit, `st.navigation`, 8 sections: the 6 HW sections plus Financial advisor and Settings), `src/assistant`, `src/budget`, `src/advisor` |
 | Interface between them | `Summaries` (`src/analytics/aggregation.py`) and the model registry (`artifacts/metadata/model_registry.json`) |
 
 ## Key properties
@@ -32,7 +46,7 @@ This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money
 * **One rules code path.** The 50M-row pipeline and user uploads both go through `validate_transactions`, the rules modules and `financial_metrics`.
 * **Exact money.** Values are integer cents, and every aggregation key includes `currency`.
 * **The dashboard and the assistant share `Summaries`,** so they cannot disagree. This is tested.
-* **The app never trains.** It loads registered artifacts. ETS, which would need fitting per series, is refused at inference time.
+* **The app never trains.** It loads registered artifacts. ETS, which would need fitting per series, is refused at inference time. The product forecast is the deterministic outlook (`artifacts/forecasting/outlook/`), because no ML model passed the quality gate (`docs/FORECASTING.md`).
 * **Privacy.** Uploads live only in `st.session_state`. There is a retention selector and a delete button. Logs redact amounts and IDs.
 * **Memory safety.** All heavy offline work runs as one account partition per child process, with RSS and system-memory limits (`src/utils/resource_monitor.py`).
 

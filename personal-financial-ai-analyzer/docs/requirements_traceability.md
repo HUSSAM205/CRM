@@ -34,11 +34,11 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 
 | ID | Src | Pg | Requirement | Evidence | Status |
 |---|---|---|---|---|---|
-| C1 | HW1 | 5 | CSV only; no bank or payment functions | Architecture has none (`docs/architecture.md`) | PASS |
+| C1 | HW1 | 5 | CSV only; no bank or payment functions | Architecture has none (`docs/ARCHITECTURE.md`) | PASS |
 | C2 | HW1 | 6 | Local, time-limited, no external LLM | Session-only storage, retention plus delete; no LLM; `test_csv_upload.py` | PASS |
 | C3 | HW1 | 6 | Lighter benchmarks; avoid costly training on all 50M | Training on documented subsets; resource report | PASS |
-| D1 | HW1 | 7–8 | Hybrid design | `docs/architecture.md` | PASS |
-| A1 | HW1 | 8 | Architecture of Fig. 1; upload separate from the public data | `docs/architecture.md`; app never writes to disk (`test_app_never_writes_uploads_to_disk`) | PASS |
+| D1 | HW1 | 7–8 | Hybrid design | `docs/ARCHITECTURE.md` | PASS |
+| A1 | HW1 | 8 | Architecture of Fig. 1; upload separate from the public data | `docs/ARCHITECTURE.md`; app never writes to disk (`test_app_never_writes_uploads_to_disk`) | PASS |
 | A2 | HW1 | 9 | Fig. 2 flow including a **CSV report** | Overview download button (`app/utils/exports.py`) | PASS |
 | W1 | HW1 | 11 | Preprocessing and financial calculations before end-to-end tests | Gate order (`docs/implementation_roadmap.md`) | PASS |
 | R1–R8 | HW1 | 12 | Risk mitigations | `reports/verification/risk_and_blockers_report.md` (R3 residual: synthetic data) | PASS |
@@ -70,7 +70,7 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | DS4 | Field treatment | Rules, D-03, feature guard | PASS |
 | DS5 | Gaps respected | No salary, fraud or text classifier claims | PASS |
 | DS6 | Full audit; outliers kept | `reports/data_audit/*` | PASS |
-| DS7 | Preprocessing steps 1–8 | `docs/preprocessing.md`; 50M rows accounted for | PASS |
+| DS7 | Preprocessing steps 1–8 | `docs/DATA_PIPELINE.md`; 50M rows accounted for | PASS |
 | DS8 | Leakage controls | `tests/regression/test_data_leakage.py` (L1–L11) | PASS |
 
 ## F. HW2 methodology and experiments (chapters 5–10)
@@ -98,7 +98,7 @@ Final update: 2026-11-27, after the independent final audit (`reports/final_audi
 | X8.2 | 11 | Split and rolling origin | `split_metadata.json`; `rolling_origin_per_month.csv` | PASS |
 | X8.3 | 11 | Metrics per experiment | Results tables | PASS |
 | X8.4 | 12 | 1% injection with three scenario types | `injections/labels_*.parquet` | PASS |
-| X8.5 | 12 | Reproducibility | `docs/reproducibility.md`; `test_reproducibility.py` | PASS |
+| X8.5 | 12 | Reproducibility | `docs/REPRODUCIBILITY.md`; `test_reproducibility.py` | PASS |
 | V10.1 | 14 | Eight CSV validation cases | Empty, missing column, invalid timestamp, text amount, unknown currency, duplicate IDs, mixed currencies, too large: all tested | PASS |
 | V10.2 | 14 | Known-answer financial tests | Fixtures | PASS |
 | V10.3 | 14 | Robustness: rolling origin, short and long histories, 0.5/1/2%, seeds | Robustness tables | PASS |

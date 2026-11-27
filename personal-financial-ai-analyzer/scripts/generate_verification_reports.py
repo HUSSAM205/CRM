@@ -125,7 +125,7 @@ Scripts: `scripts/run_audit.py` (+ workers). Raw tables: `reports/data_audit/`.
 
 ## Interpretation (limits of the synthetic data)
 * Hours, weekdays, categories and amount distributions are near-uniform or identical across groups. The data has
-  little behavioural structure, so ML results must be read as a methodology demonstration (see `docs/limitations.md`).
+  little behavioural structure, so ML results must be read as a methodology demonstration (see `docs/KNOWN_LIMITATIONS.md`).
 * Amount distributions are identical in every currency (median about 30 for USD and JPY alike). Currency is a label,
   not a real currency scale.
 * Outliers are rare and consistent with the documented log-normal amounts. They are not removed.
@@ -269,7 +269,7 @@ def financial() -> None:
     tl = test_log.read_text().strip().splitlines()[-1] if test_log.exists() else "see logs/testing"
     write("financial_rules_validation.md", f"""# Financial Rules Validation
 
-Generated {NOW}. Rules: `docs/financial_rules.md`.
+Generated {NOW}. Rules: `docs/FINANCIAL_RULES.md`.
 
 ## 1. Sign convention: measured on all data
 49,000,000 / 49,000,000 records reconcile `balance_after` in transaction-ID order under the documented directions

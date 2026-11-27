@@ -35,6 +35,11 @@
 | A-08 | final audit | **A fresh clone could not run** (10 test collection errors, app crash, UX 0/15) | The parent repo `.gitignore` (`data/`, `*.log`) excluded `src/data/`, samples and evidence logs | Delivery broken (P0) | Re-include rules in the project `.gitignore` | `test_repository_completeness.py`; fresh clone 3 PASS |
 | A-09 | final audit | Leakage test L10 failed in a fresh clone | Incomplete skip condition | Test failure without data (P2) | Skip requires the derived data | Fresh clone 3 |
 | A-10 | final audit | Browser step "change a budget" flaky | Enter pressed before the grid editor registered the text (harness) | False UX failure (P3) | 600 ms settle in the script | 15/15 ×3 |
+| M-01 | master audit | UX script wrote its invalid-file fixture to `/tmp` | Hardcoded POSIX path | Browser workflow would fail on Windows (P3) | `os.tmpdir()` | Browser run 21/21 |
+| M-02 | master audit | **Totals of a file with ~100,000 rows near the per-row bound wrapped to a negative number** (−8,446,744,073,709,651,616 cents) | Polars int64 sums overflow silently | Wrong totals without any error (P1) | Files whose absolute amounts sum to ≥ 2⁶² cents are refused, in `ingest()` and the app upload path | `test_file_whose_totals_would_overflow_is_refused_not_wrapped`, `test_app_upload_path_refuses_overflowing_file` (fail before, pass after) |
+| M-03 | master audit | Final-audit report overstated the exact-cents bound as 9,999,999,999,999.99 (the tested bound is 999,999,999,999.99) | Report-writing error | Documentation inaccuracy (P3) | Corrected in `reports/audit/financial_calculation_audit.md` | — |
+| M-04 | master audit | Forecasting ML presented as the product forecast although it does not beat a zero baseline | The HW2 selection rule has no zero/median baseline | Misleading forecast (P2, product) | E2-QG quality gate; product shows the deterministic outlook; GBR labelled REJECTED (D-22) | `test_ai_page_shows_outlook_with_quality_gate_and_unusual_label`, `test_outlook_*` |
+| M-05 | master audit | Anomaly alerts lacked currency, usual amount, method and limitations; label wording | Minimal table | Insufficient evidence for the user (P3) | Evidence columns, label "Unusual transaction — review recommended.", top 5 | AppTest and browser task 9 |
 
 Audit-method corrections: A-07 (determinism now compared by content, not IPC bytes) and A-11 (stale screenshot removed). Details: `reports/final_audit/KNOWN_ISSUES.md`.
 
@@ -42,7 +47,7 @@ Audit-method corrections: A-07 (determinism now compared by content, not IPC byt
 
 | # | Issue | Status | Handling |
 |---|---|---|---|
-| O-01 | Timestamps are independent of the ledger order (0 of 1M accounts consistent) | Accepted, documented | D-04; `docs/limitations.md` |
+| O-01 | Timestamps are independent of the ledger order (0 of 1M accounts consistent) | Accepted, documented | D-04; `docs/KNOWN_LIMITATIONS.md` |
 | O-02 | Forecast-eligible series are effectively USD-only | Accepted, documented | D-14 |
 | O-03 | Hours and categories are near-uniform, so the hour-shift and rare-category anomaly scenarios are not detectable | Measured: AUC ≈ 0.5 | Reported per scenario |
 | O-08 | A zero forecast beats the selected GBR on MAE and MASE (no temporal signal in the data) | Measured, reported | D-20; `docs/final_results.md` |

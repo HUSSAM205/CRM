@@ -25,12 +25,15 @@ Each limitation is backed by evidence in the files referenced.
 10. **Anomaly ranking.** At 1% injection and k = 241, F1 is 0.008–0.041 with an FPR of about 1%: roughly 23 of 24 flagged rows are normal. ×5–10 amounts are detected with AUC of about 0.63–0.80. The positive control (×1000: AUC 0.999) shows the pipeline itself works. The weak results reflect heavy-tailed amounts (log σ ≈ 1.1) and a lack of behavioural regularity.
 11. **Per-account Isolation Forest** has only about 22 history records per account and performs worst. It also cannot score accounts it has not seen, which is why a global forest is the deployed artifact (D-07).
 12. **Transfers** are assumed internal (CF-08), because the dataset has no counterparty field.
-13. **Assistant** coverage is limited to five intents, recognized by English month names and keywords.
+13. **Assistant** coverage is limited to 13 deterministic intents, recognized by English month names and keywords.
+13a. **Forecasting ML is NOT EFFECTIVE on this data.** Both GBR variants were rejected by the quality gate (E2-QG). The product shows a deterministic historical-median outlook; its 80% interval was calibrated on the synthetic benchmark and is only indicative for real data.
+13b. **Advisor scope.** Budgeting, cash flow, savings and affordability only. It cannot know balances, obligations, other accounts or whether inflows are income unless the user enters them; affordability is never confirmed without a balance. Recurring payments are candidates, not confirmed subscriptions.
+13c. **Licence.** CC BY-NC 4.0. Commercial distribution of the data or trained models is BLOCKED pending independent legal review.
 
 ## Engineering
 
 14. **Windows install not executed.** The pinned stack resolves for Windows/CPython 3.12 with wheels only, but no install was run on the user's laptop.
 15. **Timings were measured on the cloud container,** not the laptop. The memory limits are host-independent.
-16. **The UX validation is scripted** (Playwright, 15 tasks). It is not a study with human participants.
+16. **The UX validation is scripted** (Playwright, 21 tasks). It is not a study with human participants.
 17. **Timezones.** Timestamps are naive. Uploads with a UTC offset are rejected, not converted.
 18. **No authentication.** The app is for local single-user use only (HW1 C2).

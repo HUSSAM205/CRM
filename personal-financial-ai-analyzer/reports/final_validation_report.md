@@ -8,7 +8,7 @@ Date: 2026-11-27. Environment: cloud execution container (Ubuntu 24.04, 4 vCPU, 
 |---|---|---|---|---|---|
 | 1 | Both academic PDFs inspected | PASS | `docs/academic_source_analysis.md` (34/34 pages read as images) | — | HW1's citation keys could not be verified and are not reused |
 | 2 | Requirements traceable | PASS | `docs/requirements_traceability.md`: 69 rows, PASS 67 / PARTIAL 1 / N/A 1 | `project_inventory.json` tally | P5 laptop responsiveness not measured |
-| 3 | Project structure created | PASS | 166/174 listed files present; 7 intentionally merged (`docs/architecture.md`); 0 empty files | `project_structure_audit.md` | — |
+| 3 | Project structure created | PASS | 166/174 listed files present; 7 intentionally merged (`docs/ARCHITECTURE.md`); 0 empty files | `project_structure_audit.md` | — |
 | 4 | Python environment configured | PASS | `.venv` Python 3.12.3 | `environment.json`: PASS | Windows install not executed (resolution verified) |
 | 5 | Dependencies verified | PASS | `requirements.txt`, `requirements-lock.txt`, Windows wheel resolution | no conflicts | — |
 | 6 | Dataset downloaded | PASS | `data/raw/transactions_50M.parquet` (1,594,749,644 bytes) | — | Not in git (re-download script provided) |

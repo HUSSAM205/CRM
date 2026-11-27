@@ -33,3 +33,16 @@
   * A-10: flaky browser step.
 * New tests: repository completeness, overflow, date filter, saved-budget flow, ISO timestamps. Three extra browser tasks (15 in total).
 * Corrected the overstated "27/27 PASS" and the S7/P1 traceability rows. Added `reports/audit/` and `reports/final_audit/`.
+
+## 2026-11-27: Master audit: Analyzer & Advisor
+
+* **Advisor pillar** (`src/advisor/`, Financial advisor page): context of known/unknown facts, savings goals, emergency fund, what-if scenarios, affordability (never confirmed without a balance), ranked evidence-based recommendations.
+* **Analyzer extensions** (`src/analytics/insights.py`, Analytics tabs, Overview): period spending, statistics, recorded inflows, cash flow, recurring candidates, behaviour changes, transparent indicators.
+* **Forecasting quality gate E2-QG**: zero/median baselines, extended GBR, diagnostics, calibrated interval; GBR REJECTED; product shows the deterministic outlook (D-22).
+* **Assistant**: 13 deterministic intents, scope validation, read-only; out-of-scope topics refused.
+* Anomaly alerts with full evidence and "Unusual transaction — review recommended.".
+* Settings and privacy page; goals and facts purged on delete.
+* Fixed M-01..M-05 (incl. silent int64 total overflow M-02). Security regression tests. `audit.bat`/`audit.ps1`.
+* Docs renamed to avoid case collisions on Windows; new ANALYZER, ADVISOR, FORECASTING, ANOMALY_DETECTION, AI_ASSISTANT, SECURITY_AND_PRIVACY, MODEL_CARD, WINDOWS_INSTALLATION docs.
+* Evidence package `reports/final_master_audit/`.
+

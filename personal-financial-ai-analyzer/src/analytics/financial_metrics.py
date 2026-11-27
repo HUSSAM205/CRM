@@ -3,7 +3,7 @@
 All money is integer cents (`amount_cents`), so sums are exact; conversion to decimal units
 happens only for display. Every aggregate is keyed by currency (src/rules/currency_rules.py).
 
-Definitions (completed records only, see docs/financial_rules.md):
+Definitions (completed records only, see docs/FINANCIAL_RULES.md):
   income_cents        = sum(inflow)                     credit, deposit, interest
   outflow_cents       = sum(outflow)                    debit, withdrawal
   fee_cents           = sum(fee)

@@ -73,3 +73,18 @@ def test_outlook_is_deterministic_median_with_calibrated_interval():
 def test_outlook_refuses_short_history():
     f = inference.outlook_next(monthly([1000] * 11))
     assert not f["eligible"] and "at least 12" in f["message"]
+
+
+def test_artifact_verification_runs_without_derived_data(tmp_path):
+    """Master audit M-06: in a fresh clone (no dataset) every saved model must still load in a fresh process
+    and predict on real rows; the verifier falls back to the committed demo sample."""
+    import json
+    import os
+    import subprocess
+    import sys
+    env = {**os.environ, "ARTIFACT_VERIFY_INPUT": "demo", "ARTIFACT_VERIFY_OUT": str(tmp_path / "v.json")}
+    r = subprocess.run([sys.executable, "scripts/verify_artifacts.py"], cwd=ROOT, env=env, capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-1500:] + r.stderr[-1500:]
+    out = json.loads((tmp_path / "v.json").read_text())
+    loaded = [a for a in out["artifacts"] if a["fresh_process_load"] is True]
+    assert len(loaded) == 3 and all(a["detail"]["input"] == "demo sample" for a in loaded)

@@ -12,7 +12,8 @@
       "detail": {
         "n_pred": 500,
         "mean": 5.456890518383358,
-        "type": "HistGradientBoostingRegressor"
+        "type": "HistGradientBoostingRegressor",
+        "input": "derived data"
       },
       "status": "PASS"
     },
@@ -27,7 +28,8 @@
       "detail": {
         "n_pred": 500,
         "mean": 2.6656123951577406,
-        "type": "HistGradientBoostingRegressor"
+        "type": "HistGradientBoostingRegressor",
+        "input": "derived data"
       },
       "status": "PASS"
     },
@@ -62,7 +64,8 @@
       "detail": {
         "n_pred": 121,
         "mean": 0.49601117599203776,
-        "type": "IsolationForest"
+        "type": "IsolationForest",
+        "input": "derived data"
       },
       "status": "PASS"
     },

@@ -4,6 +4,8 @@ For each entry in artifacts/metadata/model_registry.json: metadata.json present;
 exists, load it in a new interpreter, check its feature count against feature_schema.json, predict
 on real rows (forecasting: primary panel; anomaly: anomaly history features), and confirm the
 feature schema excludes balance_after and account_id.
+Without the derived data (a fresh clone has no dataset) - or with ARTIFACT_VERIFY_INPUT=demo - the inputs come
+from the committed demo sample instead (master audit M-06), so model loading is verifiable in every checkout.
 Output: reports/verification/artifact_verification.json
 """
 from __future__ import annotations
@@ -15,9 +17,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CHILD = r"""
-import json, sys, joblib, numpy as np, polars as pl
+import json, os, sys, joblib, numpy as np, polars as pl
 sys.path.insert(0, '.')
 path, kind = sys.argv[1], sys.argv[2]
+DERIVED = os.path.exists('data/processed/splits/panel_primary.parquet') and os.environ.get('ARTIFACT_VERIFY_INPUT') != 'demo'
+if not DERIVED:
+    from src.data.ingestion import ingest
+    from src.analytics.aggregation import build_summaries
+    demo = ingest(open('data/samples/demo_transactions.csv', 'rb').read())[0].clean
 m = joblib.load(f'{path}/model.joblib')
 schema = json.load(open(f'{path}/feature_schema.json'))
 feats = schema['features']
@@ -26,17 +33,24 @@ assert not set(schema.get('excluded', [])) & set(feats)
 if kind == 'forecasting':
     from src.experiments import forecasting_experiment as fe
     from src.features.temporal_features import features_at
-    _, Y = fe.load_panel('data/processed/splits/panel_primary.parquet')
+    if DERIVED:
+        _, Y = fe.load_panel('data/processed/splits/panel_primary.parquet')
+    else:   # demo sample: every account-currency series over the 31 dataset months, zero-filled
+        from src.experiments.data_splitting import ALL_MONTHS
+        mon = build_summaries(demo).monthly
+        Y = np.array([[r.get(m, 0) / 100 for m in ALL_MONTHS] for r in
+                      [dict(zip(g['month'], g['expenses_cents'])) for _, g in mon.group_by(['account_id', 'currency'])]])
     X = features_at(Y[:500], 30, fe.CAL[30], 'lag_12' in feats)
     p = m.predict(X)
 else:
     from src.experiments.anomaly_experiment import prepare
     from src.features.account_features import build_features
-    tx = pl.read_parquet('data/processed/splits/anomaly_transactions.parquet')
+    tx = pl.read_parquet('data/processed/splits/anomaly_transactions.parquet') if DERIVED else demo
     hist, scored, acc, cat, _ = prepare(tx.filter(pl.col('account_id').is_in(tx['account_id'].unique().sort().head(50).implode())))
     p = -m.score_samples(build_features(scored, acc, cat).select(feats).to_numpy())
 assert np.isfinite(p).all()
-print(json.dumps({'n_pred': int(len(p)), 'mean': float(np.mean(p)), 'type': type(m).__name__}))
+print(json.dumps({'n_pred': int(len(p)), 'mean': float(np.mean(p)), 'type': type(m).__name__,
+                  'input': 'derived data' if DERIVED else 'demo sample'}))
 """
 
 
@@ -59,7 +73,9 @@ def main() -> None:
             results.append(rec)
             print(rec["status"], kind, name, rec.get("detail", ""))
     out = {"overall": "PASS" if ok_all else "FAIL", "artifacts": results}
-    (ROOT / "reports/verification/artifact_verification.json").write_text(json.dumps(out, indent=2))
+    import os
+    target = Path(os.environ.get("ARTIFACT_VERIFY_OUT", ROOT / "reports/verification/artifact_verification.json"))
+    target.write_text(json.dumps(out, indent=2))
     raise SystemExit(0 if ok_all else 1)
 
 

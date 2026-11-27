@@ -1,0 +1,143 @@
+{
+ "protocol": "E3-B: unusual-transaction ranking on Dataset B labels (PersonaLedger identity_theft_1months/test.parquet,\nCC BY 4.0, revision c90078ae, SHA-256 d68c03e8...). A SEPARATE experiment; HW2 E3 is unchanged.\n\nPre-registered protocol (fixed before any result):\n  * Each sequence = one user-month in which one day of another user's transactions was injected by the\n    dataset authors (`is_fraud` = True). Labels are used ONLY for evaluation.\n  * 3,135 of 108,078 sequences have no labels at all (is_fraud null on every row); they are excluded before\n    sampling (decided when the nulls were found, before any metric was computed).\n  * Sample: 5,000 sequences per run, chosen with a seeded RNG over sorted seq_ids; runs with seeds 42, 43, 44.\n  * Scoring is unsupervised and per sequence (the app's unit is one account): statistics come from the\n    sequence's own transactions.\n  * Features (same five as HW2 / the app): log amount, hour, weekday, merchant-type history share\n    (share of the OTHER rows of the sequence with the same merchant type), log(amount / merchant-type median\n    in the sequence, fallback sequence median). Feature-engineering variant \"+B\": adds merchant-name novelty\n    (name not seen in the other rows) and card-present flag (fields that Dataset A does not have).\n  * Methods: robust z-score of log amount (median/MAD), global Isolation Forest (100 trees, seed = run seed)\n    on 5 features, and on 7 features (+B).\n  * Metrics: ROC-AUC, average precision, precision/recall/F1 at k = number of positives, FPR at k,\n    per-sequence top-1 hit rate (share of sequences whose most unusual row is injected).\nOutputs: reports/experiments/anomaly_dataset_b/summary.json and metrics.csv.\n",
+ "runs": [
+  {
+   "seed": 42,
+   "sequences": 5000,
+   "rows": 272429,
+   "positives": 9167,
+   "robust_z": {
+    "roc_auc": 0.48670593585262323,
+    "average_precision": 0.03126463477046301,
+    "k": 9167,
+    "precision_at_k": 0.020944692920257444,
+    "recall_at_k": 0.020944692920257444,
+    "f1_at_k": 0.020944692920257444,
+    "fpr_at_k": 0.03409151339730003,
+    "top1_hit_rate": 0.0206
+   },
+   "isolation_forest_5f": {
+    "roc_auc": 0.48304551683682506,
+    "average_precision": 0.032477616855178984,
+    "k": 9167,
+    "precision_at_k": 0.03087160466892113,
+    "recall_at_k": 0.03087160466892113,
+    "f1_at_k": 0.03087160466892113,
+    "fpr_at_k": 0.03374585014168395,
+    "top1_hit_rate": 0.0388
+   },
+   "isolation_forest_7f_plusB": {
+    "roc_auc": 0.5304371737589808,
+    "average_precision": 0.03535487537283456,
+    "k": 9167,
+    "precision_at_k": 0.030107996072870076,
+    "recall_at_k": 0.030107996072870076,
+    "f1_at_k": 0.030107996072870076,
+    "fpr_at_k": 0.03377243962288519,
+    "top1_hit_rate": 0.0278
+   }
+  },
+  {
+   "seed": 43,
+   "sequences": 5000,
+   "rows": 270684,
+   "positives": 9119,
+   "robust_z": {
+    "roc_auc": 0.48775353055889825,
+    "average_precision": 0.03124870617554998,
+    "k": 9119,
+    "precision_at_k": 0.022480535146397633,
+    "recall_at_k": 0.022480535146397633,
+    "f1_at_k": 0.022480535146397633,
+    "fpr_at_k": 0.034079483111272534,
+    "top1_hit_rate": 0.0228
+   },
+   "isolation_forest_5f": {
+    "roc_auc": 0.49191855684848806,
+    "average_precision": 0.032349282218001485,
+    "k": 9119,
+    "precision_at_k": 0.02730562561684395,
+    "recall_at_k": 0.02730562561684395,
+    "f1_at_k": 0.02730562561684395,
+    "fpr_at_k": 0.03391126488635712,
+    "top1_hit_rate": 0.0344
+   },
+   "isolation_forest_7f_plusB": {
+    "roc_auc": 0.5096550392108145,
+    "average_precision": 0.0338944909374401,
+    "k": 9119,
+    "precision_at_k": 0.02752494791095515,
+    "recall_at_k": 0.02752494791095515,
+    "f1_at_k": 0.02752494791095515,
+    "fpr_at_k": 0.03390361860340642,
+    "top1_hit_rate": 0.0334
+   }
+  },
+  {
+   "seed": 44,
+   "sequences": 5000,
+   "rows": 271769,
+   "positives": 9216,
+   "robust_z": {
+    "roc_auc": 0.48876465706877653,
+    "average_precision": 0.03143399196902023,
+    "k": 9216,
+    "precision_at_k": 0.020290798611111112,
+    "recall_at_k": 0.020290798611111112,
+    "f1_at_k": 0.020290798611111112,
+    "fpr_at_k": 0.03438924712343793,
+    "top1_hit_rate": 0.0192
+   },
+   "isolation_forest_5f": {
+    "roc_auc": 0.45532483424080883,
+    "average_precision": 0.03038722775896954,
+    "k": 9216,
+    "precision_at_k": 0.029079861111111112,
+    "recall_at_k": 0.029079861111111112,
+    "f1_at_k": 0.029079861111111112,
+    "fpr_at_k": 0.03408073798433078,
+    "top1_hit_rate": 0.0344
+   },
+   "isolation_forest_7f_plusB": {
+    "roc_auc": 0.5212836725085692,
+    "average_precision": 0.034739927129603755,
+    "k": 9216,
+    "precision_at_k": 0.0283203125,
+    "recall_at_k": 0.0283203125,
+    "f1_at_k": 0.0283203125,
+    "fpr_at_k": 0.034107399267957327,
+    "top1_hit_rate": 0.0292
+   }
+  }
+ ],
+ "mean_over_seeds": [
+  {
+   "model": "isolation_forest_5f",
+   "roc_auc_mean": 0.47676296930870726,
+   "average_precision_mean": 0.03173804227738334,
+   "f1_at_k_mean": 0.029085697132292063,
+   "fpr_at_k_mean": 0.03391261767079062,
+   "top1_hit_rate_mean": 0.035866666666666665,
+   "roc_auc_std": 0.01908868607720912
+  },
+  {
+   "model": "isolation_forest_7f_plusB",
+   "roc_auc_mean": 0.5204586284927881,
+   "average_precision_mean": 0.034663097813292805,
+   "f1_at_k_mean": 0.028651085494608406,
+   "fpr_at_k_mean": 0.03392781916474965,
+   "top1_hit_rate_mean": 0.03013333333333333,
+   "roc_auc_std": 0.010415603790251622
+  },
+  {
+   "model": "robust_z",
+   "roc_auc_mean": 0.4877413744934327,
+   "average_precision_mean": 0.0313157776383444,
+   "f1_at_k_mean": 0.021238675559255394,
+   "fpr_at_k_mean": 0.03418674787733683,
+   "top1_hit_rate_mean": 0.02086666666666667,
+   "roc_auc_std": 0.0010294144398179104
+  }
+ ],
+ "seconds": 10.0
+}

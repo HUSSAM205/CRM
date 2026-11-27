@@ -1,0 +1,1 @@
+{"command": "run_guarded(python scripts/research/anomaly_dataset_b.py)", "returncode": 0, "seconds": 11.58, "peak_rss_gb": 0.499, "killed": null}

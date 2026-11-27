@@ -29,6 +29,6 @@ def test_all_source_samples_fixtures_and_artifacts_are_tracked():
 @pytest.mark.skipif(_tracked() is None, reason="not a git checkout")
 def test_dataset_and_derived_data_are_not_tracked():
     tracked = _tracked()
-    assert not [t for t in tracked if t.startswith(("data/raw/", "data/processed/", "data/interim/")) and
+    assert not [t for t in tracked if t.startswith(("data/raw/", "data/processed/", "data/interim/", "data/supplementary/")) and
                 not t.endswith("PROVENANCE.json")]
     assert not [t for t in tracked if t.startswith(".venv/")]

@@ -96,3 +96,12 @@ def test_large_two_decimal_amounts_convert_exactly():
     r = validate_transactions(frame(*[{"amount": v} for v in vals]))
     from decimal import Decimal
     assert r.clean["amount_cents"].to_list() == [int(Decimal(v) * 100) for v in vals]
+
+
+def test_any_active_iso_currency_is_accepted_but_non_currency_codes_are_not():
+    """Master audit M-12: a Turkish lira (TRY) export was rejected as unknown_currency because only the
+    dataset's 6 codes were allowed. Every active ISO 4217 code is accepted; XXX/XTS/XAU-style codes are not."""
+    r = validate_transactions(frame({"currency": "TRY"}, {"currency": "try"}, {"currency": "CHF"},
+                                    {"currency": "XXX"}, {"currency": "XAU"}, {"currency": "ABC"}))
+    assert r.clean["currency"].to_list() == ["TRY", "TRY", "CHF"]
+    assert r.rejected["reject_reason"].to_list() == ["unknown_currency"] * 3

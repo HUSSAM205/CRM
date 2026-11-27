@@ -26,7 +26,19 @@ SOURCE_DTYPES: dict[str, pl.DataType] = {
     "status": pl.String,
 }
 
-ALLOWED_CURRENCIES: frozenset[str] = frozenset(_CFG["allowed"]["currencies"])
+DATASET_CURRENCIES: frozenset[str] = frozenset(_CFG["allowed"]["currencies"])   # the 6 codes of Dataset A
+# Uploads may use any active ISO 4217 currency (master audit M-12: TRY and others were rejected because only the
+# dataset's 6 codes were allowed). Non-currency codes (XXX "no currency", XTS test, precious metals, XDR/XSU/XUA
+# and bond units) are excluded. Amounts are never converted or combined across currencies.
+ISO_4217_ACTIVE = frozenset("""
+AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD CAD CDF CHF
+CLP CNY COP CRC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HTG HUF
+IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK
+MNT MOP MRU MUR MVR MWK MXN MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR
+SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STN SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD UYU UZS VES
+VND VUV WST XAF XCD XCG XOF XPF YER ZAR ZMW ZWG
+""".split())
+ALLOWED_CURRENCIES: frozenset[str] = ISO_4217_ACTIVE | DATASET_CURRENCIES
 ALLOWED_STATUSES: frozenset[str] = frozenset(_CFG["allowed"]["statuses"])
 KNOWN_TRANSACTION_TYPES: frozenset[str] = frozenset(_CFG["allowed"]["transaction_types"])
 

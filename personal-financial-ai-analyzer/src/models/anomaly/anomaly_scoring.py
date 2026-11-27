@@ -24,7 +24,8 @@ from src.utils.configuration import PROJECT_ROOT
 
 LABEL = "Unusual transaction — review recommended."
 NOT_FRAUD = "This is a statistical comparison with your own history, not a fraud finding."
-METHOD = "Isolation Forest (saved global model) ranked; robust z-score of log amount shown alongside"
+METHOD = ("Isolation Forest (saved global model) ranks the top 5; transactions that break a clear rule (rare "
+          "category, unusual timing, unusual amount) are added; robust z-score shown alongside")
 LIMITATIONS = ("On the synthetic benchmark (1% injected anomalies) only about 1 in 24 flagged transactions was a "
                "true injected anomaly; unusual hours and rare categories were not detectable there.")
 MIN_HISTORY = 5
@@ -61,23 +62,37 @@ def review_candidates(clean: pl.DataFrame, account: str, currency: str, recent_m
         f = f.with_columns(pl.lit(None, dtype=pl.Float64).alias("score_if_global"))
     hours_seen = set(hist["transaction_timestamp"].dt.hour().to_list())
     f = f.with_columns(
+        (pl.col("log_amount_to_category_median") > 1.0986).alias("f_amount"),            # > 3x the usual amount
+        (pl.col("category_history_share") == 0).alias("f_category"),
+        (~pl.col("transaction_timestamp").dt.hour().is_in(list(hours_seen))).alias("f_hour"),
+        pl.col("cat_n").is_between(1, 2).alias("f_thin"))
+    f = f.with_columns(
         pl.concat_str([
-            pl.when(pl.col("log_amount_to_category_median") > 1.0986)   # > 3x the usual amount
-              .then(pl.format("amount {}x the usual for this category",
-                              pl.col("log_amount_to_category_median").exp().round(1))).otherwise(None),
-            pl.when(pl.col("category_history_share") == 0).then(pl.lit("category not seen before")).otherwise(None),
-            pl.when(~pl.col("transaction_timestamp").dt.hour().is_in(list(hours_seen)))
-              .then(pl.lit("unusual time of day")).otherwise(None),
-        ], separator="; ", ignore_nulls=True).alias("reasons"))
+            pl.when(pl.col("f_amount")).then(pl.format("Unusual amount: {}x your usual for this category",
+                                                       pl.col("log_amount_to_category_median").exp().round(1))),
+            pl.when(pl.col("f_category")).then(pl.lit("Rare category: not seen in your history before")),
+            pl.when(pl.col("f_hour")).then(pl.lit("Unusual timing: an hour of day you have not used before")),
+            pl.when(pl.col("f_thin")).then(pl.lit("Insufficient historical context: only 1-2 earlier payments "
+                                                  "in this category")),
+        ], separator="; ", ignore_nulls=True).alias("reasons"),
+        (pl.col("f_amount") | pl.col("f_category") | pl.col("f_hour")).alias("rule_hit"))
     order = "score_if_global" if forest is not None else "score_robust_z"
-    cand = (f.sort(order, descending=True).head(top)
+    # Candidates = the `top` highest model scores PLUS up to `top` further rule hits (rare category, unusual
+    # timing, unusual amount), so an explained rule hit is never hidden behind the model ranking (master audit
+    # 2: Dataset C showed rare-category rows were explained but never surfaced). At most 2 x top rows.
+    ranked = f.sort(order, descending=True).with_row_index("_rank")
+    extra = ranked.filter((pl.col("_rank") >= top) & pl.col("rule_hit")).head(top)
+    chosen = pl.concat([ranked.head(top), extra]).sort("_rank")
+    cand = (chosen
               .select("transaction_id", "transaction_timestamp", "merchant_category", "amount",
                       pl.lit(currency).alias("currency"),
                       pl.col("ref_median").round(2).alias("usual_amount_in_your_history"),
                       pl.when(pl.col("reasons").is_null() | (pl.col("reasons") == ""))
-                        .then(pl.lit("combination of amount, time and category is uncommon for you "
+                        .then(pl.lit("Unusual combination: amount, time and category together are uncommon for you "
                                      "(no single rule triggered)"))
                         .otherwise(pl.col("reasons")).alias("explanation"),
+                      pl.when(pl.col("_rank") < top).then(pl.lit("model score")).otherwise(pl.lit("rule"))
+                        .alias("surfaced_by"),
                       pl.col("score_robust_z").round(2), pl.col("score_if_global").round(3)))
     return {"ok": True, "label": LABEL, "not_fraud": NOT_FRAUD, "method": METHOD, "limitations": LIMITATIONS,
             "history_records": hist.height, "scored_records": scored.height,

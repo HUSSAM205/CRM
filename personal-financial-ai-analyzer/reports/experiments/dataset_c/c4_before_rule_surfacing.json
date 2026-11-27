@@ -1,0 +1,7 @@
+{
+ "note": "C4 measured with the previous ranking (top 5 by Isolation Forest score only), same generator and seed, before the rule-surfacing change of master audit 2. Recorded from the run output of scripts/research/controlled_synthetic.py on 2026-11-27.",
+ "by_type": {"amount": {"injected": 50, "in_top5": 46, "detection_rate": 0.92},
+             "hour": {"injected": 50, "in_top5": 3, "detection_rate": 0.06},
+             "category": {"injected": 50, "in_top5": 0, "detection_rate": 0.0}},
+ "flagged": 250, "flagged_not_injected": 201, "precision_of_flags": 0.196
+}

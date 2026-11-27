@@ -20,6 +20,7 @@ def assess(amount_cents: int | None, ctx: FinancialContext, payment: str = "one-
                "history is representative of the coming months", "no other large purchase is planned"],
            "alternatives": []}
     monthly_equiv = amount_cents if payment == "monthly" else None
+    out["remaining_monthly_surplus_cents"] = surplus - (amount_cents if payment == "monthly" else 0)
     if payment == "one-off":
         if surplus > 0:
             months = amount_cents / surplus

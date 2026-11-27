@@ -37,6 +37,11 @@ class FinancialContext:
     category_prior_avg_cents: dict[str, int]   # average of the 9 calendar months before those 3 (0-filled)
     recurring_monthly_cents: int
     user: UserFacts = field(default_factory=UserFacts)
+    # financial profile (averages over `window`; category classes from configs/advisor.yaml)
+    avg_essential_cents: int = 0
+    avg_discretionary_cents: int = 0
+    avg_unclassified_cents: int = 0
+    avg_fees_cents: int = 0
 
     @property
     def monthly_income_basis(self) -> tuple[int, str]:
@@ -83,5 +88,19 @@ def build_context(clean: pl.DataFrame, s: Summaries, account: str, currency: str
     rec = I.recurring_candidates(I.scope(clean, account, currency))
     rec_m = int(round(sum(r["typical_amount_cents"] * (52 / 12 if r["period"] == "weekly" else 1)
                           for r in rec.iter_rows(named=True))))
+    # profile: per-class average monthly category spending over the window (months without spending = 0)
+    wcat = cat.filter(pl.col("month").is_in(win)) if win else cat.clear()
+    cls = lambda c: ("essential" if c in CFG["essential_categories"] else  # noqa: E731
+                     "discretionary" if c in CFG["discretionary_categories"] else "unclassified")
+    sums = {"essential": 0, "discretionary": 0, "unclassified": 0}
+    for c, v in zip(wcat["merchant_category"], wcat["net_spending_cents"]):
+        sums[cls(c)] += int(v)
+    n = max(len(win), 1)
+    mon = s.monthly.filter((pl.col("account_id") == account) & (pl.col("currency") == currency)
+                           & pl.col("month").is_in(win))
     return FinancialContext(account, currency, len(months), win, avg("income_cents"), avg("expenses_cents"),
-                            avg("net_cents"), rec_avg, prior_avg, rec_m, user or UserFacts())
+                            avg("net_cents"), rec_avg, prior_avg, rec_m, user or UserFacts(),
+                            avg_essential_cents=int(round(sums["essential"] / n)),
+                            avg_discretionary_cents=int(round(sums["discretionary"] / n)),
+                            avg_unclassified_cents=int(round(sums["unclassified"] / n)),
+                            avg_fees_cents=int(round(int(mon["fee_cents"].sum()) / n)))

@@ -26,6 +26,8 @@ def _suff(months: int) -> str:
 
 def _rec(**k) -> dict:
     k.setdefault("progress_tracking", "")
+    k["reason"] = k["issue"]                       # master audit 2 field names (alias of `issue`)
+    k["next_action"] = k["action"]
     return k
 
 
@@ -126,6 +128,8 @@ def generate(clean: pl.DataFrame, s: Summaries, ctx: FinancialContext, budgets: 
                 drawbacks="A longer timeline delays the goal.",
                 alternatives=[f"{money(a['monthly_cents'])}/month → done {a['completion_month']}" for a in p["alternatives"]],
                 evidence_sufficiency=suff, progress_tracking=f"'{g.name}' progress on the Advisor page"))
+    for x in recs:
+        x["missing_information"] = ctx.unknowns()
     recs.sort(key=lambda x: (x["tier"], -x["monthly_impact_cents"], _EVID[x["evidence_sufficiency"]]))
     for i, x in enumerate(recs, 1):
         x["rank"] = i

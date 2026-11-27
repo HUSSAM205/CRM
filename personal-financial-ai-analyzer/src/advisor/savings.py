@@ -38,6 +38,38 @@ def emergency_fund_target(ctx: FinancialContext, months: int | None = None) -> d
             "months": k}
 
 
+def emergency_fund_plan(ctx: FinancialContext, coverage_months: float, current_cents: int = 0,
+                        monthly_contribution_cents: int | None = None, basis: str = "essential") -> dict:
+    """User-defined emergency fund: target = coverage_months x average monthly ESSENTIAL expenses (or all
+    expenses if basis='all'). Nothing is assumed about the right coverage: the user chooses it."""
+    monthly = ctx.avg_essential_cents if basis == "essential" else ctx.avg_expenses_cents
+    target = int(round(coverage_months * monthly))
+    remaining = max(target - current_cents, 0)
+    out = {"basis": basis, "coverage_months": coverage_months, "monthly_basis_cents": monthly, "target_cents": target,
+           "current_cents": current_cents, "remaining_cents": remaining,
+           "progress": round(min(current_cents / target, 1.0), 4) if target > 0 else None,
+           "months_to_complete": None,
+           "calculation": f"{coverage_months:g} × average monthly {'essential ' if basis == 'essential' else ''}expenses "
+                          f"{monthly / 100:,.2f} {ctx.currency}" + (f" ({ctx.window[0]}..{ctx.window[-1]})" if ctx.window else "")}
+    if target == 0:
+        out["note"] = ("No essential spending was found in your categories; choose 'all expenses' or check the "
+                       "category classes in configs/advisor.yaml.") if basis == "essential" else "No expense history."
+    if monthly_contribution_cents and monthly_contribution_cents > 0 and remaining > 0:
+        out["months_to_complete"] = math.ceil(remaining / monthly_contribution_cents)
+    return out
+
+
+def goal_status(p: dict, goal: Goal) -> str:
+    """reached | on track | behind | no plan (no contribution and no target date)."""
+    if p["remaining_cents"] == 0:
+        return "reached"
+    if goal.target_month and goal.monthly_contribution_cents:
+        return "on track" if goal.monthly_contribution_cents >= (p["required_monthly_cents"] or 0) else "behind"
+    if goal.target_month or goal.monthly_contribution_cents:
+        return "partially planned"
+    return "no plan"
+
+
 def plan(goal: Goal, start_month: str, ctx: FinancialContext | None = None) -> dict:
     """Required monthly saving, progress, completion estimate, alternatives and feasibility."""
     remaining = max(goal.target_cents - goal.saved_cents, 0)
@@ -50,6 +82,7 @@ def plan(goal: Goal, start_month: str, ctx: FinancialContext | None = None) -> d
                "the saved amount is what you entered; it is not read from your transactions"]}
     if remaining == 0:
         out["feasibility"] = "Goal already reached."
+        out["status"] = "reached"
         return out
     if goal.target_month:
         n = months_between(start_month, goal.target_month)
@@ -71,6 +104,7 @@ def plan(goal: Goal, start_month: str, ctx: FinancialContext | None = None) -> d
             c = max(int(round(contrib * f)), 1)
             kk = math.ceil(remaining / c)
             out["alternatives"].append({"monthly_cents": c, "months": kk, "completion_month": add_months(start_month, kk)})
+    out["status"] = goal_status(out, goal)
     req = out["required_monthly_cents"] or contrib
     if req and ctx is not None and out["feasibility"] is None:
         surplus, basis = ctx.monthly_surplus_cents

@@ -384,3 +384,13 @@
 2026-11-27 11:47:22,426 INFO app.session session data purged: reason=retention expired
 2026-11-27 11:47:26,383 INFO app.session session data purged: reason=user request
 2026-11-27 11:47:27,970 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:47:54,911 INFO app.session session data purged: reason=retention expired
+2026-11-27 11:47:58,859 INFO app.session session data purged: reason=user request
+2026-11-27 11:48:00,379 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:48:12,038 INFO app.session session data purged: reason=retention expired
+2026-11-27 11:48:16,063 INFO app.session session data purged: reason=user request
+2026-11-27 11:48:17,769 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:50:07,052 INFO app.session session data purged: reason=user request
+2026-11-27 11:50:08,567 INFO app.session session data purged: reason=user request (settings)
+2026-11-27 11:50:14,855 INFO app.session session data purged: reason=user request
+2026-11-27 11:50:16,476 INFO app.session session data purged: reason=user request (settings)

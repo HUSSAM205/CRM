@@ -277,3 +277,23 @@ def test_personaledger_demo_shows_accepted_model_and_assistant_agrees():
     assert any("accepted by the quality gate" in x.value for x in at.success)
     text, _ = answer("What is my expected spending next month?", s, acc, "USD", forecast=f)
     assert f"{f['point_cents'] / 100:,.2f} USD" in text and "gbr_personaledger" in text
+
+
+def test_advisor_goal_edit_status_and_emergency_fund(demo_state):
+    """Master audit 2 (7): goals can be edited (state changes), show a status; the emergency fund follows the
+    user's coverage choice and equals the engine."""
+    from src.advisor import savings as S
+    from src.advisor.context import build_context
+    goal = {"name": "Bike", "kind": "savings", "target_cents": 60000, "saved_cents": 10000, "target_month": "2027-06",
+            "monthly_contribution_cents": None}
+    at = seeded("financial_advisor", demo_state, goals=[goal])
+    assert any("status: **partially planned**" in m.value for m in at.markdown)
+    next(w for w in at.number_input if w.key == "eg_saved_0").set_value(250.0)
+    next(w for w in at.number_input if w.key == "eg_con_0").set_value(50.0)
+    next(b for b in at.button if b.label == "Save changes").click().run()
+    g = at.session_state["goals"][0]
+    assert g["saved_cents"] == 25000 and g["monthly_contribution_cents"] == 5000
+    at.number_input(key="ef_cov").set_value(6.0).run()
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    p = S.emergency_fund_plan(build_context(demo_state["clean"], s, acc, "USD"), 6.0, 0, None, "essential")
+    assert any(f"Target: {p['target_cents'] / 100:,.2f} USD" in t.value for t in at.text)

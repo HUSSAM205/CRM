@@ -61,6 +61,18 @@ def render() -> None:
     c3.metric("Average monthly surplus", money(surplus, cur), help=basis)
     st.caption("Calculated from your transactions (" + f"{ctx.window[0]}..{ctx.window[-1]}). Unknown to this app: "
                + "; ".join(ctx.unknowns()) + ".")
+    with st.expander("Your financial profile (monthly averages)"):
+        p1, p2, p3, p4 = st.columns(4)
+        p1.metric("Essential expenses", money(ctx.avg_essential_cents, cur),
+                  help="groceries, healthcare, insurance, utilities, education, transport (configs/advisor.yaml)")
+        p2.metric("Non-essential expenses", money(ctx.avg_discretionary_cents, cur),
+                  help="dining, entertainment, retail, subscription, travel")
+        p3.metric("Unclassified expenses", money(ctx.avg_unclassified_cents + ctx.avg_fees_cents, cur),
+                  help="other categories and fees; never judged as essential or not")
+        p4.metric("Recurring payment candidates", money(ctx.recurring_monthly_cents, cur),
+                  help="monthly equivalent of detected recurring payments (candidates, not confirmed)")
+        st.caption(f"Monthly {'surplus' if surplus >= 0 else 'deficit'}: {money(abs(surplus), cur)} ({basis}). "
+                   "Calculated from transactions, not a verified bank balance.")
     goals = [S.Goal(**g) for g in st.session_state["goals"]]
     budgets = st.session_state.get("budgets", {}).get(f"active|{acc}|{cur}")
     tabs = st.tabs(["Recommendations", "Savings goals", "What-if scenarios", "Can I afford this?"])
@@ -83,7 +95,20 @@ def render() -> None:
 
     with tabs[1]:
         ef = S.emergency_fund_target(ctx)
-        st.caption(f"Suggested emergency fund: {money(ef['target_cents'], cur)} = {ef['calculation']}.")
+        with st.container(border=True):
+            st.markdown("**Emergency fund** (you choose the coverage)")
+            e1, e2, e3, e4 = st.columns(4)
+            cov = e1.number_input("Coverage (months)", min_value=0.5, max_value=24.0, value=3.0, step=0.5, key="ef_cov")
+            ecur = e2.number_input(f"Emergency savings now ({cur})", min_value=0.0, value=0.0, key="ef_now")
+            econ = e3.number_input(f"Monthly contribution ({cur})", min_value=0.0, value=0.0, key="ef_con")
+            ebas = e4.radio("Based on", ["essential", "all"], horizontal=True, key="ef_basis",
+                            format_func=lambda b: "essential expenses" if b == "essential" else "all expenses")
+            efp = S.emergency_fund_plan(ctx, cov, _cents(ecur) or 0, _cents(econ), ebas)
+            st.progress(efp["progress"] or 0.0, text=f"{(efp['progress'] or 0):.0%} of {money(efp['target_cents'], cur)}")
+            st.text(f"Target: {money(efp['target_cents'], cur)} = {efp['calculation']}\n"
+                    f"Remaining: {money(efp['remaining_cents'], cur)}"
+                    + (f"\nAt {money(_cents(econ), cur)} per month: about {efp['months_to_complete']} month(s)"
+                       if efp["months_to_complete"] else "") + (f"\n{efp['note']}" if efp.get("note") else ""))
         with st.form("goal_form", clear_on_submit=True):
             g1, g2 = st.columns(2)
             name = g1.text_input("Goal name", max_chars=40)
@@ -105,7 +130,8 @@ def render() -> None:
         for i, g in enumerate(goals):
             p = S.plan(g, start, ctx)
             with st.container(border=True):
-                st.markdown(f"**{md_escape(g.name)}** ({g.kind.replace('_', ' ')}) · target {money(g.target_cents, cur)}")
+                st.markdown(f"**{md_escape(g.name)}** ({g.kind.replace('_', ' ')}) · target {money(g.target_cents, cur)}"
+                            f" · status: **{p.get('status', 'reached')}**")
                 st.progress(min(p["progress"] or 0.0, 1.0), text=f"{(p['progress'] or 0):.0%} saved "
                                                                   f"({money(g.saved_cents, cur)} entered by you)")
                 lines = [f"Remaining: {money(p['remaining_cents'], cur)}"]
@@ -123,6 +149,25 @@ def render() -> None:
                     lines.append(f"Feasibility: {p['feasibility']}")
                 lines.append("Assumptions: " + "; ".join(p["assumptions"]))
                 st.text("\n".join(lines))
+                with st.expander("Edit goal"):
+                    with st.form(f"edit_goal_{i}"):
+                        n_saved = st.number_input(f"Already saved ({cur})", min_value=0.0, value=g.saved_cents / 100,
+                                                  key=f"eg_saved_{i}")
+                        n_target = st.number_input(f"Target amount ({cur})", min_value=0.01, value=g.target_cents / 100,
+                                                   key=f"eg_target_{i}")
+                        n_contrib = st.number_input(f"Monthly contribution ({cur})", min_value=0.0,
+                                                    value=(g.monthly_contribution_cents or 0) / 100, key=f"eg_con_{i}")
+                        n_month = st.text_input("Target month (YYYY-MM, optional)", value=g.target_month or "",
+                                                max_chars=7, key=f"eg_month_{i}")
+                        if st.form_submit_button("Save changes"):
+                            if n_month and not (len(n_month) == 7 and n_month[4] == "-" and n_month[:4].isdigit()
+                                                and n_month[5:].isdigit() and 1 <= int(n_month[5:]) <= 12):
+                                st.error("Use a target month like 2027-06, or leave it empty.")
+                            else:
+                                st.session_state["goals"][i].update(
+                                    saved_cents=_cents(n_saved), target_cents=_cents(n_target),
+                                    monthly_contribution_cents=_cents(n_contrib) or None, target_month=n_month or None)
+                                st.rerun()
                 if st.button("Remove goal", key=f"rm_goal_{i}"):
                     st.session_state["goals"].pop(i)
                     st.rerun()
@@ -137,7 +182,12 @@ def render() -> None:
         inc_chg = w2.slider("Change in monthly income (%)", -100, 100, 0, key="wi_inc")
         new_exp = w1.number_input(f"Add a recurring monthly expense ({cur})", min_value=0.0, value=0.0, key="wi_new")
         horizon = w2.slider("Horizon (months)", 1, 60, 12, key="wi_h")
-        sc = SC.Scenario(horizon_months=horizon,
+        exp_chg = w1.slider("Change in all expenses (%)", -50, 100, 0, key="wi_exp")
+        one_off = w2.number_input(f"Unexpected one-off expense ({cur})", min_value=0.0, value=0.0, key="wi_once")
+        g_sel = st.selectbox("Show the impact on a savings goal", ["(none)"] + [g.name for g in goals], key="wi_goal")
+        g_obj = next((g for g in goals if g.name == g_sel), None)
+        sc = SC.Scenario(horizon_months=horizon, expense_change_pct=exp_chg, one_off_expense_cents=_cents(one_off) or 0,
+                         goal_remaining_cents=max(g_obj.target_cents - g_obj.saved_cents, 0) if g_obj else None,
                          category_cuts_pct={cut_cat: cut_pct} if cut_cat != "(none)" and cut_pct else {},
                          extra_saving_cents=_cents(extra), income_change_pct=inc_chg,
                          new_recurring_expense_cents=_cents(new_exp),
@@ -152,6 +202,11 @@ def render() -> None:
                                                      for c in ("baseline_cumulative_net_cents",
                                                                "scenario_cumulative_net_cents", "savings_pot_cents")])
         st.line_chart(path, x="month", y=["baseline_cumulative_net", "scenario_cumulative_net", "savings_pot"])
+        gi = r.get("goal_impact")
+        if gi:
+            fmt = lambda v: "not reachable (no positive net)" if v is None else f"{v} month(s)"  # noqa: E731
+            st.text(f"Goal '{g_sel}': baseline {fmt(gi['baseline_months'])}, scenario {fmt(gi['scenario_months'])} "
+                    f"(assumption: {gi['assumption']})")
         st.text(f"{r['label']}. Assumptions: " + "; ".join(r["assumptions"]))
 
     with tabs[3]:
@@ -168,7 +223,9 @@ def render() -> None:
         else:
             {"cannot_confirm": st.warning, "within_known_means": st.success, "tight": st.warning,
              "not_supported": st.error}[res["verdict"]](res["summary"])
-            st.text("Known: " + "; ".join(f"{k}: {v}" for k, v in res["known_context"].items()) + "\n"
+            st.text(f"Remaining monthly {'surplus' if res['remaining_monthly_surplus_cents'] >= 0 else 'deficit'} "
+                    f"after this: {money(abs(res['remaining_monthly_surplus_cents']), cur)}\n"
+                    + "Known: " + "; ".join(f"{k}: {v}" for k, v in res["known_context"].items()) + "\n"
                     + "Effects: " + " ".join(res["effects"]) + "\n"
                     + "Missing information: " + "; ".join(res["missing_information"]) + "\n"
                     + "Assumptions: " + "; ".join(res["assumptions"])

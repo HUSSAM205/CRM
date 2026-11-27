@@ -129,3 +129,48 @@ def test_no_recommendation_without_evidence():
     c = validate_transactions(pl.DataFrame(rows)).clean
     s = build_summaries(c)
     assert R.generate(c, s, build_context(c, s, "B", "USD")) == []
+
+
+def test_financial_profile_splits_essential_discretionary_unclassified(env):
+    """Window M7..M12: utilities (essential) 150x3 + 300x3 -> 225.00; dining (discretionary) 100x3 + 200x3 -> 150.00;
+    housing (not classified in configs/advisor.yaml) 1,000.00. The three add up to average expenses 1,375.00."""
+    _, _, ctx = env
+    assert (ctx.avg_essential_cents, ctx.avg_discretionary_cents, ctx.avg_unclassified_cents) == (22500, 15000, 100000)
+    assert ctx.avg_essential_cents + ctx.avg_discretionary_cents + ctx.avg_unclassified_cents + ctx.avg_fees_cents \
+        == ctx.avg_expenses_cents
+
+
+def test_emergency_fund_plan_is_user_defined(env):
+    _, _, ctx = env
+    p = S.emergency_fund_plan(ctx, coverage_months=6, current_cents=50000, monthly_contribution_cents=25000)
+    assert p["target_cents"] == 6 * 22500 and p["remaining_cents"] == 85000
+    assert p["progress"] == round(50000 / 135000, 4) and p["months_to_complete"] == 4
+    assert S.emergency_fund_plan(ctx, 3, basis="all")["target_cents"] == 3 * 137500
+
+
+def test_goal_status(env):
+    _, _, ctx = env
+    assert S.plan(S.Goal("T", 500000, 100000, "2026-12", 50000), "2026-06", ctx)["status"] == "behind"
+    assert S.plan(S.Goal("T", 500000, 100000, "2026-12", 70000), "2026-06", ctx)["status"] == "on track"
+    assert S.plan(S.Goal("T", 500000), "2026-06", ctx)["status"] == "no plan"
+    assert S.plan(S.Goal("T", 500, 500), "2026-06", ctx)["status"] == "reached"
+
+
+def test_scenario_expense_change_one_off_and_goal_impact(env):
+    _, _, ctx = env
+    r = SC.simulate(ctx, SC.Scenario(horizon_months=12, expense_change_pct=10, one_off_expense_cents=50000,
+                                     goal_remaining_cents=300000))
+    assert r["scenario"]["monthly_net_cents"] == 250000 - 151250
+    assert r["difference_monthly_cents"] == -13750 and r["difference_over_horizon_cents"] == -13750 * 12 - 50000
+    assert r["path"][0]["scenario_cumulative_net_cents"] == 98750 - 50000
+    assert r["goal_impact"] == {"baseline_months": 3, "scenario_months": 4, "difference_months": 1,
+                                "assumption": "the entire monthly net is saved toward the goal"}
+    up = SC.simulate(ctx, SC.Scenario(income_change_pct=20))
+    assert up["scenario"]["monthly_net_cents"] == 300000 - 137500
+
+
+def test_recommendation_and_affordability_extra_fields(env):
+    c, s, ctx = env
+    recs = R.generate(c, s, ctx)
+    assert recs and all(r["missing_information"] and r["reason"] and r["next_action"] for r in recs)
+    assert A.assess(200000, ctx, payment="monthly")["remaining_monthly_surplus_cents"] == 112500 - 200000

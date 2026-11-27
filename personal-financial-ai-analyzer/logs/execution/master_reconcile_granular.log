@@ -1,0 +1,1 @@
+{"command":"run_guarded(python scripts/audit/reconcile_granular.py)","returncode":0,"seconds":53.93,"peak_rss_gb":0.902,"min_system_available_gb":15.15,"killed":null}

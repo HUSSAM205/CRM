@@ -95,3 +95,17 @@ def test_iso_t_separator_accepted_and_offsets_rejected_not_shifted():
     ts = res.clean.sort("transaction_timestamp")["transaction_timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S").to_list()
     assert ts == ["2026-01-05 10:00:00", "2026-01-06 11:30:00"]
     assert res.reason_counts == {"invalid_timestamp": 1}
+
+
+def test_file_whose_totals_would_overflow_is_refused_not_wrapped():
+    """Master audit M-02: Polars int64 sums wrap silently; 100,000 rows at the per-row bound summed to a
+    negative total. Such a file must be refused with a controlled error instead of producing wrong totals."""
+    rows = "\n".join(f"2026-01-{(i % 28) + 1:02d},-999999999999.99,USD" for i in range(100_000))
+    with pytest.raises(IngestionError, match="supported range"):
+        ingest(("Date,Amount,Currency\n" + rows + "\n").encode(), assume_completed=True)
+
+
+def test_large_but_safe_file_totals_stay_exact():
+    rows = "\n".join(f"2026-01-{(i % 28) + 1:02d},-999999999999.99,USD" for i in range(1_000))
+    res, _ = ingest(("Date,Amount,Currency\n" + rows + "\n").encode(), assume_completed=True)
+    assert res.clean["amount_cents"].sum() == 1_000 * 99_999_999_999_999

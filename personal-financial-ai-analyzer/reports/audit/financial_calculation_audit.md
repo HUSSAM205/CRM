@@ -19,7 +19,7 @@
 * several currencies;
 * missing categories;
 * duplicate IDs;
-* **very large amounts**: exact cents up to 9,999,999,999,999.99, and anything above 10¹² rejected;
+* **very large amounts**: exact cents up to 999,999,999,999.99 (the 10¹² bound), and anything above it rejected;
 * decimal precision: 0.10 + 0.20 is exact, 0.015 is rejected;
 * empty months (zero-filled within the observed range);
 * account switching;

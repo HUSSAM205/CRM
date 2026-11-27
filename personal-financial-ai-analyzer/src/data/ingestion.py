@@ -13,7 +13,7 @@ import re
 import polars as pl
 
 from src.data.schema import UNCATEGORIZED
-from src.data.validation import ValidationResult, validate_transactions
+from src.data.validation import TotalOutOfRangeError, ValidationResult, check_total_range, validate_transactions
 
 from src.utils.configuration import load_config
 
@@ -138,6 +138,10 @@ def ingest(data: bytes, mapping: dict[str, str | None] | None = None, **kw) -> t
     df = read_csv_bytes(data)
     mapping = mapping or suggest_mapping(df.columns)
     res = validate_transactions(apply_mapping(df, mapping, **kw))
+    try:
+        check_total_range(res.clean)
+    except TotalOutOfRangeError as e:
+        raise IngestionError(f"File refused: {e}.") from e
     return res, mapping
 
 

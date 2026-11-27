@@ -17,7 +17,7 @@ import numpy as np
 import polars as pl
 
 from src.evaluation.forecasting_metrics import evaluate, mase_scale
-from src.experiments.data_splitting import ALL_MONTHS, TEST_MONTHS, TRAIN_MONTHS, VALIDATION_MONTHS
+from src.experiments.data_splitting import ALL_MONTHS, TRAIN_MONTHS, VALIDATION_MONTHS
 from src.features.temporal_features import features_at
 from src.models.forecasting.baselines import BASELINES
 from src.models.forecasting.ets import ets_forecast

@@ -34,6 +34,21 @@ _PRECISION_TOL = 1e-6
 # Exact cents are verified up to 1e13 (reports/audit/financial_calculation_audit.md); int64 cents overflow
 # near 9.2e16. 1e12 currency units is far above any personal-finance amount and keeps a wide margin.
 MAX_ABS_AMOUNT = 1e12
+# Polars int64 sums wrap around silently on overflow (measured: 100,000 x 999,999,999,999.99 summed to a
+# negative total). Every total over a file is bounded by the sum of absolute amounts, so a file whose
+# absolute total reaches 2**62 cents (half the int64 range, margin for intermediate sums) is refused as a whole.
+SAFE_TOTAL_CENTS = 2 ** 62
+
+
+class TotalOutOfRangeError(ValueError):
+    """The amounts of one file add up beyond the range in which integer-cent totals are exact."""
+
+
+def check_total_range(clean: pl.DataFrame) -> None:
+    """Raise TotalOutOfRangeError if any aggregate of `clean` could overflow int64 cents (audit M-02)."""
+    if clean.height and float(clean["amount_cents"].cast(pl.Float64).abs().sum()) >= SAFE_TOTAL_CENTS:
+        raise TotalOutOfRangeError("the amounts in this file add up to more than the supported range "
+                                   f"({SAFE_TOTAL_CENTS / 100:,.0f} per file); totals would not be exact")
 
 
 @dataclass

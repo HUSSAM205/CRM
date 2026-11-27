@@ -1,0 +1,195 @@
+{
+ "scope": "all rows (no sampling)",
+ "rows": 50000000,
+ "columns": 9,
+ "accounts": 1000000,
+ "calendar": {
+  "distinct_days": "943",
+  "d0": "2024-01-01",
+  "d1": "2026-07-31"
+ },
+ "transactions_per_account": {
+  "min": 20,
+  "max": 92
+ },
+ "missing_values": {
+  "transaction_id": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "account_id": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "transaction_type": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "amount": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "currency": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "merchant_category": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "balance_after": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "transaction_timestamp": {
+   "null": 0,
+   "empty_string": 0
+  },
+  "status": {
+   "null": 0,
+   "empty_string": 0
+  }
+ },
+ "duplicates": {
+  "duplicate transaction_id rows": 0,
+  "fully identical rows (all 9 columns)": 0,
+  "same content (8 non-id columns), different transaction_id": 0,
+  "ids with non-standard suffix -zdl26nr51f60aaa959f": 200
+ },
+ "amount_checks": {
+  "non_finite_amount": 0,
+  "negative_amount": 0,
+  "zero_amount": 0,
+  "more_than_2_decimals": 0,
+  "non_finite_balance": 0,
+  "negative_balance_rows": 854494,
+  "balance_more_than_2_decimals": 0,
+  "log_q1": 2.658159431488745,
+  "log_q3": 4.1420229975388425,
+  "outlier_rule": "log(amount) outside [Q1-3*IQR, Q3+3*IQR] (investigated, not removed)",
+  "outlier_high": 48,
+  "outlier_low": 62,
+  "outlier_high_threshold_amount": 5397.0818896827095,
+  "outlier_low_threshold_amount": 0.16638826654023486
+ },
+ "distributions": {
+  "currency": {
+   "AUD": 2499058,
+   "CAD": 3499177,
+   "EUR": 9001468,
+   "GBP": 5000059,
+   "JPY": 2499646,
+   "USD": 27500592
+  },
+  "merchant_category": {
+   "cash": 3568889,
+   "dining": 3573003,
+   "education": 3569242,
+   "entertainment": 3577264,
+   "groceries": 3573561,
+   "healthcare": 3572288,
+   "insurance": 3569356,
+   "other": 3572682,
+   "retail": 3571506,
+   "subscription": 3571534,
+   "transfer": 3571454,
+   "transport": 3570482,
+   "travel": 3568268,
+   "utilities": 3570471
+  },
+  "transaction_type": {
+   "credit": 9998728,
+   "debit": 19999177,
+   "deposit": 2501085,
+   "fee": 3000311,
+   "interest": 1500674,
+   "refund": 2001601,
+   "transfer": 6999417,
+   "withdrawal": 3999007
+  },
+  "status": {
+   "completed": 45999107,
+   "failed": 1250047,
+   "pending": 2250253,
+   "reversed": 500593
+  }
+ },
+ "rows_by_month": {
+  "2024-01": 1641906,
+  "2024-02": 1537211,
+  "2024-03": 1643662,
+  "2024-04": 1592020,
+  "2024-05": 1643460,
+  "2024-06": 1589162,
+  "2024-07": 1644606,
+  "2024-08": 1642559,
+  "2024-09": 1590967,
+  "2024-10": 1642841,
+  "2024-11": 1591274,
+  "2024-12": 1642115,
+  "2025-01": 1645574,
+  "2025-02": 1484356,
+  "2025-03": 1642504,
+  "2025-04": 1591603,
+  "2025-05": 1643248,
+  "2025-06": 1591363,
+  "2025-07": 1646574,
+  "2025-08": 1644587,
+  "2025-09": 1589830,
+  "2025-10": 1642364,
+  "2025-11": 1589235,
+  "2025-12": 1645030,
+  "2026-01": 1642980,
+  "2026-02": 1484745,
+  "2026-03": 1645447,
+  "2026-04": 1590870,
+  "2026-05": 1643287,
+  "2026-06": 1590224,
+  "2026-07": 1644396
+ },
+ "accounts_with_negative_balance_rows": 37742,
+ "advertised_vs_measured": {
+  "rows": {
+   "advertised": 50000000,
+   "measured": 50000000
+  },
+  "columns": {
+   "advertised": 9,
+   "measured": 9
+  },
+  "currencies": {
+   "advertised": 6,
+   "measured": 6
+  },
+  "merchant_categories": {
+   "advertised": 14,
+   "measured": 14
+  },
+  "transaction_types": {
+   "advertised": 8,
+   "measured": 8
+  },
+  "statuses": {
+   "advertised": 4,
+   "measured": 4
+  },
+  "date_min": {
+   "advertised": "2024-01-01",
+   "measured": "2024-01-01"
+  },
+  "date_max": {
+   "advertised": "2026-07-31",
+   "measured": "2026-07-31"
+  }
+ },
+ "integrity_checks": {
+  "passed": 27,
+  "total": 27,
+  "overall": "PASS"
+ },
+ "sources": [
+  "reports/data_audit/*",
+  "reports/verification/dataset_integrity.json",
+  "reports/verification/ledger_semantics.json"
+ ]
+}

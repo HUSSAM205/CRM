@@ -5,9 +5,8 @@ import streamlit as st
 
 from app.utils import session
 from src.analytics.aggregation import build_summaries
-from src.data.ingestion import SYNONYMS, IngestionError, apply_mapping, read_csv_bytes, suggest_mapping
+from src.data.ingestion import SYNONYMS, IngestionError, ingest, read_csv_bytes, suggest_mapping
 from src.data.schema import ALLOWED_CURRENCIES
-from src.data.validation import validate_transactions
 from src.utils.configuration import PROJECT_ROOT
 
 DEMO_FILE = PROJECT_ROOT / "data/samples/demo_transactions.csv"
@@ -18,7 +17,7 @@ LABELS = {"transaction_timestamp": "Date / time *", "amount": "Amount *", "curre
 
 
 def load_bytes(data: bytes, mapping: dict, source: str, **kw) -> None:
-    res = validate_transactions(apply_mapping(read_csv_bytes(data), mapping, **kw))
+    res, _ = ingest(data, mapping, **kw)          # same path as the tests: validation + total-range guard (M-02)
     if res.clean.is_empty():
         raise IngestionError("No valid rows remained after validation; see the reasons below.")
     session.set_data(res.clean, res.rejected, build_summaries(res.clean), source, mapping)

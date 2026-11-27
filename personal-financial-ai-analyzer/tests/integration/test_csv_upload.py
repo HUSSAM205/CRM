@@ -76,3 +76,16 @@ def test_app_never_writes_uploads_to_disk():
     out = subprocess.run(["grep", "-rnE", r"write_(csv|parquet)|open\(.*['\"]w", str(ROOT / "app")],
                          capture_output=True, text=True).stdout
     assert "write_parquet" not in out and "open(" not in out, out
+
+
+def test_app_upload_path_refuses_overflowing_file(monkeypatch):
+    """M-02 on the app path: app.components.upload.load_bytes must apply the same total-range guard."""
+    from app.components import upload
+    from src.data.ingestion import IngestionError, suggest_mapping
+    stored = []
+    monkeypatch.setattr(upload.session, "set_data", lambda *a, **k: stored.append(a))
+    rows = "\n".join(f"2026-01-{(i % 28) + 1:02d},-999999999999.99,USD" for i in range(100_000))
+    data = ("Date,Amount,Currency\n" + rows + "\n").encode()
+    with pytest.raises(IngestionError, match="supported range"):
+        upload.load_bytes(data, suggest_mapping(["Date", "Amount", "Currency"]), "t", assume_completed=True)
+    assert not stored

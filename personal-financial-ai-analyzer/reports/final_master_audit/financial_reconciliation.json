@@ -1,0 +1,15 @@
+{
+ "overall": "PASS",
+ "checks": 9488,
+ "mismatches": 0,
+ "currency_month_keys": 186,
+ "currency_month_category_keys": 2604,
+ "raw_rows": 50000000,
+ "pipeline_records": 50000000,
+ "rows_equal": true,
+ "raw_accounts": 1000000,
+ "pipeline_accounts": 1000000,
+ "accounts_equal": true,
+ "seconds": 53.3,
+ "mismatch_detail": []
+}

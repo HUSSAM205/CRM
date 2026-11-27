@@ -1,0 +1,8 @@
+# Gate 4: partitioned aggregation (scripts/build_aggregates.py)
+spending_types: [debit, withdrawal, fee]      # define an "active month" (D-12)
+outputs:
+  monthly_dir: data/processed/monthly                 # account x currency x month summaries (all accounts)
+  monthly_category_dir: data/processed/monthly_category
+  series_stats_dir: data/processed/series_stats       # per account-currency activity counts
+  rejected_dir: data/interim/rejected                 # every rejected row with reason
+write_full_clean_copy: false   # avoid a 2nd 50M-row copy; derived tables + rejects only

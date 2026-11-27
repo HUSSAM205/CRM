@@ -1,0 +1,18 @@
+# HW2 Table 8.1 (verified against data coverage: reports/verification/methodology_feasibility.json)
+split:
+  train: ["2024-01", "2025-12"]
+  validation: ["2026-01", "2026-04"]
+  test: ["2026-05", "2026-07"]
+seeds:
+  primary: 42
+  robustness: [42, 43, 44]
+forecasting:
+  min_active_train_months: 12        # HW2 5.4, counted in the training period only (D-08)
+  primary_series: 20000              # seeded sample of eligible series (HW2 6.3 subset)
+  account_disjoint_series: 20000     # disjoint accounts for the generalization experiment (CF-05)
+anomaly:
+  selected_accounts: 10000           # ~242 positives at 1% (methodology_feasibility.json)
+  injection_rates: [0.005, 0.01, 0.02]
+  primary_rate: 0.01
+outputs:
+  splits_dir: data/processed/splits

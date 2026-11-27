@@ -1,0 +1,14 @@
+scored_records: completed debit/withdrawal/fee in the test period of selected accounts
+history: completed debit/withdrawal/fee of the same account BEFORE the test period (train+validation months)
+features: [log_amount, hour, day_of_week, category_history_share, amount_to_category_median_ratio]
+robust_zscore:
+  on: log(amount) vs the account's history, z = 0.6745 * (x - median) / MAD
+isolation_forest:
+  n_estimators: 100
+  max_samples: auto        # min(256, n)
+  contamination: auto
+  random_state: 42
+injection:
+  amount_multiplier: [5, 10]
+  scenarios: [amount, hour, category]
+label: "Anomaly review candidate (not confirmed fraud)"

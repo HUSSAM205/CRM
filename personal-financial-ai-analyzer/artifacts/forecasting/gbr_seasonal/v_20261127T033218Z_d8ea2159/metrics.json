@@ -1,0 +1,18 @@
+{
+  "validation": {
+    "MAE": 26.644822206586298,
+    "RMSE": 68.94897255817462,
+    "MASE": 0.5529230043954713,
+    "n_series": 20000,
+    "n_months": 4,
+    "mase_excluded_zero_scale": 0
+  },
+  "test": {
+    "MAE": 26.231778551804094,
+    "RMSE": 72.19017695261557,
+    "MASE": 0.5506324571718113,
+    "n_series": 20000,
+    "n_months": 3,
+    "mase_excluded_zero_scale": 0
+  }
+}

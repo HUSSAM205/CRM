@@ -1,0 +1,66 @@
+{
+  "forecasting": {
+    "gbr": {
+      "history": [
+        {
+          "path": "artifacts/forecasting/gbr/v_20261127T033218Z_d8ea2159",
+          "registered_utc": "2026-11-27T03:32:18.574240+00:00"
+        }
+      ],
+      "current": "artifacts/forecasting/gbr/v_20261127T033218Z_d8ea2159",
+      "role": "kept"
+    },
+    "gbr_seasonal": {
+      "history": [
+        {
+          "path": "artifacts/forecasting/gbr_seasonal/v_20261127T033218Z_d8ea2159",
+          "registered_utc": "2026-11-27T03:32:18.589033+00:00"
+        }
+      ],
+      "current": "artifacts/forecasting/gbr_seasonal/v_20261127T033218Z_d8ea2159",
+      "role": "kept"
+    },
+    "selection": {
+      "history": [
+        {
+          "path": "artifacts/forecasting/selection/v_20261127T033218Z_fce4aa93",
+          "registered_utc": "2026-11-27T03:32:18.589563+00:00"
+        }
+      ],
+      "current": "artifacts/forecasting/selection/v_20261127T033218Z_fce4aa93",
+      "role": "deployed choice"
+    }
+  },
+  "anomaly": {
+    "isolation_forest_global": {
+      "history": [
+        {
+          "path": "artifacts/anomaly/isolation_forest_global/v_20261127T033806Z_ef2215e8",
+          "registered_utc": "2026-11-27T03:38:06.485736+00:00"
+        }
+      ],
+      "current": "artifacts/anomaly/isolation_forest_global/v_20261127T033806Z_ef2215e8",
+      "role": "deployed (loaded by app)"
+    },
+    "robust_zscore": {
+      "history": [
+        {
+          "path": "artifacts/anomaly/robust_zscore/v_20261127T033806Z_ef2215e8",
+          "registered_utc": "2026-11-27T03:38:06.491292+00:00"
+        }
+      ],
+      "current": "artifacts/anomaly/robust_zscore/v_20261127T033806Z_ef2215e8",
+      "role": "experiment/app-computed"
+    },
+    "isolation_forest_per_account": {
+      "history": [
+        {
+          "path": "artifacts/anomaly/isolation_forest_per_account/v_20261127T033806Z_ef2215e8",
+          "registered_utc": "2026-11-27T03:38:06.496254+00:00"
+        }
+      ],
+      "current": "artifacts/anomaly/isolation_forest_per_account/v_20261127T033806Z_ef2215e8",
+      "role": "experiment/app-computed"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "model": "gbr_seasonal",
+  "params": {
+    "learning_rate": 0.05,
+    "max_iter": 100,
+    "max_depth": 3,
+    "loss": "absolute_error"
+  },
+  "seed": 42,
+  "trained_on": "primary panel, target months 2024-07..2026-04 (train+validation refit)",
+  "training_series": 20000,
+  "training_rows": 440000,
+  "selection_status": "kept",
+  "fingerprint": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+    "libraries": {
+      "polars": "2.2.0",
+      "pyarrow": "26.0.1",
+      "numpy": "2.5.5",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "statsmodels": "0.15.0",
+      "joblib": "1.6.0",
+      "streamlit": "1.67.0",
+      "plotly": "7.2.0"
+    },
+    "dataset": {
+      "repo": "ziadatalabs/FreeFinancialTransactions50M",
+      "revision": "98cf38f9b2f1a9994930f52a4d490cb2b5777acc",
+      "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17"
+    }
+  }
+}

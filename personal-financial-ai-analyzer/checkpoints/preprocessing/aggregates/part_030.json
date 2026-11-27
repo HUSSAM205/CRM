@@ -1,0 +1,1 @@
+{"partition": 30, "rows": 1000022, "clean": 1000022, "rejected": 0, "reject_reasons": {}, "unresolved_type_rows": 0, "monthly_rows": 775480, "series": 115972, "worker_seconds": 3.13, "worker_ru_maxrss_gb": 1.133}

@@ -1,0 +1,55 @@
+{
+  "selected_model": "gbr",
+  "rule": "advanced model kept only if it beats the best baseline on BOTH validation MAE and MASE",
+  "min_active_train_months": 12,
+  "validation": {
+    "naive": {
+      "MAE": 44.556180000000005,
+      "RMSE": 97.4181509945272,
+      "MASE": 0.9078323813599308,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    },
+    "seasonal_naive": {
+      "MAE": 50.105253749999996,
+      "RMSE": 103.02578059183779,
+      "MASE": 0.9450177046565464,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    },
+    "moving_average_3": {
+      "MAE": 42.507432208333334,
+      "RMSE": 79.91820844995648,
+      "MASE": 0.8453016653918614,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    },
+    "ets": {
+      "MAE": 41.7480905091023,
+      "RMSE": 72.09101588067318,
+      "MASE": 0.8118811983662813,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    },
+    "gbr": {
+      "MAE": 26.55355482952288,
+      "RMSE": 68.9896443340281,
+      "MASE": 0.5509010202447806,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    },
+    "gbr_seasonal": {
+      "MAE": 26.644822206586298,
+      "RMSE": 68.94897255817462,
+      "MASE": 0.5529230043954713,
+      "n_series": 20000,
+      "n_months": 4,
+      "mase_excluded_zero_scale": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "purpose": "positive control: robust z on pure amount multiplication; verifies pipeline/label alignment",
+  "results": {
+    "x1000": {
+      "precision_at_k": 0.7967,
+      "roc_auc": 0.9988,
+      "positives": 241
+    },
+    "x50": {
+      "precision_at_k": 0.444,
+      "roc_auc": 0.972,
+      "positives": 241
+    },
+    "x10": {
+      "precision_at_k": 0.1452,
+      "roc_auc": 0.8366,
+      "positives": 241
+    },
+    "x5": {
+      "precision_at_k": 0.0788,
+      "roc_auc": 0.7031,
+      "positives": 241
+    }
+  }
+}

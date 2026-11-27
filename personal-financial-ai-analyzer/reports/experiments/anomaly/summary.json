@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-11-27T03:38:06.436239+00:00",
+  "seconds": 239.0,
+  "accounts": 10000,
+  "history_rows": 223654,
+  "scored_rows": 24069,
+  "accounts_without_history_rows": 0,
+  "primary_rate": 0.01,
+  "primary_seed": 42,
+  "primary": [
+    {
+      "rate": 0.01,
+      "seed": 42,
+      "model": "robust_zscore",
+      "n": 24069,
+      "positives": 241,
+      "precision_at_k": 0.03734439834024896,
+      "recall_at_k": 0.03734439834024896,
+      "precision_at_50": 0.02,
+      "precision_at_100": 0.03,
+      "roc_auc": 0.5811251381790801,
+      "average_precision": 0.016809728317242992,
+      "recall_at_k_amount": 0.10526315789473684,
+      "roc_auc_amount": 0.8041252882500022,
+      "recall_at_k_category": 0.0,
+      "roc_auc_category": 0.4277989350031817,
+      "recall_at_k_hour": 0.012658227848101266,
+      "roc_auc_hour": 0.5335054175175253
+    },
+    {
+      "rate": 0.01,
+      "seed": 42,
+      "model": "isolation_forest_per_account",
+      "n": 24069,
+      "positives": 241,
+      "precision_at_k": 0.008298755186721992,
+      "recall_at_k": 0.008298755186721992,
+      "precision_at_50": 0.0,
+      "precision_at_100": 0.01,
+      "roc_auc": 0.5594551408190233,
+      "average_precision": 0.011214814288327322,
+      "recall_at_k_amount": 0.013157894736842105,
+      "roc_auc_amount": 0.6362030958712881,
+      "recall_at_k_category": 0.011627906976744186,
+      "roc_auc_category": 0.49881759196723807,
+      "recall_at_k_hour": 0.0,
+      "roc_auc_hour": 0.5516321612909394
+    },
+    {
+      "rate": 0.01,
+      "seed": 42,
+      "model": "isolation_forest_global",
+      "n": 24069,
+      "positives": 241,
+      "precision_at_k": 0.04149377593360996,
+      "recall_at_k": 0.04149377593360996,
+      "precision_at_50": 0.02,
+      "precision_at_100": 0.03,
+      "roc_auc": 0.5874762387706642,
+      "average_precision": 0.015411600581286385,
+      "recall_at_k_amount": 0.11842105263157894,
+      "roc_auc_amount": 0.7507380194022071,
+      "recall_at_k_category": 0.0,
+      "roc_auc_category": 0.5091532923939396,
+      "recall_at_k_hour": 0.012658227848101266,
+      "roc_auc_hour": 0.5156772268770067
+    }
+  ],
+  "fingerprint": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+    "libraries": {
+      "polars": "2.2.0",
+      "pyarrow": "26.0.1",
+      "numpy": "2.5.5",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "statsmodels": "0.15.0",
+      "joblib": "1.6.0",
+      "streamlit": "1.67.0",
+      "plotly": "7.2.0"
+    },
+    "dataset": {
+      "repo": "ziadatalabs/FreeFinancialTransactions50M",
+      "revision": "98cf38f9b2f1a9994930f52a4d490cb2b5777acc",
+      "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17"
+    }
+  }
+}

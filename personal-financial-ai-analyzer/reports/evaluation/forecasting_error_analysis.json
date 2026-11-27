@@ -1,0 +1,190 @@
+{
+  "models": {
+    "naive": {
+      "MAE": 42.944951499999995,
+      "RMSE": 97.46311987590485,
+      "MASE": 0.8991772953364557,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "seasonal_naive": {
+      "MAE": 51.601934666666665,
+      "RMSE": 106.67482225430079,
+      "MASE": 0.9775486187614876,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "moving_average_3": {
+      "MAE": 39.25868722222222,
+      "RMSE": 79.53404651084968,
+      "MASE": 0.8212781009289866,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "ets": {
+      "MAE": 40.59267249266712,
+      "RMSE": 74.51758861388446,
+      "MASE": 0.8040583500131121,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "gbr": {
+      "MAE": 27.194487650595793,
+      "RMSE": 71.39894457920767,
+      "MASE": 0.570209063559069,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "gbr_seasonal": {
+      "MAE": 26.231778551804094,
+      "RMSE": 72.19017695261557,
+      "MASE": 0.5506324571718113,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    }
+  },
+  "reference": {
+    "zero": {
+      "MAE": 25.373847166666668,
+      "RMSE": 72.76397648366257,
+      "MASE": 0.532256215789765,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "series_train_median": {
+      "MAE": 26.666762916666666,
+      "RMSE": 71.81272291889682,
+      "MASE": 0.5565647425585645,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "series_train_mean": {
+      "MAE": 40.55090139285714,
+      "RMSE": 71.2989420256587,
+      "MASE": 0.7960585782465094,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    },
+    "global_train_median": {
+      "MAE": 25.373847166666668,
+      "RMSE": 72.76397648366257,
+      "MASE": 0.532256215789765,
+      "n_series": 20000,
+      "n_months": 3,
+      "mase_excluded_zero_scale": 0
+    }
+  },
+  "prediction_spread": {
+    "naive": {
+      "unique_values": 12274,
+      "p05": 0.0,
+      "p50": 0.0,
+      "p95": 121.98,
+      "std": 68.77675729707374
+    },
+    "seasonal_naive": {
+      "unique_values": 14852,
+      "p05": 0.0,
+      "p50": 5.63,
+      "p95": 160.17,
+      "std": 80.52808886955614
+    },
+    "moving_average_3": {
+      "unique_values": 11319,
+      "p05": 0.0,
+      "p50": 10.243333333333334,
+      "p95": 88.01716666666663,
+      "std": 39.298464152253224
+    },
+    "ets": {
+      "unique_values": 7843,
+      "p05": 11.412853070212577,
+      "p50": 29.41475249546273,
+      "p95": 57.27789814741348,
+      "std": 26.047582377316164
+    },
+    "gbr": {
+      "unique_values": 156,
+      "p05": 0.0,
+      "p50": 6.383074052104426,
+      "p95": 11.712342325070843,
+      "std": 4.47854005802986
+    },
+    "gbr_seasonal": {
+      "unique_values": 4,
+      "p05": 0.0,
+      "p50": 0.0,
+      "p95": 10.456407012334925,
+      "std": 4.463516128782229
+    }
+  },
+  "error_by_month_type": {
+    "naive": {
+      "MAE_zero_months": 25.394676262856837,
+      "MAE_active_months": 71.65468215964503
+    },
+    "seasonal_naive": {
+      "MAE_zero_months": 37.41098101350807,
+      "MAE_active_months": 74.81629750032948
+    },
+    "moving_average_3": {
+      "MAE_zero_months": 24.234004887611786,
+      "MAE_active_months": 63.83691048338678
+    },
+    "ets": {
+      "MAE_zero_months": 32.054839842661735,
+      "MAE_active_months": 54.5593409629149
+    },
+    "gbr": {
+      "MAE_zero_months": 5.606629259124437,
+      "MAE_active_months": 62.5091246897918
+    },
+    "gbr_seasonal": {
+      "MAE_zero_months": 2.534075091711211,
+      "MAE_active_months": 64.99781922058584
+    },
+    "zero": {
+      "MAE_zero_months": 0.0,
+      "MAE_active_months": 66.88181830162983
+    },
+    "series_train_median": {
+      "MAE_zero_months": 3.9176573032199156,
+      "MAE_active_months": 63.88103369503141
+    },
+    "series_train_mean": {
+      "MAE_zero_months": 32.41613250453657,
+      "MAE_active_months": 53.85821541536705
+    },
+    "global_train_median": {
+      "MAE_zero_months": 0.0,
+      "MAE_active_months": 66.88181830162983
+    }
+  },
+  "actual_zero_share": 0.6206166666666667,
+  "note": "Diagnostic only; reference predictors are NOT HW2 baselines and were NOT used for selection.",
+  "temporal_signal_and_validation_zero": {
+    "within_series_autocorr_lag1": -0.043687425775686614,
+    "lag2": -0.041887117130517994,
+    "lag3": -0.04492723894830989,
+    "lag12": -0.04419665312907838,
+    "zero_forecast_validation": {
+      "MAE": 24.696729125,
+      "RMSE": 70.43687252031957,
+      "MASE": 0.5111990271514064
+    },
+    "gbr_validation": {
+      "MAE": 26.55355482952288,
+      "RMSE": 68.9896443340281,
+      "MASE": 0.5509010202447806
+    }
+  }
+}

@@ -1,0 +1,11 @@
+kind,name,MAE,RMSE,MASE
+reference (diagnostic),zero,25.374,72.764,0.532
+reference (diagnostic),global_train_median,25.374,72.764,0.532
+model,gbr_seasonal,26.232,72.19,0.551
+reference (diagnostic),series_train_median,26.667,71.813,0.557
+model,gbr,27.194,71.399,0.57
+model,moving_average_3,39.259,79.534,0.821
+reference (diagnostic),series_train_mean,40.551,71.299,0.796
+model,ets,40.593,74.518,0.804
+model,naive,42.945,97.463,0.899
+model,seasonal_naive,51.602,106.675,0.978

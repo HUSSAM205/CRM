@@ -75,3 +75,9 @@ def test_every_input_row_accounted_for():
     df = frame({}, {"amount": "x"}, {"currency": "ABC"}, {}, {"status": "?"})
     r = validate_transactions(df)
     assert r.clean.height + r.rejected.height == df.height
+
+
+def test_fallback_label_is_canonical_whatever_its_source():
+    r = validate_transactions(frame({"merchant_category": ""}, {"merchant_category": "uncategorized"},
+                                    {"merchant_category": "UNCATEGORIZED"}, {"merchant_category": "Groceries"}))
+    assert r.clean["merchant_category"].to_list() == ["Uncategorized"] * 3 + ["groceries"]

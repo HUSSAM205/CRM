@@ -1,0 +1,21 @@
+[
+  {
+    "rate": 0.01,
+    "seed": 42,
+    "model": "isolation_forest_global",
+    "n": 24069,
+    "positives": 241,
+    "precision_at_k": 0.04149377593360996,
+    "recall_at_k": 0.04149377593360996,
+    "precision_at_50": 0.02,
+    "precision_at_100": 0.03,
+    "roc_auc": 0.5874762387706642,
+    "average_precision": 0.015411600581286385,
+    "recall_at_k_amount": 0.11842105263157894,
+    "roc_auc_amount": 0.7507380194022071,
+    "recall_at_k_category": 0.0,
+    "roc_auc_category": 0.5091532923939396,
+    "recall_at_k_hour": 0.012658227848101266,
+    "roc_auc_hour": 0.5156772268770067
+  }
+]

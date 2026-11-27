@@ -24,7 +24,7 @@ def render() -> None:
         st.caption(f"{t['excluded_status_records']} pending, failed or reversed record(s) are excluded from "
                    "these totals.")
     m = s.monthly.filter((pl.col("account_id") == acc) & (pl.col("currency") == cur) & pl.col("month").is_in(sel))
-    st.plotly_chart(charts.monthly_trend(m, cur), use_container_width=True)
+    st.plotly_chart(charts.monthly_trend(m, cur), width="stretch")
     st.download_button("Download monthly report (CSV)", exports.monthly_report(s, acc, cur),
                        file_name=f"monthly_report_{cur}.csv", mime="text/csv")
     st.caption(alerts.DISCLAIMER)

@@ -4,6 +4,7 @@ from __future__ import annotations
 REASONS = {
     "invalid_timestamp": "Date/time could not be read (expected YYYY-MM-DD or YYYY-MM-DD HH:MM:SS).",
     "invalid_amount": "Amount is not a number.",
+    "amount_out_of_range": "Amount is larger than 1,000,000,000,000 and was not accepted.",
     "negative_amount": "Amount is negative but a transaction type was also given (amounts must be magnitudes).",
     "amount_precision": "Amount has more than 2 decimal places.",
     "unknown_currency": "Currency is not one of USD, EUR, GBP, CAD, AUD, JPY.",

@@ -28,6 +28,11 @@ def render() -> None:
             tables.show(rej.with_columns((pl.col("source_row") + 2).alias("file_line")).head(200), height=240)
     acc, cur = st.session_state["account"], st.session_state["currency"]
     view = clean.filter((pl.col("account_id") == acc) & (pl.col("currency") == cur))
+    if not view.is_empty():
+        d0, d1 = view["transaction_timestamp"].min().date(), view["transaction_timestamp"].max().date()
+        rng = st.date_input("Date range", value=(d0, d1), min_value=d0, max_value=d1, key="tx_dates")
+        if isinstance(rng, (tuple, list)) and len(rng) == 2:
+            view = view.filter(pl.col("transaction_timestamp").dt.date().is_between(pl.lit(rng[0]), pl.lit(rng[1])))
     f1, f2, f3 = st.columns(3)
     cats = f1.multiselect("Category", sorted(view["merchant_category"].unique().to_list()), key="tx_cat")
     types = f2.multiselect("Type", sorted(view["transaction_type"].unique().to_list()), key="tx_type")

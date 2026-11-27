@@ -1,0 +1,8 @@
+{
+ "panel_series": 20000,
+ "accounts_first_record_after_2024_01": 2857,
+ "zero_cells_before_first_record": 3357,
+ "panel_train_cells": 480000,
+ "share_of_train_cells": 0.00699,
+ "accounts_last_record_before_2026_07": 3963
+}

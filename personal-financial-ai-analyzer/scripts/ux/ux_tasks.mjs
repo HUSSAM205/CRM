@@ -102,12 +102,12 @@ await task(6, "Filter a category", async () => {
 await task(7, "Change a budget", async () => {
   await nav("Budget");
   await main().getByRole("combobox").first().click(); await page.keyboard.type(EXP.budget_month); await page.keyboard.press("Enter"); await idle();
-  const grid = main().locator('[data-testid="stDataFrame"]').first();
+  await page.waitForTimeout(2000);   // the editor re-renders under a new key after the month changes
+  const grid = main().locator('[data-testid="stDataFrame"] canvas').first();   // the grid canvas, not its container
   const box = await grid.boundingBox();
   // double-click the budget cell (2nd column) of the target row: header ~35px, rows ~35px (CSS px)
-  await page.mouse.dblclick(box.x + 250, box.y + 35 + 35 * (EXP.budget_row_index + 0.5)); await idle();
+  await page.mouse.dblclick(box.x + 250, box.y + 35 + 35 * (EXP.budget_row_index + 0.5)); await page.waitForTimeout(800);
   await page.keyboard.press("ControlOrMeta+a"); await page.keyboard.type("0.01"); await page.keyboard.press("Enter"); await idle();
-  await page.mouse.click(box.x + box.width + 5, box.y - 30); await idle();
   await expectText(main(), `${EXP.budget_category}: Over budget`);
   return `${EXP.budget_category} budget set to 0.01 -> over-budget alert shown`;
 });
@@ -145,6 +145,48 @@ await task(12, "Delete uploaded data", async () => {
   await expectText(main(), "Load data first");
   return "data purged; pages show the empty state";
 });
+
+await task(13, "Switch account (isolation)", async () => {
+  await nav("Transactions");
+  await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
+  await nav("Overview");
+  const sb = page.locator('[data-testid="stSidebar"]');
+  await sb.getByLabel("Account", { exact: true }).click(); await page.keyboard.type(EXP.account2); await page.keyboard.press("Enter"); await idle();
+  const val = async (label) => main().locator('[data-testid="stMetric"]', { hasText: label }).first().locator('[data-testid="stMetricValue"]').innerText();
+  const got = { expenses: (await val("Expenses")).trim(), income: (await val("Income (inflows)")).trim() };
+  if (got.expenses !== EXP.account2_expenses || got.income !== EXP.account2_income)
+    throw new Error(`account2 totals ${JSON.stringify(got)} != ${EXP.account2_expenses} / ${EXP.account2_income}`);
+  return `switched to ${EXP.account2} (${EXP.account2_currency}); totals equal that account's own data`;
+});
+
+await task(14, "Invalid upload keeps existing data", async () => {
+  fs.writeFileSync("/tmp/all_invalid.csv", "Date,Amount,Currency\nnot-a-date,abc,XXX\n");
+  await nav("Transactions");
+  await page.locator('[data-testid="stFileUploader"] input[type="file"]').setInputFiles("/tmp/all_invalid.csv"); await idle();
+  await page.getByText("All rows in this file are completed").click(); await idle();
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  await expectText(main(), "No valid rows remained");
+  await expectText(page.locator('[data-testid="stSidebar"]'), "Loaded: demo");
+  return "fully invalid file rejected with a message; previously loaded demo data still active";
+});
+
+// Date-range filter: Streamlit 1.67 renders it as hidden native date inputs that cannot be driven by a
+// browser script; it is verified through the real widget state in tests/integration/test_dashboard.py
+// (test_transactions_date_filter).
+
+await task(16, "Reload the application", async () => {
+  await page.reload(); await idle();
+  await expectText(page.locator('[data-testid="stSidebar"]'), "No data loaded");
+  return "a reload starts a new session: uploaded data is not persisted (privacy by design)";
+});
+
+// fresh screenshots of all six pages with demo data
+await nav("Transactions"); await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
+for (const [name, file] of [["Overview", "page_1_overview"], ["Transactions", "page_2_transactions"], ["Analytics", "page_3_analytics"],
+                            ["AI predictions", "page_4_ai_predictions"], ["Budget", "page_5_budget"], ["Financial assistant", "page_6_assistant"]]) {
+  await nav(name); await page.waitForTimeout(1500);
+  await page.screenshot({ path: path.join(SHOTS, `${file}.png`), fullPage: true });
+}
 
 await browser.close();
 const summary = { run_at_utc: new Date().toISOString(), base_url: BASE, tasks: results.length,

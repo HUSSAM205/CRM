@@ -1,0 +1,10 @@
+# Project Streamlit settings (read automatically when the app is started from this folder).
+[browser]
+gatherUsageStats = false       # privacy: no usage telemetry leaves the computer (security audit S-03)
+
+[client]
+showErrorDetails = "type"      # show only the error type, not tracebacks or data in the browser (S-04)
+toolbarMode = "minimal"
+
+[server]
+maxUploadSize = 50             # MB; matches configs/app.yaml upload.max_bytes (HW2 Table 10.1)

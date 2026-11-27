@@ -1,0 +1,135 @@
+# Audit start checkpoint
+utc: 2026-11-27T04:15:13Z
+branch: claude/hopeful-noether-t6vfi7
+head: 0849ff5a677e385712472ef674b9e09433c432bf
+remote head: 0849ff5a677e385712472ef674b9e09433c432bf
+uncommitted changes: 1
+tag: audit-start-20261127T041513Z
+
+## dataset sha256 BEFORE audit
+b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17  data/raw/transactions_50M.parquet
+1594749644 bytes, mtime 2026-11-27 02:40:04.492438208 +0000
+
+## inventory (tracked files by top dir)
+      1 .env.example
+      1 .gitignore
+      1 .python-version
+      1 CHANGELOG.md
+      1 CLAUDE.md
+      1 DECISIONS.md
+      1 EXPERIMENT_REGISTRY.md
+      1 KNOWN_ISSUES.md
+      1 NEXT_ACTION.md
+      1 PROJECT_STATUS.md
+      1 README.md
+      2 __init__.py
+      1 academic_implementation_matrix.md
+      1 academic_source_analysis.md
+      5 analytics
+      8 anomaly
+      1 anomaly_detection.yaml
+      1 app.yaml
+      1 architecture.md
+      1 architecture_decisions.md
+      4 assistant
+      1 benchmark_resources.py
+      1 benchmarks
+      3 budget
+      1 build_aggregates.py
+      7 components
+      1 conftest.py
+      1 connectors_and_tools_audit.md
+      1 create_splits.py
+     25 data_audit
+      1 data_dictionary.md
+      1 data_quality.md
+      1 dataset.yaml
+      1 dataset_provenance.md
+      1 download_dataset.py
+      1 downloads
+      1 environment_audit.md
+      1 evaluate_models.py
+      8 evaluation
+      1 evaluation_methodology.md
+      4 execution
+      1 experimental_design.md
+     23 experiments
+      1 experiments.yaml
+      4 features
+      5 figures
+      3 final_evidence
+      1 final_results.md
+      1 final_validation_report.md
+      1 financial_rules.md
+      1 financial_rules.yaml
+      4 fixtures
+      9 forecasting
+      1 forecasting.yaml
+      1 generate_final_evidence.py
+      1 generate_verification_reports.py
+      1 hardware_audit.md
+      1 implementation_roadmap.md
+      1 installation_guide.md
+      4 integration
+      1 investigate_ledger.py
+      1 leakage_analysis.md
+      1 limitations.md
+      1 local_vs_colab_benchmark.md
+      1 logging.yaml
+      1 main.py
+      1 metadata
+      1 model_methodology.md
+      1 model_registry.yaml
+     11 models
+      7 pages
+      1 prepare_demo_sample.py
+    101 preprocessing
+      1 preprocessing.md
+      1 preprocessing.yaml
+      1 project_inventory.py
+      1 pyproject.toml
+      3 regression
+      1 reproducibility.md
+      1 requirements-lock.txt
+      1 requirements.txt
+      1 requirements_conflicts.md
+      1 requirements_traceability.md
+      1 resource_budget.md
+      1 resource_limits.yaml
+      5 rules
+      1 run.bat
+      1 run.ps1
+      1 run_all_tests.py
+      1 run_application.py
+      1 run_audit.py
+      1 run_full_pipeline.py
+      1 run_preprocessing.py
+     12 screenshots
+      1 setup.bat
+      1 setup.ps1
+      1 setup_environment.py
+      1 test.bat
+      1 test.ps1
+      1 train.bat
+      1 train.ps1
+      1 train_anomaly.py
+      1 train_forecasting.py
+      1 troubleshooting.md
+      9 unit
+      1 user_guide.md
+     10 utils
+      2 ux
+      2 ux_tasks
+    424 verification
+      1 verify_artifacts.py
+      1 verify_dataset.py
+      1 verify_environment.py
+      1 verify_methodology.py
+      7 workers
+
+## untracked/ignored large local data
+1.5G	data/raw
+556M	data/processed
+208K	data/interim
+37M	checkpoints
+948M	.venv

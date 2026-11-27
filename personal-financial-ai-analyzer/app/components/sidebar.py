@@ -5,6 +5,7 @@ import polars as pl
 import streamlit as st
 
 from app.utils import session
+from app.utils.formatting import md_escape
 
 
 def render() -> None:
@@ -14,7 +15,7 @@ def render() -> None:
         data = session.get_data()
         if data:
             s = data["summaries"]
-            st.success(f"Loaded: {data['source']}")
+            st.success(f"Loaded: {md_escape(data['source'])}")
             st.selectbox("Account", s.accounts, key="account")
             acc = st.session_state["account"]
             by_cur = (s.monthly.filter(s.monthly["account_id"] == acc).group_by("currency")

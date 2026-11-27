@@ -11,4 +11,4 @@ HIDDEN = {"balance_after", "source_row", "amount_cents"}
 
 def show(df: pl.DataFrame, height: int = 360) -> None:
     st.dataframe(cents_cols_to_units(df.drop([c for c in df.columns if c in HIDDEN])),
-                 use_container_width=True, hide_index=True, height=height)
+                 width="stretch", hide_index=True, height=height)

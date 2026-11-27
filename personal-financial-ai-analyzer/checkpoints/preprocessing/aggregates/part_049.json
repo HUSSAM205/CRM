@@ -1,1 +1,1 @@
-{"partition": 49, "rows": 998905, "clean": 998905, "rejected": 0, "reject_reasons": {}, "unresolved_type_rows": 0, "monthly_rows": 774722, "series": 116004, "worker_seconds": 3.08, "worker_ru_maxrss_gb": 1.135}
+{"partition": 49, "rows": 998905, "clean": 998905, "rejected": 0, "reject_reasons": {}, "unresolved_type_rows": 0, "monthly_rows": 774722, "series": 116004, "worker_seconds": 3.03, "worker_ru_maxrss_gb": 1.126}

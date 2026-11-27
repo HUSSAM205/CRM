@@ -48,3 +48,9 @@
 {"partition": 47, "returncode": 0, "seconds": 3.53, "peak_rss_gb": 1.165, "min_system_available_gb": 14.75, "killed_reason": null, "stderr_tail": "", "samples": 14, "extra": {}}
 {"partition": 48, "returncode": 0, "seconds": 3.53, "peak_rss_gb": 1.155, "min_system_available_gb": 14.69, "killed_reason": null, "stderr_tail": "", "samples": 14, "extra": {}}
 {"partition": 49, "returncode": 0, "seconds": 3.53, "peak_rss_gb": 1.127, "min_system_available_gb": 14.81, "killed_reason": null, "stderr_tail": "", "samples": 14, "extra": {}}
+{"partition": 11, "returncode": 0, "seconds": 3.28, "peak_rss_gb": 1.149, "min_system_available_gb": 14.8, "killed_reason": null, "stderr_tail": "", "samples": 13, "extra": {}}
+{"partition": 27, "returncode": 0, "seconds": 3.28, "peak_rss_gb": 1.136, "min_system_available_gb": 14.75, "killed_reason": null, "stderr_tail": "", "samples": 13, "extra": {}}
+{"partition": 49, "returncode": 0, "seconds": 3.53, "peak_rss_gb": 1.102, "min_system_available_gb": 14.6, "killed_reason": null, "stderr_tail": "", "samples": 14, "extra": {}}
+{"partition": 11, "returncode": 0, "seconds": 3.28, "peak_rss_gb": 1.147, "min_system_available_gb": 14.69, "killed_reason": null, "stderr_tail": "", "samples": 13, "extra": {}}
+{"partition": 27, "returncode": 0, "seconds": 3.28, "peak_rss_gb": 1.158, "min_system_available_gb": 14.66, "killed_reason": null, "stderr_tail": "", "samples": 13, "extra": {}}
+{"partition": 49, "returncode": 0, "seconds": 3.53, "peak_rss_gb": 1.127, "min_system_available_gb": 14.6, "killed_reason": null, "stderr_tail": "", "samples": 14, "extra": {}}

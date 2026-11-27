@@ -23,8 +23,8 @@ def render() -> None:
                           & pl.col("month").is_between(pl.lit(a), pl.lit(b)))
     tot = category_distribution(s.category, acc, cur, a, b)
     left, right = st.columns(2)
-    left.plotly_chart(charts.category_bar(tot, cur, f"Spending by category, {a} to {b}"), use_container_width=True)
-    right.plotly_chart(charts.category_stacked(c, cur), use_container_width=True)
+    left.plotly_chart(charts.category_bar(tot, cur, f"Spending by category, {a} to {b}"), width="stretch")
+    right.plotly_chart(charts.category_stacked(c, cur), width="stretch")
     st.caption("Category spending = purchases minus refunds in that category. Fees are reported separately.")
 
     st.subheader("Compare two months")

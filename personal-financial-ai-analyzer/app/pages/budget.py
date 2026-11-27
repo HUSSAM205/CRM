@@ -6,7 +6,7 @@ import streamlit as st
 
 from app.components import alerts
 from app.utils import session
-from app.utils.formatting import money
+from app.utils.formatting import md_escape, money
 from src.budget.budget_alerts import budget_status
 from src.budget.budget_calculator import suggest_budgets
 
@@ -33,7 +33,7 @@ def render() -> None:
     st.caption("Suggestion = median net spending of the three months before the budget month. "
                "It is a historical rule of thumb, not a prediction or financial advice. Edit any value.")
     edited = st.data_editor(table.to_pandas(), disabled=["merchant_category", "suggested", "explanation"],
-                            hide_index=True, use_container_width=True, key=f"editor_{key}",
+                            hide_index=True, width="stretch", key=f"editor_{key}",
                             column_config={"budget": st.column_config.NumberColumn(f"budget ({cur})", min_value=0.0,
                                                                                    step=0.01, format="%.2f"),
                                            "suggested": st.column_config.NumberColumn(f"suggested ({cur})",
@@ -50,11 +50,11 @@ def render() -> None:
         shown += 1
         stt = budget_status(row["spent_current_cents"], b)
         c1, c2 = st.columns([1, 3])
-        c1.write(f"**{row['merchant_category']}**")
+        c1.markdown(f"**{md_escape(row['merchant_category'])}**")
         c2.progress(min(max(stt["ratio"] or 0.0, 0.0), 1.0),
                     text=f"{money(row['spent_current_cents'], cur)} of "
                          + (money(b, cur) if b > 0 else "no budget set"))
         if stt["level"] in ("warning", "exceeded"):
-            alerts.budget_alert(stt["level"], f"{row['merchant_category']}: {stt['message']}")
+            alerts.budget_alert(stt["level"], f"{md_escape(row['merchant_category'])}: {stt['message']}")
     if not shown:
         st.caption("No category spending and no budgets for this month.")

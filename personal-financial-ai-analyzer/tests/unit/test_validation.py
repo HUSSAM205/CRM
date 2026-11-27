@@ -81,3 +81,18 @@ def test_fallback_label_is_canonical_whatever_its_source():
     r = validate_transactions(frame({"merchant_category": ""}, {"merchant_category": "uncategorized"},
                                     {"merchant_category": "UNCATEGORIZED"}, {"merchant_category": "Groceries"}))
     assert r.clean["merchant_category"].to_list() == ["Uncategorized"] * 3 + ["groceries"]
+
+
+def test_huge_amounts_are_rejected_not_crashing():
+    """Audit defect A-01: an amount beyond the int64-cents range raised an uncaught exception."""
+    r = validate_transactions(frame({"amount": "92233720368547758.07"}, {"amount": "1000000000000.01"},
+                                    {"amount": "999999999999.99"}))
+    assert r.rejected["reject_reason"].to_list() == ["amount_out_of_range", "amount_out_of_range"]
+    assert r.clean["amount_cents"].to_list() == [99999999999999]          # exact at the bound
+
+
+def test_large_two_decimal_amounts_convert_exactly():
+    vals = ["123456789.99", "12345678901.23", "999999999999.99", "0.10", "0.20"]
+    r = validate_transactions(frame(*[{"amount": v} for v in vals]))
+    from decimal import Decimal
+    assert r.clean["amount_cents"].to_list() == [int(Decimal(v) * 100) for v in vals]

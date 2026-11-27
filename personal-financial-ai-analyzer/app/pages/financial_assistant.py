@@ -25,6 +25,7 @@ def render() -> None:
         st.session_state["assistant_history"].insert(0, (q, text, result.get("intent", "unsupported")))
     for q_, a_, intent in st.session_state["assistant_history"][:10]:
         with st.container(border=True):
-            st.markdown(f"**You:** {q_}")
-            st.markdown(f"**Assistant:** {a_}")
+            # plain text: user input and answers are never interpreted as Markdown/HTML
+            st.text(f"You: {q_}")
+            st.text(f"Assistant: {a_}")
             st.caption(f"intent: {intent}")

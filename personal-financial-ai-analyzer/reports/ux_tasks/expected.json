@@ -25,5 +25,9 @@
     0.0,
     0.0,
     0.0
-  ]
+  ],
+  "account2": "ACC-000618549",
+  "account2_currency": "USD",
+  "account2_expenses": "657.62 USD",
+  "account2_income": "447.57 USD"
 }

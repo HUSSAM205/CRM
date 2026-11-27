@@ -1,0 +1,386 @@
+{
+  "overall": "PASS",
+  "raw_rows_read": 50000000,
+  "raw_seconds": 5.0,
+  "total_seconds": 7.4,
+  "checks": [
+    {
+      "currency": "AUD",
+      "measure": "income_cents",
+      "independent_raw": 3541299813,
+      "pipeline": 3541299813,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "outflow_cents",
+      "independent_raw": 6053451968,
+      "pipeline": 6053451968,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "fee_cents",
+      "independent_raw": 757786320,
+      "pipeline": 757786320,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "refund_cents",
+      "independent_raw": 506953872,
+      "pipeline": 506953872,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "transfer_cents",
+      "independent_raw": 1768554596,
+      "pipeline": 1768554596,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "expenses_cents",
+      "independent_raw": 6304284416,
+      "pipeline": 6304284416,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -2762984603,
+      "pipeline": -2762984603,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "excluded_status_records",
+      "independent_raw": 199306,
+      "pipeline": 199306,
+      "equal": true
+    },
+    {
+      "currency": "AUD",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 6304284416,
+      "pipeline": 6304284416,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "income_cents",
+      "independent_raw": 4935362780,
+      "pipeline": 4935362780,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "outflow_cents",
+      "independent_raw": 8500202206,
+      "pipeline": 8500202206,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "fee_cents",
+      "independent_raw": 1051497303,
+      "pipeline": 1051497303,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "refund_cents",
+      "independent_raw": 706596975,
+      "pipeline": 706596975,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "transfer_cents",
+      "independent_raw": 2461405962,
+      "pipeline": 2461405962,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "expenses_cents",
+      "independent_raw": 8845102534,
+      "pipeline": 8845102534,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -3909739754,
+      "pipeline": -3909739754,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "excluded_status_records",
+      "independent_raw": 280037,
+      "pipeline": 280037,
+      "equal": true
+    },
+    {
+      "currency": "CAD",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 8845102534,
+      "pipeline": 8845102534,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "income_cents",
+      "independent_raw": 12725621991,
+      "pipeline": 12725621991,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "outflow_cents",
+      "independent_raw": 21805128350,
+      "pipeline": 21805128350,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "fee_cents",
+      "independent_raw": 2729269952,
+      "pipeline": 2729269952,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "refund_cents",
+      "independent_raw": 1825417169,
+      "pipeline": 1825417169,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "transfer_cents",
+      "independent_raw": 6350174566,
+      "pipeline": 6350174566,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "expenses_cents",
+      "independent_raw": 22708981133,
+      "pipeline": 22708981133,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -9983359142,
+      "pipeline": -9983359142,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "excluded_status_records",
+      "independent_raw": 719984,
+      "pipeline": 719984,
+      "equal": true
+    },
+    {
+      "currency": "EUR",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 22708981133,
+      "pipeline": 22708981133,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "income_cents",
+      "independent_raw": 7052138805,
+      "pipeline": 7052138805,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "outflow_cents",
+      "independent_raw": 12144709456,
+      "pipeline": 12144709456,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "fee_cents",
+      "independent_raw": 1512257713,
+      "pipeline": 1512257713,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "refund_cents",
+      "independent_raw": 1003727739,
+      "pipeline": 1003727739,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "transfer_cents",
+      "independent_raw": 3537631268,
+      "pipeline": 3537631268,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "expenses_cents",
+      "independent_raw": 12653239430,
+      "pipeline": 12653239430,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -5601100625,
+      "pipeline": -5601100625,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "excluded_status_records",
+      "independent_raw": 400735,
+      "pipeline": 400735,
+      "equal": true
+    },
+    {
+      "currency": "GBP",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 12653239430,
+      "pipeline": 12653239430,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "income_cents",
+      "independent_raw": 3537736623,
+      "pipeline": 3537736623,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "outflow_cents",
+      "independent_raw": 6056243608,
+      "pipeline": 6056243608,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "fee_cents",
+      "independent_raw": 749143176,
+      "pipeline": 749143176,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "refund_cents",
+      "independent_raw": 502953547,
+      "pipeline": 502953547,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "transfer_cents",
+      "independent_raw": 1767079431,
+      "pipeline": 1767079431,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "expenses_cents",
+      "independent_raw": 6302433237,
+      "pipeline": 6302433237,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -2764696614,
+      "pipeline": -2764696614,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "excluded_status_records",
+      "independent_raw": 200577,
+      "pipeline": 200577,
+      "equal": true
+    },
+    {
+      "currency": "JPY",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 6302433237,
+      "pipeline": 6302433237,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "income_cents",
+      "independent_raw": 38863789886,
+      "pipeline": 38863789886,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "outflow_cents",
+      "independent_raw": 66622512961,
+      "pipeline": 66622512961,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "fee_cents",
+      "independent_raw": 8341313589,
+      "pipeline": 8341313589,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "refund_cents",
+      "independent_raw": 5563220575,
+      "pipeline": 5563220575,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "transfer_cents",
+      "independent_raw": 19436914613,
+      "pipeline": 19436914613,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "expenses_cents",
+      "independent_raw": 69400605975,
+      "pipeline": 69400605975,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "net_cash_flow_cents",
+      "independent_raw": -30536816089,
+      "pipeline": -30536816089,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "excluded_status_records",
+      "independent_raw": 2200254,
+      "pipeline": 2200254,
+      "equal": true
+    },
+    {
+      "currency": "USD",
+      "measure": "sum(category net)+fee == expenses",
+      "independent_raw": 69400605975,
+      "pipeline": 69400605975,
+      "equal": true
+    }
+  ]
+}

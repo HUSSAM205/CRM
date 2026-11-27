@@ -79,7 +79,7 @@ def test_assistant_answer_matches_dashboard(demo_state):
     at.text_input(key="assistant_q").set_value(f"How much did I spend in {last}?")
     at.button[0].click().run()
     expected = period_totals(s, acc, "USD", [last])["expenses_cents"]
-    assert any(f"{expected / 100:,.2f} USD" in m.value for m in at.markdown)
+    assert any(f"{expected / 100:,.2f} USD" in t.value for t in at.text)   # answers render as plain text
 
 
 def test_budget_page_alerts_and_editing(demo_state):
@@ -112,3 +112,20 @@ def test_budget_editor_initial_values_are_suggestions_in_currency_units(demo_sta
     sug = suggest_budgets(s.category, acc, "USD", month)
     stored = at.session_state["budgets"][f"active|{acc}|USD"]
     assert stored == dict(zip(sug["merchant_category"], sug["suggested_cents"]))
+
+
+def test_transactions_date_filter(demo_state):
+    """HW1 S7 / 3.2.1: transactions can be filtered by date (audit gap A-02)."""
+    import datetime as dt
+
+    import polars as pl
+    at = seeded("transactions", demo_state)
+    acc = demo_state["summaries"].accounts[0]
+    view = demo_state["clean"].filter((pl.col("account_id") == acc) & (pl.col("currency") == "USD"))
+    before = next(c.value for c in at.caption if "transactions." in c.value)
+    last = view["transaction_timestamp"].max().date()            # the widget's max_value
+    at.date_input(key="tx_dates").set_value((dt.date(2026, 1, 1), last)).run()
+    after = next(c.value for c in at.caption if "transactions." in c.value)
+    expected = view.filter(pl.col("transaction_timestamp").dt.date() >= dt.date(2026, 1, 1)).height
+    assert before.startswith(f"{view.height} transactions.") and after.startswith(f"{expected} transactions.")
+    assert expected < view.height

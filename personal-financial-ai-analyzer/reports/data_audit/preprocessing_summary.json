@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-27T03:22:43.608219+00:00",
+  "generated_at_utc": "2026-11-27T04:18:34.958031+00:00",
   "partitions": 50,
   "rows_in": 50000000,
   "clean": 50000000,
@@ -12,18 +12,18 @@
   "max_worker_peak_rss_gb": 1.192,
   "system_before": {
     "ram_total_gb": 16.87,
-    "ram_available_gb": 15.57,
-    "ram_used_pct": 7.7,
-    "disk_free_gb": 61.27,
+    "ram_available_gb": 15.35,
+    "ram_used_pct": 9.0,
+    "disk_free_gb": 60.61,
     "cpu_logical": 4,
-    "cpu_percent_1s": 1.5
+    "cpu_percent_1s": 0.0
   },
   "system_after": {
     "ram_total_gb": 16.87,
-    "ram_available_gb": 15.13,
-    "ram_used_pct": 10.3,
-    "disk_free_gb": 60.72,
+    "ram_available_gb": 14.98,
+    "ram_used_pct": 11.2,
+    "disk_free_gb": 60.61,
     "cpu_logical": 4,
-    "cpu_percent_1s": 0.3
+    "cpu_percent_1s": 0.0
   }
 }

@@ -45,4 +45,3 @@
 * Fixed M-01..M-05 (incl. silent int64 total overflow M-02). Security regression tests. `audit.bat`/`audit.ps1`.
 * Docs renamed to avoid case collisions on Windows; new ANALYZER, ADVISOR, FORECASTING, ANOMALY_DETECTION, AI_ASSISTANT, SECURITY_AND_PRIVACY, MODEL_CARD, WINDOWS_INSTALLATION docs.
 * Evidence package `reports/final_master_audit/`.
-

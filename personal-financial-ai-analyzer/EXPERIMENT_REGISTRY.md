@@ -57,4 +57,3 @@ Completion times are output-file mtimes (UTC). A final test run after the report
 | MA-04 | 06:08 | `scripts/research/forecast_quality_gate.py` (guarded) | E2-QG: both GBR REJECTED on 5 panels; outlook = historical median; interval test coverage 81.9%; 198 s; 0.74 GB | `reports/experiments/forecasting_quality_gate/`, `artifacts/forecasting/outlook/v_20261127T060820Z` |
 | MA-05 | — | `node scripts/ux/ux_tasks.mjs` | 21/21 | `reports/ux_tasks/ux_task_results.json` |
 | MA-06 | — | `python scripts/audit/benchmark_master.py` | recorded | `reports/final_master_audit/performance_benchmarks.json` |
-

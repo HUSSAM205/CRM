@@ -8,138 +8,146 @@
   "ram_gb": 16.87,
   "dataset_mode": "full dataset present",
   "note": "cloud container, NOT the target Windows laptop (i7-1355U, 16 GB)",
-  "measured_at_utc": "2026-11-27T11:54:48Z"
+  "measured_at_utc": "2026-11-27T12:02:53Z"
  },
  "operations": {
   "csv_ingest_validate_demo_195_rows": {
-   "cold_first_call_ms": 14.58,
-   "warm_median_ms": 7.7,
-   "warm_max_ms": 9.09,
-   "cpu_percent_warm": 125.2,
-   "process_wall_s_incl_imports": 0.45,
-   "peak_rss_gb": 0.086
+   "cold_first_call_ms": 20.14,
+   "warm_median_ms": 6.6,
+   "warm_max_ms": 10.97,
+   "cpu_percent_warm": 117.9,
+   "process_wall_s_incl_imports": 0.41,
+   "peak_rss_gb": 0.084
   },
   "csv_ingest_validate_200k_rows": {
-   "cold_first_call_ms": 401.46,
-   "warm_median_ms": 356.21,
-   "warm_max_ms": 463.26,
-   "cpu_percent_warm": 120.0,
-   "process_wall_s_incl_imports": 8.1,
-   "peak_rss_gb": 0.298
+   "cold_first_call_ms": 369.02,
+   "warm_median_ms": 388.82,
+   "warm_max_ms": 551.22,
+   "cpu_percent_warm": 119.6,
+   "process_wall_s_incl_imports": 8.96,
+   "peak_rss_gb": 0.29
   },
   "build_summaries_demo": {
-   "cold_first_call_ms": 5.15,
-   "warm_median_ms": 4.48,
-   "warm_max_ms": 5.2,
-   "cpu_percent_warm": 145.2,
-   "process_wall_s_incl_imports": 0.37,
+   "cold_first_call_ms": 6.14,
+   "warm_median_ms": 6.15,
+   "warm_max_ms": 7.35,
+   "cpu_percent_warm": 142.4,
+   "process_wall_s_incl_imports": 0.41,
    "peak_rss_gb": 0.084
   },
   "model_load_and_forecast_outlook": {
-   "cold_first_call_ms": 8.22,
-   "warm_median_ms": 0.38,
-   "warm_max_ms": 0.89,
-   "cpu_percent_warm": 574.0,
-   "process_wall_s_incl_imports": 0.37,
-   "peak_rss_gb": 0.103
+   "cold_first_call_ms": 8.87,
+   "warm_median_ms": 0.43,
+   "warm_max_ms": 0.84,
+   "cpu_percent_warm": 507.7,
+   "process_wall_s_incl_imports": 0.41,
+   "peak_rss_gb": 0.102
   },
   "model_load_and_forecast_gbr_e2": {
-   "cold_first_call_ms": 1028.72,
-   "warm_median_ms": 1.47,
-   "warm_max_ms": 2.32,
-   "cpu_percent_warm": 387.0,
-   "process_wall_s_incl_imports": 1.55,
+   "cold_first_call_ms": 1257.94,
+   "warm_median_ms": 1.4,
+   "warm_max_ms": 13.88,
+   "cpu_percent_warm": 302.3,
+   "process_wall_s_incl_imports": 1.86,
    "peak_rss_gb": 0.251
   },
   "model_load_and_anomaly_review": {
-   "cold_first_call_ms": 893.86,
-   "warm_median_ms": 13.82,
-   "warm_max_ms": 19.18,
-   "cpu_percent_warm": 125.5,
-   "process_wall_s_incl_imports": 1.75,
-   "peak_rss_gb": 0.259
+   "cold_first_call_ms": 1010.0,
+   "warm_median_ms": 13.34,
+   "warm_max_ms": 17.72,
+   "cpu_percent_warm": 122.7,
+   "process_wall_s_incl_imports": 1.87,
+   "peak_rss_gb": 0.257
+  },
+  "model_load_and_forecast_product_personaledger": {
+   "cold_first_call_ms": 1014.48,
+   "warm_median_ms": 4.14,
+   "warm_max_ms": 6.3,
+   "cpu_percent_warm": 376.2,
+   "process_wall_s_incl_imports": 1.62,
+   "peak_rss_gb": 0.258
   },
   "assistant_hw2_intent": {
-   "cold_first_call_ms": 26.21,
-   "warm_median_ms": 0.47,
-   "warm_max_ms": 1.13,
-   "cpu_percent_warm": 293.8,
-   "process_wall_s_incl_imports": 0.35,
+   "cold_first_call_ms": 14.47,
+   "warm_median_ms": 0.53,
+   "warm_max_ms": 1.15,
+   "cpu_percent_warm": 422.1,
+   "process_wall_s_incl_imports": 0.37,
    "peak_rss_gb": 0.096
   },
   "assistant_advisor_intent": {
-   "cold_first_call_ms": 13.57,
-   "warm_median_ms": 18.18,
-   "warm_max_ms": 22.97,
-   "cpu_percent_warm": 198.3,
-   "process_wall_s_incl_imports": 0.63,
+   "cold_first_call_ms": 30.22,
+   "warm_median_ms": 21.13,
+   "warm_max_ms": 28.4,
+   "cpu_percent_warm": 149.7,
+   "process_wall_s_incl_imports": 0.94,
    "peak_rss_gb": 0.099
   },
   "advisor_recommendations": {
-   "cold_first_call_ms": 13.29,
-   "warm_median_ms": 6.45,
-   "warm_max_ms": 24.77,
-   "cpu_percent_warm": 224.2,
-   "process_wall_s_incl_imports": 0.55,
+   "cold_first_call_ms": 17.65,
+   "warm_median_ms": 19.37,
+   "warm_max_ms": 23.6,
+   "cpu_percent_warm": 182.6,
+   "process_wall_s_incl_imports": 0.71,
    "peak_rss_gb": 0.099
   },
   "analyzer_insights_all": {
-   "cold_first_call_ms": 35.82,
-   "warm_median_ms": 20.05,
-   "warm_max_ms": 26.42,
-   "cpu_percent_warm": 179.7,
-   "process_wall_s_incl_imports": 0.73,
+   "cold_first_call_ms": 14.47,
+   "warm_median_ms": 21.83,
+   "warm_max_ms": 33.57,
+   "cpu_percent_warm": 183.8,
+   "process_wall_s_incl_imports": 0.77,
    "peak_rss_gb": 0.099
   },
   "dataset_metadata_inspection": {
-   "cold_first_call_ms": 2.55,
-   "warm_median_ms": 0.36,
-   "warm_max_ms": 0.65,
-   "cpu_percent_warm": 266.2,
-   "process_wall_s_incl_imports": 0.33,
+   "cold_first_call_ms": 18.76,
+   "warm_median_ms": 0.71,
+   "warm_max_ms": 0.91,
+   "cpu_percent_warm": 411.4,
+   "process_wall_s_incl_imports": 0.39,
    "peak_rss_gb": 0.1
   }
  },
  "page_render_apptest": {
   "pages": {
    "overview": {
-    "first_render_s": 0.644,
-    "median_rerender_s": 0.134
+    "first_render_s": 0.593,
+    "median_rerender_s": 0.141
    },
    "transactions": {
-    "first_render_s": 0.124,
-    "median_rerender_s": 0.172
+    "first_render_s": 0.151,
+    "median_rerender_s": 0.115
    },
    "analytics": {
-    "first_render_s": 0.343,
-    "median_rerender_s": 0.201
+    "first_render_s": 0.545,
+    "median_rerender_s": 0.214
    },
    "ai_predictions": {
-    "first_render_s": 1.168,
-    "median_rerender_s": 0.155
+    "first_render_s": 1.176,
+    "median_rerender_s": 0.161
    },
    "budget": {
-    "first_render_s": 0.137,
-    "median_rerender_s": 0.129
+    "first_render_s": 0.135,
+    "median_rerender_s": 0.126
    },
    "financial_advisor": {
-    "first_render_s": 0.195,
-    "median_rerender_s": 0.226
+    "first_render_s": 0.225,
+    "median_rerender_s": 0.231
    },
    "financial_assistant": {
-    "first_render_s": 0.146,
-    "median_rerender_s": 0.104
+    "first_render_s": 0.13,
+    "median_rerender_s": 0.127
    },
    "settings": {
-    "first_render_s": 0.093,
-    "median_rerender_s": 0.1
+    "first_render_s": 0.119,
+    "median_rerender_s": 0.129
    }
   },
-  "process_peak_rss_gb": 0.356,
+  "process_peak_rss_gb": 0.358,
   "note": "server-side script execution per page (AppTest), demo data; excludes browser paint"
  },
  "app_server_start_s": {
-  "cold": 0.86,
-  "warm": 0.66
+  "cold": 0.92,
+  "warm": 0.95
  }
 }

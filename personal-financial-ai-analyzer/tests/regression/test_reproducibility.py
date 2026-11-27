@@ -36,7 +36,7 @@ def test_saved_gbr_reproduces_recorded_test_predictions():
     import polars as pl
 
     from src.features.temporal_features import features_at
-    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text())
+    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text(encoding="utf-8"))
     model = joblib.load(ROOT / reg["forecasting"]["gbr"]["current"] / "model.joblib")
     keys, Y = fe.load_panel(PANEL)
     t = fe.TEST_COLS[0]

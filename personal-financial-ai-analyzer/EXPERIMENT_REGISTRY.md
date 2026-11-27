@@ -71,3 +71,16 @@ Completion times are output-file mtimes (UTC). A final test run after the report
 | M2-07 | `scripts/research/controlled_synthetic.py` (1st run exposed M-12 TRY rejection; 2nd run before M-14; 3rd after) | C1 exact; C2 P 0.986 / R 0.865; C3 positive control; C4 before/after | `reports/experiments/dataset_c/` |
 | M2-08 | `node scripts/ux/ux_tasks.mjs` | 24/24 | `reports/ux_tasks/ux_task_results.json` |
 | M2-09 | `scripts/audit/benchmark_master.py` | recorded | `reports/final_master_audit/performance_benchmarks.json` |
+
+## Master audit 3 (verification and reproduction only; no training, no change to E1–E4 or their outputs)
+
+| Run | Command | Outcome | Outputs |
+|---|---|---|---|
+| M3-01 | `python scripts/verify_dataset.py` | OVERALL PASS (50,000,000 rows, 9 columns, SHA-256 `b18c8359…7c17` = live HF LFS) | console |
+| M3-02 | `python scripts/download_supplementary.py` (files present: hash check only) | PASS ×2; HF head revision is still `c90078ae…` | console |
+| M3-03 | `python scripts/audit/reproduce_e2b.py` (read-only, saved artifact) | match = true: MAE 971.342 vs 1,022.657; coverage 0.77653 | `reports/master_audit_3/e2b_reproduction.json` |
+| M3-04 | `python scripts/audit/anomaly_derived_metrics.py` (read-only, saved E3 scores) | P@k equals the saved value for all 3 models; F1/FPR derived | `reports/master_audit_3/anomaly_derived_metrics.json` |
+| M3-05 | `python scripts/audit/benchmark_master.py --label "cloud container…"` | recorded (container, not the laptop) | `reports/master_audit_3/benchmark_container.json` |
+| M3-06 | `node scripts/ux/ux_tasks.mjs http://localhost:8501` | 29/29 | `reports/ux_tasks/ux_task_results.json` |
+| M3-07 | fresh copy of the tracked tree: `python3.12 scripts/setup_environment.py`, pytest, launcher | setup 34 s; 217 passed / 4 skipped; health ok | `reports/master_audit_3/fresh_install/` |
+| M3-08 | `pip-audit -r requirements.txt` | No known vulnerabilities found | console |

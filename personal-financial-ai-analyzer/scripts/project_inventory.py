@@ -86,7 +86,7 @@ def main() -> None:
         files[f] = "present" if p.is_file() and p.stat().st_size > 0 else ("empty" if p.exists() else "missing")
     extra = sorted(str(p.relative_to(ROOT)) for p in ROOT.rglob("*.py")
                    if ".venv" not in p.parts and str(p.relative_to(ROOT)) not in files)
-    tr = (ROOT / "docs/requirements_traceability.md").read_text()
+    tr = (ROOT / "docs/requirements_traceability.md").read_text(encoding="utf-8")
     rows = [ln for ln in tr.splitlines() if ln.startswith("| ") and not ln.startswith("| ID")
             and not set(ln) <= set("|- ")]
     tally: dict[str, int] = {}
@@ -103,7 +103,7 @@ def main() -> None:
            "files_missing": [f for f, v in files.items() if v == "missing"],
            "extra_python_files_not_in_master_list": extra,
            "traceability_rows": len(rows), "traceability_status_tally": tally}
-    (ROOT / "reports/verification/project_inventory.json").write_text(json.dumps(out, indent=2))
+    (ROOT / "reports/verification/project_inventory.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in out.items() if k != "files_missing"}, indent=2))
     print("missing files:", len(out["files_missing"]))
     if "--list-missing" in sys.argv:

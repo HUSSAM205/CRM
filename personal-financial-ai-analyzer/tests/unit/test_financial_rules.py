@@ -13,7 +13,7 @@ from src.rules.currency_rules import MixedCurrencyError, single_currency
 from src.rules.transaction_mapping import TYPE_MEANING, meaning_of
 
 FIX = Path(__file__).resolve().parents[1] / "fixtures"
-EXPECTED = json.loads((FIX / "expected_financial_results.json").read_text())
+EXPECTED = json.loads((FIX / "expected_financial_results.json").read_text(encoding="utf-8"))
 
 
 @pytest.fixture(scope="module")

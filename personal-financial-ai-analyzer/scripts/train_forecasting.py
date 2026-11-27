@@ -89,7 +89,7 @@ def main() -> None:
                "total_seconds": round(time.time() - t0, 1),
                "peak_rss_gb_self": round(psutil.Process().memory_info().rss / 1e9, 2),
                "fingerprint": fingerprint()}
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
+    (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
 
     # Versioned artifacts (never overwrite an existing version)
     for label, feats in (("gbr", BASE_FEATURES), ("gbr_seasonal", SEASONAL_FEATURES)):
@@ -97,21 +97,21 @@ def main() -> None:
         d = new_artifact_dir("forecasting", label, json.dumps(res["selected_params"][label]))
         joblib.dump(res["models"][label], d / "model.joblib")
         (d / "feature_schema.json").write_text(json.dumps({"features": feats, "target": "monthly expenses (currency units)",
-                                                            "excluded": ["balance_after", "account_id"]}, indent=2))
+                                                            "excluded": ["balance_after", "account_id"]}, indent=2), encoding="utf-8")
         (d / "metrics.json").write_text(json.dumps({"validation": res["validation"][label],
-                                                    "test": res["test"][label]}, indent=2))
+                                                    "test": res["test"][label]}, indent=2), encoding="utf-8")
         (d / "metadata.json").write_text(json.dumps({
             "model": label, "params": res["selected_params"][label], "seed": seed,
             "trained_on": "primary panel, target months 2024-07..2026-04 (train+validation refit)",
             "training_series": int(Y.shape[0]), "training_rows": int(Y.shape[0] * (fe.N_TRAIN + fe.N_VAL - fe.FIRST_TARGET)),
             "selection_status": "kept" if label in res["kept_advanced_models"] else "not kept (did not beat best baseline)",
-            "fingerprint": fingerprint()}, indent=2, default=str))
+            "fingerprint": fingerprint()}, indent=2, default=str), encoding="utf-8")
         register("forecasting", label, d, "kept" if label in res["kept_advanced_models"] else "evaluated_not_kept")
     d = new_artifact_dir("forecasting", "selection")
     (d / "metadata.json").write_text(json.dumps({"selected_model": res["selected_model"],
                                                  "rule": load_config("forecasting")["selection_rule"],
                                                  "min_active_train_months": 12,
-                                                 "validation": res["validation"]}, indent=2, default=str))
+                                                 "validation": res["validation"]}, indent=2, default=str), encoding="utf-8")
     register("forecasting", "selection", d, "deployed choice")
     print(json.dumps({k: v for k, v in summary["primary"].items() if k not in ("validation", "test")}, indent=2, default=str))
 

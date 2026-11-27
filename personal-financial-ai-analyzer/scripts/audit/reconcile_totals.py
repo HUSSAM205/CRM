@@ -88,7 +88,7 @@ def main() -> None:
                        "equal": good})
     res = {"overall": "PASS" if ok else "FAIL", "raw_rows_read": rows, "raw_seconds": round(t1 - t0, 1),
            "total_seconds": round(time.time() - t0, 1), "checks": checks}
-    (ROOT / "reports/audit/reconciliation.json").write_text(json.dumps(res, indent=2))
+    (ROOT / "reports/audit/reconciliation.json").write_text(json.dumps(res, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "checks"}))
     print(sum(c["equal"] for c in checks), "of", len(checks), "checks equal")
     for c in checks:

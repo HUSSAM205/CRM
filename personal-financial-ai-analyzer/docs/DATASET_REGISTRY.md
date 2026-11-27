@@ -16,6 +16,8 @@ Both are stored in `data/supplementary/`, which is git-ignored and guarded by `t
 
 ## Rejected or unused candidates (searched 2026-11-27)
 
+Master audit 3 re-checked the five named candidates; see `reports/master_audit_3/DATASET_CANDIDATES.md`. Dataset A and Dataset B were re-verified live: hashes and revision PASS. No new dataset was adopted.
+
 | Candidate | Why it was not used |
 |---|---|
 | Kaggle-hosted personal-finance and fraud sets (e.g. "Sparkov", ULB credit-card fraud) | Access requires a Kaggle login (an access restriction); mirrors elsewhere have unclear provenance |

@@ -37,7 +37,7 @@ def boot(d: pl.DataFrame, pred: np.ndarray, base: str, n=2000) -> dict:
 
 
 def main() -> None:
-    summ = json.loads((E.OUT / "summary.json").read_text())
+    summ = json.loads((E.OUT / "summary.json").read_text(encoding="utf-8"))
     model = joblib.load(ROOT / summ["artifact"] / "model.joblib")            # refit on train + validation
     rows = E.build_rows()
     va = rows.filter(pl.col("month").is_between(pl.lit(E.VAL[0]), pl.lit(E.VAL[1])))
@@ -66,7 +66,7 @@ def main() -> None:
         "product_policy_MAE_on_A": float(np.abs(np.where(ta["no_zero_history"].to_numpy(), E.predict(model, ta),
                                                           ta["historical_median"].to_numpy()) - ta["y"].to_numpy()).mean()),
         "historical_median_only_MAE_on_A": float(np.abs(ta["historical_median"].to_numpy() - ta["y"].to_numpy()).mean())}
-    (E.OUT / "checks.json").write_text(json.dumps(out, indent=1))
+    (E.OUT / "checks.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
     print(json.dumps(out, indent=1))
 
 

@@ -58,7 +58,7 @@ def main() -> None:
         "verified_at_utc": datetime.now(timezone.utc).isoformat(),
         "run_started_at_utc": started,
     }
-    (dest.parent / "PROVENANCE.json").write_text(json.dumps(prov, indent=2))
+    (dest.parent / "PROVENANCE.json").write_text(json.dumps(prov, indent=2), encoding="utf-8")
     print(json.dumps(prov, indent=2))
     if not ok:
         raise SystemExit("VERIFICATION FAILED: size or SHA-256 mismatch")

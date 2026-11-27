@@ -2,6 +2,8 @@
 
 Sources: HW1 = `ST_HW1_Hussam_Aburahmah_2357138_2.pdf` (18 pages); HW2 = `ST_HW2_Hussam_Aburahmah_2357138_1.pdf` (16 pages). Page numbers are the printed numbers.
 
+**Latest re-verification:** master audit 3 (`reports/master_audit_3/FINAL_ACADEMIC_TRACEABILITY.md`). It adds the add/replace import workflow (F1), result-type labels (F6) and the localhost-only server (F9, C2). P5 stays PARTIAL and R3 is NOT TESTED.
+
 Status meanings: **PASS** = implemented and verified with the cited evidence. **PARTIAL** = partly verified, with the reason given. **N/A** = not applicable, with a justification from the HWs themselves. **NOT TESTED** = not verified.
 
 Final update: 2026-11-27, after the independent final audit (`reports/final_audit/`). Updated again by the master audit (`reports/final_master_audit/`); test counts: `reports/final_master_audit/TEST_RESULTS.md`. Master-audit product requirements are traced separately (different denominator) in `reports/final_master_audit/REQUIREMENTS_TRACEABILITY.md`.

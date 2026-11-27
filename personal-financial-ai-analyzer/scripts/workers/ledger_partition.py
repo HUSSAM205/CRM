@@ -6,7 +6,6 @@ Writes <checkpoint_dir>/part_XXX.json with aggregated counts only (no raw transa
 from __future__ import annotations
 
 import json
-import resource
 import sys
 import time
 from pathlib import Path
@@ -15,6 +14,7 @@ import polars as pl
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+from src.utils.peak_memory import peak_rss_gb  # noqa: E402
 from src.rules.transaction_mapping import BALANCE_DIRECTION  # noqa: E402
 
 RAW = ROOT / "data/raw/transactions_50M.parquet"
@@ -68,9 +68,9 @@ def main() -> None:
         "accounts_with_negative_balance": int(acc["neg_balance"].sum()),
         "accounts_multi_currency_single_balance": int((acc["currencies"] > 1).sum()),
         "worker_seconds": round(time.time() - t0, 2),
-        "worker_ru_maxrss_gb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6, 3),
+        "worker_ru_maxrss_gb": peak_rss_gb(),
     }
-    (ck / f"part_{part:03d}.json").write_text(json.dumps(out))
+    (ck / f"part_{part:03d}.json").write_text(json.dumps(out), encoding="utf-8")
 
 
 if __name__ == "__main__":

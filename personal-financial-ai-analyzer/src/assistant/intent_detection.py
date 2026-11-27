@@ -50,6 +50,9 @@ def find_category(text: str, categories: list[str]) -> str | None:
 
 _OUT_OF_SCOPE = re.compile(r"\b(fraud|stocks?|shares|invest\w*|crypto\w*|bitcoin|loan|mortgage|credit score|tax)\b")
 _AMOUNT = re.compile(r"(?<![\d-])(\d{1,12}(?:[.,]\d{1,2})?)(?!\s*%)(?![\d-])")
+_AMBIGUOUS = re.compile(r"^\s*(spending|spend|spent|expenses?|money|budgets?|costs?)\s*[?.!]*\s*$")
+_INDICATOR = re.compile(r"\b(financial indicators?|indicators?|savings? rate|net inflow ratio|spending stability|"
+                        r"stability|cash[- ]?flow consistency|recurring (payment )?burden|budget adherence)\b")
 _PERCENT = re.compile(r"(\d{1,3}(?:\.\d+)?)\s*(?:%|percent)")
 
 
@@ -86,8 +89,17 @@ def detect(text: str, categories: list[str]) -> Intent:
         detail = f"{which}_{'up' if up else 'down' if down else '?'}" if which else None
         return Intent("scenario", category=find_category(t, categories), amount=_amount(_PERCENT.sub(" ", t)),
                       percent=float(pct.group(1)) if pct else None, detail=detail)
+    if _AMBIGUOUS.match(t):
+        return Intent("clarify", detail=t.strip(" ?.!"))           # one bare word: ask, never guess (MA3)
+    if re.search(r"\bwhy\b", t) and re.search(r"\b(flag\w*|unusual|marked|highlighted|alert\w*|anomal\w*|stand out)\b", t):
+        return Intent("flag_explanation")
     if re.search(r"\b(unusual|anomal\w*|suspicious|odd|strange)\b", t):
         return Intent("unusual_transactions")
+    ind = _INDICATOR.search(t)
+    if ind and (re.search(r"\b(explain\w*|what (is|does|are)|meaning|mean|define|definition|how is)\b", t)):
+        return Intent("indicator_explanation", detail=ind.group(0))
+    if re.search(r"\bhow much (can|could) i (save|set aside|put aside)\b|\bsavings? capacity\b|\bwhat can i (save|set aside)\b", t):
+        return Intent("savings_capacity")
     if re.search(r"\b(recur\w*|subscriptions?|repeat\w*|regular payments?)\b", t):
         return Intent("recurring")
     if re.search(r"\bbudgets?\b", t) and re.search(r"\b(remain\w*|left|how much budget)\b", t):
@@ -98,7 +110,8 @@ def detect(text: str, categories: list[str]) -> Intent:
     if re.search(r"\b(largest|biggest|top|highest|most) (expense |spending )?categor", t) or \
             re.search(r"\bwhere do i spend (the )?most\b", t):
         return Intent("largest_category", months, relative=rel)
-    if re.search(r"\b(highest|most expensive|biggest|top)[- ](spending )?months?\b", t):
+    if re.search(r"\b(highest|most expensive|biggest|top)[- ](spending )?months?\b", t) or (
+            re.search(r"\b(which|what) months?\b", t) and re.search(r"\b(highest|most|biggest|largest|top|peak)\b", t)):
         return Intent("highest_months")
     if re.search(r"\b(goals?|on track)\b", t):
         return Intent("savings_goals")
@@ -117,6 +130,9 @@ def detect(text: str, categories: list[str]) -> Intent:
     spend_words = re.search(r"\b(spend|spent|spending|expenses?|cost)\b", t)
     if re.search(r"\b(compare|comparison|versus|vs\.?)\b", t) and len(months) >= 2:
         return Intent("month_comparison", months[:2])
+    rels = [0 if m.group(1) == "this" else -1 for m in re.finditer(r"\b(this|last|previous) month\b", t)]
+    if re.search(r"\b(compare|comparison|versus|vs\.?)\b", t) and len(months) + len(rels) >= 2:
+        return Intent("month_comparison", months[:1], detail="rel:" + ",".join(str(r) for r in rels[:2 - len(months[:1])]))
     if (re.search(r"\bbudgets?\b", t) and re.search(r"\b(exceed|exceeding|over|status|within|limit|am i)\b", t)) or \
             re.search(r"\b(exceed\w*|over) (their |my |the )?(limits?|budgets?)\b", t):
         return Intent("budget_status", months)

@@ -25,6 +25,10 @@ Deterministic, with **no language model** (HW1 S8, HW2 5.7). The pipeline:
 | expense or income what-ifs | `advisor.scenarios` |
 | unusual transactions | `anomaly_scoring.review_candidates` |
 | savings goals, recommendations, what-if, affordability | `src/advisor/*` |
+| "Compare this month with last month" (master audit 3) | `Summaries`; relative months resolved against the latest data month, which is stated |
+| "How much can I save?" | `advisor.context` surplus (recorded inflows or user income − average expenses − user obligations), with unknowns listed; not a bank balance |
+| "Why was this transaction flagged?" | `anomaly_scoring.review_candidates`: date, amount, usual amount, rule explanation, how it was surfaced; "review recommended", never fraud |
+| "Explain the savings rate / this indicator" | `insights.indicators`: value, formula, how to read it; no combined score |
 
 **Read-only:** the assistant cannot change budgets, goals or data. A test checks that they are unchanged after any question. Input that looks like code or SQL is only pattern-matched, never executed.
 
@@ -44,3 +48,7 @@ Tests: `tests/unit/test_assistant.py` and `test_assistant_advisor_intents.py`. B
 * **Context:** every answer in the UI shows the account, currency, period and intent it used.
 
 No external API, key or LLM is used or configurable. The assistant is pattern matching plus deterministic calculations.
+* **Ambiguous one-word questions** ("spending", "budget", "money"), added in master audit 3: it asks for a more specific question with examples, and never guesses.
+* **Professional advice** (investment, credit, tax, legal): the fixed reply, which says so explicitly.
+
+Tests for master audit 3: `tests/unit/test_assistant_ma3.py`; browser tasks 28 and 29.

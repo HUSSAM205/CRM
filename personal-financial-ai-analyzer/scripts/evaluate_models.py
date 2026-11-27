@@ -40,7 +40,7 @@ def main() -> None:
     out = ROOT / "reports/evaluation"
     out.mkdir(parents=True, exist_ok=True)
     f = forecasting()
-    (out / "forecasting_error_analysis.json").write_text(json.dumps(f, indent=2))
+    (out / "forecasting_error_analysis.json").write_text(json.dumps(f, indent=2), encoding="utf-8")
     rows = [{"kind": "model", "name": k, **{m: round(v[m], 3) for m in ("MAE", "RMSE", "MASE")}} for k, v in f["models"].items()]
     rows += [{"kind": "reference (diagnostic)", "name": k, **{m: round(v[m], 3) for m in ("MAE", "RMSE", "MASE")}}
              for k, v in f["reference"].items()]

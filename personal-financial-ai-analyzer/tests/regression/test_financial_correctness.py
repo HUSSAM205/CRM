@@ -11,7 +11,7 @@ from src.data.ingestion import ingest
 
 FIX = Path(__file__).resolve().parents[1] / "fixtures"
 EXP = {(r["account_id"], r["currency"], r["month"]): r
-       for r in json.loads((FIX / "expected_financial_results.json").read_text())["monthly_summary"]}
+       for r in json.loads((FIX / "expected_financial_results.json").read_text(encoding="utf-8"))["monthly_summary"]}
 
 
 def test_upload_path_reproduces_hand_calculations():

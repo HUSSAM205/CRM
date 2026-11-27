@@ -32,11 +32,38 @@ def init() -> None:
     ss.setdefault("user_facts", {})         # balance / income / obligations the user chose to enter
 
 
-def set_data(clean, rejected, summaries, source: str, mapping: dict | None = None) -> None:
+def set_data(clean, rejected, summaries, source: str, mapping: dict | None = None,
+             fingerprint: str | None = None) -> None:
+    """Load (or deliberately REPLACE) the session data. Budgets belong to the replaced data and are reset."""
     st.session_state["data"] = {"clean": clean, "rejected": rejected, "summaries": summaries, "source": source,
-                                "mapping": mapping, "loaded_at": time.time()}
+                                "mapping": mapping, "loaded_at": time.time(),
+                                "imports": [{"source": source, "fingerprint": fingerprint, "added": clean.height,
+                                             "already_loaded": 0, "rejected": rejected.height}]}
     st.session_state["budgets"] = {}
     log.info("data loaded: source=%s rows=%d rejected=%d", source, clean.height, rejected.height)
+
+
+def append_data(new_clean, new_rejected, source: str, fingerprint: str | None = None) -> dict:
+    """Add a further validated file to the loaded data (MA3-01). Existing records, budgets, goals and facts
+    are kept; records already loaded (same account and transaction ID) are skipped and reported."""
+    from src.analytics.aggregation import build_summaries
+    from src.data.merge import DuplicateImportError, merge
+    d = get_data()
+    if d is None:
+        set_data(new_clean, new_rejected, build_summaries(new_clean), source, fingerprint=fingerprint)
+        return st.session_state["data"]["imports"][-1]
+    if fingerprint and any(i.get("fingerprint") == fingerprint for i in d.get("imports", [])):
+        raise DuplicateImportError("This exact file was already imported in this session; nothing was added.")
+    first_label = d.get("imports", [{}])[0].get("source", d["source"])
+    r = merge(d["clean"], d["rejected"], first_label, new_clean, new_rejected, source)
+    rec = {"source": source, "fingerprint": fingerprint, "added": r.added, "already_loaded": r.already_loaded,
+           "rejected": r.rejected_in_file}
+    imports = [*d.get("imports", []), rec]
+    d.update(clean=r.clean, rejected=r.rejected, summaries=build_summaries(r.clean), imports=imports,
+             source=f"{imports[0]['source']} + {len(imports) - 1} more file(s)", loaded_at=time.time())
+    log.info("data appended: rows_added=%d already_loaded=%d rejected=%d", r.added, r.already_loaded,
+             r.rejected_in_file)
+    return rec
 
 
 def get_data() -> dict | None:

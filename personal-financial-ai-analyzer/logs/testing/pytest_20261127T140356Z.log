@@ -1,0 +1,52 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/user/CRM/personal-financial-ai-analyzer
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 234 items
+
+tests/integration/test_csv_upload.py ...........                         [  4%]
+tests/integration/test_dashboard.py .................................    [ 18%]
+tests/integration/test_full_pipeline.py .                                [ 19%]
+tests/integration/test_launcher.py ....                                  [ 20%]
+tests/integration/test_model_loading.py ...........                      [ 25%]
+tests/regression/test_data_leakage.py ........                           [ 29%]
+tests/regression/test_financial_correctness.py ..                        [ 29%]
+tests/regression/test_repository_completeness.py F...                    [ 31%]
+tests/regression/test_reproducibility.py ..                              [ 32%]
+tests/regression/test_security.py ...........                            [ 37%]
+tests/unit/test_advisor.py .............                                 [ 42%]
+tests/unit/test_aggregation.py ....                                      [ 44%]
+tests/unit/test_anomaly.py ........                                      [ 47%]
+tests/unit/test_assistant.py .............                               [ 53%]
+tests/unit/test_assistant_advisor_intents.py .........                   [ 57%]
+tests/unit/test_assistant_ma3.py ..............                          [ 63%]
+tests/unit/test_budget.py ...                                            [ 64%]
+tests/unit/test_controlled_synthetic.py ...                              [ 65%]
+tests/unit/test_financial_rules.py ..........                            [ 70%]
+tests/unit/test_forecasting.py .......                                   [ 73%]
+tests/unit/test_ingestion.py .....................                       [ 82%]
+tests/unit/test_insights.py ......                                       [ 84%]
+tests/unit/test_merge.py ......                                          [ 87%]
+tests/unit/test_preprocessing.py ..                                      [ 88%]
+tests/unit/test_validation.py .....................                      [ 97%]
+tests/unit/test_windows_compat.py .......                                [100%]
+
+=================================== FAILURES ===================================
+__________ test_all_source_samples_fixtures_and_artifacts_are_tracked __________
+
+    @pytest.mark.skipif(_tracked() is None, reason="not a git checkout")
+    def test_all_source_samples_fixtures_and_artifacts_are_tracked():
+        tracked = _tracked()
+        required = [p for d in ("src", "app", "scripts", "tests") for p in (ROOT / d).rglob("*.py")
+                    if "__pycache__" not in p.parts]
+        required += list((ROOT / "configs").glob("*.yaml")) + list((ROOT / "tests/fixtures").glob("*"))
+        required += list((ROOT / "data/samples").glob("*.csv")) + list((ROOT / "artifacts").rglob("*.json"))
+        required += list((ROOT / "artifacts").rglob("*.joblib"))
+        missing = sorted(str(p.relative_to(ROOT)) for p in required if str(p.relative_to(ROOT)) not in tracked)
+>       assert not missing, f"untracked required files: {missing[:20]}"
+E       AssertionError: untracked required files: ['data/samples/demo_personal_part1.csv', 'data/samples/demo_personal_part2.csv', 'scripts/prepare_personal_demo.py', 'scripts/stop_application.py', 'scripts/ux/demo_walkthrough.py', 'src/utils/peak_memory.py', 'tests/unit/test_windows_compat.py']
+E       assert not ['data/samples/demo_personal_part1.csv', 'data/samples/demo_personal_part2.csv', 'scripts/prepare_personal_demo.py', 'scripts/stop_application.py', 'scripts/ux/demo_walkthrough.py', 'src/utils/peak_memory.py', ...]
+
+tests/regression/test_repository_completeness.py:26: AssertionError
+======================== 1 failed, 233 passed in 35.09s ========================

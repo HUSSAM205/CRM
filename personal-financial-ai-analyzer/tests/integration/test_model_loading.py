@@ -29,7 +29,7 @@ ACTIVE_13 = [1000, 500, 2500, 300, 1200, 800, 400, 3000, 1500, 600, 900, 700, 11
 
 def test_selection_is_the_validation_choice():
     import json
-    meta = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text())
+    meta = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text(encoding="utf-8"))
     assert inference.selection()["selected_model"] == meta["primary"]["selected_model"]
 
 
@@ -85,7 +85,7 @@ def test_artifact_verification_runs_without_derived_data(tmp_path):
     env = {**os.environ, "ARTIFACT_VERIFY_INPUT": "demo", "ARTIFACT_VERIFY_OUT": str(tmp_path / "v.json")}
     r = subprocess.run([sys.executable, "scripts/verify_artifacts.py"], cwd=ROOT, env=env, capture_output=True, text=True)
     assert r.returncode == 0, r.stdout[-1500:] + r.stderr[-1500:]
-    out = json.loads((tmp_path / "v.json").read_text())
+    out = json.loads((tmp_path / "v.json").read_text(encoding="utf-8"))
     loaded = [a for a in out["artifacts"] if a["fresh_process_load"] is True]
     with_model = [a for a in out["artifacts"] if (ROOT / a["path"] / "model.joblib").exists()]
     assert len(loaded) == len(with_model) >= 3                      # every saved model loaded (count from the registry)
@@ -124,3 +124,16 @@ def test_forecast_product_routes_by_training_domain():
     assert inter["method"] == "historical_median" and "without spending" in inter["domain_check"]
     assert inter["point_cents"] == inference.outlook_next(monthly(ACTIVE_13))["point_cents"]
     assert not inference.forecast_product(monthly([1000] * 8))["eligible"]
+
+
+def test_every_product_forecast_states_its_category():
+    """MA3-11: the product distinguishes validated forecast / deterministic estimate / insufficient data;
+    'experimental' is reserved for the HW2 E2 model that the product never uses."""
+    short = inference.forecast_product(monthly([1000] * 8))
+    assert short["forecast_category"] == inference.INSUFFICIENT
+    inter = inference.forecast_product(monthly(ACTIVE_13))
+    assert inter["forecast_category"] == inference.DETERMINISTIC
+    if "gbr_personaledger" in inference.registry()["forecasting"]:
+        cont = inference.forecast_product(monthly([300000 + (i % 5) * 20000 for i in range(20)]))
+        assert cont["forecast_category"] == inference.VALIDATED and "synthetic Dataset B" in cont["forecast_category"]
+    assert "not used by the product" in inference.EXPERIMENTAL

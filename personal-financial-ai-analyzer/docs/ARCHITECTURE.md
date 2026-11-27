@@ -48,6 +48,8 @@ This implements HW1's hybrid design (HW1 §1.3.3, Fig. 1): **deterministic money
 * **The dashboard and the assistant share `Summaries`,** so they cannot disagree. This is tested.
 * **The app never trains.** It loads registered artifacts. ETS, which would need fitting per series, is refused at inference time. The product forecast is the deterministic outlook (`artifacts/forecasting/outlook/`), because no ML model passed the quality gate (`docs/FORECASTING.md`).
 * **Privacy.** Uploads live only in `st.session_state`. There is a retention selector and a delete button. Logs redact amounts and IDs.
+* **Import workflow (master audit 3).** `src/data/merge.py` appends a further validated file: existing records are kept and already-loaded records are skipped and reported. Replacing requires an explicit confirmation (`app/components/upload.py`).
+* **Local-only server (master audit 3).** `.streamlit/config.toml` and `scripts/run_application.py` bind to 127.0.0.1. The launcher checks project files and the port, reuses a running instance, waits for the health check and then opens the browser.
 * **Memory safety.** All heavy offline work runs as one account partition per child process, with RSS and system-memory limits (`src/utils/resource_monitor.py`).
 
 ## Mapping to HW2 §6.2 folders

@@ -77,7 +77,7 @@ def main() -> None:
            "autocorrelation_users": len(ac),
            "identity_theft_1m_test": fr}
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "quality.json").write_text(json.dumps(res, indent=1, default=str))
+    (OUT / "quality.json").write_text(json.dumps(res, indent=1, default=str), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k not in ("top_merchant_types", "months", "users_by_active_months")}, indent=1, default=str))
     print("months", months[0], "..", months[-1])
 

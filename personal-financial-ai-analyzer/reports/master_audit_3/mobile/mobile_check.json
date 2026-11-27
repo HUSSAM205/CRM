@@ -1,0 +1,54 @@
+{
+ "device": "iPhone 13 (390x844)",
+ "note": "each URL load is a new session; pages without data show their empty state",
+ "results": [
+  {
+   "page": "overview",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "transactions",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "analytics",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "ai-predictions",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "budget",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "advisor",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "assistant",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  },
+  {
+   "page": "settings",
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "horizontal_overflow": false
+  }
+ ]
+}

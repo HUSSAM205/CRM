@@ -212,7 +212,7 @@ def main() -> None:
            "C3_forecasting_positive_control": c3_forecast(s, truth), "C4_unusual_transactions": c4_anomaly(v.clean, truth)}
     out = ROOT / "reports/experiments/dataset_c"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "summary.json").write_text(json.dumps(res, indent=1, default=float))
+    (out / "summary.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
     print(json.dumps(res, indent=1, default=float)[:6000])
 
 

@@ -1,4 +1,5 @@
 # Read-only verification: dataset identity, manifest, full reconciliation, artifact reload, tests.
+$env:PYTHONUTF8 = "1"   # UTF-8 text I/O (Windows defaults to cp1252)
 # Requires data\raw\transactions_50M.parquet (run .\train.ps1 or scripts\download_dataset.py first).
 $ErrorActionPreference = "Stop"
 $py = ".\.venv\Scripts\python.exe"

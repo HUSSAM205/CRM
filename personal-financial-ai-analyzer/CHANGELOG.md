@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-11-27: Master audit 4 (Windows delivery)
+
+* One-click `START_HERE.bat` and safe `STOP.bat`; launcher with a record, port fallback and signal handling; UTF-8 mode in every script.
+* Windows fixes: no Unix-only modules; explicit UTF-8 for every text read and write; `Path.replace` in the download; batch scripts checked statically.
+* Transactions CSV export; synthetic personal demo and an engine-computed walkthrough; per-file "completed" confirmation.
+* Tests: 234 dev; fresh install 230 passed / 4 skipped; browser 36/36.
+
+## 2026-11-27: Master audit 3 (uncommitted until authorised)
+
+* Append/import workflow with duplicate prevention; replacement only after confirmation (MA3-01, MA3-02).
+* Assistant: highest-months fix, relative month comparison, savings capacity, flag explanations, indicator explanations, clarification of one-word questions (MA3-03..07).
+* Local-only server binding, a hardened launcher and setup scripts (MA3-08..10); CSV export formula guard (MA3-13).
+* Forecast result types (MA3-11); E2-B reproduced exactly; E3 F1/FPR re-derived.
+* Dataset re-verification, candidate dataset assessment, citation verification.
+* 221 tests (dev); 29/29 browser tasks; fresh install 217 passed / 4 skipped.
+
 ## 2026-11-27: Verification phase
 
 * Dataset download (pinned HF commit `98cf38f9`), integrity verification (27 checks), identity verification against `resolve/main`.

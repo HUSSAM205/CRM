@@ -64,7 +64,7 @@ print(json.dumps({'n_pred': int(len(p)), 'mean': float(np.mean(p)), 'type': type
 
 
 def main() -> None:
-    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text())
+    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text(encoding="utf-8"))
     results, ok_all = [], True
     for kind, models in reg.items():
         for name, entry in models.items():
@@ -84,7 +84,7 @@ def main() -> None:
     out = {"overall": "PASS" if ok_all else "FAIL", "artifacts": results}
     import os
     target = Path(os.environ.get("ARTIFACT_VERIFY_OUT", ROOT / "reports/verification/artifact_verification.json"))
-    target.write_text(json.dumps(out, indent=2))
+    target.write_text(json.dumps(out, indent=2), encoding="utf-8")
     raise SystemExit(0 if ok_all else 1)
 
 

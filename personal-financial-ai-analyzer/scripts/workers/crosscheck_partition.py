@@ -68,7 +68,7 @@ def main() -> None:
                "unresolved_type_rows": int((res.clean["meaning"] == "unresolved").sum()),
                "summary_cells": ms.height, "independent_groups": len(ind),
                "value_mismatches": mism, "groups_missing_from_project_output": missing},
-              open(out, "w"), indent=2)
+              open(out, "w", encoding="utf-8"), indent=2)
 
 
 if __name__ == "__main__":

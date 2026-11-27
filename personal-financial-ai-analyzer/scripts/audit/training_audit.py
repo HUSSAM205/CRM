@@ -70,12 +70,12 @@ def tree_stats(m) -> dict:
 
 
 def main() -> None:
-    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text())
+    reg = json.loads((ROOT / "artifacts/metadata/model_registry.json").read_text(encoding="utf-8"))
     inv = []
     for kind, models in reg.items():
         for name, e in models.items():
             d = ROOT / e["current"]
-            rec = {"kind": kind, "model": name, "path": e["current"], "metadata": json.loads((d / "metadata.json").read_text())}
+            rec = {"kind": kind, "model": name, "path": e["current"], "metadata": json.loads((d / "metadata.json").read_text(encoding="utf-8"))}
             mf = d / "model.joblib"
             if mf.exists():
                 rec["file_bytes"] = mf.stat().st_size
@@ -85,7 +85,7 @@ def main() -> None:
 
     # ---------- forecasting: timed re-execution on the primary panel ----------
     cfg = load_config("forecasting")["gbr"]
-    summary = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text())["primary"]
+    summary = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text(encoding="utf-8"))["primary"]
     with timed("forecast_load_panel"):
         keys, Y = fe.load_panel(ROOT / "data/processed/splits/panel_primary.parquet")
     scale = fe.mase_scale(Y[:, :fe.N_TRAIN])
@@ -219,7 +219,7 @@ def main() -> None:
                    "f1": 2 * prec * rec / (prec + rec) if tp else 0.0, "false_positive_rate": fp / int((y == 0).sum()),
                    **{m: an_eval(y, s)[m] for m in ("roc_auc", "average_precision")}}
     OUT["anomaly_threshold_at_k_from_saved_scores"] = f1
-    (ROOT / "reports/audit/training_audit.json").write_text(json.dumps(OUT, indent=2, default=str))
+    (ROOT / "reports/audit/training_audit.json").write_text(json.dumps(OUT, indent=2, default=str), encoding="utf-8")
     print(json.dumps(T, indent=1))
 
 

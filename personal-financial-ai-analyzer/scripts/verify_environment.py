@@ -48,7 +48,7 @@ def main() -> int:
     res["system"] = system_snapshot()
     res["status"] = "PASS" if not res["failures"] and res["in_project_venv"] else "FAIL"
     out = ROOT / "reports/verification/environment.json"
-    out.write_text(json.dumps(res, indent=2))
+    out.write_text(json.dumps(res, indent=2), encoding="utf-8")
     print(json.dumps(res, indent=2))
     return 0 if res["status"] == "PASS" else 1
 

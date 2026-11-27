@@ -1,0 +1,40 @@
+{
+ "part1_valid": 199,
+ "part2_valid": 147,
+ "added": 116,
+ "already_loaded": 31,
+ "total_valid": 315,
+ "account": "my-account",
+ "currency": "TRY",
+ "period": [
+  "2025-01",
+  "2026-06"
+ ],
+ "income": "828,000.00 TRY",
+ "expenses": "551,766.75 TRY",
+ "net": "276,233.25 TRY",
+ "forecast_category": "Validated forecast (quality gate passed on synthetic Dataset B, E2-B)",
+ "forecast_target": "2026-07",
+ "forecast_point": "29,225.59 TRY",
+ "forecast_interval": [
+  "21,210.68 TRY",
+  "43,381.87 TRY"
+ ],
+ "unusual_top": {
+  "date": "2026-05-20 03:12:00",
+  "category": "retail",
+  "amount": "24,999.00 TRY",
+  "explanation": "Unusual amount: 33.3x your usual for this category; Rare category: not seen in your history before; Unusual timing: an hour of day you have not used before"
+ },
+ "goal_required": "9,166.67 TRY",
+ "goal_start": "2026-06",
+ "emergency_fund_3m_essential": "23,225.40 TRY",
+ "answers": {
+  "Which months had the highest spending?": "Your highest-spending months: 2026-05 56,859.59 TRY; 2026-06 31,513.93 TRY; 2026-04 31,426.21 TRY.",
+  "Compare this month with last month": "Spending: 2026-05 56,859.59 TRY; 2026-06 31,513.93 TRY. 2026-06 was less than 2026-05 (25,345.66 TRY less). ('this month' = 2026-06, the latest month in your data)",
+  "How much can I save?": "On average you had 13,439.18 TRY per month left over in 2026-01..2026-06 (average recorded inflows (2026-01..2026-06) − average expenses). If that pattern continues, that is roughly the most you could set aside each month. This is transaction-derived, not a bank balance. Unknown: current bank balance; verified income (only recorded inflows are known); upcoming obligations (rent, loans, bills not in this file).",
+  "What payments appear to recur?": "Recurring payment candidates (not confirmed subscriptions): housing about 17,500.00 TRY monthly (every 31 days, 18×, high confidence); subscription about 750.00 TRY monthly (every 31 days, 18×, high confidence); utilities about 449.90 TRY monthly (every 31 days, 18×, high confidence); subscription about 229.99 TRY monthly (every 31 days, 18×, high confidence).",
+  "Is the prediction reliable?": "Validated forecast (quality gate passed on synthetic Dataset B, E2-B). The estimate for 2026-07 comes from gbr_personaledger (ACCEPTED (experiment E2-B, Dataset B)), using your history 2025-01..2026-06. Evidence: Dataset B test MAE 971.34 (MASE 0.781); validation MAE 929.71; best baseline (historical_median) test MAE 1022.66, 5.0% higher than the model. Limitations: Trained on synthetic PersonaLedger card spending (CC BY 4.0); not effective on the intermittent series of Dataset A; the 80% interval covered 77.7% of test months.",
+  "Explain the savings rate": "Net inflow ratio (savings-rate proxy): 0.334. Formula: (recorded inflows - expenses) / recorded inflows over the whole period. How to read it: not a verified savings rate: transfers are excluded and inflows are not known to be income."
+ }
+}

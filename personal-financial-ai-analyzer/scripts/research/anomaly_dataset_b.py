@@ -89,7 +89,7 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     mdf.write_csv(OUT / "metrics.csv")
     summ = {"protocol": __doc__, "runs": runs, "mean_over_seeds": agg.to_dicts(), "seconds": round(time.time() - t0, 1)}
-    (OUT / "summary.json").write_text(json.dumps(summ, indent=1))
+    (OUT / "summary.json").write_text(json.dumps(summ, indent=1), encoding="utf-8")
     print(agg)
     print("positives per run", [r["positives"] for r in runs], "rows", [r["rows"] for r in runs], summ["seconds"], "s")
 

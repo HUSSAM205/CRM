@@ -1,0 +1,153 @@
+{
+ "environment": {
+  "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+  "cpu_logical": 4,
+  "cpu_physical": 4,
+  "ram_gb": 16.87,
+  "dataset_mode": "full dataset present",
+  "note": "cloud container (Linux), NOT the student laptop",
+  "measured_at_utc": "2026-11-27T13:18:25Z"
+ },
+ "operations": {
+  "csv_ingest_validate_demo_195_rows": {
+   "cold_first_call_ms": 14.14,
+   "warm_median_ms": 6.72,
+   "warm_max_ms": 10.52,
+   "cpu_percent_warm": 124.0,
+   "process_wall_s_incl_imports": 0.41,
+   "peak_rss_gb": 0.084
+  },
+  "csv_ingest_validate_200k_rows": {
+   "cold_first_call_ms": 446.91,
+   "warm_median_ms": 452.35,
+   "warm_max_ms": 549.04,
+   "cpu_percent_warm": 120.0,
+   "process_wall_s_incl_imports": 9.99,
+   "peak_rss_gb": 0.306
+  },
+  "build_summaries_demo": {
+   "cold_first_call_ms": 5.25,
+   "warm_median_ms": 4.58,
+   "warm_max_ms": 6.79,
+   "cpu_percent_warm": 157.4,
+   "process_wall_s_incl_imports": 0.37,
+   "peak_rss_gb": 0.084
+  },
+  "model_load_and_forecast_outlook": {
+   "cold_first_call_ms": 14.61,
+   "warm_median_ms": 0.46,
+   "warm_max_ms": 0.87,
+   "cpu_percent_warm": 301.3,
+   "process_wall_s_incl_imports": 0.37,
+   "peak_rss_gb": 0.102
+  },
+  "model_load_and_forecast_gbr_e2": {
+   "cold_first_call_ms": 994.45,
+   "warm_median_ms": 1.33,
+   "warm_max_ms": 4.47,
+   "cpu_percent_warm": 358.2,
+   "process_wall_s_incl_imports": 1.55,
+   "peak_rss_gb": 0.25
+  },
+  "model_load_and_anomaly_review": {
+   "cold_first_call_ms": 1013.32,
+   "warm_median_ms": 13.64,
+   "warm_max_ms": 16.1,
+   "cpu_percent_warm": 122.3,
+   "process_wall_s_incl_imports": 1.84,
+   "peak_rss_gb": 0.256
+  },
+  "model_load_and_forecast_product_personaledger": {
+   "cold_first_call_ms": 1078.49,
+   "warm_median_ms": 3.68,
+   "warm_max_ms": 9.24,
+   "cpu_percent_warm": 388.3,
+   "process_wall_s_incl_imports": 1.72,
+   "peak_rss_gb": 0.257
+  },
+  "assistant_hw2_intent": {
+   "cold_first_call_ms": 15.13,
+   "warm_median_ms": 0.54,
+   "warm_max_ms": 0.75,
+   "cpu_percent_warm": 451.9,
+   "process_wall_s_incl_imports": 0.35,
+   "peak_rss_gb": 0.095
+  },
+  "assistant_advisor_intent": {
+   "cold_first_call_ms": 27.44,
+   "warm_median_ms": 19.16,
+   "warm_max_ms": 28.66,
+   "cpu_percent_warm": 181.9,
+   "process_wall_s_incl_imports": 0.71,
+   "peak_rss_gb": 0.098
+  },
+  "advisor_recommendations": {
+   "cold_first_call_ms": 20.2,
+   "warm_median_ms": 14.23,
+   "warm_max_ms": 21.91,
+   "cpu_percent_warm": 207.9,
+   "process_wall_s_incl_imports": 0.65,
+   "peak_rss_gb": 0.098
+  },
+  "analyzer_insights_all": {
+   "cold_first_call_ms": 12.52,
+   "warm_median_ms": 19.8,
+   "warm_max_ms": 29.98,
+   "cpu_percent_warm": 199.9,
+   "process_wall_s_incl_imports": 0.65,
+   "peak_rss_gb": 0.099
+  },
+  "dataset_metadata_inspection": {
+   "cold_first_call_ms": 2.16,
+   "warm_median_ms": 0.36,
+   "warm_max_ms": 0.54,
+   "cpu_percent_warm": 391.4,
+   "process_wall_s_incl_imports": 0.33,
+   "peak_rss_gb": 0.101
+  }
+ },
+ "page_render_apptest": {
+  "pages": {
+   "overview": {
+    "first_render_s": 0.605,
+    "median_rerender_s": 0.175
+   },
+   "transactions": {
+    "first_render_s": 0.106,
+    "median_rerender_s": 0.147
+   },
+   "analytics": {
+    "first_render_s": 0.444,
+    "median_rerender_s": 0.217
+   },
+   "ai_predictions": {
+    "first_render_s": 1.18,
+    "median_rerender_s": 0.172
+   },
+   "budget": {
+    "first_render_s": 0.126,
+    "median_rerender_s": 0.155
+   },
+   "financial_advisor": {
+    "first_render_s": 0.21,
+    "median_rerender_s": 0.212
+   },
+   "financial_assistant": {
+    "first_render_s": 0.124,
+    "median_rerender_s": 0.127
+   },
+   "settings": {
+    "first_render_s": 0.136,
+    "median_rerender_s": 0.11
+   }
+  },
+  "process_peak_rss_gb": 0.357,
+  "note": "server-side script execution per page (AppTest), demo data; excludes browser paint"
+ },
+ "app_server_start_s": {
+  "cold": 0.73,
+  "warm": 0.59
+ }
+}

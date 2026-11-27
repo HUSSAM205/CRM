@@ -13,6 +13,7 @@ const BASE = process.argv[2] || "http://localhost:8501";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
 const EXP = JSON.parse(fs.readFileSync(path.join(ROOT, "reports/ux_tasks/expected.json"), "utf8"));
 const SHOTS = path.join(ROOT, "reports/screenshots");
+const DEMO = JSON.parse(fs.readFileSync(path.join(ROOT, "reports/demo/demo_expected.json"), "utf8"));
 fs.mkdirSync(SHOTS, { recursive: true });
 
 const browser = await chromium.launch();
@@ -272,7 +273,136 @@ await task(25, "Advisor: emergency fund coverage", async () => {
   return `6-month essential-expense target ${EXP.b_ef6_target} equals the engine`;
 });
 
+// ---- master audit 3: append/import workflow, confirmed replacement, new assistant intents, forecast type ----
+const metric = async (label) => (await main().locator('[data-testid="stMetric"]', { hasText: label }).first()
+  .locator('[data-testid="stMetricValue"]').innerText()).trim();
+
+await task(26, "Add a second file to loaded data", async () => {
+  await deleteData(); await nav("Transactions");
+  await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
+  await upload("data/samples/sample_bank_export.csv");
+  await expectText(main(), "Transactions are already loaded");
+  await page.getByText("All rows in this file are completed").click(); await idle();
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  await expectText(main(), `Added ${EXP.append_added} new transaction(s)`);
+  const valid = await metric("Valid rows");
+  if (valid !== EXP.append_total_valid.toLocaleString("en-US")) throw new Error(`valid=${valid}`);
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  await expectText(main(), "already imported");
+  return `demo kept; ${EXP.append_added} rows added (valid ${valid}); identical re-import refused`;
+});
+
+await task(27, "Replacing data needs confirmation", async () => {
+  await page.getByText("Replace the loaded transactions", { exact: true }).click(); await idle();
+  if (!(await page.getByRole("button", { name: "Validate and load" }).isDisabled())) throw new Error("button enabled before confirmation");
+  await page.getByText("I understand that replacing removes").click(); await idle();
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  const valid = await metric("Valid rows");
+  if (valid !== String(EXP.bank_valid)) throw new Error(`valid=${valid}`);
+  return `disabled until confirmed; after replacement only the new file remains (${valid} rows)`;
+});
+
+await task(28, "Assistant: highest-spending months", async () => {
+  await deleteData(); await nav("Transactions");
+  await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
+  await page.locator('[data-testid="stSidebar"]').getByLabel("Currency", { exact: true }).click(); await page.keyboard.type("USD"); await page.keyboard.press("Enter"); await idle();
+  await nav("Financial assistant");
+  await page.getByLabel("Ask a question").fill("Which months had the highest spending?");
+  await page.getByRole("button", { name: "Ask" }).click(); await idle();
+  await expectText(main(), EXP.highest_months_answer);
+  return "answer lists the top months with the engine's values";
+});
+
+await task(29, "Assistant: compare this month with last month", async () => {
+  await page.getByLabel("Ask a question").fill("Compare this month with last month");
+  await page.getByRole("button", { name: "Ask" }).click(); await idle();
+  await expectText(main(), EXP.compare_answer.split(" (")[0]);
+  return "relative months resolved against the latest data month";
+});
+
+await task(30, "AI predictions states the type of result", async () => {
+  await nav("AI predictions");
+  await expectText(main(), "Type of result:");
+  await expectText(main(), "Deterministic estimate");
+  return "deterministic estimate labelled as such";
+});
+
+// ---- master audit 4: practical walkthrough with the synthetic personal demo (docs/DEMO_WALKTHROUGH.md) ----
+await task(31, "Walkthrough: upload first bank export", async () => {
+  await deleteData(); await nav("Transactions");
+  await upload("data/samples/demo_personal_part1.csv");
+  await page.getByText("All rows in this file are completed").click(); await idle();
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  const valid = await metric("Valid rows");
+  if (valid !== String(DEMO.part1_valid)) throw new Error(`valid=${valid}`);
+  return `${valid} rows loaded from demo_personal_part1.csv`;
+});
+
+await task(32, "Walkthrough: add overlapping second export", async () => {
+  await upload("data/samples/demo_personal_part2.csv");
+  await page.getByText("All rows in this file are completed").click(); await idle();
+  await page.getByRole("button", { name: "Validate and load" }).click(); await idle();
+  await expectText(main(), `Added ${DEMO.added} new transaction(s)`);
+  await expectText(main(), `${DEMO.already_loaded} were already loaded and skipped`);
+  const valid = await metric("Valid rows");
+  if (valid !== String(DEMO.total_valid)) throw new Error(`valid=${valid}`);
+  return `${DEMO.added} added, ${DEMO.already_loaded} overlapping skipped, ${valid} in total`;
+});
+
+await task(33, "Walkthrough: overview totals", async () => {
+  await nav("Overview");
+  const got = { income: await metric("Income (inflows)"), expenses: await metric("Expenses"), net: await metric("Net cash flow") };
+  for (const k of ["income", "expenses", "net"]) if (got[k] !== DEMO[k]) throw new Error(`${k}: ${got[k]} != ${DEMO[k]}`);
+  return got;
+});
+
+await task(34, "Walkthrough: validated forecast and unusual transaction", async () => {
+  await nav("AI predictions");
+  await expectText(main(), DEMO.forecast_category);
+  const v = await metric(`Model estimate for ${DEMO.forecast_target}`);
+  if (v !== DEMO.forecast_point) throw new Error(`estimate ${v} != ${DEMO.forecast_point}`);
+  await expectText(main(), "Unusual transaction — review recommended.");
+  return `${DEMO.forecast_category}: ${v}`;
+});
+
+await task(35, "Walkthrough: assistant answers", async () => {
+  await nav("Financial assistant");
+  for (const q of ["Which months had the highest spending?", "How much can I save?", "Why was this transaction flagged?"]) {
+    await page.getByLabel("Ask a question").fill(q);
+    await page.getByRole("button", { name: "Ask" }).click(); await idle();
+  }
+  await expectText(main(), DEMO.answers["Which months had the highest spending?"]);
+  await expectText(main(), DEMO.answers["How much can I save?"].split(". ")[0]);
+  await expectText(main(), "Unusual amount: 33.3x your usual for this category");
+  return "highest months, savings capacity and flag explanation equal the engine";
+});
+
+await task(36, "Walkthrough: savings goal", async () => {
+  await nav("Financial advisor");
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  await page.getByLabel("Goal name").fill("Laptop");
+  await page.getByLabel(`Target amount (${DEMO.currency})`).fill("60000");
+  await page.getByLabel(`Already saved (${DEMO.currency})`).fill("5000");
+  await page.getByLabel("Target month (YYYY-MM, optional)").fill("2026-12");
+  await page.getByRole("button", { name: "Add goal" }).click(); await idle();
+  await page.getByRole("tab", { name: "Savings goals" }).click(); await idle();
+  await expectText(main(), `Required per month to reach it by 2026-12: ${DEMO.goal_required}`);
+  return `goal plan: ${DEMO.goal_required} per month`;
+});
+
+await task(37, "Walkthrough: export transactions CSV", async () => {
+  await nav("Transactions");
+  const [dl] = await Promise.all([page.waitForEvent("download"),
+    page.getByRole("button", { name: "Download these transactions (CSV)" }).click()]);
+  const file = path.join(os.tmpdir(), "pfa_export.csv");
+  await dl.saveAs(file);
+  const lines = fs.readFileSync(file, "utf8").trim().split(/\r?\n/);
+  if (lines.length - 1 !== DEMO.total_valid) throw new Error(`exported rows ${lines.length - 1}`);
+  return `${lines.length - 1} rows exported (${dl.suggestedFilename()})`;
+});
+
 // fresh screenshots of all eight pages with demo data
+await deleteData();
 await nav("Transactions"); await page.getByRole("button", { name: "Load demo data" }).click(); await idle();
 for (const [name, file] of [["Overview", "page_1_overview"], ["Transactions", "page_2_transactions"], ["Analytics", "page_3_analytics"],
                             ["AI predictions", "page_4_ai_predictions"], ["Budget", "page_5_budget"],

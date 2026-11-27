@@ -8,13 +8,14 @@ usage: id_partition.py <part> <n_parts> <checkpoint_dir>
 from __future__ import annotations
 
 import json
-import resource
 import sys
 from pathlib import Path
 
 import polars as pl
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.utils.peak_memory import peak_rss_gb  # noqa: E402
 RAW = ROOT / "data/raw/transactions_50M.parquet"
 
 
@@ -31,8 +32,8 @@ def main() -> None:
                    num.n_unique().alias("unique_numeric_parts"),
                    num.min().alias("min_numeric"), num.max().alias("max_numeric"))
            .collect(engine="streaming").to_dicts()[0])
-    r["worker_ru_maxrss_gb"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6, 3)
-    (ck / f"part_{part:03d}.json").write_text(json.dumps(r))
+    r["worker_ru_maxrss_gb"] = peak_rss_gb()
+    (ck / f"part_{part:03d}.json").write_text(json.dumps(r), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -101,4 +101,4 @@ def review_candidates(clean: pl.DataFrame, account: str, currency: str, recent_m
 
 def model_metrics() -> dict:
     p = PROJECT_ROOT / "reports/experiments/anomaly/summary.json"
-    return json.loads(p.read_text()) if p.exists() else {}
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}

@@ -19,11 +19,11 @@ NOW = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 
 def j(p: Path) -> dict:
-    return json.loads(p.read_text())
+    return json.loads(p.read_text(encoding="utf-8"))
 
 
 def table(path: Path) -> str:
-    rows = list(csv.reader(path.open()))
+    rows = list(csv.reader(path.open(encoding="utf-8")))
     head, body = rows[0], rows[1:]
     out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
     out += ["| " + " | ".join(r) + " |" for r in body]
@@ -31,7 +31,7 @@ def table(path: Path) -> str:
 
 
 def write(name: str, text: str) -> None:
-    (V / name).write_text(text)
+    (V / name).write_text(text, encoding="utf-8")
     print("wrote", name)
 
 
@@ -213,8 +213,8 @@ Generated {NOW} from `reports/verification/environment.json` (run {e['generated_
 
 def dependencies() -> None:
     e = j(V / "environment.json")
-    lock = (ROOT / "requirements-lock.txt").read_text().splitlines()
-    win = [ln for ln in (V / "requirements-windows-resolved.txt").read_text().splitlines()
+    lock = (ROOT / "requirements-lock.txt").read_text(encoding="utf-8").splitlines()
+    win = [ln for ln in (V / "requirements-windows-resolved.txt").read_text(encoding="utf-8").splitlines()
            if ln and not ln.startswith((" ", "#"))]
     write("dependency_audit.md", f"""# Dependency Audit
 
@@ -266,7 +266,7 @@ def financial() -> None:
                      f"{c['independent_groups']:,} | {c['value_mismatches']} | {c['groups_missing_from_project_output']} |"
                      for c in cc)
     test_log = (ROOT / "logs/testing/unit_rules_validation.log")
-    tl = test_log.read_text().strip().splitlines()[-1] if test_log.exists() else "see logs/testing"
+    tl = test_log.read_text(encoding="utf-8").strip().splitlines()[-1] if test_log.exists() else "see logs/testing"
     write("financial_rules_validation.md", f"""# Financial Rules Validation
 
 Generated {NOW}. Rules: `docs/FINANCIAL_RULES.md`.

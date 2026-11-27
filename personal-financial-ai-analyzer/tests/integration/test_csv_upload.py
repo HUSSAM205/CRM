@@ -66,7 +66,7 @@ def test_logs_never_contain_amounts_or_ids(tmp_path):
     log.info("loaded %s amount=%s id=%s acct=%s", "x", "1,234.56", "TX0000000123", "ACC-000000001")
     for h in log.handlers:
         h.flush()
-    text = (tmp_path / "t.log").read_text()
+    text = (tmp_path / "t.log").read_text(encoding="utf-8")
     assert "1,234.56" not in text and "TX0000000123" not in text and "ACC-000000001" not in text
     assert "[amount]" in text and "[id]" in text
 
@@ -117,3 +117,57 @@ def test_upload_component_previews_detects_format_and_loads(fixture, sep):
     assert not at.exception, at.exception
     assert any(f"{sep}-separated" in m.value and "Preview of the first rows" in m.value for m in at.markdown)
     assert len(at.dataframe) >= 1                                   # the raw preview table
+
+
+def _btn(at, label):
+    return next(b for b in at.button if b.label == label)
+
+
+def test_append_keeps_existing_data_and_replace_needs_confirmation():
+    """MA3-01 on the real upload component: with data loaded, a new file is ADDED by default (existing records
+    kept, already-loaded records skipped); the same file twice is refused; replacing requires an explicit
+    confirmation and only then starts over with the new file."""
+    from streamlit.testing.v1 import AppTest
+    from app.components.upload import REPLACE
+    root = Path(__file__).resolve().parents[2]
+    script = UPLOAD_SCRIPT.format(root=str(root), path=str(root / "data/samples/sample_bank_export.csv"),
+                                  name="bank.csv")
+    at = AppTest.from_string(script, default_timeout=60).run()
+    _btn(at, "Load demo data").click().run()
+    demo_rows = at.session_state["data"]["clean"].height
+    assert not at.exception and demo_rows > 0
+    # data loaded -> the mode question appears, default = add
+    assert at.radio(key="import_mode").value.startswith("Add")
+    next(c for c in at.checkbox if c.label.startswith("All rows in this file are completed")).check().run()
+    _btn(at, "Validate and load").click().run()
+    d = at.session_state["data"]
+    bank_rows = d["imports"][-1]["added"]
+    assert bank_rows > 0 and d["clean"].height == demo_rows + bank_rows        # nothing replaced
+    assert any("Added" in s.value and "already loaded and skipped" in s.value for s in at.success)
+    # the same file again is refused as a whole and changes nothing
+    _btn(at, "Validate and load").click().run()
+    assert any("already imported" in e.value for e in at.error)
+    assert at.session_state["data"]["clean"].height == demo_rows + bank_rows
+    # replacing: the button stays disabled until the user confirms
+    at.radio(key="import_mode").set_value(REPLACE).run()
+    assert _btn(at, "Validate and load").disabled
+    at.checkbox(key="confirm_replace").check().run()
+    assert not _btn(at, "Validate and load").disabled
+    _btn(at, "Validate and load").click().run()
+    assert at.session_state["data"]["clean"].height == bank_rows               # only the new file remains
+    assert not at.exception
+
+
+def test_completed_confirmation_is_asked_again_for_each_new_file(tmp_path):
+    """MA4: ticking 'all rows are completed' for one file must not silently apply to the next file."""
+    from streamlit.testing.v1 import AppTest
+    root = Path(__file__).resolve().parents[2]
+    f2 = tmp_path / "second.csv"
+    f2.write_text("Date,Amount,Currency\n2026-02-01,-5.00,USD\n", encoding="utf-8")
+    first = AppTest.from_string(UPLOAD_SCRIPT.format(root=str(root), path=str(root / "data/samples/sample_bank_export.csv"),
+                                                     name="a.csv"), default_timeout=60).run()
+    second = AppTest.from_string(UPLOAD_SCRIPT.format(root=str(root), path=str(f2), name="b.csv"),
+                                 default_timeout=60).run()
+    k1 = next(c for c in first.checkbox if c.label.startswith("All rows")).key
+    k2 = next(c for c in second.checkbox if c.label.startswith("All rows")).key
+    assert k1 != k2 and k1.startswith("assume_completed_") and k2.startswith("assume_completed_")

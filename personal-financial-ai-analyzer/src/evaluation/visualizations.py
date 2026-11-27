@@ -70,7 +70,7 @@ def anomaly_auc_by_scenario() -> str:
 
 
 def anomaly_positive_control() -> str:
-    d = json.loads((PROJECT_ROOT / "reports/evaluation/anomaly_positive_control.json").read_text())["results"]
+    d = json.loads((PROJECT_ROOT / "reports/evaluation/anomaly_positive_control.json").read_text(encoding="utf-8"))["results"]
     ks = sorted(d, key=lambda k: int(k[1:]))
     fig, ax = plt.subplots(figsize=(6, 3.5))
     ax.plot([int(k[1:]) for k in ks], [d[k]["roc_auc"] for k in ks], marker="o", label="ROC-AUC")

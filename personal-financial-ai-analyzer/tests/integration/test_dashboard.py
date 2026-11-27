@@ -311,3 +311,23 @@ def test_assistant_shows_answer_context_and_budget_shows_remaining(demo_state):
     b = seeded("budget", demo_state)
     texts = [p.proto.text for p in b.get("progress")]
     assert any("remaining" in t or "over by" in t for t in texts), (last2, texts)
+
+
+def test_transactions_export_contains_exactly_the_filtered_rows(demo_state):
+    """MA4: the Transactions page offers a CSV of exactly the rows shown (after filters), formula-safe."""
+    import io
+
+    import polars as pl
+
+    from app.utils.exports import csv_bytes
+    at = seeded("transactions", demo_state)
+    assert not at.exception
+    labels = [e.proto.label for e in at.get("download_button")]
+    assert "Download these transactions (CSV)" in labels
+    acc = demo_state["summaries"].accounts[0]
+    view = demo_state["clean"].filter((pl.col("account_id") == acc) & (pl.col("currency") == "USD"))
+    shown = view.select("transaction_timestamp", "transaction_type", "meaning", "merchant_category", "amount",
+                        "currency", "status", "transaction_id")
+    back = pl.read_csv(io.BytesIO(csv_bytes(shown)))
+    assert back.height == view.height and back["amount"].sum() == pytest.approx(view["amount"].sum())
+    assert set(back["transaction_id"]) == set(view["transaction_id"])

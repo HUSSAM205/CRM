@@ -13,7 +13,7 @@ This experiment and its artifacts are unchanged (`reports/experiments/forecastin
 
 ## 2. Quality-gate experiment E2-QG (master audit, separate)
 
-`scripts/research/forecast_quality_gate.py`. The protocol is written in the file's docstring and was fixed before any test number of this experiment existed.
+`scripts/research/forecast_quality_gate.py`. **This is a post-hoc analysis, not a confirmatory test.** Its protocol was fixed before the script ran. But the zero-forecast and median results on the same test months were already known from the E2 diagnostic (`reports/evaluation/forecasting_error_analysis.json`, 03:33 UTC). The idea of a zero baseline came from those results.
 
 * **Extra baselines:**
   * zero: diagnostic only, because it ignores the user's data;
@@ -108,4 +108,21 @@ GBR beats the best baseline on structured series and loses on unstructured ones.
 * **Otherwise:** the deterministic historical-median outlook of section 3.
 * **Fewer than 12 active months:** an insufficient-history notice.
 
-The HW2 E2 GBR stays visible as the academic record, labelled REJECTED.
+The HW2 E2 GBR stays visible as the academic record. Its correct framing: the HW2 rule **kept** it, and the post-hoc E2-QG check means the product does not use it.
+
+## 7. Result types shown to the user (master audit 3, MA3-11)
+
+| Type | When |
+|---|---|
+| **Validated forecast** (quality gate passed on synthetic Dataset B, E2-B) | in-domain series |
+| **Deterministic estimate** (historical median) | no ML model applies |
+| **Insufficient data** | fewer than 12 active months: no number is shown |
+| **Experimental forecast** | only the HW2 E2 model, shown for the academic record and never used by the product |
+
+The type is printed above the estimate (`forecast_category`) and stated by the assistant.
+
+**Reproduction.** `scripts/audit/reproduce_e2b.py` (read-only, saved artifact, no retraining) reproduced the E2-B test numbers exactly on 2026-11-27:
+* MAE 971.34 vs 1,022.66, a 5.02% gain;
+* 80% interval coverage 77.65% on 42,565 test rows from 9,368 users.
+
+Output: `reports/master_audit_3/e2b_reproduction.json`.

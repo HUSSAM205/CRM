@@ -14,6 +14,10 @@ Status: **PARTIAL** (HW1 P5 is not measurable here).
   * the 5 fixed assistant intents;
   * seed 42 and saved models.
 * E1 (exact financial calculations), E2, E3 and E4 (fixed tasks) all have evidence.
+* **Documented deviations from the HW2 plan:**
+  * the app deploys a **global** Isolation Forest, while the per-account forest specified in HW2 5.5 was evaluated in E3 (CF-16, D-07);
+  * training used aggregate panels of 20,000 eligible series rather than one saved raw-row subset (HW2 6.3);
+  * all runs were on a cloud container, not the student laptop (HW2 6.1).
 
 ## Product enhancements: NOT part of HW1/HW2
 

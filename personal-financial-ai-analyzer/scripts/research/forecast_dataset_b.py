@@ -188,7 +188,7 @@ def main() -> None:
                                          **{b: metrics(ta, ta[b].to_numpy()) for b in ("zero", "historical_median", "moving_average_3")}}
     res["seconds"] = round(time.time() - t0, 1)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "summary.json").write_text(json.dumps(res, indent=1, default=float))
+    (OUT / "summary.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
     pl.DataFrame([{"split": s, "model": k, **{m: res[s][k][m] for m in ("MAE", "MASE", "RMSE", "R2", "rows", "users",
                                                                        "zero_prediction_share", "failed_predictions")},
                    "gate": res["gate"].get(k, {}) if isinstance(res["gate"].get(k), str) else
@@ -202,17 +202,17 @@ def main() -> None:
         joblib.dump(m_final, buf)
         (d / "model.joblib").write_bytes(buf.getvalue())
         (d / "feature_schema.json").write_text(json.dumps({"features": FEATURES, "target": "spend / historical_mean",
-                                                           "excluded": ["balance_after", "account_id", "transaction_id", "user_id"]}, indent=1))
+                                                           "excluded": ["balance_after", "account_id", "transaction_id", "user_id"]}, indent=1), encoding="utf-8")
         meta = {"model_id": "gbr_personaledger", "version": ver, "algorithm": "HistGradientBoostingRegressor (absolute_error)",
                 "hyperparameters": params, "random_seed": 42, "dataset_id": "B-PERSONALEDGER-NORMAL", "dataset_sha256": SRC_SHA,
                 "dataset_license": "CC BY 4.0 (Capital One Research, PersonaLedger)",
                 "training_period": "target months <= 2026-12 (train + validation refit)", "training_rows": trva.height,
                 "validation_metrics": v["gbr_scale_free"], "test_metrics": res["test"]["gbr_scale_free"],
                 "interval": res["interval"], "gate": res["gate"], "created_at_utc": datetime.now(timezone.utc).isoformat()}
-        (d / "metadata.json").write_text(json.dumps(meta, indent=1, default=float))
-        (d / "checksum.sha256").write_text(hashlib.sha256((d / "model.joblib").read_bytes()).hexdigest() + "  model.joblib\n")
+        (d / "metadata.json").write_text(json.dumps(meta, indent=1, default=float), encoding="utf-8")
+        (d / "checksum.sha256").write_text(hashlib.sha256((d / "model.joblib").read_bytes()).hexdigest() + "  model.joblib\n", encoding="utf-8")
         res["artifact"] = str(d.relative_to(ROOT))
-        (OUT / "summary.json").write_text(json.dumps(res, indent=1, default=float))
+        (OUT / "summary.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
     print(json.dumps({"sizes": res["sizes"], "params": params, "gate": res["gate"], "seconds": res["seconds"],
                       "artifact": res.get("artifact")}, indent=1))
     for s in ("validation", "test"):

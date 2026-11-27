@@ -163,7 +163,7 @@ print(json.dumps({{'cold_first_call_ms': round(cold * 1000, 2), 'warm_median_ms'
         p.wait()
     res["app_server_start_s"] = starts
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(res, indent=1))
+    out_path.write_text(json.dumps(res, indent=1), encoding="utf-8")
     print('written', out_path)
     print(starts)
 

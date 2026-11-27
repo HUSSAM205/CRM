@@ -10,6 +10,6 @@
  "raw_accounts": 1000000,
  "pipeline_accounts": 1000000,
  "accounts_equal": true,
- "seconds": 53.3,
+ "seconds": 43.7,
  "mismatch_detail": []
 }

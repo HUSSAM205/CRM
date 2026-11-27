@@ -1,0 +1,200 @@
+Date,Description,Category,Amount,Currency
+2025-01-01 08:06:00,Metro card top-up,transport,-600.00,TRY
+2025-01-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-01-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-01-02 19:50:00,Restaurant,dining,-546.65,TRY
+2025-01-03 19:52:00,Migros supermarket,groceries,-1209.69,TRY
+2025-01-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-01-09 12:17:00,Pharmacy,healthcare,-516.00,TRY
+2025-01-09 19:44:00,Restaurant,dining,-335.67,TRY
+2025-01-10 18:10:00,Migros supermarket,groceries,-1190.50,TRY
+2025-01-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-01-15 08:01:00,Metro card top-up,transport,-600.00,TRY
+2025-01-17 18:17:00,Migros supermarket,groceries,-988.20,TRY
+2025-01-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-01-19 22:43:00,Restaurant,dining,-858.95,TRY
+2025-01-20 12:10:00,Electric bill,utilities,-1194.00,TRY
+2025-01-23 12:03:00,Restaurant,dining,-757.66,TRY
+2025-01-24 20:02:00,Migros supermarket,groceries,-1067.95,TRY
+2025-01-24 22:31:00,Restaurant,dining,-454.91,TRY
+2025-02-01 08:21:00,Metro card top-up,transport,-600.00,TRY
+2025-02-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-02-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-02-03 18:29:00,Migros supermarket,groceries,-1541.30,TRY
+2025-02-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-02-06 21:05:00,Restaurant,dining,-372.03,TRY
+2025-02-08 16:21:00,Restaurant,dining,-754.79,TRY
+2025-02-09 15:00:00,Restaurant,dining,-395.77,TRY
+2025-02-10 19:49:00,Migros supermarket,groceries,-1421.67,TRY
+2025-02-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-02-15 08:02:00,Metro card top-up,transport,-600.00,TRY
+2025-02-17 17:42:00,Migros supermarket,groceries,-1588.34,TRY
+2025-02-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-02-20 12:10:00,Electric bill,utilities,-1242.00,TRY
+2025-02-24 17:55:00,Migros supermarket,groceries,-1041.40,TRY
+2025-02-25 17:48:00,Pharmacy,healthcare,-549.00,TRY
+2025-02-28 22:53:00,Restaurant,dining,-341.37,TRY
+2025-03-01 08:05:00,Metro card top-up,transport,-600.00,TRY
+2025-03-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-03-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-03-02 16:44:00,Restaurant,dining,-574.75,TRY
+2025-03-03 20:50:00,Migros supermarket,groceries,-1203.22,TRY
+2025-03-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-03-09 18:18:00,Restaurant,dining,-353.60,TRY
+2025-03-10 20:14:00,Migros supermarket,groceries,-1163.12,TRY
+2025-03-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-03-13 14:04:00,Pharmacy,healthcare,-425.00,TRY
+2025-03-15 08:21:00,Metro card top-up,transport,-600.00,TRY
+2025-03-17 17:20:00,Migros supermarket,groceries,-941.88,TRY
+2025-03-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-03-20 12:10:00,Electric bill,utilities,-908.00,TRY
+2025-03-24 19:02:00,Migros supermarket,groceries,-1504.09,TRY
+2025-03-24 20:14:00,Restaurant,dining,-885.09,TRY
+2025-04-01 08:15:00,Metro card top-up,transport,-600.00,TRY
+2025-04-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-04-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-04-03 14:52:00,Restaurant,dining,-834.08,TRY
+2025-04-03 19:29:00,Migros supermarket,groceries,-1487.82,TRY
+2025-04-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-04-05 19:45:00,Pharmacy,healthcare,-594.00,TRY
+2025-04-10 17:26:00,Migros supermarket,groceries,-1001.21,TRY
+2025-04-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-04-15 08:14:00,Metro card top-up,transport,-600.00,TRY
+2025-04-16 14:33:00,Restaurant,dining,-592.31,TRY
+2025-04-17 19:10:00,Migros supermarket,groceries,-1485.87,TRY
+2025-04-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-04-20 12:10:00,Electric bill,utilities,-959.00,TRY
+2025-04-23 18:08:00,Restaurant,dining,-330.97,TRY
+2025-04-24 19:09:00,Migros supermarket,groceries,-1378.56,TRY
+2025-04-25 20:49:00,Restaurant,dining,-749.39,TRY
+2025-04-28 15:32:00,Restaurant,dining,-775.11,TRY
+2025-05-01 08:16:00,Metro card top-up,transport,-600.00,TRY
+2025-05-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-05-01 14:52:00,Restaurant,dining,-814.67,TRY
+2025-05-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-05-03 19:50:00,Migros supermarket,groceries,-1184.13,TRY
+2025-05-04 15:40:00,Restaurant,dining,-884.76,TRY
+2025-05-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-05-05 13:35:00,Restaurant,dining,-369.58,TRY
+2025-05-08 14:02:00,Restaurant,dining,-452.16,TRY
+2025-05-10 18:57:00,Migros supermarket,groceries,-1495.98,TRY
+2025-05-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-05-15 08:24:00,Metro card top-up,transport,-600.00,TRY
+2025-05-17 19:28:00,Migros supermarket,groceries,-1454.71,TRY
+2025-05-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-05-20 12:10:00,Electric bill,utilities,-952.00,TRY
+2025-05-24 19:40:00,Migros supermarket,groceries,-1229.71,TRY
+2025-06-01 08:00:00,Metro card top-up,transport,-600.00,TRY
+2025-06-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-06-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-06-02 19:56:00,Restaurant,dining,-301.85,TRY
+2025-06-03 18:58:00,Migros supermarket,groceries,-1236.85,TRY
+2025-06-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-06-07 15:54:00,Restaurant,dining,-714.84,TRY
+2025-06-10 19:45:00,Migros supermarket,groceries,-1260.89,TRY
+2025-06-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-06-14 18:30:00,Restaurant,dining,-528.68,TRY
+2025-06-15 08:13:00,Metro card top-up,transport,-600.00,TRY
+2025-06-17 18:51:00,Migros supermarket,groceries,-905.90,TRY
+2025-06-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-06-20 12:10:00,Electric bill,utilities,-944.00,TRY
+2025-06-23 18:19:00,Pharmacy,healthcare,-596.00,TRY
+2025-06-24 18:03:00,Migros supermarket,groceries,-937.56,TRY
+2025-06-25 16:04:00,Restaurant,dining,-713.61,TRY
+2025-07-01 08:30:00,Metro card top-up,transport,-600.00,TRY
+2025-07-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-07-01 13:12:00,Restaurant,dining,-540.70,TRY
+2025-07-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-07-03 17:03:00,Migros supermarket,groceries,-988.61,TRY
+2025-07-03 19:11:00,Pharmacy,healthcare,-517.00,TRY
+2025-07-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-07-10 20:24:00,Migros supermarket,groceries,-1466.25,TRY
+2025-07-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-07-15 08:17:00,Metro card top-up,transport,-600.00,TRY
+2025-07-17 18:05:00,Migros supermarket,groceries,-1016.14,TRY
+2025-07-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-07-19 19:27:00,Restaurant,dining,-787.16,TRY
+2025-07-20 12:10:00,Electric bill,utilities,-1192.00,TRY
+2025-07-23 15:25:00,Restaurant,dining,-563.63,TRY
+2025-07-24 17:06:00,Migros supermarket,groceries,-1065.49,TRY
+2025-08-01 08:12:00,Metro card top-up,transport,-600.00,TRY
+2025-08-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-08-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-08-03 18:02:00,Migros supermarket,groceries,-1534.23,TRY
+2025-08-03 19:35:00,Restaurant,dining,-542.79,TRY
+2025-08-04 21:56:00,Restaurant,dining,-878.50,TRY
+2025-08-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-08-10 19:15:00,Migros supermarket,groceries,-1291.80,TRY
+2025-08-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-08-13 14:22:00,Restaurant,dining,-585.14,TRY
+2025-08-14 19:31:00,Restaurant,dining,-781.83,TRY
+2025-08-15 08:19:00,Metro card top-up,transport,-600.00,TRY
+2025-08-17 18:44:00,Migros supermarket,groceries,-1381.13,TRY
+2025-08-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-08-20 12:10:00,Electric bill,utilities,-1293.00,TRY
+2025-08-23 14:39:00,Restaurant,dining,-325.32,TRY
+2025-08-24 18:25:00,Migros supermarket,groceries,-1102.95,TRY
+2025-09-01 08:10:00,Metro card top-up,transport,-600.00,TRY
+2025-09-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-09-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-09-03 17:47:00,Migros supermarket,groceries,-966.75,TRY
+2025-09-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-09-05 18:10:00,Restaurant,dining,-422.83,TRY
+2025-09-09 19:58:00,Restaurant,dining,-721.31,TRY
+2025-09-10 18:24:00,Migros supermarket,groceries,-1429.11,TRY
+2025-09-11 22:35:00,Restaurant,dining,-526.42,TRY
+2025-09-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-09-15 08:01:00,Metro card top-up,transport,-600.00,TRY
+2025-09-17 17:28:00,Migros supermarket,groceries,-934.54,TRY
+2025-09-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-09-20 12:10:00,Electric bill,utilities,-920.00,TRY
+2025-09-23 12:48:00,Pharmacy,healthcare,-167.00,TRY
+2025-09-24 17:18:00,Migros supermarket,groceries,-1489.24,TRY
+2025-10-01 08:02:00,Metro card top-up,transport,-600.00,TRY
+2025-10-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-10-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-10-02 14:09:00,Restaurant,dining,-429.64,TRY
+2025-10-03 20:56:00,Migros supermarket,groceries,-1212.73,TRY
+2025-10-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-10-06 13:18:00,Restaurant,dining,-626.08,TRY
+2025-10-07 17:44:00,Pharmacy,healthcare,-446.00,TRY
+2025-10-10 18:56:00,Migros supermarket,groceries,-1518.21,TRY
+2025-10-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-10-15 08:28:00,Metro card top-up,transport,-600.00,TRY
+2025-10-17 19:51:00,Migros supermarket,groceries,-1010.41,TRY
+2025-10-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-10-20 12:10:00,Electric bill,utilities,-903.00,TRY
+2025-10-20 19:45:00,Restaurant,dining,-430.93,TRY
+2025-10-24 13:07:00,Restaurant,dining,-372.24,TRY
+2025-10-24 17:54:00,Migros supermarket,groceries,-1107.38,TRY
+2025-11-01 08:07:00,Metro card top-up,transport,-600.00,TRY
+2025-11-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-11-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-11-03 19:37:00,Migros supermarket,groceries,-1598.55,TRY
+2025-11-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-11-07 13:36:00,Pharmacy,healthcare,-421.00,TRY
+2025-11-10 18:17:00,Migros supermarket,groceries,-1331.60,TRY
+2025-11-11 21:06:00,Restaurant,dining,-691.96,TRY
+2025-11-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-11-15 08:02:00,Metro card top-up,transport,-600.00,TRY
+2025-11-17 18:18:00,Migros supermarket,groceries,-908.65,TRY
+2025-11-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-11-18 16:22:00,Restaurant,dining,-741.76,TRY
+2025-11-20 12:10:00,Electric bill,utilities,-949.00,TRY
+2025-11-20 12:37:00,Restaurant,dining,-670.61,TRY
+2025-11-24 19:10:00,Migros supermarket,groceries,-1112.08,TRY
+2025-12-01 08:14:00,Metro card top-up,transport,-600.00,TRY
+2025-12-01 09:05:00,Salary ACME Teknoloji,income,45000.00,TRY
+2025-12-02 10:15:00,Rent payment,housing,-17500.00,TRY
+2025-12-03 17:33:00,Migros supermarket,groceries,-1050.96,TRY
+2025-12-05 07:40:00,FitLife gym subscription,subscription,-750.00,TRY
+2025-12-09 14:09:00,Restaurant,dining,-397.14,TRY
+2025-12-10 17:34:00,Migros supermarket,groceries,-1500.79,TRY
+2025-12-12 20:30:00,Netflix subscription,subscription,-229.99,TRY
+2025-12-12 20:39:00,Restaurant,dining,-695.04,TRY
+2025-12-14 14:36:00,Restaurant,dining,-300.28,TRY
+2025-12-15 08:19:00,Metro card top-up,transport,-600.00,TRY
+2025-12-17 18:33:00,Migros supermarket,groceries,-1236.78,TRY
+2025-12-18 11:00:00,Internet bill,utilities,-449.90,TRY
+2025-12-20 12:10:00,Electric bill,utilities,-1277.00,TRY
+2025-12-24 17:05:00,Migros supermarket,groceries,-979.64,TRY

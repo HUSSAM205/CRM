@@ -18,7 +18,8 @@ from src.assistant.intent_detection import Intent
 
 ADVISOR_INTENTS = {"income", "cash_flow", "spending_trend", "unusual_transactions", "savings_goals",
                    "recommendations", "scenario", "affordability", "recurring", "budget_remaining", "forecast_info",
-                   "largest_category", "highest_months", "unknown_category", "account_reference"}
+                   "largest_category", "highest_months", "unknown_category", "account_reference",
+                   "savings_capacity", "flag_explanation", "indicator_explanation"}
 
 
 @dataclass
@@ -114,7 +115,31 @@ def execute(intent: Intent, s, account: str, currency: str, months: list[str | N
                 "not_fraud": r["not_fraud"], "top": {"date": str(top["transaction_timestamp"])[:10],
                                                      "category": top["merchant_category"], "amount": top["amount"],
                                                      "explanation": top["explanation"]}}
+    if intent.name == "flag_explanation":                    # MA3-06: evidence behind each review candidate
+        from src.models.anomaly.anomaly_scoring import review_candidates
+        r = review_candidates(ctx.clean, account, currency)
+        if not r["ok"]:
+            return {**base, "error": "message", "message": r["message"]}
+        c = r["candidates"].head(3)
+        return {**base, "label": r["label"], "not_fraud": r["not_fraud"], "method": r["method"], "window": r["window"],
+                "count": r["candidates"].height,
+                "items": [{"date": str(x["transaction_timestamp"])[:10], "category": x["merchant_category"],
+                           "amount": x["amount"], "usual": x["usual_amount_in_your_history"],
+                           "explanation": x["explanation"], "surfaced_by": x["surfaced_by"]} for x in c.iter_rows(named=True)]}
+    if intent.name == "indicator_explanation":                # MA3-07: formula, value and reading of an indicator
+        rows = I.indicators(ctx.clean, s, account, currency, budgets)
+        asked = (intent.detail or "").lower()
+        alias = {"savings rate": "net inflow ratio", "saving rate": "net inflow ratio", "stability": "spending stability",
+                 "recurring burden": "recurring payment burden"}
+        key = alias.get(asked, asked)
+        hit = [x for x in rows if key and key in x["indicator"].lower()]
+        return {**base, "indicators": hit or rows, "specific": bool(hit)}
     fc = build_context(ctx.clean, s, account, currency, ctx.user)
+    if intent.name == "savings_capacity":                     # MA3-05: surplus from recorded data, unknowns stated
+        surplus, basis = fc.monthly_surplus_cents
+        return {**base, "surplus_cents": surplus, "basis": basis, "window": [fc.window[0], fc.window[-1]],
+                "unknowns": fc.unknowns(), "essential_cents": fc.avg_essential_cents,
+                "discretionary_cents": fc.avg_discretionary_cents}
     if intent.name == "savings_goals":
         if not ctx.goals:
             return {**base, "error": "no_goals"}
@@ -214,7 +239,8 @@ def render(r: dict, currency: str) -> str | None:
     if i == "forecast_info":
         if not r.get("eligible"):
             return f"No estimate is shown: {r.get('message', 'insufficient history')}"
-        return (f"The estimate for {r['target_month']} comes from {r['method']} ({r['model_status']}), using your history "
+        return (f"{r.get('forecast_category', 'Estimate')}. The estimate for {r['target_month']} comes from {r['method']} "
+                f"({r['model_status']}), using your history "
                 f"{r['historical_window']}. Evidence: {r['evidence']} Limitations: {r['limitations']}")
     if i == "income" and r.get("change"):
         a, b = r["prior"], r["recent"]
@@ -277,4 +303,26 @@ def render(r: dict, currency: str) -> str | None:
                    if r["scenario"]["monthly_saving_cents"] else ""))
     if i == "affordability":
         return f"{r['summary']} {' '.join(r['effects'])} Unknown: {'; '.join(r['missing'][:2])}."
+    if i == "savings_capacity":
+        w = f"{r['window'][0]}..{r['window'][1]}"
+        if r["surplus_cents"] > 0:
+            head = (f"On average you had {m(r['surplus_cents'])} per month left over in {w} ({r['basis']}). If that "
+                    "pattern continues, that is roughly the most you could set aside each month.")
+        else:
+            head = (f"In {w} your average expenses were higher than the money coming in by {m(-r['surplus_cents'])} per "
+                    f"month ({r['basis']}), so there is no surplus to set aside at the current pattern. Non-essential "
+                    f"spending averaged {m(r['discretionary_cents'])} per month; see the Financial advisor page for options.")
+        return head + f" This is transaction-derived, not a bank balance. Unknown: {'; '.join(r['unknowns'][:3])}."
+    if i == "flag_explanation":
+        parts = [f"{x['date']} {x['category']} {x['amount']:,.2f} {currency} (usual about {x['usual']:,.2f}): "
+                 f"{x['explanation']} [surfaced by {x['surfaced_by']}]" for x in r["items"]]
+        return (f"{r['label']} {r['count']} transaction(s) in {r['window']} were flagged because they differ from your "
+                f"own history. " + " | ".join(parts) + f". Method: {r['method']}. {r['not_fraud']}")
+    if i == "indicator_explanation":
+        def one(x):
+            v = "not available" if x["value"] is None else f"{x['value']:g}"
+            return f"{x['indicator']}: {v}. Formula: {x['formula']}. How to read it: {x['reading']}."
+        if r["specific"]:
+            return " ".join(one(x) for x in r["indicators"])
+        return ("Indicators for this account (no combined score is computed): " + " ".join(one(x) for x in r["indicators"]))
     return None

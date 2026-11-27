@@ -56,7 +56,7 @@ def main() -> None:
                           and not any(i.startswith(m + ".") for i in imported_modules))
 
     # declared deps
-    req = [re.split(r"[=<>\[ ;]", l.strip())[0].lower() for l in (ROOT / "requirements.txt").read_text().splitlines()
+    req = [re.split(r"[=<>\[ ;]", l.strip())[0].lower() for l in (ROOT / "requirements.txt").read_text(encoding="utf-8").splitlines()
            if l.strip() and not l.startswith("#")]
     import_name = {"scikit-learn": "sklearn", "pyyaml": "yaml", "python-dateutil": "dateutil"}
     std = set(sys.stdlib_module_names)
@@ -96,7 +96,7 @@ def main() -> None:
            "imported_but_not_declared": undeclared, "hardcoded_paths": hard, "deprecated_api_uses": deprecated,
            "files": {k: sorted(v) for k, v in sorted(by_cat.items())}}
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(res, indent=1))
+    OUT.write_text(json.dumps(res, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "files"}, indent=1))
 
 

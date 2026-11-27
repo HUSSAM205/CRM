@@ -123,12 +123,12 @@ def run_partitions(worker: Path, n_parts: int, checkpoint_dir: Path, log_path: P
     for p in range(n_parts):
         done = checkpoint_dir / f"part_{p:03d}.done.json"
         if done.exists():
-            records.append(json.loads(done.read_text()))
+            records.append(json.loads(done.read_text(encoding="utf-8")))
             continue
         res = run_guarded([sys.executable, str(worker), str(p), str(n_parts), str(checkpoint_dir),
                            *(worker_args or [])], cwd=worker.parents[1])
         rec = {"partition": p, **asdict(res)}
-        with log_path.open("a") as f:
+        with log_path.open("a", encoding="utf-8") as f:
             f.write(json.dumps({k: v for k, v in rec.items() if k not in ("stdout_tail",)}) + "\n")
         print(f"[part {p + 1}/{n_parts}] ok={res.ok} {res.seconds}s peak_rss={res.peak_rss_gb}GB "
               f"min_sys_avail={res.min_system_available_gb}GB"
@@ -136,6 +136,6 @@ def run_partitions(worker: Path, n_parts: int, checkpoint_dir: Path, log_path: P
         if not res.ok:
             print(res.stderr_tail, file=sys.stderr)
             raise SystemExit(f"partition {p} failed; completed checkpoints kept in {checkpoint_dir}")
-        done.write_text(json.dumps({k: v for k, v in rec.items() if k not in ("stdout_tail", "stderr_tail")}))
+        done.write_text(json.dumps({k: v for k, v in rec.items() if k not in ("stdout_tail", "stderr_tail")}), encoding="utf-8")
         records.append(rec)
     return records

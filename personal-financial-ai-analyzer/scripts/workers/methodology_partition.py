@@ -44,7 +44,7 @@ def main() -> None:
                         pl.col("month").filter(pl.col("period") == "test").n_unique().alias("test_active"),
                         (pl.col("period") == "test").sum().alias("test_spend_records")))
     series.write_parquet(ck / f"part_{part:03d}.parquet")
-    (ck / f"part_{part:03d}.json").write_text(json.dumps({"partition": part, "series": series.height}))
+    (ck / f"part_{part:03d}.json").write_text(json.dumps({"partition": part, "series": series.height}), encoding="utf-8")
 
 
 if __name__ == "__main__":

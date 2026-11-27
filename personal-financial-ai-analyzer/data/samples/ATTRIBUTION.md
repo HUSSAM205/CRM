@@ -7,3 +7,5 @@
 * `sample_bank_export.csv` and `tests/fixtures/*`: hand-written by the project author.
 
 Both demo files are fully synthetic. They contain no real person's data.
+
+* `demo_personal_part1.csv` and `demo_personal_part2.csv` (master audit 4): **invented by a seeded generator** (`scripts/prepare_personal_demo.py`, seed 20261127) for the practical walkthrough (`docs/DEMO_WALKTHROUGH.md`). They describe no real person, are **not** academic data and are used by no experiment. Part 2 overlaps part 1 in November and December 2025 on purpose, to demonstrate duplicate-safe importing.

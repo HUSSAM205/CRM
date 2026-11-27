@@ -24,7 +24,7 @@ def set_seed(seed: int) -> None:
 
 def fingerprint() -> dict:
     prov = PROJECT_ROOT / "data/raw/PROVENANCE.json"
-    p = json.loads(prov.read_text()) if prov.exists() else {}
+    p = json.loads(prov.read_text(encoding="utf-8")) if prov.exists() else {}
     return {"python": sys.version.split()[0], "platform": platform.platform(),
             "libraries": {lib: version(lib) for lib in LIBS},
             "dataset": {"repo": p.get("dataset"), "revision": p.get("revision_commit"), "sha256": p.get("sha256")}}
@@ -43,9 +43,9 @@ def register(kind: str, model: str, path: Path, role: str) -> None:
     """Record the current version of a model in artifacts/metadata/model_registry.json."""
     reg_path = PROJECT_ROOT / load_config("model_registry")["registry_file"]
     reg_path.parent.mkdir(parents=True, exist_ok=True)
-    reg = json.loads(reg_path.read_text()) if reg_path.exists() else {}
+    reg = json.loads(reg_path.read_text(encoding="utf-8")) if reg_path.exists() else {}
     entry = reg.setdefault(kind, {}).setdefault(model, {"history": []})
     entry["current"] = str(path.relative_to(PROJECT_ROOT))
     entry["role"] = role
     entry["history"].append({"path": entry["current"], "registered_utc": datetime.now(timezone.utc).isoformat()})
-    reg_path.write_text(json.dumps(reg, indent=2))
+    reg_path.write_text(json.dumps(reg, indent=2), encoding="utf-8")

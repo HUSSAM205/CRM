@@ -32,9 +32,9 @@ def main() -> None:
         for b in iter(lambda: f.read(1 << 24), b""):
             h.update(b)
     md = pq.ParquetFile(RAW).metadata
-    integ = json.loads((VER / "dataset_integrity.json").read_text())
-    overview = json.loads((DA / "dataset_overview.json").read_text())
-    src_cfg = __import__("yaml").safe_load((ROOT / "configs/dataset.yaml").read_text())["source"]
+    integ = json.loads((VER / "dataset_integrity.json").read_text(encoding="utf-8"))
+    overview = json.loads((DA / "dataset_overview.json").read_text(encoding="utf-8"))
+    src_cfg = __import__("yaml").safe_load((ROOT / "configs/dataset.yaml").read_text(encoding="utf-8"))["source"]
     sha = h.hexdigest()
     manifest = {
         "generated_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -82,8 +82,8 @@ def main() -> None:
                     "reports/verification/ledger_semantics.json"],
     }
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "DATASET_MANIFEST.json").write_text(json.dumps(manifest, indent=1))
-    (OUT / "DATA_QUALITY_REPORT.json").write_text(json.dumps(quality, indent=1))
+    (OUT / "DATASET_MANIFEST.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
+    (OUT / "DATA_QUALITY_REPORT.json").write_text(json.dumps(quality, indent=1), encoding="utf-8")
     print(json.dumps(manifest, indent=1)[:1500]); print(json.dumps(quality["advertised_vs_measured"]), quality["integrity_checks"])
 
 

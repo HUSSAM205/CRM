@@ -137,7 +137,7 @@ def main() -> int:
 
     facts["checks"] = checks
     facts["overall"] = "PASS" if all(c["status"] == "PASS" for c in checks) else "FAIL"
-    (OUT / "dataset_integrity.json").write_text(json.dumps(facts, indent=2, default=str))
+    (OUT / "dataset_integrity.json").write_text(json.dumps(facts, indent=2, default=str), encoding="utf-8")
     print("OVERALL", facts["overall"])
     return 0 if facts["overall"] == "PASS" else 1
 

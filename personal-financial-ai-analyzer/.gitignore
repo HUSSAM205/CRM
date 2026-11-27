@@ -26,3 +26,6 @@ checkpoints/**/*.parquet
 
 # Supplementary public datasets (Dataset B): downloaded by scripts/download_supplementary.py, never committed
 /data/supplementary/
+
+# Launcher state (pid/port of the running dashboard; master audit 4)
+.run/

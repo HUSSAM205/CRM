@@ -42,7 +42,7 @@ def main() -> None:
     n_parts = limits()["partitioning"]["account_partitions"]
     recs = run_partitions(ROOT / "scripts/workers/audit_partition.py", n_parts, CK,
                           ROOT / "logs/execution/audit_partitions.jsonl")
-    parts = [json.loads((CK / f"part_{p:03d}.json").read_text()) for p in range(n_parts)]
+    parts = [json.loads((CK / f"part_{p:03d}.json").read_text(encoding="utf-8")) for p in range(n_parts)]
     acc = pl.concat([pl.read_parquet(CK / f"part_{p:03d}.parquet") for p in range(n_parts)])
 
     q = [0.0, 0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99, 1.0]
@@ -57,10 +57,10 @@ def main() -> None:
              .group_by("month").agg(pl.col("active_accounts").sum()))
     cov = pl.read_csv(OUT / "monthly_coverage_base.csv").join(mac, on="month", how="left").sort("month")
     cov.write_csv(OUT / "monthly_coverage.csv")
-    glob = json.loads(g_done.read_text())
+    glob = json.loads(g_done.read_text(encoding="utf-8"))
     dup_content = sum(p["same_content_different_id_rows"] for p in parts)
     led = ROOT / "reports/verification/ledger_semantics.json"
-    ids = json.loads(led.read_text())["transaction_id_structure"] if led.exists() else None
+    ids = json.loads(led.read_text(encoding="utf-8"))["transaction_id_structure"] if led.exists() else None
     pl.DataFrame([
         {"check": "duplicate transaction_id rows", "value": (glob["rows"] - ids["unique_ids"]) if ids else None,
          "source": "ledger_semantics.json transaction_id_structure (full scan)"},
@@ -85,7 +85,7 @@ def main() -> None:
                       "global_step_peak_rss_gb": step_peaks,
                       "max_partition_peak_rss_gb": max(r.get("peak_rss_gb", 0) for r in recs)},
     }
-    (OUT / "dataset_overview.json").write_text(json.dumps(overview, indent=2, default=str))
+    (OUT / "dataset_overview.json").write_text(json.dumps(overview, indent=2, default=str), encoding="utf-8")
     print(json.dumps(overview, indent=2, default=str))
 
 

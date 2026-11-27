@@ -26,12 +26,12 @@ def test_L1_L7_forbidden_columns_absent_from_feature_definitions():
 
 @pytest.mark.skipif(not REG.exists(), reason="no trained artifacts")
 def test_L1_L7_saved_feature_schemas_exclude_forbidden_columns():
-    reg = json.loads(REG.read_text())
+    reg = json.loads(REG.read_text(encoding="utf-8"))
     for kind in reg.values():
         for entry in kind.values():
             fs = ROOT / entry["current"] / "feature_schema.json"
             if fs.exists():
-                assert not FORBIDDEN & set(json.loads(fs.read_text())["features"])
+                assert not FORBIDDEN & set(json.loads(fs.read_text(encoding="utf-8"))["features"])
 
 
 @pytest.mark.skipif(not (SPLITS / "eligible_series.parquet").exists(), reason="splits not built")
@@ -39,7 +39,7 @@ def test_L3_eligibility_uses_training_months_only():
     e = pl.read_parquet(SPLITS / "eligible_series.parquet")
     assert (e["train_active_months"] >= 12).all()
     assert e["train_active_months"].max() <= len(TRAIN_MONTHS)
-    meta = json.loads((SPLITS / "split_metadata.json").read_text())
+    meta = json.loads((SPLITS / "split_metadata.json").read_text(encoding="utf-8"))
     assert meta["eligible_series"] == e.height == 106_945      # equals the independent read-only count
 
 

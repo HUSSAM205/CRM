@@ -75,13 +75,15 @@ rows = df.height
 """
 
 WRAP = """
-import resource, time, json, sys
+import time, json, sys
+sys.path.insert(0, {root!r})
+from src.utils.peak_memory import peak_rss_gb
 RAW = {raw!r}
 P = {p}
 t = time.time(); extra = {{}}
 {body}
 print(json.dumps({{'seconds': round(time.time()-t, 2), 'rows': rows,
-  'peak_rss_gb': round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1e6, 2), **extra}}))
+  'peak_rss_gb': peak_rss_gb(2), **extra}}))
 """
 
 
@@ -89,7 +91,7 @@ def run(body: str, p: int = 0) -> dict:
     """Run one benchmark in a memory-guarded child process (configs/resource_limits.yaml)."""
     sys.path.insert(0, str(ROOT))
     from src.utils.resource_monitor import run_guarded
-    code = WRAP.format(raw=str(RAW), p=p, body=body)
+    code = WRAP.format(root=str(ROOT), raw=str(RAW), p=p, body=body)
     g = run_guarded([sys.executable, "-c", code], cwd=ROOT)
     guard = {"guard_peak_rss_gb": g.peak_rss_gb, "guard_min_system_available_gb": g.min_system_available_gb,
              "killed_reason": g.killed_reason}
@@ -120,7 +122,7 @@ def main() -> None:
     results["benchmarks"]["B7_partitions_subprocess_each"] = {
         "per_partition": b7, "max_peak_rss_gb": max(x.get("peak_rss_gb", 0) for x in b7)}
     print("B7", results["benchmarks"]["B7_partitions_subprocess_each"], flush=True)
-    (OUT / "resource_benchmarks.json").write_text(json.dumps(results, indent=2))
+    (OUT / "resource_benchmarks.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

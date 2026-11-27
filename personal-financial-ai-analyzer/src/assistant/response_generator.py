@@ -10,16 +10,18 @@ UNSUPPORTED = ("Sorry, I can't answer that question. I can answer: total spendin
                "spending on a category, a comparison of two months, budget status, next month's "
                "expected spending, income (recorded inflows), cash flow, spending trends, unusual transactions, "
                "savings goals, recommendations, what-if scenarios, whether a purchase is affordable, your largest "
-               "category, highest-spending months, recurring payments, remaining budget and how reliable the "
-               "estimate is. "
-               "I do not give investment, credit or tax advice and I cannot judge fraud.")
+               "category, highest-spending months, recurring payments, remaining budget, how much you could save, why a "
+               "transaction was flagged, what an indicator means and how reliable the estimate is. "
+               "I do not give investment, credit, tax or legal advice and I cannot judge fraud.")
 SUPPORTED_EXAMPLES = ["How much did I spend in March?", "How much did I spend on groceries?",
                       "Compare January and February.", "Am I exceeding my budget?",
                       "What is my expected spending next month?", "What was my cash flow last month?",
                       "Is my spending increasing?", "Show unusual transactions", "Any recommendations?",
                       "What if I reduce dining by 10%?", "Can I afford 450?", "How much did I spend last month?",
                       "What is my largest expense category?", "What payments appear to recur?",
-                      "How much budget remains?", "Is the prediction reliable?"]
+                      "How much budget remains?", "Is the prediction reliable?", "Compare this month with last month",
+                      "Which months had the highest spending?", "How much can I save?",
+                      "Why was this transaction flagged?", "Explain the savings rate"]
 
 
 def money(cents: int, currency: str) -> str:
@@ -32,6 +34,10 @@ def render(r: dict, currency: str) -> str:
         return adv
     if r.get("intent") == "unsupported":
         return UNSUPPORTED
+    if r.get("intent") == "clarify":
+        return ("Could you be more specific? For example: 'How much did I spend last month?', 'How much did I spend "
+                "on groceries?', 'Compare this month with last month' or 'Am I exceeding my budget?'. I don't guess "
+                "what a short question means.")
     err = r.get("error")
     if err == "no_data":
         return "There is no data for the selected account and currency."
@@ -51,7 +57,8 @@ def render(r: dict, currency: str) -> str:
         d = r["difference_cents"]
         trend = "more" if d > 0 else "less" if d < 0 else "the same"
         tail = f" ({money(abs(d), currency)} {trend})" if d else ""
-        return f"Spending: {a} {money(va, currency)}; {b} {money(vb, currency)}. {b} was {trend} than {a}{tail}."
+        note = f" ({r['note']})" if r.get("note") else ""
+        return f"Spending: {a} {money(va, currency)}; {b} {money(vb, currency)}. {b} was {trend} than {a}{tail}.{note}"
     if i == "budget_status":
         over = [x for x in r["rows"] if x["level"] == "exceeded"]
         warn = [x for x in r["rows"] if x["level"] == "warning"]

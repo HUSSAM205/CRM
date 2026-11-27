@@ -86,7 +86,7 @@ def main() -> None:
           f"max/min rows per hour = {res['hour_max_min_ratio']:.4f} (near-uniform: no globally unusual hour)")
 
     res["overall"] = "PASS" if all(c["status"] == "PASS" for c in res["checks"]) else "FAIL"
-    (ROOT / "reports/verification/methodology_feasibility.json").write_text(json.dumps(res, indent=2, default=str))
+    (ROOT / "reports/verification/methodology_feasibility.json").write_text(json.dumps(res, indent=2, default=str), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "checks"}, indent=2, default=str))
 
 

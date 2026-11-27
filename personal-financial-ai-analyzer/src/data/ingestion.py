@@ -117,6 +117,28 @@ def categorize(description: str | None) -> str:
     return UNCATEGORIZED
 
 
+ID_KEY_FIELDS = ("account_id", "transaction_timestamp", "amount", "currency", "transaction_type", "status",
+                 "merchant_category", "description")
+
+
+def generated_ids(m: pl.DataFrame) -> list[str]:
+    """Deterministic IDs for files without a transaction ID column (MA3-02).
+
+    ID = hash(content of the canonical fields, k), where k counts earlier rows of the SAME file with identical
+    content. The row position is not used, so the same transaction gets the same ID in two overlapping exports
+    (duplicate imports are detected), while two genuinely identical purchases in one file stay distinct."""
+    cols = [c for c in ID_KEY_FIELDS if c in m.columns]
+    keys = m.select(pl.concat_str([pl.col(c).cast(pl.String).str.strip_chars().fill_null("") for c in cols],
+                                  separator="|")).to_series().to_list()
+    seen: dict[str, int] = {}
+    out = []
+    for k in keys:
+        n = seen.get(k, 0)
+        seen[k] = n + 1
+        out.append(hashlib.sha256(f"{k}|{n}".encode()).hexdigest()[:16])
+    return out
+
+
 def apply_mapping(df: pl.DataFrame, mapping: dict[str, str | None], assume_completed: bool = False,
                   default_currency: str | None = None, default_account: str = "my-account") -> pl.DataFrame:
     """Rename mapped columns to the canonical schema and apply documented defaults.
@@ -124,7 +146,7 @@ def apply_mapping(df: pl.DataFrame, mapping: dict[str, str | None], assume_compl
     * amount with a sign and no transaction_type: negative -> debit, positive -> credit, amount = |x|
     * no status column: requires assume_completed=True (user confirmation), else IngestionError
     * no category: keyword rules on a description column, otherwise "Uncategorized"
-    * no transaction_id: deterministic hash of the row content + row number
+    * no transaction_id: deterministic hash of the row content + occurrence index (generated_ids)
     """
     missing = [f for f in REQUIRED if not mapping.get(f) and not (f == "currency" and default_currency)]
     if missing:
@@ -157,9 +179,7 @@ def apply_mapping(df: pl.DataFrame, mapping: dict[str, str | None], assume_compl
         else:
             m = m.with_columns(pl.lit(UNCATEGORIZED).alias("merchant_category"))
     if "transaction_id" not in m.columns:
-        keys = m.select(pl.concat_str(pl.all().cast(pl.String).fill_null(""), separator="|")).to_series().to_list()
-        ids = [hashlib.sha256(f"{i}|{k}".encode()).hexdigest()[:16] for i, k in enumerate(keys)]
-        m = m.with_columns(pl.Series("transaction_id", ids))
+        m = m.with_columns(pl.Series("transaction_id", generated_ids(m)))
     ts = pl.col("transaction_timestamp").str.strip_chars().str.replace(r"^(\d{4}-\d{2}-\d{2})T", "$1 ")
     m = m.with_columns(pl.when(ts.str.contains(r"^\d{4}-\d{2}-\d{2}$")).then(ts + " 00:00:00")
                          .otherwise(ts).alias("transaction_timestamp"))

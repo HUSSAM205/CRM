@@ -5,7 +5,7 @@ import polars as pl
 import streamlit as st
 
 from app.components import tables, upload
-from app.utils import session
+from app.utils import exports, session
 from app.utils.validation import explain
 
 
@@ -22,12 +22,18 @@ def render() -> None:
     c2.metric("Valid rows", f"{clean.height:,}")
     c3.metric("Rejected rows", f"{rej.height:,}")
     reasons = rej["reject_reason"] if rej.height else pl.Series([], dtype=pl.String)
-    c4.metric("Duplicates", f"{int((reasons == 'duplicate_transaction_id').sum()):,}")
+    c4.metric("Duplicates", f"{int(reasons.is_in(['duplicate_transaction_id', 'already_loaded']).sum()):,}",
+              help="Repeated IDs within a file, plus transactions that were already loaded from an earlier file")
+    if len(d.get("imports", [])) > 1:
+        with st.expander(f"Imported files ({len(d['imports'])})"):
+            tables.show(pl.DataFrame(d["imports"]).select("source", "added", "already_loaded", "rejected"),
+                        height=180)
     if rej.height:
         groups = {"missing fields": reasons.str.starts_with("missing_"),
                   "parsing failures": reasons.is_in(["invalid_timestamp", "invalid_amount", "amount_precision"]),
                   "unsupported values": reasons.is_in(["unknown_currency", "unknown_status", "amount_out_of_range",
-                                                       "negative_amount"])}
+                                                       "negative_amount"]),
+                  "already loaded": reasons == "already_loaded"}
         st.caption(" · ".join(f"{k}: {int(v.sum()):,}" for k, v in groups.items()) +
                    ". Every rejected row is listed below; none is dropped silently.")
     if rej.height:
@@ -54,6 +60,10 @@ def render() -> None:
     if stats:
         view = view.filter(pl.col("status").is_in(stats))
     st.caption(f"{view.height:,} transactions. 'meaning' shows how each row is counted.")
-    tables.show(view.sort("transaction_timestamp", descending=True)
-                .select("transaction_timestamp", "transaction_type", "meaning", "merchant_category", "amount",
-                        "currency", "status", "transaction_id"))
+    shown = (view.sort("transaction_timestamp", descending=True)
+                 .select("transaction_timestamp", "transaction_type", "meaning", "merchant_category", "amount",
+                         "currency", "status", "transaction_id"))
+    tables.show(shown)
+    # export of exactly the filtered rows (formula-safe CSV, MA3-13); generated in memory, never saved by the app
+    st.download_button("Download these transactions (CSV)", exports.csv_bytes(shown),
+                       file_name=f"transactions_{cur}.csv", mime="text/csv", disabled=shown.is_empty())

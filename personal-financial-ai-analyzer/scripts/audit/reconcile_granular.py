@@ -109,7 +109,7 @@ def main() -> None:
            "currency_month_keys": len(keys), "currency_month_category_keys": len(ckeys), **extra,
            "seconds": round(time.time() - t0, 1), "mismatch_detail": mismatches[:50]}
     out = ROOT / "reports/final_master_audit/financial_reconciliation.json"
-    out.write_text(json.dumps(res, indent=1))
+    out.write_text(json.dumps(res, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "mismatch_detail"}, indent=1))
     raise SystemExit(0 if not mismatches else 1)
 

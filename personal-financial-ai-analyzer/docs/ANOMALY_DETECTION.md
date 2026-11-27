@@ -22,6 +22,17 @@
 * **By scenario (robust z):** amount AUC 0.80; hour 0.53; category 0.43. Hours and categories are near-uniform in this synthetic data.
 * **Positive control:** ×1000 gives AUC 0.999.
 * **Recomputation:** metrics were recomputed independently from the saved scores (|Δ| = 0).
+* **Master audit 3** re-derived precision, recall, F1 and FPR from the saved scores (`scripts/audit/anomaly_derived_metrics.py`, `reports/master_audit_3/anomaly_derived_metrics.json`).
+  * At k = 241 they match the table above exactly.
+  * At a wider operating point (top 5%, 1,203 rows) the results are:
+
+    | Model | Precision | Recall | FPR |
+    |---|---|---|---|
+    | robust z | 0.024 | 0.120 | 4.9% |
+    | IF per account | 0.007 | 0.033 | 5.0% |
+    | IF global | 0.021 | 0.104 | 4.9% |
+
+  * At 1% prevalence the ranking stays weak at every operating point.
 
 ## In the app
 

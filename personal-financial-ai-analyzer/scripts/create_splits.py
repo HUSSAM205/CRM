@@ -117,7 +117,7 @@ def main() -> None:
                        "by_period": dict(tx.with_columns(period_expr("month").alias("p"))
                                            .group_by("p").len().sort("p").iter_rows())}
     meta["months"] = {"all": len(ALL_MONTHS)}
-    (OUT / "split_metadata.json").write_text(json.dumps(meta, indent=2, default=str))
+    (OUT / "split_metadata.json").write_text(json.dumps(meta, indent=2, default=str), encoding="utf-8")
     print(json.dumps(meta, indent=2, default=str))
 
 

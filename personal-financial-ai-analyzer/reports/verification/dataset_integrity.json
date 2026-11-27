@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-27T04:15:31.029471+00:00",
+  "generated_at_utc": "2026-11-27T14:05:49.590168+00:00",
   "file": "data/raw/transactions_50M.parquet",
   "hf_live_metadata": {
     "size": 1594749644,
@@ -54,7 +54,7 @@
     ]
   ],
   "rows_read_full": 50000000,
-  "row_read_seconds": 1.7,
+  "row_read_seconds": 1.9,
   "timestamp": {
     "rows": "50000000",
     "unparseable_timestamps": "0",
@@ -105,7 +105,7 @@
       "reversed": 500593
     }
   },
-  "domain_scan_seconds": 5.1,
+  "domain_scan_seconds": 4.6,
   "checks": [
     {
       "check": "file_exists",

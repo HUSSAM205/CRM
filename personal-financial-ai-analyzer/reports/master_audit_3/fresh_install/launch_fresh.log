@@ -1,0 +1,12 @@
+Saved models: found (artifacts/metadata/model_registry.json). The dashboard does not need the 1.6 GB dataset; it is only used by train.bat and audit.bat.
+Starting the dashboard on http://localhost:8611 (local only; press Ctrl+C in this window to stop) ...
+2026-11-27 13:34:40.323 Uvicorn server started on 127.0.0.1:8611
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://localhost:8611
+
+
+  Dashboard ready: http://localhost:8611
+
+  Stopping...

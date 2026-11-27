@@ -33,7 +33,7 @@ def download(url: str, dest: Path, expected_size: int, retries: int = 8) -> None
                     raise RuntimeError(f"HTTP {r.status_code}")
                 mode = "ab" if r.status_code == 206 else "wb"
                 last = time.time()
-                with part.open(mode) as f:
+                with part.open(mode) as f:          # binary ("ab"/"wb"): no encoding
                     for block in r.iter_content(CHUNK):
                         f.write(block)
                         if time.time() - last > 30:
@@ -44,4 +44,4 @@ def download(url: str, dest: Path, expected_size: int, retries: int = 8) -> None
             time.sleep(min(60, 5 * attempt))
     if not part.exists() or part.stat().st_size != expected_size:
         raise SystemExit(f"download incomplete: {part} size mismatch")
-    part.rename(dest)
+    part.replace(dest)          # replace(): also works on Windows if dest exists

@@ -10,7 +10,6 @@ Outputs (one file per partition; directories from configs/preprocessing.yaml):
 from __future__ import annotations
 
 import json
-import resource
 import sys
 import time
 from pathlib import Path
@@ -19,6 +18,7 @@ import polars as pl
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+from src.utils.peak_memory import peak_rss_gb  # noqa: E402
 from src.data.preprocessing import process_partition  # noqa: E402
 from src.utils.configuration import load_config  # noqa: E402
 
@@ -47,7 +47,7 @@ def main() -> None:
         "unresolved_type_rows": int((res.clean["meaning"] == "unresolved").sum()),
         "monthly_rows": ms.height, "series": stats.height,
         "worker_seconds": round(time.time() - t0, 2),
-        "worker_ru_maxrss_gb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6, 3)}))
+        "worker_ru_maxrss_gb": peak_rss_gb()}), encoding="utf-8")
 
 
 if __name__ == "__main__":

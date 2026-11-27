@@ -6,7 +6,6 @@ Every statistic is computed over ALL rows (no sampling).
 from __future__ import annotations
 
 import json
-import resource
 import sys
 import time
 from pathlib import Path
@@ -14,6 +13,8 @@ from pathlib import Path
 import polars as pl
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.utils.peak_memory import peak_rss_gb  # noqa: E402
 RAW = ROOT / "data/raw/transactions_50M.parquet"
 
 
@@ -39,7 +40,7 @@ def main() -> None:
     elif step == "amounts":
         _amounts(lf, total, out)
     (out / f"_step_{step}.json").write_text(json.dumps({"step": step, "seconds": round(time.time() - t0, 1),
-        "worker_ru_maxrss_gb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6, 3)}))
+        "worker_ru_maxrss_gb": peak_rss_gb()}), encoding="utf-8")
 
 
 def _missing(lf, cols, total, out):
@@ -76,7 +77,7 @@ def _calendar(lf, out):
                      pl.col("ts").dt.date().min().alias("d0"), pl.col("ts").dt.date().max().alias("d1")
                      ).collect(engine="streaming").row(0, named=True)
 
-    json.dump({k: str(v) for k, v in days.items()}, open(out / "_calendar.json", "w"))
+    json.dump({k: str(v) for k, v in days.items()}, open(out / "_calendar.json", "w", encoding="utf-8"))
 
 
 def _amounts(lf, total, out):
@@ -111,8 +112,8 @@ def _amounts(lf, total, out):
                  outlier_high_threshold_amount=float(pl.Series([hi]).exp()[0]),
                  outlier_low_threshold_amount=float(pl.Series([lo]).exp()[0]))
     json.dump({"rows": total, "columns": lf.collect_schema().names(), "amount_checks": stats,
-               "calendar": json.load(open(out / "_calendar.json"))},
-              open(out / "global_stats.json", "w"), indent=2)
+               "calendar": json.load(open(out / "_calendar.json", encoding="utf-8"))},
+              open(out / "global_stats.json", "w", encoding="utf-8"), indent=2)
 
 
 if __name__ == "__main__":

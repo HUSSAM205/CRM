@@ -54,28 +54,28 @@ def main() -> None:
                "scored_rows": res["scored_rows"], "accounts_without_history_rows": res["accounts_without_history_rows"],
                "primary_rate": exp["anomaly"]["primary_rate"], "primary_seed": seed,
                "primary": primary.to_dicts(), "fingerprint": fingerprint()}
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
+    (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
 
     # artifacts
     assert_allowed(list(FEATURES))   # leakage guard before saving
     d = new_artifact_dir("anomaly", "isolation_forest_global")
     joblib.dump(res["global_model"], d / "model.joblib")
     (d / "feature_schema.json").write_text(json.dumps({"features": FEATURES, "history": acfg["history"],
-                                                        "excluded": ["balance_after", "account_id"]}, indent=2))
+                                                        "excluded": ["balance_after", "account_id"]}, indent=2), encoding="utf-8")
     (d / "metrics.json").write_text(json.dumps(
-        primary.filter(pl.col("model") == "isolation_forest_global").to_dicts(), indent=2))
+        primary.filter(pl.col("model") == "isolation_forest_global").to_dicts(), indent=2), encoding="utf-8")
     (d / "metadata.json").write_text(json.dumps({"model": "IsolationForest (global, account-relative features)",
         "params": acfg["isolation_forest"], "seed": seed, "training_rows": res["history_rows"],
         "training_accounts": tx["account_id"].n_unique(), "trained_on": "history (2024-01..2026-04) spending records",
-        "label": acfg["label"], "fingerprint": fingerprint()}, indent=2, default=str))
+        "label": acfg["label"], "fingerprint": fingerprint()}, indent=2, default=str), encoding="utf-8")
     register("anomaly", "isolation_forest_global", d, "deployed (loaded by app)")
     for m in ("robust_zscore", "isolation_forest_per_account"):
         d = new_artifact_dir("anomaly", m)
         (d / "metadata.json").write_text(json.dumps({"model": m, "trainable_artifact": False,
             "reason": "parameter-free (z-score) or fitted per account at scoring time (per-account IF, D-07)",
             "config": acfg.get("robust_zscore") if m == "robust_zscore" else acfg["isolation_forest"],
-            "fingerprint": fingerprint()}, indent=2, default=str))
-        (d / "metrics.json").write_text(json.dumps(primary.filter(pl.col("model") == m).to_dicts(), indent=2))
+            "fingerprint": fingerprint()}, indent=2, default=str), encoding="utf-8")
+        (d / "metrics.json").write_text(json.dumps(primary.filter(pl.col("model") == m).to_dicts(), indent=2), encoding="utf-8")
         register("anomaly", m, d, "experiment/app-computed")
     print(primary.select("model", "positives", "precision_at_k", "recall_at_k", "roc_auc", "average_precision",
                          *[c for c in primary.columns if c.startswith("recall_at_k_")]))

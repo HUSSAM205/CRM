@@ -23,6 +23,8 @@ def resolve_month(ym: tuple[int | None, int], available: list[str]) -> str | Non
 
 def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: dict[str, int] | None = None,
             forecast: dict | None = None, context=None) -> dict:
+    if intent.name == "clarify":
+        return {"intent": "clarify", "detail": intent.detail}
     avail = s.months(account, currency)
     if not avail:
         return {"intent": intent.name, "error": "no_data"}
@@ -57,10 +59,23 @@ def execute(intent: Intent, s: Summaries, account: str, currency: str, budgets: 
                 "period": [avail[0], avail[-1]] if not months else None,
                 "net_spending_cents": int(c["net_spending_cents"].sum()), "note": note}
     if intent.name == "month_comparison":
+        if intent.detail and intent.detail.startswith("rel:"):      # "this month" / "last month" (MA3-03)
+            y, mo = map(int, avail[-1].split("-"))
+            rel = []
+            for off in (int(x) for x in intent.detail[4:].split(",") if x):
+                k = y * 12 + mo - 1 + off
+                rel.append(f"{k // 12:04d}-{k % 12 + 1:02d}")
+            months = sorted(set(months + rel))
+            if len(months) < 2:
+                return {"intent": "clarify", "detail": "comparison"}
+            if months[0] < avail[0]:
+                return {"intent": intent.name, "error": "month_not_in_data", "available": [avail[0], avail[-1]]}
+            note = f"'this month' = {avail[-1]}, the latest month in your data"
         a, b = months[:2]
         va = int(mon.filter(pl.col("month") == a)["expenses_cents"].sum())
         vb = int(mon.filter(pl.col("month") == b)["expenses_cents"].sum())
-        return {"intent": intent.name, "months": [a, b], "expenses_cents": [va, vb], "difference_cents": vb - va}
+        return {"intent": intent.name, "months": [a, b], "expenses_cents": [va, vb], "difference_cents": vb - va,
+                "note": note}
     if intent.name == "budget_status":
         if not budgets:
             return {"intent": intent.name, "error": "no_budgets"}

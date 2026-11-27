@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/user/CRM/personal-financial-ai-analyzer
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 218 items
+
+tests/integration/test_csv_upload.py ..........                          [  4%]
+tests/integration/test_dashboard.py ................................     [ 19%]
+tests/integration/test_full_pipeline.py .                                [ 19%]
+tests/integration/test_model_loading.py ...........                      [ 24%]
+tests/regression/test_data_leakage.py ........                           [ 28%]
+tests/regression/test_financial_correctness.py ..                        [ 29%]
+tests/regression/test_repository_completeness.py ..                      [ 30%]
+tests/regression/test_reproducibility.py ..                              [ 31%]
+tests/regression/test_security.py ..........                             [ 35%]
+tests/unit/test_advisor.py .............                                 [ 41%]
+tests/unit/test_aggregation.py ....                                      [ 43%]
+tests/unit/test_anomaly.py ........                                      [ 47%]
+tests/unit/test_assistant.py .............                               [ 53%]
+tests/unit/test_assistant_advisor_intents.py .........                   [ 57%]
+tests/unit/test_assistant_ma3.py ..............                          [ 63%]
+tests/unit/test_budget.py ...                                            [ 65%]
+tests/unit/test_controlled_synthetic.py ...                              [ 66%]
+tests/unit/test_financial_rules.py ..........                            [ 71%]
+tests/unit/test_forecasting.py .......                                   [ 74%]
+tests/unit/test_ingestion.py .....................                       [ 83%]
+tests/unit/test_insights.py ......                                       [ 86%]
+tests/unit/test_merge.py ......                                          [ 89%]
+tests/unit/test_preprocessing.py ..                                      [ 90%]
+tests/unit/test_validation.py .....................                      [100%]
+
+============================= 218 passed in 21.96s =============================

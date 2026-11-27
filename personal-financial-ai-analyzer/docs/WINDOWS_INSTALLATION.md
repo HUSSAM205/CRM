@@ -1,18 +1,62 @@
-# Windows installation (status: NOT TESTED on Windows)
+# Windows installation and use
 
-The scripts below exist and their Python dependencies were resolved for win_amd64 / CPython 3.12 with wheels only (`reports/verification/requirements-windows-resolved.txt`). **No Windows machine was available**, so none of these steps has been executed on Windows. Run them once and record the results.
+**Status:** the scripts below have **never run on Windows**, because no Windows machine was available to this project. What was done instead:
+* the Python logic they call was executed and tested on Linux, including a fresh install and a start/stop cycle;
+* the `.bat` files were checked statically by tests (line endings, parentheses, labels, entry points);
+* every pinned package was confirmed to have a Windows wheel for Python 3.12 (`reports/master_audit_4/requirements-windows-resolved.txt`).
 
-Target: Windows laptop, Intel Core i7-1355U, 16 GB RAM, integrated graphics. No GPU is needed: every library is CPU-only.
+To verify it yourself, follow `docs/WINDOWS_LAPTOP_VERIFICATION.md`.
 
-| Step | Command (in `CRM\personal-financial-ai-analyzer`) | Expected outcome |
-|---|---|---|
-| 1. Python | install Python 3.12 64-bit from python.org, tick "Add to PATH" | `py -3.12 --version` prints 3.12.x |
-| 2. Setup | `setup.bat` | ends with `Environment ready.` (Linux reference: 26 s) |
-| 3. Tests | `test.bat` | 0 failed; without the dataset only the data-dependent tests skip, each with a stated reason (Linux fresh-clone count: `reports/final_master_audit/TEST_RESULTS.md`) |
-| 4. App | `run.bat` | browser at http://localhost:8501; Transactions › "Load demo data" works on all 8 pages |
-| 5. Data and training (optional, 1.6 GB) | `train.bat` | downloads, verifies the SHA-256, preprocesses in 50 partitions (each ≤ 4 GB), trains, evaluates. Resumable after interruption |
-| 6. Audit (after step 5) | `audit.bat` | dataset identity PASS; reconciliation 9,488/9,488; artifacts PASS; tests pass |
+## What you need
 
-**Step 7: laptop benchmark.** Run `benchmark.bat`. It writes `reports\laptop_benchmark.json` with the CPU model, RAM, Python version, dataset mode, server start, page render times, inference times and peak memory of each operation. It contains no personal data. That file closes HW1 P5. Never copy the container numbers into it.
+* **Windows 10 or 11**, 64-bit.
+* **Python 3.12, 64-bit**, from https://www.python.org/downloads/. During installation, tick **"Add python.exe to PATH"**. Python 3.13 is not supported: the pinned packages are verified on 3.12.
+* An internet connection **once**, for the first setup (about 300 MB of packages). After that the app works offline.
+* About 1.5 GB of free disk space. The 1.6 GB dataset is **not** needed to use the app.
 
-The test count in step 3 is from the Linux fresh clone of the final commit (see `reports/final_master_audit/TEST_RESULTS.md` for the exact verified number).
+## Everyday use (no terminal needed)
+
+| Action | What to do |
+|---|---|
+| **Start** | Double-click **`START_HERE.bat`**. The first time, it installs everything (a few minutes) and then starts the app. Afterwards it starts the app directly. Chrome (your default browser) opens at **http://localhost:8501** |
+| Keep it running | Leave the black window open while you use the app. It shows the status and any errors |
+| **Stop** | Close the black window, press Ctrl+C in it, or double-click **`STOP.bat`** |
+| Start again | Double-click `START_HERE.bat` again. If the app is still running, it just opens the browser and starts no second copy |
+| After updating the project files | Run `STOP.bat` first, then `START_HERE.bat`, so that the new code is loaded |
+
+**What `START_HERE.bat` does:**
+1. It checks whether `.venv` exists and has the required packages.
+2. If not, it runs `setup.bat`. Setup reuses an existing `.venv`; it never deletes or overwrites it.
+3. It runs `run.bat`, which:
+   * starts the server on **127.0.0.1** only (other computers cannot connect);
+   * waits until it answers;
+   * prints `Dashboard ready: http://localhost:8501`;
+   * opens the browser.
+
+**If port 8501 is used by another program,** the next free port (8502–8510) is used and its URL is printed.
+
+## Other scripts
+
+| Script | Purpose |
+|---|---|
+| `setup.bat` | Setup only: finds Python 3.12 (`py -3.12` or `python`), creates or reuses `.venv`, installs the pinned packages, verifies the imports |
+| `run.bat` | Start only. Options: `--port 8502`, `--strict-port`, `--no-browser` |
+| `STOP.bat` | Stops this project's dashboard (it checks the recorded process before stopping it) |
+| `test.bat` | Runs the automated tests. Without the dataset, 4 data-dependent tests are skipped, each with a reason |
+| `benchmark.bat` | Measures speed and memory **on your laptop**. Writes `reports\laptop_benchmark.json` (HW1 P5) |
+| `train.bat`, `audit.bat` | Optional: download the 1.6 GB dataset, retrain and re-verify. Not needed to use the app |
+
+Every script runs from its own folder, sets UTF-8 mode (`PYTHONUTF8=1`) and pauses at the end so that you can read any error. `.ps1` versions exist for PowerShell users.
+
+## Troubleshooting
+
+| Message | Fix |
+|---|---|
+| `Python 3.12 was not found` | Install Python 3.12 64-bit with "Add python.exe to PATH", then run `START_HERE.bat` again |
+| `the existing .venv was built with Python X` | Rename the `.venv` folder (for example to `.venv_old`) and run `START_HERE.bat` again. Nothing is deleted automatically |
+| Setup fails while downloading packages | Check the internet connection or proxy, then run `START_HERE.bat` again (it resumes) |
+| The browser did not open | Open http://localhost:8501 yourself (or the URL printed in the window) |
+| Windows Defender / SmartScreen asks about the `.bat` file | Choose "More info" → "Run anyway" (the scripts only call the project's Python files) |
+| `Port 8501 is used by another program` with `--strict-port` | Run `run.bat --port 8502` |
+
+Cloud-container reference measurements (not laptop numbers) are in `reports/master_audit_3/benchmark_container.json`.

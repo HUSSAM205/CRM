@@ -22,7 +22,7 @@ OUT = ROOT / "reports/final_evidence"
 
 
 def j(p: str) -> dict:
-    return json.loads((ROOT / p).read_text())
+    return json.loads((ROOT / p).read_text(encoding="utf-8"))
 
 
 def md(df: pl.DataFrame, digits: int = 3) -> str:
@@ -45,7 +45,7 @@ def main() -> None:
         if (ROOT / "data/processed/splits/split_metadata.json").exists() else {}
     ux = j("reports/ux_tasks/ux_task_results.json")
     art = j("reports/verification/artifact_verification.json")
-    latest = (ROOT / "logs/testing/latest.log").read_text() if (ROOT / "logs/testing/latest.log").exists() else ""
+    latest = (ROOT / "logs/testing/latest.log").read_text(encoding="utf-8") if (ROOT / "logs/testing/latest.log").exists() else ""
     m = re.search(r"=+ (.*(passed|failed).*) in [\d.]+s", latest)
     tests = m.group(1) if m else "not run"
 
@@ -115,12 +115,12 @@ Every value is read from the saved result files listed in `evidence_index.md`.
 
 ## Figures
 """ + "\n".join(f"* `{p}`" for p in figures) + "\n"
-    (OUT / "results_tables.md").write_text(text)
+    (OUT / "results_tables.md").write_text(text, encoding="utf-8")
 
     facts = {"tests": tests, "artifacts": art["overall"], "ux_completed": ux["completed"], "ux_tasks": ux["tasks"],
              "forecast_selected": f["selected_model"], "forecast_kept": f["kept_advanced_models"],
              "rows": integ["rows_read_full"], "sha256": integ["sha256"]}
-    (OUT / "facts.json").write_text(json.dumps(facts, indent=2))
+    (OUT / "facts.json").write_text(json.dumps(facts, indent=2), encoding="utf-8")
     idx = """# Evidence Index
 
 | Evidence | Location |
@@ -141,7 +141,7 @@ Every value is read from the saved result files listed in `evidence_index.md`.
 | Decisions, issues, runs | `DECISIONS.md`, `KNOWN_ISSUES.md`, `EXPERIMENT_REGISTRY.md` |
 | Final validation | `reports/final_validation_report.md` |
 """
-    (OUT / "evidence_index.md").write_text(idx)
+    (OUT / "evidence_index.md").write_text(idx, encoding="utf-8")
     print(text[:3000])
 
 

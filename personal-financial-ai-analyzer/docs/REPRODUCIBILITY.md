@@ -9,7 +9,7 @@
 | Splits | `configs/experiments.yaml`. Actual counts in `data/processed/splits/split_metadata.json` |
 | Model parameters | `artifacts/<kind>/<model>/<version>/metadata.json` |
 | Commands | `python scripts/run_full_pipeline.py` (all steps). Individual steps: `scripts/{download_dataset,verify_dataset,run_audit,investigate_ledger,run_preprocessing,train_forecasting,train_anomaly,evaluate_models,verify_artifacts,run_all_tests,generate_final_evidence}.py` |
-| Quality-gate experiment (E2-QG) | `python scripts/research/forecast_quality_gate.py` (pre-registered protocol in its docstring; about 200 s, 0.74 GB) |
+| Quality-gate experiment (E2-QG) | `python scripts/research/forecast_quality_gate.py` (post-hoc analysis; protocol in its docstring; about 200 s, 0.74 GB) |
 | Audit | `audit.bat` / `audit.ps1`: dataset identity, manifest, 9,488-check reconciliation, artifact reload, tests |
 | Feature schema / preprocessing / model versions | `artifacts/*/*/<version>/feature_schema.json` and `metadata.json`; preprocessing config `configs/preprocessing.yaml`; registry `artifacts/metadata/model_registry.json` |
 | App | `python scripts/run_application.py` |

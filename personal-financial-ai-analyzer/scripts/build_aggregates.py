@@ -23,7 +23,7 @@ def main() -> None:
     before = system_snapshot()
     recs = run_partitions(ROOT / "scripts/workers/aggregate_partition.py", n, CK,
                           ROOT / "logs/preprocessing/aggregate_partitions.jsonl")
-    parts = [json.loads((CK / f"part_{p:03d}.json").read_text()) for p in range(n)]
+    parts = [json.loads((CK / f"part_{p:03d}.json").read_text(encoding="utf-8")) for p in range(n)]
     reasons: dict[str, int] = {}
     for p in parts:
         for k, v in p["reject_reasons"].items():
@@ -36,7 +36,7 @@ def main() -> None:
                "rows_accounted_for": s("clean") + s("rejected") == s("rows"),
                "max_worker_peak_rss_gb": max(r.get("peak_rss_gb", 0) for r in recs),
                "system_before": before, "system_after": system_snapshot()}
-    (ROOT / "reports/data_audit/preprocessing_summary.json").write_text(json.dumps(summary, indent=2))
+    (ROOT / "reports/data_audit/preprocessing_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2))
     if not summary["rows_accounted_for"]:
         raise SystemExit("row accounting failed: clean + rejected != input")

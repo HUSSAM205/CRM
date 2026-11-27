@@ -18,3 +18,27 @@ The Analyzer turns validated, **completed** transactions of one account and one 
 Tests: `tests/unit/test_insights.py` (hand-built ledger, known answers) and `tests/integration/test_dashboard.py` (page values equal module values).
 
 **What the Analyzer cannot know:** opening balances, other accounts, whether an inflow is income, and the purpose of a payment beyond its category.
+
+## Importing several files (master audit 3)
+
+When data is already loaded, the Transactions page asks what to do with the next file.
+
+**Add to the loaded transactions** (the default):
+* Existing records, budgets, goals and facts are kept.
+* A record whose account and transaction ID are already loaded is skipped and listed as `already_loaded`.
+* An identical file (same bytes) is refused as a whole.
+* The combined total range is re-checked.
+* Module: `src/data/merge.py`.
+
+**Replace the loaded transactions:**
+* The button stays disabled until you tick a confirmation.
+* The loaded transactions and their budgets are removed.
+
+**IDs for files without an ID column** are generated from the row content plus an occurrence counter, never from the row position. So:
+* the same purchase in two overlapping exports is recognised as one transaction;
+* two identical purchases inside one file stay two.
+
+Tests:
+* `tests/unit/test_merge.py`;
+* `tests/integration/test_csv_upload.py::test_append_keeps_existing_data_and_replace_needs_confirmation`;
+* browser tasks 26 and 27.

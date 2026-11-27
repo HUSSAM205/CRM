@@ -23,12 +23,16 @@
 | Unsafe deserialization | `joblib.load` only on registry paths inside `artifacts/` (project-owned), in 2 modules | `test_model_loading_only_from_project_artifacts` |
 | Arbitrary execution through the assistant | questions are pattern-matched only; no eval, exec or shell in app code | `test_no_network_or_shell_calls_in_application_code`; assistant injection test |
 | Error disclosure | `showErrorDetails = "type"` (no tracebacks or data in the browser) | `test_error_details_are_not_shown_to_users` |
-| Dependency vulnerabilities | `pip-audit -r requirements.txt` | "No known vulnerabilities found" (2026-11-27) |
+| Dependency vulnerabilities | `pip-audit -r requirements.txt` | "No known vulnerabilities found" (2026-11-27; re-run in master audit 3, same result) |
 | Secrets | none in the repository; `.env` ignored | static scan, 0 matches |
+| **Network exposure** (MA3-08) | The server binds to `127.0.0.1` only (`.streamlit/config.toml` and the launcher). Streamlit's default listened on every interface: measured, HTTP 200 through the machine's network address before the fix | `tests/integration/test_launcher.py` (connecting through the network address fails) |
+| Duplicate or second server | The launcher detects a running instance and does not start another one | same test |
+| Spreadsheet formula injection in CSV exports (MA3-13) | Text cells starting with `= + - @ TAB CR` get a leading apostrophe | `test_csv_export_neutralises_spreadsheet_formulas` |
+| Accidental data loss on a second upload (MA3-01) | Add by default; replace only after an explicit confirmation | `test_append_keeps_existing_data_and_replace_needs_confirmation` |
 
 ## Residual risks
 
-* **No authentication:** the app is a local, single-user tool (HW1 C2) and must not be exposed on a network.
+* **No authentication:** the app is a local, single-user tool (HW1 C2). Since master audit 3 it listens on 127.0.0.1 only. Overriding `--server.address` to expose it is unsupported.
 * The dataset is stored unencrypted on disk; it is public synthetic data.
 * Earlier commits contain the cloud container's temporary IP address in Streamlit startup logs. History was not rewritten.
 * No parser fuzzing beyond the tested malformed cases.

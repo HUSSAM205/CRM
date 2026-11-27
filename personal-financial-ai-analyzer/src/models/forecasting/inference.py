@@ -29,7 +29,7 @@ MIN_ACTIVE_MONTHS = 12
 @lru_cache(maxsize=1)
 def registry() -> dict:
     p = PROJECT_ROOT / load_config("model_registry")["registry_file"]
-    return json.loads(p.read_text()) if p.exists() else {}
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
 @lru_cache(maxsize=1)
@@ -37,7 +37,7 @@ def selection() -> dict:
     reg = registry().get("forecasting", {}).get("selection")
     if not reg:
         return {"selected_model": "naive", "note": "no trained selection found; naive baseline used"}
-    return json.loads((PROJECT_ROOT / reg["current"] / "metadata.json").read_text())
+    return json.loads((PROJECT_ROOT / reg["current"] / "metadata.json").read_text(encoding="utf-8"))
 
 
 @lru_cache(maxsize=4)
@@ -89,7 +89,7 @@ def outlook_config() -> dict:
     reg = registry().get("forecasting", {}).get("outlook")
     if not reg:
         return {"algorithm": "historical_median", "interval": None, "quality_gate": {}}
-    return json.loads((PROJECT_ROOT / reg["current"] / "metadata.json").read_text())
+    return json.loads((PROJECT_ROOT / reg["current"] / "metadata.json").read_text(encoding="utf-8"))
 
 
 def _benchmark_interval(point: float, cfg: dict) -> tuple[float, float] | None:
@@ -126,6 +126,14 @@ def outlook_next(monthly: pl.DataFrame) -> dict:
             "quality_gate": cfg.get("quality_gate", {})}
 
 
+# What kind of number the product shows (master audit 3, MA3-11). EXPERIMENTAL is used only for the HW2 E2 model,
+# which is displayed for the academic record and never drives the product.
+VALIDATED = "Validated forecast (quality gate passed on synthetic Dataset B, E2-B)"
+EXPERIMENTAL = "Experimental forecast (HW2 E2 model; not used by the product)"
+DETERMINISTIC = "Deterministic estimate (historical median; no ML model applies)"
+INSUFFICIENT = "Insufficient data (no estimate shown)"
+
+
 @lru_cache(maxsize=1)
 def personaledger_model():
     """The E2-B model and its metadata, or (None, None) if not registered."""
@@ -133,7 +141,7 @@ def personaledger_model():
     if not reg:
         return None, None
     d = PROJECT_ROOT / reg["current"]
-    return joblib.load(d / "model.joblib"), json.loads((d / "metadata.json").read_text())
+    return joblib.load(d / "model.joblib"), json.loads((d / "metadata.json").read_text(encoding="utf-8"))
 
 
 def _e2b_evidence(tm: dict, vm: dict) -> str:
@@ -141,7 +149,7 @@ def _e2b_evidence(tm: dict, vm: dict) -> str:
     p = PROJECT_ROOT / "reports/experiments/forecasting_dataset_b/summary.json"
     txt = f"Dataset B test MAE {tm['MAE']:.2f} (MASE {tm['MASE']:.3f}); validation MAE {vm['MAE']:.2f}"
     if p.exists():
-        s = json.loads(p.read_text())
+        s = json.loads(p.read_text(encoding="utf-8"))
         b = s["gate"]["best_baseline_test"]
         bt = s["test"][b]["MAE"]
         txt += f"; best baseline ({b}) test MAE {bt:.2f}, {(bt - tm['MAE']) / bt:.1%} higher than the model"
@@ -155,7 +163,8 @@ def forecast_product(monthly: pl.DataFrame) -> dict:
     from src.models.forecasting import scale_free
     base = outlook_next(monthly)
     if not base["eligible"]:
-        return {**base, "method": None, "model_status": "no estimate: insufficient history"}
+        return {**base, "method": None, "model_status": "no estimate: insufficient history",
+                "forecast_category": INSUFFICIENT}
     months, y, _ = series_from_monthly(monthly)
     window = f"{months[0]}..{months[-1]}"
     ok, reason = scale_free.in_domain(y)
@@ -170,7 +179,8 @@ def forecast_product(monthly: pl.DataFrame) -> dict:
         b = int(np.digitize([pred], np.array(iv["edges"]))[0])
         lo, hi = iv["ratio_quantiles"][str(b)]
         tm, vm = meta["test_metrics"], meta["validation_metrics"]
-        return {**common, "method": "gbr_personaledger", "point_cents": int(round(pred * 100)),
+        return {**common, "method": "gbr_personaledger", "forecast_category": VALIDATED,
+                "point_cents": int(round(pred * 100)),
                 "interval_cents": (int(round(pred * lo * 100)), int(round(pred * hi * 100))),
                 "interval_level": iv["level"], "interval_test_coverage": iv["test_coverage"],
                 "model_status": "ACCEPTED (experiment E2-B, Dataset B)",
@@ -180,7 +190,8 @@ def forecast_product(monthly: pl.DataFrame) -> dict:
                                "intermittent series of Dataset A; the 80% interval covered "
                                f"{iv['test_coverage']:.1%} of test months."}
     why = reason if not ok else "the model artifact is not available"
-    return {**common, "method": "historical_median", "point_cents": base["point_cents"],
+    return {**common, "method": "historical_median", "forecast_category": DETERMINISTIC,
+            "point_cents": base["point_cents"],
             "interval_cents": base["benchmark_interval_cents"], "interval_level": base["benchmark_interval_level"],
             "interval_test_coverage": base["benchmark_test_coverage"],
             "model_status": "deterministic baseline (ML model not applicable: " + why + ")",

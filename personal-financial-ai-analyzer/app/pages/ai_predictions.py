@@ -12,7 +12,7 @@ from app.components import alerts, charts, tables
 from app.utils import session
 from app.utils.formatting import money
 from src.models.anomaly.anomaly_scoring import model_metrics, review_candidates
-from src.models.forecasting.inference import forecast_next, forecast_product, series_from_monthly
+from src.models.forecasting.inference import EXPERIMENTAL, forecast_next, forecast_product, series_from_monthly
 from src.utils.configuration import PROJECT_ROOT
 
 QG = PROJECT_ROOT / "reports/experiments/forecasting_quality_gate/summary.json"
@@ -39,6 +39,7 @@ def render() -> None:
     st.subheader("Next-month spending outlook")
     f = forecast_product(mon)
     months, y, _ = series_from_monthly(mon) if not mon.is_empty() else ([], [], 0)
+    st.markdown(f"**Type of result:** {f['forecast_category']}")
     if not f["eligible"]:
         st.warning(f["message"])
         if len(months):
@@ -76,21 +77,23 @@ def render() -> None:
         with st.expander("Academic experiment (HW2 E2): gradient boosting estimate"):
             g = forecast_next(mon)
             if g.get("eligible"):
-                st.write(f"The frozen HW2 selection rule kept **{g['model']}**; its estimate for {g['target_month']} is "
-                         f"{money(g['forecast_cents'], cur)}. The product quality gate **rejected** it "
-                         f"(validation MAE above the zero baseline), so it is shown for the record only.")
+                st.write(f"**{EXPERIMENTAL}.** The frozen HW2 selection rule kept **{g['model']}** (it beat the HW2 "
+                         f"baselines); its estimate for {g['target_month']} is {money(g['forecast_cents'], cur)}. A later, "
+                         "post-hoc check (E2-QG) found that a constant zero forecast has a lower validation MAE, so the "
+                         "product does not use it; it is shown for the record only.")
             else:
                 st.write(g.get("message", ""))
 
     if QG.exists():
         with st.expander("Model comparison and quality gate (offline evaluation on the public dataset)"):
-            p = json.loads(QG.read_text())["primary"]
+            p = json.loads(QG.read_text(encoding="utf-8"))["primary"]
             rows = [{"model": m, "split": sp, "MAE": round(v["MAE"], 3), "MASE": round(v["MASE"], 4),
                      "RMSE": round(v["RMSE"], 2), "zero predictions": f"{v['zero_prediction_share']:.0%}",
                      "status": p["gate"].get(m, "product outlook" if m == p["product_outlook"] else "baseline")}
                     for sp in ("validation", "test") for m, v in sorted(p[sp].items(), key=lambda x: x[1]["MAE"])]
             st.dataframe(pl.DataFrame(rows), hide_index=True, width="stretch")
-            st.caption("Gate rule (fixed before test scoring): an ML model is accepted only if it beats every "
+            st.caption("Post-hoc check E2-QG (added after the HW2 E2 results were known; its rule was fixed before its "
+                       "own test scoring): an ML model is accepted only if it beats every "
                        "deterministic baseline, including zero, on validation MAE and MASE. "
                        f"Result: {', '.join(f'{k}: {v}' for k, v in p['gate'].items())}.")
 

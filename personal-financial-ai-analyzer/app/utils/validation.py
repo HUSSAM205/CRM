@@ -7,9 +7,10 @@ REASONS = {
     "amount_out_of_range": "Amount is larger than 1,000,000,000,000 and was not accepted.",
     "negative_amount": "Amount is negative but a transaction type was also given (amounts must be magnitudes).",
     "amount_precision": "Amount has more than 2 decimal places.",
-    "unknown_currency": "Currency is not one of USD, EUR, GBP, CAD, AUD, JPY.",
+    "unknown_currency": "Currency is not an active ISO 4217 code (for example USD, EUR, GBP, TRY).",
     "unknown_status": "Status is not completed, pending, failed or reversed.",
     "duplicate_transaction_id": "Same transaction ID as an earlier row; the first one was kept.",
+    "already_loaded": "This transaction is already loaded (same account and transaction ID); it was not added again.",
 }
 
 

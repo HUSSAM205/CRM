@@ -1,0 +1,16 @@
+{
+ "test_rows": 42565,
+ "users": 9368,
+ "reproduced": {
+  "gbr_scale_free_MAE": 971.3417245734076,
+  "historical_median_MAE": 1022.6570734171268,
+  "relative_gain_vs_best_baseline": 0.05017845197340001,
+  "interval_80_test_coverage": 0.7765300129214143
+ },
+ "saved": {
+  "gbr_scale_free_MAE": 971.3417245734076,
+  "historical_median_MAE": 1022.6570734171268,
+  "interval_80_test_coverage": 0.7765300129214143
+ },
+ "match": true
+}

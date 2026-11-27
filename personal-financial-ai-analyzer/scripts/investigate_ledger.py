@@ -35,11 +35,11 @@ def main() -> None:
     before = system_snapshot()
     recs = run_partitions(ROOT / "scripts/workers/ledger_partition.py", n_parts, CK,
                           ROOT / "logs/execution/ledger_partitions.jsonl")
-    parts = [json.loads((CK / f"part_{p:03d}.json").read_text()) for p in range(n_parts)]
+    parts = [json.loads((CK / f"part_{p:03d}.json").read_text(encoding="utf-8")) for p in range(n_parts)]
 
     id_recs = run_partitions(ROOT / "scripts/workers/id_partition.py", n_parts, CK_IDS,
                              ROOT / "logs/execution/ledger_id_partitions.jsonl")
-    idp = [json.loads((CK_IDS / f"part_{p:03d}.json").read_text()) for p in range(n_parts)]
+    idp = [json.loads((CK_IDS / f"part_{p:03d}.json").read_text(encoding="utf-8")) for p in range(n_parts)]
     ids = {k: sum(x[k] for x in idp) for k in ["rows", "ids_TX_plus_10_digits", "ids_with_suffix",
                                                 "unique_ids", "unique_numeric_parts"]}
     ids["min_numeric"] = min(x["min_numeric"] for x in idp)
@@ -81,7 +81,7 @@ def main() -> None:
             "limits": limits(),
         },
     }
-    (OUT / "ledger_semantics.json").write_text(json.dumps(result, indent=2))
+    (OUT / "ledger_semantics.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in result.items() if k != "resources"}, indent=2))
     print(json.dumps(result["resources"], indent=2, default=str))
 

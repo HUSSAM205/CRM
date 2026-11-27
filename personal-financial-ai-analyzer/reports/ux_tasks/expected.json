@@ -38,5 +38,10 @@
   "b_target_month": "2027-02",
   "b_estimate": "2,247.81 USD",
   "b_method": "gbr_personaledger",
-  "b_ef6_target": "170.76 USD"
+  "b_ef6_target": "170.76 USD",
+  "append_added": 38,
+  "append_total_valid": 233,
+  "bank_valid": 38,
+  "highest_months_answer": "Your highest-spending months: 2024-01 204.56 USD; 2025-01 149.80 USD; 2026-06 115.24 USD.",
+  "compare_answer": "Spending: 2026-06 115.24 USD; 2026-07 9.06 USD. 2026-07 was less than 2026-06 (106.18 USD less). ('this month' = 2026-07, the latest month in your data)"
 }

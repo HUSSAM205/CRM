@@ -55,7 +55,7 @@ def main() -> None:
         g = run_guarded(cmd, cwd=ROOT)
         rec = {"step": name, "ok": g.ok, "seconds": round(time.time() - t0, 1), "peak_rss_gb": g.peak_rss_gb,
                "killed_reason": g.killed_reason, "finished_utc": datetime.now(timezone.utc).isoformat()}
-        with log.open("a") as f:
+        with log.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec) + "\n")
         print(f"[{'ok' if g.ok else 'FAIL'}] {name} {rec['seconds']}s peak={g.peak_rss_gb}GB", flush=True)
         if not g.ok:

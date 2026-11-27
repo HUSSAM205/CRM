@@ -1,4 +1,4 @@
-# Results Tables (generated 2026-11-27 05:40 UTC)
+# Results Tables (generated 2026-11-27 12:53 UTC)
 
 Every value is read from the saved result files listed in `evidence_index.md`.
 
@@ -100,9 +100,9 @@ Every value is read from the saved result files listed in `evidence_index.md`.
 * ×1000: ROC-AUC 0.9988, Precision@k 0.7967
 
 ## Tests, artifacts and user tasks
-* Automated tests: **125 passed** (`logs/testing/latest.log`).
-* Artifacts: **PASS**. 6/6 entries load in a fresh process (`reports/verification/artifact_verification.json`).
-* Real-browser user tasks: **15/15 completed**, 0 errors, mean 2.4 s per task (`reports/ux_tasks/ux_task_results.json`). This was scripted, with no human participants.
+* Automated tests: **196 passed** (`logs/testing/latest.log`).
+* Artifacts: **PASS**. 8/8 entries load in a fresh process (`reports/verification/artifact_verification.json`).
+* Real-browser user tasks: **24/24 completed**, 0 errors, mean 2.4 s per task (`reports/ux_tasks/ux_task_results.json`). This was scripted, with no human participants.
 
 ## Figures
 * `reports/figures/forecasting_test_comparison.png`

@@ -42,7 +42,7 @@ from sklearn.ensemble import HistGradientBoostingRegressor  # noqa: E402
 OUT = ROOT / "reports/experiments/forecasting_quality_gate"
 FIG = ROOT / "reports/figures/research"
 SPLITS = ROOT / "data/processed/splits"
-SUMMARY_E2 = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text())
+SUMMARY_E2 = json.loads((ROOT / "reports/experiments/forecasting/summary.json").read_text(encoding="utf-8"))
 
 
 # ---------- deterministic baselines -------------------------------------------------------------
@@ -144,7 +144,7 @@ def run_panel(panel: str, full: bool) -> dict:
         best = min(grid, key=lambda g: (g["MAE"], g["MASE"]))
         res["ext_params"] = {k: best[k] for k in G}
     else:
-        res["ext_params"] = json.loads((OUT / "summary.json").read_text())["primary"]["ext_params"] \
+        res["ext_params"] = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))["primary"]["ext_params"] \
             if (OUT / "summary.json").exists() else None
     res["grid_ext"] = grid
     t0 = time.time()
@@ -260,13 +260,13 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     primary = run_panel("primary", full=True)
     pl_data = primary.pop("_plots")
-    (OUT / "summary.json").write_text(json.dumps({"primary": primary}, indent=1, default=float))   # ext_params for robustness
+    (OUT / "summary.json").write_text(json.dumps({"primary": primary}, indent=1, default=float), encoding="utf-8")   # ext_params for robustness
     robust = {p: run_panel(p, full=False) for p in ("seed43", "seed44", "disjoint", "all_eligible")}
     figs = plots(pl_data)
     summary = {"protocol": __doc__, "generated_at_utc": datetime.now(timezone.utc).isoformat(),
                "seconds": round(time.time() - t0, 1), "primary": primary, "robustness": robust, "figures": figs,
                "e2_reference": {"ets_validation_MAE": SUMMARY_E2.get("primary", SUMMARY_E2).get("validation", {}).get("ets", {}).get("MAE")}}
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=1, default=float))
+    (OUT / "summary.json").write_text(json.dumps(summary, indent=1, default=float), encoding="utf-8")
     rows = []
     for panel, r in [("primary", primary), *robust.items()]:
         for split in ("validation", "test"):
@@ -284,7 +284,7 @@ def main() -> None:
     meta = {"model_id": "forecast_outlook", "version": ver, "algorithm": primary["product_outlook"],
             "type": "deterministic baseline + empirical residual-quantile interval (80%)",
             "hyperparameters": {}, "random_seed": None,
-            "dataset_sha256": __import__("yaml").safe_load((ROOT / "configs/dataset.yaml").read_text())["source"]["expected_sha256"],
+            "dataset_sha256": __import__("yaml").safe_load((ROOT / "configs/dataset.yaml").read_text(encoding="utf-8"))["source"]["expected_sha256"],
             "training_period": "2024-01..2025-12 (none learned)", "calibration_period": "2026-01..2026-04 (validation residuals)",
             "selection": "lowest validation MAE among data-dependent deterministic baselines (D-22)",
             "interval": primary["interval"], "validation_metrics": primary["validation"][primary["product_outlook"]],
@@ -293,8 +293,8 @@ def main() -> None:
     d = ROOT / "artifacts/forecasting/outlook" / ver
     d.mkdir(parents=True, exist_ok=True)
     body = json.dumps(meta, indent=1, default=float)
-    (d / "metadata.json").write_text(body)
-    (d / "checksum.sha256").write_text(hashlib.sha256(body.encode()).hexdigest() + "  metadata.json\n")
+    (d / "metadata.json").write_text(body, encoding="utf-8")
+    (d / "checksum.sha256").write_text(hashlib.sha256(body.encode()).hexdigest() + "  metadata.json\n", encoding="utf-8")
     print(json.dumps({"seconds": summary["seconds"], "gate": primary["gate"], "product_outlook": primary["product_outlook"],
                       "interval": {k: primary["interval"][k] for k in ("validation_coverage", "test_coverage", "test_mean_width")},
                       "artifact": str(d.relative_to(ROOT))}, indent=1))

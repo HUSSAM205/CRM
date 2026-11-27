@@ -120,7 +120,8 @@ await task(8, "View a forecast", async () => {
 });
 
 await task(9, "View anomaly candidates", async () => {
-  await expectText(main(), "Anomaly review candidate (not confirmed fraud)");
+  await expectText(main(), "Unusual transaction — review recommended.");
+  await expectText(main(), "not a fraud finding");
   return "candidate table labelled as review candidates";
 });
 

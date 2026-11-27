@@ -1,0 +1,1 @@
+{"command": "run_guarded(python scripts/research/forecast_quality_gate.py)", "returncode": 0, "seconds": 198.43, "peak_rss_gb": 0.742, "min_system_available_gb": 15.46, "killed": null}

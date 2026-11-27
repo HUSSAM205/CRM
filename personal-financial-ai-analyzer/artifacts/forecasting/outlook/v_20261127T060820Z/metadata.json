@@ -1,0 +1,87 @@
+{
+ "model_id": "forecast_outlook",
+ "version": "v_20261127T060820Z",
+ "algorithm": "historical_median",
+ "type": "deterministic baseline + empirical residual-quantile interval (80%)",
+ "hyperparameters": {},
+ "random_seed": null,
+ "dataset_sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+ "training_period": "2024-01..2025-12 (none learned)",
+ "calibration_period": "2026-01..2026-04 (validation residuals)",
+ "selection": "lowest validation MAE among data-dependent deterministic baselines (D-22)",
+ "interval": {
+  "edges": [
+   0.0,
+   1.89,
+   4.855,
+   9.22
+  ],
+  "residual_quantiles": {
+   "1": [
+    -1.035,
+    71.12499999999996
+   ],
+   "2": [
+    -4.48,
+    67.95600000000003
+   ],
+   "3": [
+    -8.56,
+    61.86899999999999
+   ],
+   "4": [
+    -20.465,
+    55.72
+   ]
+  },
+  "level": 0.8,
+  "validation_coverage": 0.8002,
+  "test_coverage": 0.8189,
+  "test_mean_width": 72.49363593333332
+ },
+ "validation_metrics": {
+  "MAE": 26.474205312499997,
+  "RMSE": 69.3233999187932,
+  "MASE": 0.5448670125014621,
+  "n_series": 20000,
+  "n_months": 4,
+  "mase_excluded_zero_scale": 0,
+  "R2": -0.07135835114082223,
+  "valid_predictions": 80000,
+  "failed_predictions": 0,
+  "zero_prediction_share": 0.3324125,
+  "pred_quantiles": {
+   "0.1": 0.0,
+   "0.25": 0.0,
+   "0.5": 3.32,
+   "0.75": 7.885,
+   "0.9": 13.04050000000003,
+   "0.99": 24.650099999999945
+  }
+ },
+ "test_metrics": {
+  "MAE": 26.546022833333335,
+  "RMSE": 71.90934906423851,
+  "MASE": 0.5542881610655827,
+  "n_series": 20000,
+  "n_months": 3,
+  "mase_excluded_zero_scale": 0,
+  "R2": -0.07932369897926272,
+  "valid_predictions": 60000,
+  "failed_predictions": 0,
+  "zero_prediction_share": 0.49846666666666667,
+  "pred_quantiles": {
+   "0.1": 0.0,
+   "0.25": 0.0,
+   "0.5": 0.335,
+   "0.75": 5.755,
+   "0.9": 10.87,
+   "0.99": 21.61010000000002
+  }
+ },
+ "quality_gate": {
+  "gbr_e2": "REJECTED",
+  "gbr_ext": "REJECTED"
+ },
+ "created_at_utc": "2026-11-27T06:08:20.275167+00:00"
+}

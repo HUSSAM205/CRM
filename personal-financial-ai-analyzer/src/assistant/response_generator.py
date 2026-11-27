@@ -49,6 +49,12 @@ def render(r: dict, currency: str) -> str:
     if i == "forecast":
         if not r.get("eligible"):
             return r.get("message", "Not enough history for a forecast.")
+        if "point_cents" in r:     # product outlook (D-22)
+            lo, hi = r["historical_range_cents"]
+            return (f"Typical spending for {r['target_month']}: {money(r['point_cents'], currency)} (median of your "
+                    f"past months; usual range {money(lo, currency)} to {money(hi, currency)}). Machine-learning "
+                    f"forecasting was not effective on the evaluation data, so this is a historical reference, "
+                    f"not a prediction.")
         return (f"Expected spending for {r['target_month']}: {money(r['forecast_cents'], currency)} "
                 f"(model: {r['model']}). This is an estimate, not a guarantee.")
     return UNSUPPORTED

@@ -8,7 +8,7 @@
         }
       ],
       "current": "artifacts/forecasting/gbr/v_20261127T033218Z_d8ea2159",
-      "role": "kept"
+      "role": "kept by the frozen HW2 rule (E2, academic record); REJECTED by the E2-QG quality gate (does not beat the zero baseline)"
     },
     "gbr_seasonal": {
       "history": [
@@ -18,7 +18,7 @@
         }
       ],
       "current": "artifacts/forecasting/gbr_seasonal/v_20261127T033218Z_d8ea2159",
-      "role": "kept"
+      "role": "kept by the frozen HW2 rule (E2, academic record); REJECTED by the E2-QG quality gate (does not beat the zero baseline)"
     },
     "selection": {
       "history": [
@@ -29,6 +29,16 @@
       ],
       "current": "artifacts/forecasting/selection/v_20261127T033218Z_fce4aa93",
       "role": "deployed choice"
+    },
+    "outlook": {
+      "history": [
+        {
+          "path": "artifacts/forecasting/outlook/v_20261127T060820Z",
+          "registered_utc": "2026-11-27T06:08:20+00:00"
+        }
+      ],
+      "current": "artifacts/forecasting/outlook/v_20261127T060820Z",
+      "role": "deployed product outlook (E2-QG, D-22): deterministic historical median + benchmark-calibrated 80% interval"
     }
   },
   "anomaly": {

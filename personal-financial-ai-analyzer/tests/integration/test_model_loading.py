@@ -54,3 +54,22 @@ def test_every_model_path_runs():
 
 def test_global_forest_loads():
     assert anomaly_scoring.global_forest() is not None
+
+
+def test_outlook_is_deterministic_median_with_calibrated_interval():
+    """E2-QG / D-22: the product outlook is the median of the series, plus the interval from the artifact."""
+    import numpy as np
+    f = inference.outlook_next(monthly(ACTIVE_13))
+    assert f["eligible"] and f["method"] == "historical_median"
+    assert f["point_cents"] == int(round(np.median(np.array(ACTIVE_13) / 100) * 100))
+    cfg = inference.outlook_config()
+    assert cfg["quality_gate"] == {"gbr_e2": "REJECTED", "gbr_ext": "REJECTED"}
+    lo, hi = f["benchmark_interval_cents"]
+    assert lo <= f["point_cents"] <= hi and f["benchmark_interval_level"] == 0.8
+    assert f["historical_range_cents"][0] <= f["point_cents"] <= f["historical_range_cents"][1]
+    assert inference.outlook_next(monthly(ACTIVE_13)) == f                          # deterministic
+
+
+def test_outlook_refuses_short_history():
+    f = inference.outlook_next(monthly([1000] * 11))
+    assert not f["eligible"] and "at least 12" in f["message"]

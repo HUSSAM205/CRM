@@ -89,11 +89,23 @@ def test_budget_page_alerts_and_editing(demo_state):
     assert key, "budget page must publish budgets for the assistant"
 
 
-def test_ai_page_shows_forecast_or_notice(demo_state):
+def test_ai_page_shows_outlook_with_quality_gate_and_unusual_label(demo_state):
+    """Master audit 7.7/7.12: the page shows the deterministic outlook (value equal to outlook_next), states
+    that ML forecasting was not effective, and labels anomalies as review recommendations, never fraud."""
+    import polars as pl
+
+    from src.models.forecasting.inference import outlook_next
     at = seeded("ai_predictions", demo_state)
-    texts = [m.label for m in at.metric] + [w.value for w in at.warning]
-    assert any("Expected spending" in t or "Not enough history" in t for t in texts)
-    assert any("not confirmed fraud" in c.value for c in at.caption) or at.info
+    assert not at.exception
+    s, acc = demo_state["summaries"], demo_state["summaries"].accounts[0]
+    f = outlook_next(s.monthly.filter((pl.col("account_id") == acc) & (pl.col("currency") == "USD")))
+    assert f["eligible"]
+    shown = {m.label: m.value for m in at.metric}
+    assert shown[f"Typical spending for {f['target_month']}"] == f"{f['point_cents'] / 100:,.2f} USD"
+    assert any("NOT EFFECTIVE" in i.value for i in at.info)
+    assert any("Unusual transaction — review recommended." in w.value and "not a fraud finding" in w.value
+               for w in at.warning)
+    assert not any("fraud detected" in x.value.lower() for x in [*at.warning, *at.info, *at.caption, *at.markdown])
 
 
 def test_delete_button_purges_session(demo_state):

@@ -5,7 +5,9 @@
   scored = completed spending records in those recent months.
 * Scores: robust z-score (computed from the user's own history) and the SAVED global Isolation
   Forest artifact (loaded, never retrained).
-* Output is labelled "review candidate"; reasons are factual comparisons with the user's history.
+* Output is labelled "Unusual transaction — review recommended." (never "fraud"). Every alert carries its
+  evidence: amount, currency, timestamp, category, the usual amount in the user's own history, the
+  detection method, both scores and a plain explanation (master audit 7.12).
 """
 from __future__ import annotations
 
@@ -20,7 +22,11 @@ from src.models.anomaly.robust_zscore import robust_z_expr
 from src.models.forecasting.inference import registry
 from src.utils.configuration import PROJECT_ROOT
 
-LABEL = "Anomaly review candidate (not confirmed fraud)"
+LABEL = "Unusual transaction — review recommended."
+NOT_FRAUD = "This is a statistical comparison with your own history, not a fraud finding."
+METHOD = "Isolation Forest (saved global model) ranked; robust z-score of log amount shown alongside"
+LIMITATIONS = ("On the synthetic benchmark (1% injected anomalies) only about 1 in 24 flagged transactions was a "
+               "true injected anomaly; unusual hours and rare categories were not detectable there.")
 MIN_HISTORY = 5
 
 
@@ -37,7 +43,7 @@ def recent_cutoff(months: list[str], recent_months: int) -> str:
 
 
 def review_candidates(clean: pl.DataFrame, account: str, currency: str, recent_months: int = 3,
-                      top: int = 10) -> dict:
+                      top: int = 5) -> dict:
     sp = spending(clean.filter((pl.col("account_id") == account) & (pl.col("currency") == currency)))
     months = sorted(sp["month"].unique().to_list())
     if len(months) <= recent_months:
@@ -65,9 +71,16 @@ def review_candidates(clean: pl.DataFrame, account: str, currency: str, recent_m
         ], separator="; ", ignore_nulls=True).alias("reasons"))
     order = "score_if_global" if forest is not None else "score_robust_z"
     cand = (f.sort(order, descending=True).head(top)
-              .select("transaction_id", "transaction_timestamp", "merchant_category", "amount", "reasons",
+              .select("transaction_id", "transaction_timestamp", "merchant_category", "amount",
+                      pl.lit(currency).alias("currency"),
+                      pl.col("ref_median").round(2).alias("usual_amount_in_your_history"),
+                      pl.when(pl.col("reasons").is_null() | (pl.col("reasons") == ""))
+                        .then(pl.lit("combination of amount, time and category is uncommon for you "
+                                     "(no single rule triggered)"))
+                        .otherwise(pl.col("reasons")).alias("explanation"),
                       pl.col("score_robust_z").round(2), pl.col("score_if_global").round(3)))
-    return {"ok": True, "label": LABEL, "history_records": hist.height, "scored_records": scored.height,
+    return {"ok": True, "label": LABEL, "not_fraud": NOT_FRAUD, "method": METHOD, "limitations": LIMITATIONS,
+            "history_records": hist.height, "scored_records": scored.height,
             "window": f"{cut} to {months[-1]}", "ranked_by": order, "candidates": cand}
 
 

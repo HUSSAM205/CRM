@@ -1,3 +1,10 @@
+# The enclosing repository's root .gitignore ignores every "data/" directory and every "*.log" file.
+# Re-include this project's source package (src/data), small sample/reference data and evidence logs
+# (audit defect A-08: they were silently missing from git, so fresh clones could not run).
+!/src/data/
+!/data/
+!*.log
+
 # Python environment and caches
 .venv/
 __pycache__/

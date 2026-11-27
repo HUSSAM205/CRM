@@ -1,0 +1,80 @@
+[part 1/50] ok=True 3.53s peak_rss=1.113GB min_sys_avail=14.74GB
+[part 2/50] ok=True 3.53s peak_rss=1.138GB min_sys_avail=14.69GB
+[part 3/50] ok=True 3.79s peak_rss=1.183GB min_sys_avail=14.66GB
+[part 4/50] ok=True 3.79s peak_rss=1.121GB min_sys_avail=14.71GB
+[part 5/50] ok=True 3.53s peak_rss=1.165GB min_sys_avail=14.81GB
+[part 6/50] ok=True 3.78s peak_rss=1.122GB min_sys_avail=14.72GB
+[part 7/50] ok=True 3.78s peak_rss=1.155GB min_sys_avail=14.82GB
+[part 8/50] ok=True 3.79s peak_rss=1.097GB min_sys_avail=14.81GB
+[part 9/50] ok=True 3.79s peak_rss=1.133GB min_sys_avail=14.63GB
+[part 10/50] ok=True 3.53s peak_rss=1.158GB min_sys_avail=14.81GB
+[part 11/50] ok=True 3.53s peak_rss=1.149GB min_sys_avail=14.69GB
+[part 12/50] ok=True 3.8s peak_rss=1.123GB min_sys_avail=14.82GB
+[part 13/50] ok=True 4.04s peak_rss=1.134GB min_sys_avail=14.82GB
+[part 14/50] ok=True 4.03s peak_rss=1.111GB min_sys_avail=14.79GB
+[part 15/50] ok=True 3.79s peak_rss=1.122GB min_sys_avail=14.82GB
+[part 16/50] ok=True 3.79s peak_rss=1.127GB min_sys_avail=14.76GB
+[part 17/50] ok=True 3.79s peak_rss=1.135GB min_sys_avail=14.74GB
+[part 18/50] ok=True 3.78s peak_rss=1.117GB min_sys_avail=14.86GB
+[part 19/50] ok=True 3.53s peak_rss=1.116GB min_sys_avail=14.7GB
+[part 20/50] ok=True 3.53s peak_rss=1.176GB min_sys_avail=14.81GB
+[part 21/50] ok=True 3.78s peak_rss=1.144GB min_sys_avail=14.77GB
+[part 22/50] ok=True 3.53s peak_rss=1.162GB min_sys_avail=14.84GB
+[part 23/50] ok=True 3.54s peak_rss=1.163GB min_sys_avail=14.76GB
+[part 24/50] ok=True 3.53s peak_rss=1.133GB min_sys_avail=14.83GB
+[part 25/50] ok=True 3.54s peak_rss=1.162GB min_sys_avail=14.71GB
+[part 26/50] ok=True 3.53s peak_rss=1.157GB min_sys_avail=14.78GB
+[part 27/50] ok=True 3.53s peak_rss=1.144GB min_sys_avail=14.85GB
+[part 28/50] ok=True 3.53s peak_rss=1.168GB min_sys_avail=14.8GB
+[part 29/50] ok=True 3.78s peak_rss=1.113GB min_sys_avail=14.82GB
+[part 30/50] ok=True 3.53s peak_rss=1.141GB min_sys_avail=14.82GB
+[part 31/50] ok=True 3.53s peak_rss=1.152GB min_sys_avail=14.77GB
+[part 32/50] ok=True 3.53s peak_rss=1.13GB min_sys_avail=14.8GB
+[part 33/50] ok=True 3.54s peak_rss=1.129GB min_sys_avail=14.83GB
+[part 34/50] ok=True 3.53s peak_rss=1.138GB min_sys_avail=14.81GB
+[part 35/50] ok=True 3.79s peak_rss=1.141GB min_sys_avail=14.8GB
+[part 36/50] ok=True 3.52s peak_rss=1.134GB min_sys_avail=14.77GB
+[part 37/50] ok=True 3.53s peak_rss=1.128GB min_sys_avail=14.77GB
+[part 38/50] ok=True 3.53s peak_rss=1.153GB min_sys_avail=14.71GB
+[part 39/50] ok=True 3.78s peak_rss=1.171GB min_sys_avail=14.79GB
+[part 40/50] ok=True 3.53s peak_rss=1.143GB min_sys_avail=14.75GB
+[part 41/50] ok=True 3.53s peak_rss=1.179GB min_sys_avail=14.75GB
+[part 42/50] ok=True 3.53s peak_rss=1.124GB min_sys_avail=14.81GB
+[part 43/50] ok=True 3.53s peak_rss=1.164GB min_sys_avail=14.78GB
+[part 44/50] ok=True 3.53s peak_rss=1.192GB min_sys_avail=14.72GB
+[part 45/50] ok=True 3.79s peak_rss=1.137GB min_sys_avail=14.82GB
+[part 46/50] ok=True 3.53s peak_rss=1.169GB min_sys_avail=14.71GB
+[part 47/50] ok=True 3.53s peak_rss=1.143GB min_sys_avail=14.83GB
+[part 48/50] ok=True 3.53s peak_rss=1.165GB min_sys_avail=14.75GB
+[part 49/50] ok=True 3.53s peak_rss=1.155GB min_sys_avail=14.69GB
+[part 50/50] ok=True 3.53s peak_rss=1.127GB min_sys_avail=14.81GB
+{
+  "generated_at_utc": "2026-11-27T03:22:43.608219+00:00",
+  "partitions": 50,
+  "rows_in": 50000000,
+  "clean": 50000000,
+  "rejected": 0,
+  "reject_reasons": {},
+  "unresolved_type_rows": 0,
+  "monthly_rows": 38767223,
+  "account_currency_series": 5799019,
+  "rows_accounted_for": true,
+  "max_worker_peak_rss_gb": 1.192,
+  "system_before": {
+    "ram_total_gb": 16.87,
+    "ram_available_gb": 15.57,
+    "ram_used_pct": 7.7,
+    "disk_free_gb": 61.27,
+    "cpu_logical": 4,
+    "cpu_percent_1s": 1.5
+  },
+  "system_after": {
+    "ram_total_gb": 16.87,
+    "ram_available_gb": 15.13,
+    "ram_used_pct": 10.3,
+    "disk_free_gb": 60.72,
+    "cpu_logical": 4,
+    "cpu_percent_1s": 0.3
+  }
+}
+EXIT=0

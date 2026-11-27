@@ -1,0 +1,37 @@
+primary panel (20000, 31)
+primary done 223.4s selected=gbr kept=['ets', 'gbr', 'gbr_seasonal']
+seed 43 done 146.7s selected=gbr_seasonal
+seed 44 done 150.3s selected=gbr
+disjoint done 6.2s
+{
+  "series": 20000,
+  "best_baseline_by_MAE": "moving_average_3",
+  "best_baseline_by_MASE": "moving_average_3",
+  "kept_advanced_models": [
+    "ets",
+    "gbr",
+    "gbr_seasonal"
+  ],
+  "selected_model": "gbr",
+  "selected_params": {
+    "gbr": {
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_depth": 3,
+      "loss": "absolute_error"
+    },
+    "gbr_seasonal": {
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_depth": 3,
+      "loss": "absolute_error"
+    }
+  },
+  "log": {
+    "ets_warnings": 1692
+  }
+}
+
+
+{"ok": true, "seconds": 529.14, "peak_rss_gb": 1.347, "min_sys_avail_gb": 12.72, "killed": null}
+EXIT=0

@@ -1,0 +1,28 @@
+[PASS] file_exists: data/raw/transactions_50M.parquet
+[PASS] no_partial_download_left: none
+[PASS] live_hf_metadata_fetched: https://huggingface.co/api/datasets/ziadatalabs/FreeFinancialTransactions50M/tree/98cf38f9b2f1a9994930f52a4d490cb2b5777acc
+[PASS] size_matches_config: 1594749644
+[PASS] size_matches_live_hf: 1594749644 vs 1594749644
+[PASS] sha256_matches_live_hf_lfs_oid: b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17
+[PASS] parquet_footer_readable: 50 row groups, created_by=parquet-cpp-arrow version 25.0.1
+[PASS] column_names_and_order: ['transaction_id', 'account_id', 'transaction_type', 'amount', 'currency', 'merchant_category', 'balance_after', 'transaction_timestamp', 'status']
+[PASS] column_types: {'transaction_id': 'string', 'account_id': 'string', 'transaction_type': 'string', 'amount': 'double', 'currency': 'string', 'merchant_category': 'string', 'balance_after': 'double', 'transaction_timestamp': 'string', 'status': 'string'}
+[PASS] column_count_matches_advertised: 9
+[PASS] footer_rows_equal_sum_row_groups: 50000000
+[PASS] rows_read_equal_footer: 50000000
+[PASS] rows_match_advertised: 50000000
+[PASS] all_timestamps_parse: 0
+[PASS] timestamp_min_on_advertised_start: 2024-01-01 00:00:03
+[PASS] timestamp_max_on_advertised_end: 2026-07-31 23:59:59
+[PASS] currency_count_matches_advertised: 6
+[PASS] currency_values_match_documented: ['AUD', 'CAD', 'EUR', 'GBP', 'JPY', 'USD']
+[PASS] transaction_type_count_matches_advertised: 8
+[PASS] transaction_type_values_match_documented: ['credit', 'debit', 'deposit', 'fee', 'interest', 'refund', 'transfer', 'withdrawal']
+[PASS] status_count_matches_advertised: 4
+[PASS] status_values_match_documented: ['completed', 'failed', 'pending', 'reversed']
+[PASS] merchant_category_count_matches_advertised: ['cash', 'dining', 'education', 'entertainment', 'groceries', 'healthcare', 'insurance', 'other', 'retail', 'subscription', 'transfer', 'transport', 'travel', 'utilities']
+[PASS] currency_no_null_values: none
+[PASS] merchant_category_no_null_values: none
+[PASS] transaction_type_no_null_values: none
+[PASS] status_no_null_values: none
+OVERALL PASS

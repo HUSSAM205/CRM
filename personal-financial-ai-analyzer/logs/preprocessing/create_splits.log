@@ -1,0 +1,83 @@
+panel seed43: 20000 series
+  child ok 0.76s peak_rss=0.279GB
+panel seed44: 20000 series
+  child ok 1.01s peak_rss=0.307GB
+panel primary: 20000 series
+  child ok 1.01s peak_rss=0.264GB
+panel disjoint: 20000 series
+  child ok 1.01s peak_rss=0.34GB
+  child ok 2.52s peak_rss=2.837GB
+{
+  "generated_at_utc": "2026-11-27T03:23:04.256938+00:00",
+  "split": {
+    "train": [
+      "2024-01",
+      "2025-12"
+    ],
+    "validation": [
+      "2026-01",
+      "2026-04"
+    ],
+    "test": [
+      "2026-05",
+      "2026-07"
+    ]
+  },
+  "series_total": 5799019,
+  "eligible_series": 106945,
+  "eligible_by_currency": {
+    "EUR": 15,
+    "USD": 106930
+  },
+  "panels": {
+    "seed43": {
+      "series": 20000,
+      "accounts": 20000,
+      "currencies": {
+        "EUR": 4,
+        "USD": 19996
+      },
+      "train_active_months_mean": 12.7254
+    },
+    "seed44": {
+      "series": 20000,
+      "accounts": 19999,
+      "currencies": {
+        "EUR": 4,
+        "USD": 19996
+      },
+      "train_active_months_mean": 12.721
+    },
+    "primary": {
+      "series": 20000,
+      "accounts": 20000,
+      "currencies": {
+        "EUR": 1,
+        "USD": 19999
+      },
+      "train_active_months_mean": 12.72625
+    },
+    "disjoint": {
+      "series": 20000,
+      "accounts": 20000,
+      "currencies": {
+        "EUR": 2,
+        "USD": 19998
+      },
+      "train_active_months_mean": 12.72885
+    }
+  },
+  "primary_disjoint_account_overlap": 0,
+  "anomaly": {
+    "accounts": 10000,
+    "transactions": 499509,
+    "by_period": {
+      "test": 48511,
+      "train": 387326,
+      "validation": 63672
+    }
+  },
+  "months": {
+    "all": 31
+  }
+}

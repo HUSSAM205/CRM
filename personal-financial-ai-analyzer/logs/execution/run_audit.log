@@ -1,0 +1,68 @@
+[global:calendar] ok=True 8.33s peak_rss=0.702GB
+{
+  "generated_at_utc": "2026-11-27T03:01:34.407628+00:00",
+  "scope": "all rows (no sampling)",
+  "rows": 50000000,
+  "columns": 9,
+  "accounts": 1000000,
+  "calendar": {
+    "distinct_days": "943",
+    "d0": "2024-01-01",
+    "d1": "2026-07-31"
+  },
+  "amount_checks": {
+    "non_finite_amount": 0,
+    "negative_amount": 0,
+    "zero_amount": 0,
+    "more_than_2_decimals": 0,
+    "non_finite_balance": 0,
+    "negative_balance_rows": 854494,
+    "balance_more_than_2_decimals": 0,
+    "log_q1": 2.658159431488745,
+    "log_q3": 4.1420229975388425,
+    "outlier_rule": "log(amount) outside [Q1-3*IQR, Q3+3*IQR] (investigated, not removed)",
+    "outlier_high": 48,
+    "outlier_low": 62,
+    "outlier_high_threshold_amount": 5397.0818896827095,
+    "outlier_low_threshold_amount": 0.16638826654023486
+  },
+  "same_content_different_id_rows": 0,
+  "accounts_min_tx": 20,
+  "accounts_max_tx": 92,
+  "accounts_with_negative_balance_rows": 37742,
+  "advertised": {
+    "rows": 50000000,
+    "columns": 9,
+    "currencies": 6,
+    "merchant_categories": 14,
+    "transaction_types": 8,
+    "statuses": 4,
+    "date_min": "2024-01-01",
+    "date_max": "2026-07-31"
+  },
+  "resources": {
+    "system_before": {
+      "ram_total_gb": 16.87,
+      "ram_available_gb": 15.8,
+      "ram_used_pct": 6.4,
+      "disk_free_gb": 61.31,
+      "cpu_logical": 4,
+      "cpu_percent_1s": 0.0
+    },
+    "system_after": {
+      "ram_total_gb": 16.87,
+      "ram_available_gb": 15.51,
+      "ram_used_pct": 8.1,
+      "disk_free_gb": 61.31,
+      "cpu_logical": 4,
+      "cpu_percent_1s": 0.3
+    },
+    "global_step_peak_rss_gb": {
+      "missing": "checkpointed",
+      "distributions": "checkpointed",
+      "calendar": 0.702,
+      "amounts": "checkpointed"
+    },
+    "max_partition_peak_rss_gb": 0.869
+  }
+}

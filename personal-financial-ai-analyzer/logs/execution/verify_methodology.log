@@ -1,0 +1,112 @@
+[PASS] M1_data_months_equal_train_val_test_union: {'train': '2024-01..2025-12 (24 months)', 'val': '2026-01..2026-04 (4 months)', 'test': '2026-05..2026-07 (3 months)'}
+[PASS] M1_every_month_has_data: min rows/month 1,484,356
+[part 1/50] ok=True 2.02s peak_rss=2.448GB min_sys_avail=13.42GB
+[part 2/50] ok=True 1.76s peak_rss=2.394GB min_sys_avail=13.56GB
+[part 3/50] ok=True 2.02s peak_rss=2.331GB min_sys_avail=13.61GB
+[part 4/50] ok=True 2.02s peak_rss=2.429GB min_sys_avail=13.49GB
+[part 5/50] ok=True 1.77s peak_rss=2.417GB min_sys_avail=13.6GB
+[part 6/50] ok=True 1.76s peak_rss=2.373GB min_sys_avail=13.58GB
+[part 7/50] ok=True 2.02s peak_rss=2.358GB min_sys_avail=13.53GB
+[part 8/50] ok=True 2.02s peak_rss=2.295GB min_sys_avail=13.49GB
+[part 9/50] ok=True 2.02s peak_rss=2.405GB min_sys_avail=13.58GB
+[part 10/50] ok=True 2.01s peak_rss=2.437GB min_sys_avail=13.6GB
+[part 11/50] ok=True 2.01s peak_rss=2.421GB min_sys_avail=13.57GB
+[part 12/50] ok=True 2.02s peak_rss=2.407GB min_sys_avail=13.56GB
+[part 13/50] ok=True 1.77s peak_rss=2.364GB min_sys_avail=13.53GB
+[part 14/50] ok=True 2.01s peak_rss=2.359GB min_sys_avail=13.49GB
+[part 15/50] ok=True 2.02s peak_rss=2.456GB min_sys_avail=13.42GB
+[part 16/50] ok=True 2.01s peak_rss=2.4GB min_sys_avail=13.57GB
+[part 17/50] ok=True 2.01s peak_rss=2.38GB min_sys_avail=13.59GB
+[part 18/50] ok=True 2.02s peak_rss=2.285GB min_sys_avail=13.6GB
+[part 19/50] ok=True 2.02s peak_rss=2.388GB min_sys_avail=13.61GB
+[part 20/50] ok=True 2.02s peak_rss=2.349GB min_sys_avail=13.63GB
+[part 21/50] ok=True 2.02s peak_rss=2.279GB min_sys_avail=13.56GB
+[part 22/50] ok=True 2.02s peak_rss=2.37GB min_sys_avail=13.61GB
+[part 23/50] ok=True 1.76s peak_rss=2.397GB min_sys_avail=13.56GB
+[part 24/50] ok=True 2.02s peak_rss=2.299GB min_sys_avail=13.62GB
+[part 25/50] ok=True 2.02s peak_rss=2.396GB min_sys_avail=13.58GB
+[part 26/50] ok=True 2.02s peak_rss=2.369GB min_sys_avail=13.6GB
+[part 27/50] ok=True 2.02s peak_rss=2.345GB min_sys_avail=13.56GB
+[part 28/50] ok=True 2.02s peak_rss=2.392GB min_sys_avail=13.66GB
+[part 29/50] ok=True 2.01s peak_rss=2.341GB min_sys_avail=13.6GB
+[part 30/50] ok=True 2.02s peak_rss=2.404GB min_sys_avail=13.57GB
+[part 31/50] ok=True 1.76s peak_rss=2.345GB min_sys_avail=13.55GB
+[part 32/50] ok=True 1.76s peak_rss=2.448GB min_sys_avail=13.59GB
+[part 33/50] ok=True 1.77s peak_rss=2.411GB min_sys_avail=13.58GB
+[part 34/50] ok=True 2.02s peak_rss=2.423GB min_sys_avail=13.61GB
+[part 35/50] ok=True 2.02s peak_rss=2.377GB min_sys_avail=13.57GB
+[part 36/50] ok=True 2.01s peak_rss=2.357GB min_sys_avail=13.57GB
+[part 37/50] ok=True 2.02s peak_rss=2.383GB min_sys_avail=13.6GB
+[part 38/50] ok=True 2.02s peak_rss=2.396GB min_sys_avail=13.71GB
+[part 39/50] ok=True 1.77s peak_rss=2.417GB min_sys_avail=13.55GB
+[part 40/50] ok=True 2.01s peak_rss=2.455GB min_sys_avail=13.52GB
+[part 41/50] ok=True 2.02s peak_rss=2.386GB min_sys_avail=13.61GB
+[part 42/50] ok=True 2.02s peak_rss=2.422GB min_sys_avail=13.53GB
+[part 43/50] ok=True 2.02s peak_rss=2.408GB min_sys_avail=13.67GB
+[part 44/50] ok=True 2.02s peak_rss=2.406GB min_sys_avail=13.54GB
+[part 45/50] ok=True 2.01s peak_rss=2.363GB min_sys_avail=13.67GB
+[part 46/50] ok=True 2.02s peak_rss=2.447GB min_sys_avail=13.61GB
+[part 47/50] ok=True 2.02s peak_rss=2.356GB min_sys_avail=13.52GB
+[part 48/50] ok=True 2.02s peak_rss=2.361GB min_sys_avail=13.61GB
+[part 49/50] ok=True 2.01s peak_rss=2.35GB min_sys_avail=13.62GB
+[part 50/50] ok=True 2.02s peak_rss=2.327GB min_sys_avail=13.69GB
+[PASS] M2_eligible_series_available: 106,945 account-currency series in 106,941 accounts
+[PASS] M3_eligible_series_have_eval_months: mean active months: val 1.42/4, test 1.08/3 (zero-spend months are valid targets)
+[PASS] M4_test_records_for_injection: 2,423,173 completed spending records in test period; mean 2.42/account
+[PASS] M5_hour_distribution_measured: max/min rows per hour = 1.0027 (near-uniform: no globally unusual hour)
+{
+  "generated_at_utc": "2026-11-27T03:02:10.999189+00:00",
+  "series_total": 5151815,
+  "eligible_series": 106945,
+  "eligible_accounts": 106941,
+  "eligible_by_currency": {
+    "EUR": 15,
+    "USD": 106930
+  },
+  "train_active_months_hist_all": {
+    "0": 351884,
+    "1": 1520747,
+    "2": 1082453,
+    "3": 626095,
+    "4": 347378,
+    "5": 211780,
+    "6": 166952,
+    "7": 165931,
+    "8": 173783,
+    "9": 165895,
+    "10": 135765,
+    "11": 96207,
+    "12": 57922,
+    "13": 29629,
+    "14": 12815,
+    "15": 4647,
+    "16": 1429,
+    "17": 387,
+    "18": 96,
+    "19": 17,
+    "20": 3
+  },
+  "eligible_train_active_mean": 12.725326102202066,
+  "eligible_zero_month_share_train_mean": 0.46977807907491387,
+  "eligible_val_active_months_mean": 1.4155219972883257,
+  "eligible_test_active_months_mean": 1.0752068820421712,
+  "test_spend_records_total": 2423173,
+  "test_spend_records_per_account_mean": 2.423173,
+  "expected_injected_if_1000_accounts": {
+    "0.5": 12,
+    "1": 24,
+    "2": 48
+  },
+  "expected_injected_if_5000_accounts": {
+    "0.5": 61,
+    "1": 121,
+    "2": 242
+  },
+  "expected_injected_if_10000_accounts": {
+    "0.5": 121,
+    "1": 242,
+    "2": 485
+  },
+  "hour_max_min_ratio": 1.0026979121947843,
+  "overall": "PASS"
+}

@@ -1,0 +1,21 @@
+[download] attempt 1: resuming at 0 / 1,594,749,644 bytes
+[download]  34.7%
+[download]  70.0%
+[verify] computing SHA-256 ...
+{
+  "dataset": "ziadatalabs/FreeFinancialTransactions50M",
+  "source_url": "https://huggingface.co/datasets/ziadatalabs/FreeFinancialTransactions50M",
+  "download_url": "https://huggingface.co/datasets/ziadatalabs/FreeFinancialTransactions50M/resolve/98cf38f9b2f1a9994930f52a4d490cb2b5777acc/transactions_50M.parquet",
+  "revision_commit": "98cf38f9b2f1a9994930f52a4d490cb2b5777acc",
+  "filename": "transactions_50M.parquet",
+  "license": "CC BY-NC 4.0 (attribution required, non-commercial)",
+  "local_path": "data/raw/transactions_50M.parquet",
+  "size_bytes": 1594749644,
+  "expected_size_bytes": 1594749644,
+  "sha256": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+  "expected_sha256_lfs_oid": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+  "verified": true,
+  "verified_at_utc": "2026-11-27T02:40:05.913960+00:00",
+  "run_started_at_utc": "2026-11-27T02:38:37.106162+00:00"
+}
+[verify] PASS

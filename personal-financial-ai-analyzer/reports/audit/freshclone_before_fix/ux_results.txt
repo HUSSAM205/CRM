@@ -1,0 +1,15 @@
+FAIL 1. Upload a valid CSV — locator.click: Timeout 30000ms exceeded.
+FAIL 2. Reject an invalid timestamp — locator.click: Timeout 30000ms exceeded.
+FAIL 3. Reject an invalid amount — locator.waitFor: Timeout 15000ms exceeded.
+FAIL 4. Map missing columns — locator.click: Timeout 30000ms exceeded.
+FAIL 5. View monthly totals — locator.click: Timeout 30000ms exceeded.
+FAIL 6. Filter a category — locator.click: Timeout 30000ms exceeded.
+FAIL 7. Change a budget — locator.click: Timeout 30000ms exceeded.
+FAIL 8. View a forecast — locator.click: Timeout 30000ms exceeded.
+FAIL 9. View anomaly candidates — locator.waitFor: Timeout 15000ms exceeded.
+FAIL 10. Ask a supported question — locator.click: Timeout 30000ms exceeded.
+FAIL 11. Ask an unsupported question — locator.fill: Timeout 30000ms exceeded.
+FAIL 12. Delete uploaded data — locator.click: Timeout 30000ms exceeded.
+FAIL 13. Switch account (isolation) — locator.click: Timeout 30000ms exceeded.
+FAIL 14. Invalid upload keeps existing data — locator.click: Timeout 30000ms exceeded.
+FAIL 16. Reload the application — locator.waitFor: Timeout 15000ms exceeded.

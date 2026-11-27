@@ -1,0 +1,18 @@
+{
+ "forecast_load_panel": 0.021,
+ "forecast_baselines_val": 0.001,
+ "forecast_ets_val_4_origins": 82.702,
+ "forecast_gbr_single_fit_selected": 1.5,
+ "forecast_gbr_grid_32_fits_and_val_predictions": 73.853,
+ "forecast_gbr_refit_both_variants": 3.317,
+ "forecast_ets_test_3_origins": 59.857,
+ "forecast_serialize_one_model": 0.01,
+ "full_population_load": 0.048,
+ "full_population_gbr_fit_train_only": 8.08,
+ "full_population_gbr_refit": 9.411,
+ "anomaly_full_experiment_9_runs": 226.916
+}
+
+
+{"ok": true, "seconds": 472.7, "peak_rss_gb": 1.859, "min_sys_avail_gb": 14.48, "killed": null}
+EXIT=0

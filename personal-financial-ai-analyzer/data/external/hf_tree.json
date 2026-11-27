@@ -1,0 +1,32 @@
+[
+    {
+        "type": "file",
+        "oid": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a",
+        "size": 2504,
+        "path": ".gitattributes"
+    },
+    {
+        "type": "file",
+        "oid": "15a01f0c5f588e54e022b43fcfad72cf69b3d18c",
+        "size": 2404,
+        "path": "README.md"
+    },
+    {
+        "type": "file",
+        "oid": "d53ba9772dec1d576077b6b470c9b932b901d50a",
+        "size": 5394,
+        "path": "sample_50rows.csv"
+    },
+    {
+        "type": "file",
+        "oid": "f4f96f30cca65ab0a17c2c16b8dae8a93eedc070",
+        "size": 1594749644,
+        "lfs": {
+            "oid": "b18c83595d2e7a06598c00a3cbe01eb0586b2f0b10443305c6283586c27f8c17",
+            "size": 1594749644,
+            "pointerSize": 135
+        },
+        "xetHash": "a61611e8d1e5fd6a83d20f65f713de5242f3c61b5af260c16dcba242d3495144",
+        "path": "transactions_50M.parquet"
+    }
+]
